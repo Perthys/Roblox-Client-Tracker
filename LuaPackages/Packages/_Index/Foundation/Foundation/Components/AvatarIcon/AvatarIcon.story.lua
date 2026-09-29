@@ -70,9 +70,7 @@ local CHIP_SIZE_ORDER: { ChipSize } = {
 	ChipSize.Large,
 }
 local CHIP_CELL_COLUMN_WIDTH = 200
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local function StoryAvatarIcon(props: {
 	size: AvatarIconSize?,
@@ -300,7 +298,6 @@ return {
 		},
 		{
 			name = "In context",
-			summary = "AvatarIcon is sized to match Icon; AvatarIconGroup is the group that renders those headshots. Chip leading sizes the accessory from ChipSize.",
 			story = InContextStory,
 		},
 	},

@@ -5,9 +5,11 @@ local Dash = require(Packages.Dash)
 local React = require(Packages.React)
 
 local SearchInput = require(Foundation.Components.SearchInput)
-local StorySection = require(Foundation.Utility.Stories.Shared.StorySection).StorySection
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local View = require(Foundation.Components.View)
+
+local Section = StorySection.Section
+local LabeledCell = StorySection.LabeledCell
 
 local InputSize = require(Foundation.Enums.InputSize)
 local InputVariant = require(Foundation.Enums.InputVariant)
@@ -40,7 +42,7 @@ local SHAPE_ORDER: { SearchInputShape } = {
 local QUERY_TEXT = "Query"
 local PLACEHOLDER_TEXT = "Placeholder"
 
-local STORY_PAGE_TAG = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0"
+local STORY_PAGE_TAG = StorySection.STORY_PAGE_COL_TAG
 local SWEEP_TAG = "col gap-xlarge size-full-0 auto-y"
 local SWEEP_ROW_TAG = "row wrap align-y-top gap-large size-full-0 auto-y"
 local SWEEP_ROW_PAGE_TAG = "row wrap align-y-top gap-large size-full-0 auto-y padding-y-large bg-surface-0"
@@ -83,25 +85,6 @@ local function StaticSearchInput(props: StaticSearchInputProps): React.ReactNode
 			end,
 		}) :: SearchInputElementProps
 	)
-end
-
--- A cell here is a whole input field, so a swept axis laid out as a MatrixGrid header
--- row runs wider than any screen. Each cell carries its own caption instead.
-local function LabeledCell(props: { LayoutOrder: number, label: string, children: React.ReactNode? })
-	return React.createElement(View, {
-		tag = "col align-x-left gap-small auto-xy",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Label = React.createElement(Text, {
-			Text = props.label,
-			tag = "auto-xy text-caption-small text-align-x-left content-muted",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = "col auto-xy",
-			LayoutOrder = 2,
-		}, props.children),
-	})
 end
 
 local function WidthFrame(props: { children: React.ReactNode? })
@@ -170,10 +153,10 @@ local function SizingStory(): React.ReactNode
 		tag = STORY_PAGE_TAG,
 	}, {
 		Size = React.createElement(
-			StorySection,
+			Section,
 			{
 				LayoutOrder = 1,
-				caption = "Size",
+				name = "Size",
 				note = "Cells share one width so only the scaling differs.",
 				contentTag = SWEEP_ROW_TAG,
 			},
@@ -190,10 +173,10 @@ local function SizingStory(): React.ReactNode
 			end)
 		),
 		Width = React.createElement(
-			StorySection,
+			Section,
 			{
 				LayoutOrder = 2,
-				caption = "Width",
+				name = "Width",
 				note = "Omitting width falls back to a 400px footprint scaled for the platform. Cells sit in a 600px frame so Fill has a parent to fill.",
 				contentTag = SWEEP_TAG,
 			},
@@ -217,26 +200,33 @@ local function SizingStory(): React.ReactNode
 end
 
 local function ShapeStory(): React.ReactNode
-	return React.createElement(
-		View,
-		{
-			tag = SWEEP_ROW_PAGE_TAG,
-		},
-		Dash.map(SHAPE_ORDER, function(shape, index)
-			return React.createElement(
-				LabeledCell,
-				{
-					LayoutOrder = index,
-					label = if shape == SearchInputShape.Pill then `{shape} (default)` else shape,
-				},
-				React.createElement(StaticSearchInput, {
-					text = QUERY_TEXT,
-					shape = shape,
-					width = UDim.new(0, SWEEP_CELL_WIDTH),
-				})
-			)
-		end)
-	)
+	return React.createElement(View, {
+		tag = STORY_PAGE_TAG,
+	}, {
+		Shape = React.createElement(
+			Section,
+			{
+				LayoutOrder = 1,
+				name = "Shape",
+				note = "Rounded has no entry in the shape-to-radius map, so it uses the size's default radius.",
+				contentTag = SWEEP_ROW_TAG,
+			},
+			Dash.map(SHAPE_ORDER, function(shape, index)
+				return React.createElement(
+					LabeledCell,
+					{
+						LayoutOrder = index,
+						label = if shape == SearchInputShape.Pill then `{shape} (default)` else shape,
+					},
+					React.createElement(StaticSearchInput, {
+						text = QUERY_TEXT,
+						shape = shape,
+						width = UDim.new(0, SWEEP_CELL_WIDTH),
+					})
+				)
+			end)
+		),
+	})
 end
 
 local function StatesStory(): React.ReactNode
@@ -288,9 +278,9 @@ local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
 		tag = STORY_PAGE_TAG,
 	}, {
-		ClearButton = React.createElement(StorySection, {
+		ClearButton = React.createElement(Section, {
 			LayoutOrder = 1,
-			caption = "Clear button",
+			name = "Clear button",
 			note = "The clear affordance is only rendered while the field holds text, so the cells are seeded. Clearing is in Controlled component. hasClearButton defaults to true.",
 			contentTag = SWEEP_ROW_TAG,
 		}, {
@@ -311,9 +301,9 @@ local function ContentStory(): React.ReactNode
 				})
 			),
 		}),
-		Placeholder = React.createElement(StorySection, {
+		Placeholder = React.createElement(Section, {
 			LayoutOrder = 2,
-			caption = "Placeholder",
+			name = "Placeholder",
 			note = "Without a placeholder the component falls back to a localized Search string.",
 			contentTag = SWEEP_ROW_TAG,
 		}, {
@@ -348,7 +338,6 @@ return {
 		},
 		{
 			name = "Variants",
-			summary = "Utility drops both the container background and its stroke, so only the icon and text mark the field.",
 			story = VariantsStory,
 		},
 		{
@@ -357,7 +346,6 @@ return {
 		},
 		{
 			name = "Shape",
-			summary = "Rounded has no entry in the shape-to-radius map in SearchInput.lua, so it falls through to the radius the size already defaults to rather than a shape-owned value.",
 			story = ShapeStory,
 		},
 		{

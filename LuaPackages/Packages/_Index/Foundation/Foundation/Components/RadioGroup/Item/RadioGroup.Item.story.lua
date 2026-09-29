@@ -32,18 +32,11 @@ type SizeControl = InputSize | "Default"
 type PlacementControl = InputPlacement | "Default"
 type RootSizeControl = InputGroupSize | "Default"
 
-local SIZE_ORDER: { InputSize } = if Flags.FoundationRadioBeta
-	then {
-		InputSize.XSmall,
-		InputSize.Small,
-		InputSize.Medium,
-	}
-	else {
-		InputSize.XSmall,
-		InputSize.Small,
-		InputSize.Medium,
-		InputSize.Large,
-	}
+local SIZE_ORDER: { InputSize } = {
+	InputSize.XSmall,
+	InputSize.Small,
+	InputSize.Medium,
+}
 
 local PLAYGROUND_SIZE_ORDER: { InputSize } = {
 	InputSize.XSmall,
@@ -97,13 +90,10 @@ type StateFixture = {
 local STATE_ORDER: { StateFixture } = {
 	{ label = "unchecked", isChecked = false },
 	{ label = "checked", isChecked = true },
+	{ label = "hint", isChecked = false, hint = HINT },
 }
 
-local HINT_FIXTURE: StateFixture = { label = "hint", isChecked = false, hint = HINT }
-
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local function omitSize(value: SizeControl?): InputSize?
 	if value == nil or value == DEFAULT_SENTINEL then
@@ -152,7 +142,7 @@ local function StaticItem(props: {
 		Item = React.createElement(RadioGroup.Item, {
 			value = value,
 			label = props.label or LABEL,
-			hint = if Flags.FoundationRadioBeta then props.hint else nil,
+			hint = props.hint,
 			size = props.size,
 			placement = props.placement,
 			isDisabled = props.isDisabled,
@@ -196,11 +186,7 @@ local function PlaygroundStory(props: { controls: PlaygroundControls })
 			Item = React.createElement(RadioGroup.Item, {
 				value = ITEM_VALUE,
 				label = controls.label,
-				hint = if Flags.FoundationRadioBeta
-						and controls.hint ~= nil
-						and controls.hint ~= ""
-					then controls.hint
-					else nil,
+				hint = if controls.hint ~= nil and controls.hint ~= "" then controls.hint else nil,
 				size = itemSize,
 				placement = itemPlacement,
 				isDisabled = controls.isDisabled,
@@ -218,9 +204,6 @@ local function SizingStory()
 			{
 				LayoutOrder = 1,
 				name = "Size",
-				note = if Flags.FoundationRadioBeta
-					then "Large matches Medium when FoundationRadioBeta is on."
-					else nil,
 			},
 			Dash.map(SIZE_ORDER, function(size, index)
 				return React.createElement(LabeledCell, {
@@ -266,11 +249,7 @@ local function stateItem(fixture: StateFixture, size: InputSize?, isDisabled: bo
 end
 
 local function StatesStory()
-	local fixtures = table.clone(STATE_ORDER)
-
-	if Flags.FoundationRadioBeta then
-		table.insert(fixtures, HINT_FIXTURE)
-	end
+	local fixtures = STATE_ORDER
 
 	return React.createElement(View, {
 		tag = `col gap-xxlarge {STORY_PAGE_TAG}`,
@@ -309,8 +288,6 @@ local function StatesStory()
 end
 
 local function ContentStory()
-	local hint = if Flags.FoundationRadioBeta then LONG_HINT else nil
-
 	return React.createElement(View, {
 		tag = `col gap-xxlarge {STORY_PAGE_TAG}`,
 	}, {
@@ -331,7 +308,7 @@ local function ContentStory()
 					}, {
 						Item = React.createElement(StaticItem, {
 							label = LONG_LABEL,
-							hint = hint,
+							hint = LONG_HINT,
 							placement = placement,
 						}),
 					}),
@@ -370,22 +347,20 @@ local stories: { StoryEntry } = {
 }
 
 local controls: { [string]: unknown } = Dash.join(
-	Dash.join(
-		{
-			label = LABEL,
-			size = if Flags.FoundationInputGroup then PLAYGROUND_SIZE_OPTIONS else PLAYGROUND_SIZE_ORDER,
-			placement = if Flags.FoundationInputGroup then PLAYGROUND_PLACEMENT_OPTIONS else PLACEMENT_ORDER,
-			isChecked = false,
-			isDisabled = false,
-		},
-		if Flags.FoundationInputGroup
-			then {
-				rootSize = PLAYGROUND_ROOT_SIZE_OPTIONS,
-				rootPlacement = PLAYGROUND_PLACEMENT_OPTIONS,
-			}
-			else {}
-	),
-	if Flags.FoundationRadioBeta then { hint = HINT } else {}
+	{
+		label = LABEL,
+		size = if Flags.FoundationInputGroup then PLAYGROUND_SIZE_OPTIONS else PLAYGROUND_SIZE_ORDER,
+		placement = if Flags.FoundationInputGroup then PLAYGROUND_PLACEMENT_OPTIONS else PLACEMENT_ORDER,
+		isChecked = false,
+		isDisabled = false,
+		hint = HINT,
+	},
+	if Flags.FoundationInputGroup
+		then {
+			rootSize = PLAYGROUND_ROOT_SIZE_OPTIONS,
+			rootPlacement = PLAYGROUND_PLACEMENT_OPTIONS,
+		}
+		else {}
 )
 
 return {

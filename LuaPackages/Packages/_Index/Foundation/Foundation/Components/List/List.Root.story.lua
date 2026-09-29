@@ -8,7 +8,8 @@ local InputSize = require(Foundation.Enums.InputSize)
 local List = require(Foundation.Components.List)
 local ListItemInputType = require(Foundation.Enums.ListItemInputType)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
-local StorySection = require(Foundation.Utility.Stories.Shared.StorySection).StorySection
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
+local Section = StorySection.Section
 local View = require(Foundation.Components.View)
 
 local MatrixGrid = MatrixGridShared.MatrixGrid
@@ -23,7 +24,7 @@ type IsContained = boolean | { isContained: false, hasMargin: boolean? }
 local LIST_WIDTH = 280
 local FIXTURE_ROW_COUNT = 3
 local CONTROLLED_ROW_COUNT = 2
-local STORY_FRAME_TAG = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0"
+local STORY_FRAME_TAG = StorySection.STORY_PAGE_COL_TAG
 local UNSET_SIZE = "Default"
 
 local SIZE_ORDER: { InputSize } = {
@@ -228,9 +229,9 @@ local function ControlledStory(): React.ReactNode
 	return React.createElement(View, {
 		tag = STORY_FRAME_TAG,
 	}, {
-		Selection = React.createElement(StorySection, {
+		Selection = React.createElement(Section, {
 			LayoutOrder = 1,
-			caption = "Selection",
+			name = "Selection",
 			contentTag = "auto-xy",
 		}, {
 			Matrix = React.createElement(MatrixGrid, {
@@ -281,9 +282,9 @@ local function ContainmentStory(): React.ReactNode
 	return React.createElement(View, {
 		tag = STORY_FRAME_TAG,
 	}, {
-		Matrix = React.createElement(StorySection, {
+		Matrix = React.createElement(Section, {
 			LayoutOrder = 1,
-			caption = "hasDivider × isContained",
+			name = "hasDivider × isContained",
 			contentTag = "auto-xy",
 		}, {
 			Grid = React.createElement(MatrixGrid, {
@@ -303,9 +304,9 @@ local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
 		tag = STORY_FRAME_TAG,
 	}, {
-		Size = React.createElement(StorySection, {
+		Size = React.createElement(Section, {
 			LayoutOrder = 1,
-			caption = "Size",
+			name = "Size",
 			contentTag = "auto-xy",
 		}, {
 			Matrix = React.createElement(MatrixGrid, {
@@ -332,8 +333,6 @@ local stories = {
 	},
 	{
 		name = "Containment",
-		summary = "`hasDivider` and `isContained` share an edge: inset start follows `hasMargin` and the "
-			.. "title, so they are signed off together.",
 		story = ContainmentStory,
 	},
 }

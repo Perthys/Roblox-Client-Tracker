@@ -236,7 +236,6 @@ return {
 		},
 		{
 			name = "Placement",
-			summary = "Press an anchor to open its panel.",
 			story = PlacementStory,
 		},
 		{

@@ -9,10 +9,11 @@ local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 local ReferenceUVValues = require(root.WrapTargetCageUVReferenceValues)
 local createEditableInstancesForContext = require(root.util.createEditableInstancesForContext)
 
-local getFFlagUGCValidateMigrateWrapAndMakeup = require(root.flags.getFFlagUGCValidateMigrateWrapAndMakeup)
 local getFFlagUGCValidationAllowFullVaas = require(root.flags.getFFlagUGCValidationAllowFullVaas)
 
--- Flag-off routing tables: the resolved env is unset pre-FFlagUGCValidateMigrateSchemaProperties, so route by source.
+-- Server-side and IEC consumer routing. Read directly from `consumerConfig.source`
+-- (always populated) so the RCC-retry and IEC pre-load paths work regardless of
+-- consumer surface.
 local SERVER_SOURCES = {
 	Publish = true,
 	Backend = true,
@@ -25,8 +26,6 @@ local IEC_SOURCES = {
 }
 
 local WrapTextureValid = {}
-
-WrapTextureValid.fflag = getFFlagUGCValidateMigrateWrapAndMakeup
 
 WrapTextureValid.categories = { ValidationEnums.UploadCategory.MAKEUP }
 

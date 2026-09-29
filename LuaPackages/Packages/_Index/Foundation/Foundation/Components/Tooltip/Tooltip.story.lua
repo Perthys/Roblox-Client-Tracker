@@ -37,9 +37,7 @@ local ALIGN_ORDER: { PopoverAlign } = {
 	PopoverAlign.End,
 }
 
-local ALIGN_HEADERS = Dash.map(ALIGN_ORDER, function(value): string
-	return value
-end)
+local ALIGN_HEADERS = MatrixGridShared.enumHeaders(ALIGN_ORDER)
 
 local TITLE = "Title"
 local TEXT = "Text"
@@ -274,12 +272,10 @@ return {
 		},
 		{
 			name = "Placement",
-			summary = "Rows are side, columns are align. Hover each cell; the tall target makes align readable.",
 			story = PlacementStory,
 		},
 		{
 			name = "Content",
-			summary = "Hover each anchor. Empty title omits the title; shortcut can stand alone.",
 			story = ContentStory,
 		},
 	},

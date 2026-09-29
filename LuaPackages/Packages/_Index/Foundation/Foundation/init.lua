@@ -47,6 +47,8 @@ local AvatarSize = require(script.Enums.AvatarSize)
 local BadgeShape = require(script.Enums.BadgeShape)
 local BadgeSize = require(script.Enums.BadgeSize)
 local BadgeVariant = require(script.Enums.BadgeVariant)
+local BannerContextPresentation = require(script.Enums.BannerContextPresentation)
+local BannerContextVariant = require(script.Enums.BannerContextVariant)
 local Breakpoint = require(script.Enums.Breakpoint)
 local ButtonVariant = require(script.Enums.ButtonVariant)
 local ChipGroupVariant = require(script.Enums.ChipGroupVariant)
@@ -70,6 +72,7 @@ local InputLabelSize = require(script.Enums.InputLabelSize)
 local InputPlacement = require(script.Enums.InputPlacement)
 local InputSize = require(script.Enums.InputSize)
 local InputVariant = require(script.Enums.InputVariant)
+local LinkVariant = require(script.Enums.LinkVariant)
 local ListItemInputType = require(script.Enums.ListItemInputType)
 local NumberInputControlsVariant = require(script.Enums.NumberInputControlsVariant)
 local OnChangeCallbackReason = require(script.Enums.OnChangeCallbackReason)
@@ -111,6 +114,8 @@ local Visibility = require(script.Enums.Visibility)
 export type AccessoryType = AccessoryType.AccessoryType
 export type AlertSeverity = AlertSeverity.AlertSeverity
 export type AlertVariant = AlertVariant.AlertVariant
+export type BannerContextPresentation = BannerContextPresentation.BannerContextPresentation
+export type BannerContextVariant = BannerContextVariant.BannerContextVariant
 export type AvatarGroupType = AvatarGroupType.AvatarGroupType
 export type AvatarIconSize = AvatarIconSize.AvatarIconSize
 export type AvatarSize = AvatarSize.AvatarSize
@@ -140,6 +145,7 @@ export type InputLabelSize = InputLabelSize.InputLabelSize
 export type InputPlacement = InputPlacement.InputPlacement
 export type InputSize = InputSize.InputSize
 export type InputVariant = InputVariant.InputVariant
+export type LinkVariant = LinkVariant.LinkVariant
 export type ListItemInputType = ListItemInputType.ListItemInputType
 export type NumberInputControlsVariant = NumberInputControlsVariant.NumberInputControlsVariant
 export type ScrubBehavior = ScrubBehavior.ScrubBehavior
@@ -187,6 +193,9 @@ export type AccordionItemProps = Accordion.AccordionItemProps
 local Alert = require(script.Components.Alert)
 export type AlertProps = Alert.AlertProps
 
+local BannerContext = require(script.Components.BannerContext)
+export type BannerContextProps = BannerContext.BannerContextProps
+
 local Avatar = require(script.Components.Avatar)
 export type AvatarProps = Avatar.AvatarProps
 
@@ -208,6 +217,10 @@ export type BaseMenuProps<Item = BaseMenuItem> = BaseMenu.BaseMenuProps<Item>
 export type BaseMenuItem = BaseMenu.BaseMenuItem
 export type BaseMenuItems<Item = BaseMenuItem> = BaseMenu.BaseMenuItems<Item>
 export type BaseMenuItemGroup<Item = BaseMenuItem> = BaseMenu.BaseMenuItemGroup<Item>
+
+local Breadcrumb = require(script.Components.Breadcrumb)
+export type BreadcrumbProps = Breadcrumb.BreadcrumbProps
+export type BreadcrumbItem = Breadcrumb.BreadcrumbItem
 
 local Button = require(script.Components.Button)
 export type ButtonProps = Button.ButtonProps
@@ -297,6 +310,9 @@ export type KeyLabelProps = KeyLabel.KeyLabelProps
 
 local Knob = require(script.Components.Knob)
 export type KnobProps = Knob.KnobProps
+
+local Link = require(script.Components.Link)
+export type LinkProps = Link.LinkProps
 
 local List = require(script.Components.List)
 export type ListProps = List.ListProps
@@ -418,11 +434,13 @@ local Foundation = strict({
 	-- Components
 	Accordion = Accordion,
 	Alert = Alert,
+	BannerContext = BannerContext,
 	Avatar = Avatar,
 	AvatarGroup = AvatarGroup,
 	AvatarIcon = AvatarIcon,
 	AvatarIconGroup = AvatarIconGroup,
 	Badge = Badge,
+	Breadcrumb = Breadcrumb,
 	Button = Button,
 	ButtonGroup = ButtonGroup,
 	Checkbox = Checkbox,
@@ -448,6 +466,7 @@ local Foundation = strict({
 	-- **DEPRECATED**: KeyLabel is deprecated. Use Shortcut instead.
 	KeyLabel = KeyLabel,
 	Knob = Knob,
+	Link = Link,
 	List = List,
 	Loading = Loading,
 	Menu = Menu,
@@ -507,6 +526,7 @@ local Foundation = strict({
 		useScaledValue = require(script.Utility.useScaledValue),
 		useStyleSheet = require(script.Providers.Style.StyleSheetContext).useStyleSheet,
 		useStyleTags = require(script.Providers.Style.useStyleTags),
+		useTextSize = require(script.Utility.useTextSize),
 		useTextSizeOffset = require(script.Providers.Style.useTextSizeOffset),
 		useTokens = require(script.Providers.Style.useTokens),
 		withCursor = require(script.Providers.Cursor.withCursor),
@@ -518,6 +538,8 @@ local Foundation = strict({
 		AccessoryType = AccessoryType,
 		AlertSeverity = AlertSeverity,
 		AlertVariant = AlertVariant,
+		BannerContextPresentation = BannerContextPresentation,
+		BannerContextVariant = BannerContextVariant,
 		AvatarGroupType = AvatarGroupType,
 		AvatarIconSize = AvatarIconSize,
 		AvatarSize = AvatarSize,
@@ -553,6 +575,7 @@ local Foundation = strict({
 		InputVariant = InputVariant,
 		InputPlacement = InputPlacement,
 		InputLabelSize = InputLabelSize,
+		LinkVariant = LinkVariant,
 		ListItemInputType = ListItemInputType,
 		NumberInputControlsVariant = NumberInputControlsVariant,
 		ScrubBehavior = ScrubBehavior,
@@ -611,6 +634,7 @@ local Foundation = strict({
 		getRbxThumb = require(script.Utility.getRbxThumb),
 		getIconRichText = require(script.Utility.getIconRichText),
 		getTextBoundsAsync = require(script.Utility.getTextBoundsAsync),
+		getTextSizeOffset = require(script.Utility.getTextSizeOffset),
 		indexBindable = require(script.Utility.indexBindable),
 		-- **DEPRECATED**: Utility.mockComponent is deprecated. Use FoundationTestingLibrary.mockComponent instead.
 		mockComponent = require(script.Utility.mockComponent),

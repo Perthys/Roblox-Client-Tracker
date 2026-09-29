@@ -8,18 +8,10 @@ local Constants = require(root.Constants)
 local validateLCCageQuality = require(root.validation.validateLCCageQuality)
 local validateInstanceTree = require(root.validation.validateInstanceTree)
 local validateMeshTriangles = require(root.validation.validateMeshTriangles)
-local validateModeration = require(root.validation.validateModeration)
-local validateMaterials = require(root.validation.validateMaterials)
 local validateTags = require(root.validation.validateTags)
 local validateMeshBounds = require(root.validation.validateMeshBounds)
-local validatePropertyRequirements = require(root.validation.validatePropertyRequirements)
-local validateAttributes = require(root.validation.validateAttributes)
 local validateMeshVertColors = require(root.validation.validateMeshVertColors)
 local validateSingleInstance = require(root.validation.validateSingleInstance)
-local validateHSR = require(root.validation.validateHSR)
-local validateThumbnailConfiguration = require(root.validation.validateThumbnailConfiguration)
-local validateScaleType = require(root.validation.validateScaleType)
-local validateLCInRenderBounds = require(root.validation.validateLayeredClothingInRenderBounds)
 local ValidateMeshSizeProperty = require(root.validation.ValidateMeshSizeProperty)
 local ValidatePropertiesSensible = require(root.validation.ValidatePropertiesSensible)
 local validateDependencies = require(root.validation.validateDependencies)
@@ -28,7 +20,6 @@ local validateSkinningTransfer = require(root.validation.validateSkinningTransfe
 local validateTotalSurfaceArea = require(root.validation.validateTotalSurfaceArea)
 local validateCoplanarIntersection = require(root.validation.validateCoplanarIntersection)
 local validateMaxCubeDensity = require(root.validation.validateMaxCubeDensity)
-local ValidateHSRData = require(root.validation.ValidateHSRData)
 local ValidateTexturePack = require(root.validation.ValidateTexturePack)
 
 local RigidOrLayeredAllowed = require(root.util.RigidOrLayeredAllowed)
@@ -52,15 +43,10 @@ local getFFlagUGCValidateEyebrowEyelashThumbnailSchema =
 local ValidateMeshPartOnlySkinnedToR15 = require(root.validation.ValidateMeshPartOnlySkinnedToR15)
 local getEngineFeatureEngineUGCValidationConsolidateAccessorySkinning =
 	require(root.flags.getEngineFeatureEngineUGCValidationConsolidateAccessorySkinning)
-local getFFlagUGCValidateMigrateSchemaProperties = require(root.flags.getFFlagUGCValidateMigrateSchemaProperties)
-local getFFlagUGCValidateMigrateCageGeometry = require(root.flags.getFFlagUGCValidateMigrateCageGeometry)
 
 local function validateLayeredClothingAccessory(validationContext: Types.ValidationContext): (boolean, { string }?)
 	local instances = validationContext.instances
 	local assetTypeEnum = validationContext.assetTypeEnum
-	local isServer = validationContext.isServer
-	local allowUnreviewedAssets = validationContext.allowUnreviewedAssets
-
 	if not RigidOrLayeredAllowed.isLayeredClothingAllowed(assetTypeEnum) then
 		Analytics.reportFailure(
 			Analytics.ErrorType.validateLayeredClothingAccessory_AssetTypeNotAllowedAsLayeredClothing,
@@ -108,8 +94,8 @@ local function validateLayeredClothingAccessory(validationContext: Types.Validat
 	end
 	do
 		local skipFlags = {
-			skipExistenceCheck = getFFlagUGCValidateMigrateSchemaProperties(),
-			skipOwnershipCheck = getFFlagUGCValidateMigrateSchemaProperties(),
+			skipExistenceCheck = true,
+			skipOwnershipCheck = true,
 		}
 		success, reasons = validateDependencies(instance, validationContext, skipFlags)
 		if not success then
@@ -230,54 +216,11 @@ local function validateLayeredClothingAccessory(validationContext: Types.Validat
 	local boundsInfo = assetInfo.bounds[attachment.Name]
 
 	local failedReason: any = {}
-	if not getFFlagUGCValidateMigrateSchemaProperties() then
-		success, failedReason = validateMaterials(instance, validationContext)
-		if not success then
-			table.insert(reasons, table.concat(failedReason, "\n"))
-			validationResult = false
-		end
-
-		success, failedReason = validatePropertyRequirements(instance, nil, validationContext)
-		if not success then
-			table.insert(reasons, table.concat(failedReason, "\n"))
-			validationResult = false
-		end
-	end
 
 	success, failedReason = validateTags(instance, validationContext)
 	if not success then
 		table.insert(reasons, table.concat(failedReason, "\n"))
 		validationResult = false
-	end
-
-	if not getFFlagUGCValidateMigrateSchemaProperties() then
-		success, failedReason = validateAttributes(instance, validationContext)
-		if not success then
-			table.insert(reasons, table.concat(failedReason, "\n"))
-			validationResult = false
-		end
-	end
-
-	if not getFFlagUGCValidateMigrateSchemaProperties() then
-		local partScaleType = handle:FindFirstChild("AvatarPartScaleType")
-		if partScaleType and partScaleType:IsA("StringValue") then
-			success, failedReason = validateScaleType(partScaleType, validationContext)
-			if not success then
-				table.insert(reasons, table.concat(failedReason, "\n"))
-				validationResult = false
-			end
-		end
-	end
-
-	if not getFFlagUGCValidateMigrateSchemaProperties() then
-		if not isEyebrowOrEyelash then
-			success, failedReason =
-				validateThumbnailConfiguration(instance, handle, meshInfo, meshScale, validationContext)
-			if not success then
-				table.insert(reasons, table.concat(failedReason, "\n"))
-				validationResult = false
-			end
-		end
 	end
 
 	do
@@ -297,41 +240,6 @@ local function validateLayeredClothingAccessory(validationContext: Types.Validat
 				)
 			)
 			validationResult = false
-		else
-			if not getFFlagUGCValidateMigrateSchemaProperties() then
-				success, failedReason = validateHSR(wrapLayer, validationContext)
-				if not success then
-					table.insert(reasons, table.concat(failedReason, "\n"))
-					validationResult = false
-				end
-			end
-
-			if not getFFlagUGCValidateMigrateSchemaProperties() then
-				local allowEditableInstances = validationContext.allowEditableInstances
-				if not allowEditableInstances then
-					-- If editable instances are allowed, we skip HSR file data validation
-					-- because HSR may be created after publish in this case.
-					success, failedReason = ValidateHSRData.validate(wrapLayer, validationContext)
-					if not success then
-						table.insert(reasons, table.concat(failedReason, "\n"))
-						validationResult = false
-					end
-				end
-			end
-		end
-	end
-
-	if not getFFlagUGCValidateMigrateSchemaProperties() then
-		local checkModeration = not isServer
-		if allowUnreviewedAssets then
-			checkModeration = false
-		end
-		if checkModeration then
-			success, failedReason = validateModeration(instance, {}, validationContext)
-			if not success then
-				table.insert(reasons, table.concat(failedReason, "\n"))
-				validationResult = false
-			end
 		end
 	end
 
@@ -392,14 +300,6 @@ local function validateLayeredClothingAccessory(validationContext: Types.Validat
 			table.insert(reasons, issue)
 		end
 		validationResult = false
-	end
-
-	if not getFFlagUGCValidateMigrateCageGeometry() then
-		success, failedReason = validateLCInRenderBounds(instance, validationContext)
-		if not success then
-			table.insert(reasons, table.concat(failedReason, "\n"))
-			validationResult = false
-		end
 	end
 
 	if getFFlagUGCValidateTexturePack() then

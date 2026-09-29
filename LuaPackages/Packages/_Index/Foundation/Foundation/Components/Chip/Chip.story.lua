@@ -10,6 +10,7 @@ local Chip = require(Foundation.Components.Chip)
 local ChipGroup = require(Foundation.Components.ChipGroup)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local StoryIcons = require(Foundation.Utility.Stories.Shared.StoryIcons)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local Text = require(Foundation.Components.Text)
 local View = require(Foundation.Components.View)
 
@@ -26,10 +27,14 @@ type ChipGroupSize = ChipGroup.ChipGroupSize
 
 local IconName = BuilderIcons.Icon
 
-local MatrixGrid = MatrixGridShared.MatrixGrid
 local matrixLabel = MatrixGridShared.matrixLabel
 local matrixInfoLabel = MatrixGridShared.matrixInfoLabel
 type MatrixGridRow = MatrixGridShared.MatrixGridRow
+
+local Section = StorySection.Section
+local LabeledCell = StorySection.LabeledCell
+local StoryMatrixGrid = StorySection.StoryMatrixGrid
+local MatrixSection = StorySection.MatrixSection
 
 local STORY_FRAME_TAG = "padding-y-large bg-surface-0"
 
@@ -107,94 +112,9 @@ local ACCESSORY_HEADERS = Dash.map(ACCESSORY_ORDER, function(fixture): string
 	return fixture.label
 end)
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local function noop() end
-
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large align-y-top auto-xy wrap",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
-
-local function LabeledCell(props: {
-	LayoutOrder: number,
-	label: string,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col align-x-left gap-small auto-xy",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Label = React.createElement(Text, {
-			Text = props.label,
-			tag = "auto-xy text-caption-small text-align-x-left content-muted",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = "auto-xy",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
-
-local function StoryMatrixGrid(props: {
-	LayoutOrder: number,
-	columnHeaders: { string },
-	rows: { MatrixGridRow },
-})
-	return React.createElement(View, {
-		tag = "auto-xy",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Content = React.createElement(MatrixGrid, {
-			showLabelColumn = true,
-			labelColumnWidth = LABEL_COLUMN_WIDTH,
-			columnHeaders = props.columnHeaders,
-			cellColumnWidth = CELL_COLUMN_WIDTH,
-			headerTextAlign = "left",
-			cellAlign = "left",
-			rows = props.rows,
-		}),
-	})
-end
-
-local function MatrixSection(props: {
-	LayoutOrder: number,
-	name: string,
-	columnHeaders: { string },
-	rows: { MatrixGridRow },
-})
-	return React.createElement(Section, {
-		LayoutOrder = props.LayoutOrder,
-		name = props.name,
-		contentTag = "col auto-xy",
-	}, {
-		Grid = React.createElement(StoryMatrixGrid, {
-			LayoutOrder = 1,
-			columnHeaders = props.columnHeaders,
-			rows = props.rows,
-		}),
-	})
-end
 
 local function chipsBySize(leading: string | Accessory): { React.ReactNode }
 	return Dash.map(SIZE_ORDER, function(size)
@@ -323,6 +243,8 @@ local function StatesStory()
 	}, {
 		Selection = React.createElement(StoryMatrixGrid, {
 			LayoutOrder = 1,
+			labelColumnWidth = LABEL_COLUMN_WIDTH,
+			cellColumnWidth = CELL_COLUMN_WIDTH,
 			columnHeaders = STATE_HEADERS,
 			rows = stateRows(),
 		}),
@@ -434,12 +356,16 @@ local function ContentStory()
 		Accessories = React.createElement(MatrixSection, {
 			LayoutOrder = 1,
 			name = "Accessory by position",
+			labelColumnWidth = LABEL_COLUMN_WIDTH,
+			cellColumnWidth = CELL_COLUMN_WIDTH,
 			columnHeaders = ACCESSORY_HEADERS,
 			rows = accessoryPositionRows(),
 		}),
 		IconByTypeAndSize = React.createElement(MatrixSection, {
 			LayoutOrder = 2,
 			name = "Icon by type and size",
+			labelColumnWidth = LABEL_COLUMN_WIDTH,
+			cellColumnWidth = CELL_COLUMN_WIDTH,
 			columnHeaders = SIZE_HEADERS,
 			rows = iconTypeAndSizeRows(),
 		}),
@@ -450,6 +376,8 @@ local function ContentStory()
 		AvatarByTypeAndSize = React.createElement(MatrixSection, {
 			LayoutOrder = 4,
 			name = "Avatar by type and size",
+			labelColumnWidth = LABEL_COLUMN_WIDTH,
+			cellColumnWidth = CELL_COLUMN_WIDTH,
 			columnHeaders = SIZE_HEADERS,
 			rows = avatarTypeAndSizeRows(),
 		}),

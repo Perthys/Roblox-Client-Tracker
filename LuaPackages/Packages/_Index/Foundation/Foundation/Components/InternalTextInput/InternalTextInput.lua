@@ -684,10 +684,20 @@ local function InternalTextInput(textInputProps: TextInputProps, ref: React.Ref<
 			},
 			onActivated = if not props.isDisabled then focusTextBox else nil,
 			isDisabled = props.isDisabled,
-			backgroundStyle = if containerProps.bgStyle
+			-- if provided, backgroundGradient's Color and Transparency should have complete control (when not disabled)
+			backgroundStyle = if Flags.FoundationFixColorOnScrubbableNumberInput and props.backgroundGradient
 				then getDisabledStyle({
+					--selene: allow(roblox_internal_custom_color)
+					Color3 = Color3.new(1, 1, 1),
+					-- a value of 0 causes styling to override
+					Transparency = 0.001,
+				}, props.isDisabled)
+				elseif containerProps.bgStyle then getDisabledStyle({
 					Color3 = containerProps.bgStyle.Color3,
-					Transparency = if props.backgroundGradient then 0 else containerProps.bgStyle.Transparency,
+					Transparency = if not Flags.FoundationFixColorOnScrubbableNumberInput
+							and props.backgroundGradient
+						then 0
+						else containerProps.bgStyle.Transparency,
 				}, props.isDisabled)
 				else nil,
 			-- TODO: Update to border affordance

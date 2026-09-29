@@ -4,16 +4,16 @@ local Packages = Foundation.Parent
 local React = require(Packages.React)
 
 local Grid = require(Foundation.Components.Grid)
-local StorySectionShared = require(Foundation.Utility.Stories.Shared.StorySection)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local Text = require(Foundation.Components.Text)
 local Types = require(Foundation.Components.Types)
 local View = require(Foundation.Components.View)
 
-local LabeledCell = StorySectionShared.LabeledCell
+local LabeledCell = StorySection.LabeledCell
 
 type ResponsiveValue<T> = Types.ResponsiveValue<T>
 
-local STORY_FRAME_TAG = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0"
+local STORY_FRAME_TAG = StorySection.STORY_PAGE_COL_TAG
 local CELL_TAG = "auto-y padding-small radius-small margin-bottom-medium bg-shift-300"
 local LABEL_TAG = "size-full-0 auto-y text-caption-small text-wrap text-align-x-center content-default"
 

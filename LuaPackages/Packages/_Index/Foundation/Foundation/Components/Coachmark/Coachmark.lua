@@ -150,7 +150,7 @@ local function Coachmark(coachmarkProps: CoachmarkProps, ref: React.Ref<GuiObjec
 				hasArrow = props.hasArrow,
 				align = props.align,
 				DO_NOT_USE_hasContentInputSink = true,
-				onPressedOutside = if Flags.FoundationCoachmarkPressedOutside then props.onPressedOutside else nil,
+				onPressedOutside = props.onPressedOutside,
 				side = {
 					position = props.side,
 					offset = tokens.Size.Size_200,

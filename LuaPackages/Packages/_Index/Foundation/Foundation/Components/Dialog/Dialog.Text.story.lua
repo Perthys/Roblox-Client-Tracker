@@ -120,6 +120,6 @@ return {
 	},
 	controls = {
 		text = "Dialog.Text content goes here.",
-		rootSize = Dash.values(DialogSize),
+		rootSize = SIZE_ORDER,
 	},
 }

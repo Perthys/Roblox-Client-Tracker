@@ -87,12 +87,8 @@ local PLUS_NINETY_NINE_COUNT = TRUNCATION_MAX + 99
 local MAX_SWEEP_COUNT = 3
 local MAX_ORDER = { 1, 2, 3 }
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
-local PRESENCE_HEADERS = Dash.map(USER_PRESENCE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
+local PRESENCE_HEADERS = MatrixGridShared.enumHeaders(USER_PRESENCE_ORDER)
 local MAX_HEADERS = Dash.map(MAX_ORDER, function(max): string
 	return `max = {max}`
 end)
@@ -357,7 +353,6 @@ return {
 		},
 		{
 			name = "In context",
-			summary = "Overflow content color reads colorNamespace from PresentationContext, not from props.",
 			story = InContextStory,
 		},
 	},

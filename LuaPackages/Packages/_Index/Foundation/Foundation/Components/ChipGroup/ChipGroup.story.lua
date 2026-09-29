@@ -6,8 +6,11 @@ local React = require(Packages.React)
 
 local Chip = require(Foundation.Components.Chip)
 local ChipGroup = require(Foundation.Components.ChipGroup)
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local View = require(Foundation.Components.View)
+
+local Section = StorySection.Section
+local LabeledCell = StorySection.LabeledCell
 
 local ChipGroupVariant = require(Foundation.Enums.ChipGroupVariant)
 type ChipGroupVariant = ChipGroupVariant.ChipGroupVariant
@@ -36,49 +39,6 @@ local OVERFLOW_WIDTH = 500
 local CHIP_COUNT = 7
 
 local function noop() end
-
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "col gap-large auto-xy",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
-
-local function LabeledCell(props: {
-	LayoutOrder: number,
-	label: string,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col align-x-left gap-small auto-xy",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Label = React.createElement(Text, {
-			Text = props.label,
-			tag = "auto-xy text-caption-small text-align-x-left content-muted",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = "auto-xy",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
 
 -- ChipGroup fills its parent's width, so every cell needs a parent of definite length. The surface
 -- paints that parent so the width the group lays itself out against is visible.
@@ -237,6 +197,7 @@ local function ControlledStory()
 		Selection = React.createElement(Section, {
 			LayoutOrder = 1,
 			name = "Selection",
+			contentTag = "col gap-large auto-xy",
 		}, {
 			Example = React.createElement(SelectionExample, { LayoutOrder = 1 }),
 		}),
@@ -283,6 +244,7 @@ local function InContextStory()
 		OverflowScrollContainer = React.createElement(Section, {
 			LayoutOrder = 2,
 			name = "OverflowScrollContainer",
+			contentTag = "col gap-large auto-xy",
 		}, {
 			Frame = React.createElement(Harness, {
 				LayoutOrder = 1,

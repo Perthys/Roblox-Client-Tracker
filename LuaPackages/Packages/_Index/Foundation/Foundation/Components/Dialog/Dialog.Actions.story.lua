@@ -244,7 +244,6 @@ return {
 		},
 		{
 			name = "Orientation",
-			summary = "Vertical layout only works at Small. At Medium (default), DialogActions always renders horizontal regardless of the orientation prop. The Vertical example opens Small so stacked buttons are visible.",
 			story = OrientationStory,
 		},
 		{
@@ -253,8 +252,8 @@ return {
 		},
 	},
 	controls = {
-		rootSize = Dash.values(DialogSize),
-		orientation = Dash.values(Orientation),
+		rootSize = SIZE_ORDER,
+		orientation = ORIENTATION_ORDER,
 		label = "",
 	},
 }

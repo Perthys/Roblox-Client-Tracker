@@ -7,6 +7,7 @@ local React = require(Packages.React)
 
 local FillBehavior = require(Foundation.Enums.FillBehavior)
 local InputSize = require(Foundation.Enums.InputSize)
+local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local StatusIndicatorVariant = require(Foundation.Enums.StatusIndicatorVariant)
 local StoryIcons = require(Foundation.Utility.Stories.Shared.StoryIcons)
 local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
@@ -44,13 +45,9 @@ local FILL_BEHAVIOR_ORDER: { FillBehavior } = {
 
 local ACTIVE_TAB_ID_ORDER: { ItemId } = { "1", "2" }
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
-local FILL_BEHAVIOR_HEADERS = Dash.map(FILL_BEHAVIOR_ORDER, function(value): string
-	return value
-end)
+local FILL_BEHAVIOR_HEADERS = MatrixGridShared.enumHeaders(FILL_BEHAVIOR_ORDER)
 
 local CONTENT_TEXT = "Content"
 
@@ -82,9 +79,7 @@ type TabVisualState = "Default" | "Active" | "Disabled"
 
 local STATE_ORDER: { TabVisualState } = { "Default", "Active", "Disabled" }
 
-local STATE_HEADERS = Dash.map(STATE_ORDER, function(value): string
-	return value
-end)
+local STATE_HEADERS = MatrixGridShared.enumHeaders(STATE_ORDER)
 
 type AccessoryFixture = {
 	label: string,

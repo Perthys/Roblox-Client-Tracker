@@ -89,9 +89,7 @@ local CHIP_SIZE_ORDER: { ChipSize } = {
 }
 local CHIP_CELL_COLUMN_WIDTH = 200
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 local MAX_HEADERS = Dash.map(MAX_ORDER, function(max): string
 	return `max = {max}`
 end)
@@ -386,7 +384,6 @@ return {
 		},
 		{
 			name = "In context",
-			summary = "AvatarIconGroup shares occupancy with Icon. Chip leading sizes the accessory from ChipSize. Overflow content color reads colorNamespace from PresentationContext.",
 			story = InContextStory,
 		},
 	},

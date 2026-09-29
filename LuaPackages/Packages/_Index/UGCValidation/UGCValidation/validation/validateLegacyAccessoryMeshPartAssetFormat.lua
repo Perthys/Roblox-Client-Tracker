@@ -8,15 +8,10 @@ local validateSingleInstance = require(root.validation.validateSingleInstance)
 local validateInstanceTree = require(root.validation.validateInstanceTree)
 local validateLegacyAccessoryMeshPartAssetFormatMatch =
 	require(root.validation.validateLegacyAccessoryMeshPartAssetFormatMatch)
-local validateSurfaceAppearances = require(root.validation.validateSurfaceAppearances)
-local ValidateTexturePack = require(root.validation.ValidateTexturePack)
 local ValidatePropertiesSensible = require(root.validation.ValidatePropertiesSensible)
 
 local getEngineFeatureEngineUGCValidatePropertiesSensible =
 	require(root.flags.getEngineFeatureEngineUGCValidatePropertiesSensible)
-local getFFlagUGCValidateTexturePack = require(root.flags.getFFlagUGCValidateTexturePack)
-local getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality =
-	require(root.flags.getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality)
 
 local function validateLegacyAccessoryMeshPartAssetFormat(
 	specialMeshAssetFormatAccessory: Instance,
@@ -51,21 +46,6 @@ local function validateLegacyAccessoryMeshPartAssetFormat(
 		success, reasons = ValidatePropertiesSensible.validate(meshPartAssetFormatAccessory, validationContext)
 		if not success then
 			return false, reasons
-		end
-	end
-
-	if not getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality() then
-		success, reasons = validateSurfaceAppearances(meshPartAssetFormatAccessory, validationContext)
-		if not success then
-			return false, reasons
-		end
-	end
-	if not getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality() then
-		if getFFlagUGCValidateTexturePack() then
-			success, reasons = ValidateTexturePack.validate(meshPartAssetFormatAccessory, false, validationContext)
-			if not success then
-				return false, reasons
-			end
 		end
 	end
 

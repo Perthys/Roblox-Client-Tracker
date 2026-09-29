@@ -24,7 +24,6 @@ local getMeshVerts = require(root.util.getMeshVerts)
 local getMeshInfo = require(root.util.getMeshInfo)
 local BoundsDataUtils = require(root.util.BoundsDataUtils)
 local getExpectedPartSize = require(root.util.getExpectedPartSize)
-local getFFlagUGCValidateLegFullBodySeparation = require(root.flags.getFFlagUGCValidateLegFullBodySeparation)
 local R15plusUtils = require(root.util.R15plusUtils)
 local getAttachmentCFrameInPartSpace = require(root.util.getAttachmentCFrameInPartSpace)
 
@@ -309,11 +308,7 @@ function BoundsCalculator.calculateIndividualFullBodyPartsData(
 	end
 
 	local partsCFrames = AssetCalculator.calculateAllTransformsForFullBody(fullBodyAssets)
-	if getFFlagUGCValidateLegFullBodySeparation() then
-		if doOrientArmsLegsToWorldAxes then
-			orientFullBodyArmsLegsToWorldAxes(partsCFrames, findMeshHandle)
-		end
-	else
+	if doOrientArmsLegsToWorldAxes then
 		orientFullBodyArmsLegsToWorldAxes(partsCFrames, findMeshHandle)
 	end
 

@@ -8,6 +8,7 @@ local LocalizationService = game:GetService("LocalizationService")
 
 local SharedFlags = require(CorePackages.Workspace.Packages.SharedFlags)
 local FFlagBuildExperienceInGameShell = SharedFlags.FFlagBuildExperienceInGameShell
+local shouldSkipHistoricalMessage = require(CorePackages.Workspace.Packages.ExpChat).shouldSkipHistoricalMessage
 
 local FFlagAddTopBarScrim = require(script.Flags.FFlagAddTopBarScrim)
 
@@ -309,7 +310,10 @@ function TopBar.new()
 	-- add binding
 	if not FFlagTopBarDeprecateChatRodux then
 		local TextChatService = game:GetService("TextChatService")
-		TextChatService.MessageReceived:Connect(function()
+		TextChatService.MessageReceived:Connect(function(textChatMessage)
+			if shouldSkipHistoricalMessage(textChatMessage) then
+				return
+			end
 			self.store:dispatch(UpdateUnreadMessagesBadge(1))
 		end)
 	end

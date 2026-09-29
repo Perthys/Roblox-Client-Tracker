@@ -11,13 +11,14 @@ local StatusIndicator = require(Foundation.Components.StatusIndicator)
 local StatusIndicatorShape = require(Foundation.Enums.StatusIndicatorShape)
 local StatusIndicatorSize = require(Foundation.Enums.StatusIndicatorSize)
 local StatusIndicatorVariant = require(Foundation.Enums.StatusIndicatorVariant)
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local UserPresence = require(Foundation.Enums.UserPresence)
 local View = require(Foundation.Components.View)
 local useTokens = require(Foundation.Providers.Style.useTokens)
 
 local MatrixGrid = MatrixGridShared.MatrixGrid
 local matrixLabel = MatrixGridShared.matrixLabel
+local Section = StorySection.Section
 
 type MatrixGridRow = MatrixGridShared.MatrixGridRow
 type StatusIndicatorVariant = StatusIndicatorVariant.StatusIndicatorVariant
@@ -69,59 +70,16 @@ local PLAYGROUND_SIZE_OPTIONS: { StatusIndicatorSize } = {
 	StatusIndicatorSize.Pictogram,
 }
 
-local VARIANT_HEADERS = Dash.map(VARIANT_ORDER, function(value): string
-	return value
-end)
+local VARIANT_HEADERS = MatrixGridShared.enumHeaders(VARIANT_ORDER)
 
-local SHAPE_HEADERS = Dash.map(SHAPE_ORDER, function(value): string
-	return value
-end)
+local SHAPE_HEADERS = MatrixGridShared.enumHeaders(SHAPE_ORDER)
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local OVERFLOW_VALUES = { 9, 99, 100 }
 local OVERFLOW_MAX_VALUES = { 9, 100 }
 
-local OVERFLOW_HEADERS = Dash.map(OVERFLOW_VALUES, function(value): string
-	return tostring(value)
-end)
-
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	note: string?,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(View, {
-			tag = "col align-x-left gap-xsmall auto-xy",
-			LayoutOrder = 1,
-		}, {
-			Name = React.createElement(Text, {
-				Text = props.name,
-				tag = "auto-xy text-label-medium content-default",
-				LayoutOrder = 1,
-			}),
-			Note = if props.note
-				then React.createElement(Text, {
-					Text = props.note,
-					tag = "auto-xy text-caption-small text-align-x-left content-muted",
-					LayoutOrder = 2,
-				})
-				else nil,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large auto-xy wrap",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
+local OVERFLOW_HEADERS = MatrixGridShared.enumHeaders(OVERFLOW_VALUES)
 
 local function PlaygroundStory(props: {
 	controls: {
@@ -186,7 +144,7 @@ end
 
 local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Size = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -254,7 +212,7 @@ end
 
 local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Overflow = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -307,7 +265,7 @@ end
 
 local function InContextStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		InAvatar = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -331,10 +289,10 @@ type StoryItem = {
 local stories: { StoryItem } = {
 	{ name = "Playground", story = PlaygroundStory :: unknown },
 	{ name = "Variants", story = VariantsStory },
+	{ name = "Sizing", story = SizingStory },
 	{ name = "Shape", story = ShapeStory },
 	{ name = "Content", story = ContentStory },
 	{ name = "In context", story = InContextStory },
-	{ name = "Sizing", story = SizingStory },
 }
 
 return {

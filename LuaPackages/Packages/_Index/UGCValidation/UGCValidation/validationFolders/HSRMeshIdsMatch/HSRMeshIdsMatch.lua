@@ -2,14 +2,13 @@ local UGCValidationService = game:GetService("UGCValidationService")
 
 local root = script.Parent.Parent.Parent
 
+local getEngineFeatureUGCValidateHSRMeshIds = require(root.flags.getEngineFeatureUGCValidateHSRMeshIds)
+
 local Types = require(root.util.Types)
 local ValidationEnums = require(root.validationSystem.ValidationEnums)
 local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 local ParseContentIds = require(root.util.ParseContentIds)
 local pcallDeferred = require(root.util.pcallDeferred)
-
-local getFFlagUGCValidateMigrateSchemaProperties = require(root.flags.getFFlagUGCValidateMigrateSchemaProperties)
-local getFFlagUGCValidateHSRMeshIds = require(root.flags.getFFlagUGCValidateHSRMeshIds)
 
 local HSRMeshIdsMatch = {}
 
@@ -23,7 +22,6 @@ HSRMeshIdsMatch.requiredData = {
 	ValidationEnums.SharedDataMember.consumerConfig,
 	ValidationEnums.SharedDataMember.hsrAssets,
 }
-HSRMeshIdsMatch.fflag = getFFlagUGCValidateMigrateSchemaProperties
 HSRMeshIdsMatch.expectedFailures = {}
 
 local function validateHSRStructure(
@@ -63,7 +61,6 @@ HSRMeshIdsMatch.run = function(reporter: Types.ValidationReporter, data: Types.S
 	end
 
 	local isServer = data.consumerConfig.consumerEnv == ValidationEnums.ConsumerEnv.Backend
-	local meshIdMatchEnabled = getFFlagUGCValidateHSRMeshIds()
 
 	local objects = data.rootInstance:GetDescendants()
 	table.insert(objects, data.rootInstance)
@@ -102,7 +99,7 @@ HSRMeshIdsMatch.run = function(reporter: Types.ValidationReporter, data: Types.S
 			continue
 		end
 
-		if not meshIdMatchEnabled then
+		if not getEngineFeatureUGCValidateHSRMeshIds() then
 			continue
 		end
 

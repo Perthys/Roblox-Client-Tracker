@@ -5,7 +5,6 @@ local Types = require(root.util.Types)
 local ValidationEnums = require(root.validationSystem.ValidationEnums)
 local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 
-local getFFlagUGCValidateMigrateSchemaProperties = require(root.flags.getFFlagUGCValidateMigrateSchemaProperties)
 local getFFlagUGCValidateCurveAnimAttributes = require(root.flags.getFFlagUGCValidateCurveAnimAttributes)
 local getFFlagUGCValidateMakeupCategoryParity = require(root.flags.getFFlagUGCValidateMakeupCategoryParity)
 local getFFlagUGCValidateR15FixedAttributes = require(root.flags.getFFlagUGCValidateR15FixedAttributes)
@@ -36,7 +35,6 @@ AttributesAllowed.requiredData = {
 if getFFlagUGCValidateCurveAnimAttributes() then
 	table.insert(AttributesAllowed.requiredData, ValidationEnums.SharedDataMember.curveAnimations)
 end
-AttributesAllowed.fflag = getFFlagUGCValidateMigrateSchemaProperties
 AttributesAllowed.expectedFailures = {}
 
 local function hasOnlyAllowedAttribute(

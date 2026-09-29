@@ -100,6 +100,6 @@ return {
 	},
 	controls = {
 		text = "Dialog title",
-		rootSize = Dash.values(DialogSize),
+		rootSize = SIZE_ORDER,
 	},
 }

@@ -24,10 +24,8 @@ local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 local R15plusUtils = require(root.util.R15plusUtils)
 local resetPhysicsData = require(root.util.resetPhysicsData)
 local getFFlagDebugAllowHRDUploadOnBundleBackend = require(root.flags.getFFlagDebugAllowHRDUploadOnBundleBackend)
-local getFFlagUGCValidationAnimationPackSupport = require(root.flags.getFFlagUGCValidationAnimationPackSupport)
 local getEngineFeatureEngineUGCValidateInstanceTreesEquivalent =
 	require(root.flags.getEngineFeatureEngineUGCValidateInstanceTreesEquivalent)
-local getFFlagUGCValidateMigrateSchemaProperties = require(root.flags.getFFlagUGCValidateMigrateSchemaProperties)
 local getFFlagUGCValidationAllowFullVaas = require(root.flags.getFFlagUGCValidationAllowFullVaas)
 local getFFlagDebugUGCDisableAssetQualityChecks = require(root.flags.getFFlagDebugUGCDisableAssetQualityChecks)
 local getEngineFeatureEngineUGCValidateEmoteAnimationExport =
@@ -89,10 +87,7 @@ local function initRunVariables(
 	local qualityTests: { string } = {}
 	local desiredValidations: { [string]: Types.SingleValidationFileData } = {}
 	local desiredData: { [string]: boolean } = {}
-	-- Gated on the migration flag so flag-off behavior is unchanged: if the new
-	-- folder-based path ever needs to be rolled back, flipping the flag also
-	-- disables this skip wiring without requiring a code revert.
-	local skipModules = if getFFlagUGCValidateMigrateSchemaProperties() then configs.skipModules else {}
+	local skipModules = configs.skipModules
 
 	for testEnum, validationModule in ValidationModuleLoader.allModules do
 		if
@@ -418,27 +413,20 @@ local function createConsumerConfigWithDefaults(
 	newConfigs.skipAssetQualityChecks = newConfigs.skipAssetQualityChecks or false
 	newConfigs.skipPhysicsDataReset = newConfigs.skipPhysicsDataReset or false
 	newConfigs.isVaaS = newConfigs.isVaaS or false
-	assert(
-		not (getFFlagUGCValidationAllowFullVaas() and newConfigs.isVaaS) or getFFlagUGCValidateMigrateSchemaProperties(),
-		"isVaaS requires FFlagUGCValidateMigrateSchemaProperties so the env axes resolve"
-	)
 
-	-- Resolve env only for the new system; flag-off keeps legacy behavior bit-identical.
-	if getFFlagUGCValidateMigrateSchemaProperties() then
-		-- Origin / lifecycle axis: always the honest source, so a VaaS run (IEC-origin) doesn't trip first-publish caps.
-		newConfigs.consumerEnv = SOURCE_TO_ENV[newConfigs.source]
-		assert(newConfigs.consumerEnv ~= nil, `unknown consumer source: {tostring(newConfigs.source)}`)
+	-- Origin / lifecycle axis: always the honest source, so a VaaS run (IEC-origin) doesn't trip first-publish caps.
+	newConfigs.consumerEnv = SOURCE_TO_ENV[newConfigs.source]
+	assert(newConfigs.consumerEnv ~= nil, `unknown consumer source: {tostring(newConfigs.source)}`)
 
-		-- Execution / capability axis: VaaS runs IEC-origin uploads on the RCC backend, so backend-only capability checks run.
-		if getFFlagUGCValidationAllowFullVaas() and newConfigs.isVaaS then
-			newConfigs.validationEnv = ValidationEnums.ValidationEnv.Backend
-		else
-			newConfigs.validationEnv = newConfigs.consumerEnv
-		end
-
-		newConfigs.backendConfigs = newConfigs.backendConfigs or {}
-		newConfigs.iecConfigs = newConfigs.iecConfigs or {}
+	-- Execution / capability axis: VaaS runs IEC-origin uploads on the RCC backend, so backend-only capability checks run.
+	if getFFlagUGCValidationAllowFullVaas() and newConfigs.isVaaS then
+		newConfigs.validationEnv = ValidationEnums.ValidationEnv.Backend
+	else
+		newConfigs.validationEnv = newConfigs.consumerEnv
 	end
+
+	newConfigs.backendConfigs = newConfigs.backendConfigs or {}
+	newConfigs.iecConfigs = newConfigs.iecConfigs or {}
 
 	newConfigs.aqFetchStage = newConfigs.aqFetchStage or "scene"
 	newConfigs.aqFetchData = newConfigs.aqFetchData or ""
@@ -660,7 +648,7 @@ function ValidationManager.ValidateFinalizedBundle(
 
 	local rootInstance: Instance
 	local r15LegacyDuplicateRoot: Instance? = nil
-	if getFFlagUGCValidationAnimationPackSupport() and bundleTypeEnum == Enum.BundleType.Animations then
+	if bundleTypeEnum == Enum.BundleType.Animations then
 		local rootModel = Instance.new("Model")
 		for _, instancesAndType in fullBodyData do
 			local animModel = getRootInstance(instancesAndType.allSelectedInstances)

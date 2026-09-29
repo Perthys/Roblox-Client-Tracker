@@ -5,11 +5,14 @@ local Dash = require(Packages.Dash)
 local React = require(Packages.React)
 
 local Flags = require(Foundation.Utility.Flags)
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local Toggle = require(Foundation.Components.Toggle)
 local ToggleGroup = require(Foundation.Components.ToggleGroup)
 local Types = require(Foundation.Components.Types)
 local View = require(Foundation.Components.View)
+
+local Section = StorySection.Section
+local LabeledCell = StorySection.LabeledCell
 
 local InputPlacement = require(Foundation.Enums.InputPlacement)
 type InputPlacement = InputPlacement.InputPlacement
@@ -60,62 +63,11 @@ local BOUNDED_WIDTH = 250
 
 local function noop(_value: boolean) end
 
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	note: string?,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Note = if props.note
-			then React.createElement(Text, {
-				Text = props.note,
-				tag = "auto-xy text-body-small content-muted",
-				LayoutOrder = 2,
-			})
-			else nil,
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-xxlarge align-y-top auto-xy wrap",
-			LayoutOrder = 3,
-		}, props.children),
-	})
-end
-
-local function LabeledCell(props: {
-	LayoutOrder: number,
-	label: string,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col align-x-left gap-small auto-xy",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Label = React.createElement(Text, {
-			Text = props.label,
-			tag = "auto-xy text-caption-small text-align-x-left content-muted",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = "auto-xy",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
-
 local function createItems(fixtures: { ItemFixture }): { React.ReactNode }
 	return Dash.map(fixtures, function(fixture, index)
 		return React.createElement(Toggle, {
 			label = fixture.label,
-			hint = if Flags.FoundationToggleBetaUpdate then fixture.hint else nil,
+			hint = fixture.hint,
 			isChecked = false,
 			onActivated = noop,
 			LayoutOrder = index,
@@ -195,6 +147,7 @@ local function ContentStory()
 		Wrapping = React.createElement(Section, {
 			LayoutOrder = 1,
 			name = "Wrapping",
+			contentTag = "row gap-xxlarge align-y-top auto-xy wrap",
 		}, {
 			Bounded = React.createElement(LabeledCell, {
 				LayoutOrder = 1,

@@ -12,8 +12,6 @@ local ValidationEnums = require(root.validationSystem.ValidationEnums)
 local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 local TexturePackUtils = require(root.util.TexturePackUtils)
 
-local getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality =
-	require(root.flags.getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality)
 local getFFlagUGCValidateTexturePack = require(root.flags.getFFlagUGCValidateTexturePack)
 local getFFlagUGCValidateTexturePackOnRCCOnly = require(root.flags.getFFlagUGCValidateTexturePackOnRCCOnly)
 local getFFlagUGCValidationAllowFullVaas = require(root.flags.getFFlagUGCValidationAllowFullVaas)
@@ -25,15 +23,14 @@ local SERVER_SOURCES = {
 	Internal = true,
 }
 
--- Flag-off routing: consumerEnv is unset pre-FFlagUGCValidateMigrateSchemaProperties, so route by source.
+-- IEC consumers (in-experience). Read directly from `source` (always populated)
+-- so the IEC bypass works regardless of consumer surface.
 local IEC_SOURCES = {
 	InExpServer = true,
 	InExpClient = true,
 }
 
 local TexturePackConsistent = {}
-
-TexturePackConsistent.fflag = getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality
 
 TexturePackConsistent.categories = {
 	ValidationEnums.UploadCategory.TORSO_AND_LIMBS,

@@ -12,7 +12,8 @@ local List = require(Foundation.Components.List)
 local ListItemInputType = require(Foundation.Enums.ListItemInputType)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local StoryIcons = require(Foundation.Utility.Stories.Shared.StoryIcons)
-local StorySection = require(Foundation.Utility.Stories.Shared.StorySection).StorySection
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
+local Section = StorySection.Section
 local Text = require(Foundation.Components.Text)
 local View = require(Foundation.Components.View)
 
@@ -35,7 +36,7 @@ local LIST_WIDTH = 320
 local CONTEXT_SIZE_WIDTH = 160
 local WRAPPING_WIDTH = 420
 local LABEL_COLUMN_WIDTH = 200
-local STORY_FRAME_TAG = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0"
+local STORY_FRAME_TAG = StorySection.STORY_PAGE_COL_TAG
 local UNSET_SIZE = "Default"
 
 local AVATAR_USER_ID = 24813339
@@ -266,9 +267,9 @@ local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
 		tag = STORY_FRAME_TAG,
 	}, {
-		ContextSize = React.createElement(StorySection, {
+		ContextSize = React.createElement(Section, {
 			LayoutOrder = 1,
-			caption = "Context size",
+			name = "Context size",
 			contentTag = "auto-xy",
 		}, {
 			Matrix = React.createElement(MatrixGrid, {
@@ -376,9 +377,9 @@ local function ControlledStory(): React.ReactNode
 	return React.createElement(View, {
 		tag = STORY_FRAME_TAG,
 	}, {
-		InputActivation = React.createElement(StorySection, {
+		InputActivation = React.createElement(Section, {
 			LayoutOrder = 1,
-			caption = "Input activation",
+			name = "Input activation",
 			contentTag = "auto-xy",
 		}, {
 			Matrix = React.createElement(MatrixGrid, {
@@ -479,9 +480,9 @@ local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
 		tag = STORY_FRAME_TAG,
 	}, {
-		Leading = React.createElement(StorySection, {
+		Leading = React.createElement(Section, {
 			LayoutOrder = 1,
-			caption = "Leading",
+			name = "Leading",
 			contentTag = "auto-xy",
 		}, {
 			Matrix = React.createElement(MatrixGrid, {
@@ -495,9 +496,9 @@ local function ContentStory(): React.ReactNode
 				rows = leadingRows(),
 			}),
 		}),
-		TitleAndDescription = React.createElement(StorySection, {
+		TitleAndDescription = React.createElement(Section, {
 			LayoutOrder = 2,
-			caption = "Title and description",
+			name = "Title and description",
 			contentTag = "auto-xy",
 		}, {
 			Matrix = React.createElement(MatrixGrid, {
@@ -511,9 +512,9 @@ local function ContentStory(): React.ReactNode
 			}),
 		}),
 		Input = if Flags.FoundationListItemDecoupledInput
-			then React.createElement(StorySection, {
+			then React.createElement(Section, {
 				LayoutOrder = 3,
-				caption = "Input",
+				name = "Input",
 				contentTag = "auto-xy",
 			}, {
 				Matrix = React.createElement(MatrixGrid, {
@@ -527,9 +528,9 @@ local function ContentStory(): React.ReactNode
 				}),
 			})
 			else nil,
-		Trailing = React.createElement(StorySection, {
+		Trailing = React.createElement(Section, {
 			LayoutOrder = 4,
-			caption = "Trailing",
+			name = "Trailing",
 			contentTag = "auto-xy",
 		}, {
 			Matrix = React.createElement(MatrixGrid, {
@@ -542,9 +543,9 @@ local function ContentStory(): React.ReactNode
 				rows = { { cells = trailingCells() } },
 			}),
 		}),
-		Wrapping = React.createElement(StorySection, {
+		Wrapping = React.createElement(Section, {
 			LayoutOrder = 5,
-			caption = "Wrapping",
+			name = "Wrapping",
 			contentTag = "auto-xy",
 		}, {
 			Example = React.createElement(Shell, { LayoutOrder = 1, width = WRAPPING_WIDTH }, {
@@ -594,7 +595,6 @@ local stories = {
 if Flags.FoundationListItemDecoupledInput then
 	table.insert(stories, 3, {
 		name = "States",
-		summary = "Accessory scale is signed off in Content. This grid is checked fill at the default size.",
 		story = StatesStory,
 	})
 	table.insert(stories, 5, {

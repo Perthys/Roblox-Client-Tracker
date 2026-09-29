@@ -11,66 +11,36 @@ type MatrixGridRow = MatrixGridShared.MatrixGridRow
 
 local STORY_FRAME_TAG = "padding-y-large bg-surface-0"
 local STORY_PAGE_TAG = `size-full-0 auto-y {STORY_FRAME_TAG}`
-local DEFAULT_CONTENT_TAG = "row gap-large align-y-top auto-xy wrap"
+local STORY_PAGE_COL_TAG = `col gap-xxlarge size-full-0 auto-y {STORY_FRAME_TAG}`
 
-export type StorySectionProps = {
-	caption: string,
-	note: string?,
-	contentTag: string?,
+export type SectionProps = {
 	LayoutOrder: number?,
-	children: React.ReactNode?,
-}
-
-local function StorySection(props: StorySectionProps): React.ReactNode
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.caption,
-			tag = "auto-xy text-label-medium text-align-x-left content-default",
-			LayoutOrder = 1,
-		}),
-		Note = if props.note
-			then React.createElement(Text, {
-				Text = props.note,
-				tag = "auto-xy text-body-small text-wrap text-align-x-left content-muted",
-				LayoutOrder = 2,
-			})
-			else nil,
-		Content = React.createElement(View, {
-			tag = props.contentTag or DEFAULT_CONTENT_TAG,
-			LayoutOrder = 3,
-		}, props.children),
-	})
-end
-
-local function Section(props: {
-	LayoutOrder: number,
 	name: string,
 	note: string?,
 	contentTag: string?,
 	children: React.ReactNode,
-})
+}
+
+local function Section(props: SectionProps)
 	local title = if props.note
 		then React.createElement(View, {
-			tag = "col align-x-left gap-xsmall auto-xy",
+			tag = "col align-x-left gap-xsmall size-full-0 auto-y",
 			LayoutOrder = 1,
 		}, {
 			Name = React.createElement(Text, {
 				Text = props.name,
-				tag = "auto-xy text-label-medium content-default",
+				tag = "auto-xy text-label-medium text-align-x-left content-default",
 				LayoutOrder = 1,
 			}),
 			Note = React.createElement(Text, {
 				Text = props.note,
-				tag = "auto-xy text-caption-small text-align-x-left content-muted",
+				tag = "size-full-0 auto-y text-caption-small text-wrap text-align-x-left content-muted",
 				LayoutOrder = 2,
 			}),
 		})
 		else React.createElement(Text, {
 			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
+			tag = "auto-xy text-label-medium text-align-x-left content-default",
 			LayoutOrder = 1,
 		})
 
@@ -80,7 +50,7 @@ local function Section(props: {
 	}, {
 		Title = title,
 		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large auto-xy wrap",
+			tag = props.contentTag or "row gap-large align-y-top auto-xy wrap",
 			LayoutOrder = 2,
 		}, props.children),
 	})
@@ -89,10 +59,12 @@ end
 local function LabeledCell(props: {
 	LayoutOrder: number,
 	label: string,
-	children: React.ReactNode,
+	tag: string?,
+	contentTag: string?,
+	children: React.ReactNode?,
 })
 	return React.createElement(View, {
-		tag = "col align-x-left gap-small auto-xy",
+		tag = props.tag or "col align-x-left gap-small auto-xy",
 		LayoutOrder = props.LayoutOrder,
 	}, {
 		Label = React.createElement(Text, {
@@ -101,7 +73,7 @@ local function LabeledCell(props: {
 			LayoutOrder = 1,
 		}),
 		Content = React.createElement(View, {
-			tag = "auto-xy",
+			tag = props.contentTag or "auto-xy",
 			LayoutOrder = 2,
 		}, props.children),
 	})
@@ -114,6 +86,8 @@ local function StoryMatrixGrid(props: {
 	columnHeaders: { string },
 	cellColumnWidth: number?,
 	cellColumnWidths: { number }?,
+	rowGap: ("large" | "xxlarge")?,
+	rowAlign: ("top" | "center")?,
 	rows: { MatrixGridRow },
 })
 	return React.createElement(View, {
@@ -128,7 +102,8 @@ local function StoryMatrixGrid(props: {
 			cellColumnWidths = props.cellColumnWidths,
 			headerTextAlign = "left",
 			cellAlign = "left",
-			rowAlign = "top",
+			rowGap = props.rowGap,
+			rowAlign = props.rowAlign,
 			rows = props.rows,
 		}),
 	})
@@ -144,6 +119,8 @@ local function MatrixSection(props: {
 	columnHeaders: { string },
 	cellColumnWidth: number?,
 	cellColumnWidths: { number }?,
+	rowGap: ("large" | "xxlarge")?,
+	rowAlign: ("top" | "center")?,
 	rows: { MatrixGridRow },
 })
 	return React.createElement(Section, {
@@ -159,15 +136,17 @@ local function MatrixSection(props: {
 			columnHeaders = props.columnHeaders,
 			cellColumnWidth = props.cellColumnWidth,
 			cellColumnWidths = props.cellColumnWidths,
+			rowGap = props.rowGap,
+			rowAlign = props.rowAlign,
 			rows = props.rows,
 		}),
 	})
 end
 
 return {
-	StorySection = StorySection,
 	STORY_FRAME_TAG = STORY_FRAME_TAG,
 	STORY_PAGE_TAG = STORY_PAGE_TAG,
+	STORY_PAGE_COL_TAG = STORY_PAGE_COL_TAG,
 	Section = Section,
 	LabeledCell = LabeledCell,
 	StoryMatrixGrid = StoryMatrixGrid,

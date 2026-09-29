@@ -9,7 +9,7 @@ local Icon = require(Foundation.Components.Icon)
 local IconSize = require(Foundation.Enums.IconSize)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local StoryIcons = require(Foundation.Utility.Stories.Shared.StoryIcons)
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local View = require(Foundation.Components.View)
 local iconMigrationUtils = require(Foundation.Utility.iconMigrationUtils)
 local isBuilderIcon = require(Foundation.Utility.isBuilderIcon)
@@ -18,6 +18,7 @@ local useIconSize = require(Foundation.Utility.useIconSize)
 local IconName = BuilderIcons.Icon
 local IconVariant = BuilderIcons.IconVariant
 local MatrixGrid = MatrixGridShared.MatrixGrid
+local Section = StorySection.Section
 local isBuilderOrMigratedIcon = iconMigrationUtils.isBuilderOrMigratedIcon
 
 type IconSize = IconSize.IconSize
@@ -64,46 +65,16 @@ end)
 
 local ROTATION_ORDER = { 0, 45, 90, 180 }
 
-local ROTATION_HEADERS = Dash.map(ROTATION_ORDER, function(value): string
-	return tostring(value)
-end)
+local ROTATION_HEADERS = MatrixGridShared.enumHeaders(ROTATION_ORDER)
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
-local CONTENT_SIZE_HEADERS = Dash.map(CONTENT_SIZE_ORDER, function(value): string
-	return value
-end)
+local CONTENT_SIZE_HEADERS = MatrixGridShared.enumHeaders(CONTENT_SIZE_ORDER)
 
-local VARIANT_HEADERS = Dash.map(VARIANT_ORDER, function(value): string
-	return value
-end)
+local VARIANT_HEADERS = MatrixGridShared.enumHeaders(VARIANT_ORDER)
 
 local ROTATION_ICON = IconName.ChevronSmallRight
 local ROTATION_ICON_SIZE: IconSize = IconSize.Medium
-
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large auto-xy wrap",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
 
 local function RotatableIcon(props: {
 	name: string,
@@ -173,7 +144,7 @@ end
 
 local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Size = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -228,7 +199,7 @@ end
 
 local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		IconVariations = React.createElement(Section, {
 			LayoutOrder = 1,

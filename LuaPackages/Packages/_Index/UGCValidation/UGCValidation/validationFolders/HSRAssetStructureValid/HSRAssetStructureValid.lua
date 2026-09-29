@@ -4,8 +4,6 @@ local Types = require(root.util.Types)
 local ValidationEnums = require(root.validationSystem.ValidationEnums)
 local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 
-local getFFlagUGCValidateMigrateSchemaProperties = require(root.flags.getFFlagUGCValidateMigrateSchemaProperties)
-
 local HSRAssetStructureValid = {}
 
 HSRAssetStructureValid.categories = {
@@ -16,7 +14,6 @@ HSRAssetStructureValid.categories = {
 HSRAssetStructureValid.requiredData = {
 	ValidationEnums.SharedDataMember.rootInstance,
 }
-HSRAssetStructureValid.fflag = getFFlagUGCValidateMigrateSchemaProperties
 HSRAssetStructureValid.expectedFailures = {}
 
 HSRAssetStructureValid.run = function(reporter: Types.ValidationReporter, data: Types.SharedData)

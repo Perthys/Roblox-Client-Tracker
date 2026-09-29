@@ -7,7 +7,6 @@ local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 local Types = require(root.util.Types)
 local ValidationEnums = require(root.validationSystem.ValidationEnums)
 
-local getFFlagUGCValidateMigrateSchemaProperties = require(root.flags.getFFlagUGCValidateMigrateSchemaProperties)
 local getFFlagUGCValidateCheckDescendantIdsLoadable = require(root.flags.getFFlagUGCValidateCheckDescendantIdsLoadable)
 local getFFlagUGCValidateAllowEmissives = require(root.flags.getFFlagUGCValidateAllowEmissives)
 
@@ -28,7 +27,6 @@ DescendantIdsNotMissing.requiredData = {
 	ValidationEnums.SharedDataMember.consumerConfig,
 	ValidationEnums.SharedDataMember.contentIds,
 }
-DescendantIdsNotMissing.fflag = getFFlagUGCValidateMigrateSchemaProperties
 DescendantIdsNotMissing.expectedFailures = {}
 
 DescendantIdsNotMissing.run = function(reporter: Types.ValidationReporter, data: Types.SharedData)

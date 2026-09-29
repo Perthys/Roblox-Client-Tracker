@@ -5,12 +5,10 @@ local SafeFlags = require(Packages.SafeFlags)
 local FoundationSliderAsSeenOnTV = SafeFlags.createGetFFlag("FoundationSliderAsSeenOnTV")()
 local FoundationSliderKnobSelection = SafeFlags.createGetFFlag("FoundationSliderKnobSelection")()
 local FoundationSliderOffloadDraggingMath = SafeFlags.createGetFFlag("FoundationSliderOffloadDraggingMath2")()
-local FoundationInternalInputBeta = SafeFlags.createGetFFlag("FoundationInternalInputBeta2")()
-local FoundationToggleBetaUpdate = SafeFlags.createGetFFlag("FoundationToggleBetaUpdate")()
-local FoundationCheckboxBeta = SafeFlags.createGetFFlag("FoundationCheckboxBeta")()
 local FoundationInputGroup = SafeFlags.createGetFFlag("FoundationInputGroup")()
 local FoundationStyleRulePseudoName = SafeFlags.createGetFFlag("FoundationStyleRulePseudoName")()
-local FoundationRadioBeta = SafeFlags.createGetFFlag("FoundationRadioBeta")()
+local FoundationFixColorOnScrubbableNumberInput =
+	SafeFlags.createGetFFlag("FoundationFixColorOnScrubbableNumberInput")()
 
 return {
 	-- Foundation@1.47.0
@@ -57,29 +55,23 @@ return {
 
 	-- Foundation@1.100.0
 	FoundationBadgeBetaUpdate = SafeFlags.createGetFFlag("FoundationBadgeBetaUpdate3")(),
-	FoundationCoachmarkPressedOutside = SafeFlags.createGetFFlag("FoundationCoachmarkPressedOutside")(),
 	FoundationListItemDecoupledInput = SafeFlags.createGetFFlag("FoundationListItemDecoupledInput")(),
 	FoundationListStableContextValue = SafeFlags.createGetFFlag("FoundationListStableContextValue")(),
 	FoundationPopoverPluginAnchorRefresh = SafeFlags.createGetFFlag("FoundationPopoverPluginAnchorRefresh")(),
 	FoundationSkeletonCommonShimmerToken = SafeFlags.createGetFFlag("FoundationSkeletonCommonShimmerToken")(),
 
 	-- Foundation@1.101.0
-	FoundationCheckboxBeta = FoundationInternalInputBeta and FoundationCheckboxBeta,
 	FoundationDateTimePickerBetaUpdate = SafeFlags.createGetFFlag("FoundationDateTimePickerBetaUpdate")(),
 	FoundationDialogBetaUpdate = SafeFlags.createGetFFlag("FoundationDialogBetaUpdate")(),
 	FoundationIncludeSpaceRequiredLabel = SafeFlags.createGetFFlag("FoundationIncludeSpaceRequiredLabel")(),
 	FoundationInputGroup = FoundationInputGroup,
-	FoundationInternalInputBeta = FoundationInternalInputBeta,
 	FoundationListItemTypographySpacing = SafeFlags.createGetFFlag("FoundationListItemTypographySpacing")(),
 	FoundationOptionSelectorGroupBeta = SafeFlags.createGetFFlag("FoundationOptionSelectorGroupBeta")(),
 	FoundationPopoverClickOutsideInGuiShadow = SafeFlags.createGetFFlag("FoundationPopoverClickOutsideInGuiShadow")(),
 	FoundationPopoverContentAnchorFix = SafeFlags.createGetFFlag("FoundationPopoverContentAnchorFix")(),
 	FoundationPopoverRecomputeContentSize = SafeFlags.createGetFFlag("FoundationPopoverRecomputeContentSize")(),
-	FoundationProgressBarBetaUpdate = SafeFlags.createGetFFlag("FoundationProgressBarBetaUpdate")(),
 	FoundationProgressCircleRoundCaps = SafeFlags.createGetFFlag("FoundationProgressCircleRoundCaps")(),
-	FoundationRadioBeta = FoundationInternalInputBeta and FoundationRadioBeta,
 	FoundationStableContextValues = SafeFlags.createGetFFlag("FoundationStableContextValues")(),
-	FoundationToggleBetaUpdate = FoundationInternalInputBeta and FoundationToggleBetaUpdate,
 	FoundationUnifiedScrimScrolling = SafeFlags.createGetFFlag("FoundationUnifiedScrimScrolling")(),
 
 	-- Foundation@1.102.0
@@ -110,6 +102,19 @@ return {
 	-- Foundation@1.111.0
 	FoundationFontFaceMigration = SafeFlags.createGetFFlag("FoundationFontFaceMigration")(),
 	FoundationPopoverClampMinBound = SafeFlags.createGetFFlag("FoundationPopoverClampMinBound")(),
+
+	-- Foundation@1.112.0
+	FoundationFixColorOnScrubbableNumberInput = FoundationFixColorOnScrubbableNumberInput,
+	FoundationPluginShadowSize = SafeFlags.createGetFFlag("FoundationPluginShadowSize")(),
+	FoundationProgressBarBetaUpdate = SafeFlags.createGetFFlag("FoundationProgressBarBetaUpdate2")(),
+
+	-- Foundation@1.113.0
+	FoundationCenterSheetHeightFix = SafeFlags.createGetFFlag("FoundationCenterSheetHeightFix")(),
+	FoundationNumberInputScrubbingUsesOffset = FoundationFixColorOnScrubbableNumberInput
+		and SafeFlags.createGetFFlag("FoundationNumberInputScrubbingUsesOffset")(),
+	FoundationSliderCapture = FoundationSliderAsSeenOnTV
+		and FoundationSliderKnobSelection
+		and SafeFlags.createGetFFlag("FoundationSliderCapture")(),
 
 	-- Unreleased flags
 }

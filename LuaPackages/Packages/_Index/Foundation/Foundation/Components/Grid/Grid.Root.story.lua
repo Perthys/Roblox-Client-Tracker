@@ -7,19 +7,19 @@ local Breakpoint = require(Foundation.Enums.Breakpoint)
 local BreakpointConfig = require(Foundation.Utility.Responsive.BreakpointConfig)
 local Grid = require(Foundation.Components.Grid)
 local GridConfig = require(Foundation.Utility.Responsive.GridConfig)
-local StorySectionShared = require(Foundation.Utility.Stories.Shared.StorySection)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local Text = require(Foundation.Components.Text)
 local Types = require(Foundation.Components.Types)
 local View = require(Foundation.Components.View)
 
-local LabeledCell = StorySectionShared.LabeledCell
-local Section = StorySectionShared.Section
+local LabeledCell = StorySection.LabeledCell
+local Section = StorySection.Section
 
 type Breakpoint = Breakpoint.Breakpoint
 type ResponsiveValue<T> = Types.ResponsiveValue<T>
 type Span = number | ResponsiveValue<number>
 
-local STORY_FRAME_TAG = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0"
+local STORY_FRAME_TAG = StorySection.STORY_PAGE_COL_TAG
 local STACK_TAG = "col gap-xxlarge auto-xy"
 local CELL_TAG = "auto-y padding-small radius-small margin-bottom-medium bg-shift-300"
 local LABEL_TAG = "size-full-0 auto-y text-caption-small text-wrap text-align-x-center content-default"
@@ -286,14 +286,10 @@ return {
 		},
 		{
 			name = "Sizing",
-			summary = "Medium and every wider breakpoint keep 12 columns and differ only in margin and gutter, so the "
-				.. "sweep stops at 900px; `align` moves the grid only in a container wider than its 1920px clamp.",
 			story = SizingStory,
 		},
 		{
 			name = "Wraps",
-			summary = "A wrapped row carries no vertical gap of its own, so every cell on this page adds "
-				.. "`margin-bottom-medium` to separate the rows it wraps into.",
 			story = WrapsStory,
 		},
 		{

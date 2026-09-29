@@ -14,8 +14,6 @@ local isMeshPartAccessory = require(root.util.isMeshPartAccessory)
 local getFFlagUGCValidateMeshMaxScale = require(root.flags.getFFlagUGCValidateMeshMaxScale)
 local getFIntUGCValidateMeshCenteringHundredsThreshold =
 	require(root.flags.getFIntUGCValidateMeshCenteringHundredsThreshold)
-local getFFlagUGCValidateMigrateMeshGeometry = require(root.flags.getFFlagUGCValidateMigrateMeshGeometry)
-
 local FFlagLegacyAccessoryCheckAvatarPartScaleType =
 	game:DefineFastFlag("LegacyAccessoryCheckAvatarPartScaleType", false)
 local FFlagMeshpartAccessoryCheckAvatarPartScaleType =
@@ -28,7 +26,6 @@ local DEFAULT_OFFSET = Vector3.new(0, 0, 0)
 
 local MeshBoundsValid = {}
 
-MeshBoundsValid.fflag = getFFlagUGCValidateMigrateMeshGeometry
 MeshBoundsValid.categories = {
 	ValidationEnums.UploadCategory.LAYERED_CLOTHING,
 	ValidationEnums.UploadCategory.RIGID_ACCESSORY,

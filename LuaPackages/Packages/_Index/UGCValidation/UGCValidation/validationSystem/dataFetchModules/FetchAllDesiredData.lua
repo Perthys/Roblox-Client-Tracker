@@ -15,7 +15,6 @@ local FetchFullBodyPartsMetrics = require(root.validationSystem.dataFetchModules
 local Types = require(root.util.Types)
 local DataEnums = ValidationEnums.SharedDataMember
 
-local getFFlagUGCValidateMigrateSchemaProperties = require(root.flags.getFFlagUGCValidateMigrateSchemaProperties)
 local getFFlagUGCValidationAllowFullVaas = require(root.flags.getFFlagUGCValidationAllowFullVaas)
 local getFFlagUGCValidateHeadAboveTorso = require(root.flags.getFFlagUGCValidateHeadAboveTorso)
 local resetPhysicsData = require(root.util.resetPhysicsData)
@@ -25,11 +24,6 @@ local EDITABLE_ENUMS = {
 	DataEnums.innerCagesData,
 	DataEnums.outerCagesData,
 	DataEnums.meshTextures,
-}
-
-local ALLOW_ORIGINAL_EDITABLES = {
-	InExpServer = true,
-	InExpClient = true,
 }
 
 local FetchAllDesiredData = {}
@@ -48,14 +42,8 @@ function FetchAllDesiredData.storeDesiredData(sharedData: Types.SharedData, desi
 		end
 	end
 
-	-- Lifecycle-gated on consumerEnv: only IEC-origin uploads re-use editable instances directly (kept even on a VaaS backend run,
-	-- else this fetch path diverges from the checks that consume it).
-	local allowEditableInstances
-	if getFFlagUGCValidateMigrateSchemaProperties() then
-		allowEditableInstances = sharedData.consumerConfig.consumerEnv == ValidationEnums.ConsumerEnv.IEC
-	else
-		allowEditableInstances = ALLOW_ORIGINAL_EDITABLES[sharedData.consumerConfig.source] == true
-	end
+	-- IEC is the only env where editable instances can be re-used directly.
+	local allowEditableInstances = sharedData.consumerConfig.consumerEnv == ValidationEnums.ConsumerEnv.IEC
 	for _, editableDataEnum in EDITABLE_ENUMS do
 		if desiredData[editableDataEnum] then
 			local success, result = pcall(function()
@@ -92,15 +80,13 @@ function FetchAllDesiredData.storeDesiredData(sharedData: Types.SharedData, desi
 		end
 	end
 
-	if getFFlagUGCValidateMigrateSchemaProperties() then
-		if desiredData[DataEnums.contentIds] then
-			sharedData.contentIds = FetchContentIds.getData(sharedData)
-		end
+	if desiredData[DataEnums.contentIds] then
+		sharedData.contentIds = FetchContentIds.getData(sharedData)
+	end
 
-		if desiredData[DataEnums.hsrAssets] then
-			local result = FetchHSRAssets.getData(rootInstance, sharedData.consumerConfig)
-			sharedData.hsrAssets = result or (FetchAllDesiredData.DATA_FETCH_FAILURE :: any)
-		end
+	if desiredData[DataEnums.hsrAssets] then
+		local result = FetchHSRAssets.getData(rootInstance, sharedData.consumerConfig)
+		sharedData.hsrAssets = result or (FetchAllDesiredData.DATA_FETCH_FAILURE :: any)
 	end
 
 	if desiredData[DataEnums.curveAnimBoneData] then

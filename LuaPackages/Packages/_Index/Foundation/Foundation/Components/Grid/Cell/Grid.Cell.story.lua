@@ -4,18 +4,18 @@ local Packages = Foundation.Parent
 local React = require(Packages.React)
 
 local Grid = require(Foundation.Components.Grid)
-local StorySectionShared = require(Foundation.Utility.Stories.Shared.StorySection)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local Text = require(Foundation.Components.Text)
 local Types = require(Foundation.Components.Types)
 local View = require(Foundation.Components.View)
 
-local LabeledCell = StorySectionShared.LabeledCell
-local Section = StorySectionShared.Section
+local LabeledCell = StorySection.LabeledCell
+local Section = StorySection.Section
 
 type ResponsiveValue<T> = Types.ResponsiveValue<T>
 type Span = number | ResponsiveValue<number>
 
-local STORY_FRAME_TAG = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0"
+local STORY_FRAME_TAG = StorySection.STORY_PAGE_COL_TAG
 local STACK_TAG = "col gap-xxlarge auto-xy"
 local CELL_TAG = "auto-y padding-small radius-small margin-bottom-medium bg-shift-200"
 local SUBJECT_CELL_TAG = "auto-y padding-small radius-small margin-bottom-medium bg-shift-400"

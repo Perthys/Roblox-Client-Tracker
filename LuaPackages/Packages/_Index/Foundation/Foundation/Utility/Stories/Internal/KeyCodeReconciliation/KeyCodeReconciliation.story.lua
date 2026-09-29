@@ -13,7 +13,9 @@ local View = require(Foundation.Components.View)
 local InputSize = require(Foundation.Enums.InputSize)
 
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local MatrixGrid = MatrixGridShared.MatrixGrid
+local Section = StorySection.Section
 type MatrixGridRow = MatrixGridShared.MatrixGridRow
 local BuilderIconKeycodeMappings = require(Foundation.Utility.Stories.Shared.BuilderIconKeycodeMappings)
 local KeyCodeCategories = require(Foundation.Utility.Stories.Shared.KeyCodeCategories)
@@ -125,28 +127,6 @@ end
 local KEYCODES_BY_CATEGORY = KeyCodeCategories.groupByCategory(ALL_KEYCODES)
 
 local NON_EMPTY_CATEGORIES = KeyCodeCategories.getNonEmptyCategories(KEYCODES_BY_CATEGORY)
-
-local function Section(props: {
-	layoutOrder: number,
-	name: string,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.layoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large auto-xy wrap",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
 
 local function BuilderIconCell(props: { icon: string? }): React.ReactNode
 	if props.icon then
@@ -311,7 +291,7 @@ local function CategoryComparisonTable(props: {
 	local keyCodes = KEYCODES_BY_CATEGORY[props.categoryName]
 
 	return React.createElement(Section, {
-		layoutOrder = props.layoutOrder,
+		LayoutOrder = props.layoutOrder,
 		name = `{props.categoryName} ({#keyCodes})`,
 		contentTag = "auto-xy",
 	}, {
@@ -337,7 +317,7 @@ local function UnmappedIconsSection(): React.ReactNode
 	}
 
 	return React.createElement(Section, {
-		layoutOrder = 2,
+		LayoutOrder = 2,
 		name = `Unmapped keycode icons ({#UNMAPPED_KEYCODE_ICON_ENTRIES})`,
 		contentTag = "col gap-medium auto-xy",
 	}, {
@@ -386,7 +366,7 @@ return {
 			ByKeyType = React.createElement(
 				Section,
 				{
-					layoutOrder = 3,
+					LayoutOrder = 3,
 					name = "By key type",
 					contentTag = "col gap-xxlarge auto-xy",
 				},

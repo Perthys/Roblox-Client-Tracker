@@ -8,7 +8,7 @@ local ChipSize = require(Foundation.Enums.ChipSize)
 local ControlState = require(Foundation.Enums.ControlState)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local StateLayerMode = require(Foundation.Enums.StateLayerMode)
-local StorySectionShared = require(Foundation.Utility.Stories.Shared.StorySection)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local Text = require(Foundation.Components.Text)
 local Tokens = require(Foundation.Providers.Style.Tokens)
 local Types = require(Foundation.Components.Types)
@@ -24,10 +24,10 @@ type ControlState = ControlState.ControlState
 local matrixInfoLabel = MatrixGridShared.matrixInfoLabel
 local matrixLabel = MatrixGridShared.matrixLabel
 
-local LabeledCell = StorySectionShared.LabeledCell
-local MatrixSection = StorySectionShared.MatrixSection
-local Section = StorySectionShared.Section
-local STORY_FRAME_TAG = StorySectionShared.STORY_FRAME_TAG
+local LabeledCell = StorySection.LabeledCell
+local MatrixSection = StorySection.MatrixSection
+local Section = StorySection.Section
+local STORY_FRAME_TAG = StorySection.STORY_FRAME_TAG
 
 local PAGE_TAG = `col gap-xxlarge size-full-0 auto-y {STORY_FRAME_TAG}`
 
@@ -1076,17 +1076,14 @@ return {
 		},
 		{
 			name = "Sizing",
-			summary = "Text takes its size from a typography tag; TextScaled is the one prop that overrides it.",
 			story = SizingStory,
 		},
 		{
 			name = "Alignment",
-			summary = "Alignment only moves the string inside bounds the Text does not hug, so each cell is given a fixed frame.",
 			story = AlignmentStory,
 		},
 		{
 			name = "Interaction",
-			summary = "Passing onActivated or onStateChanged swaps the engine instance to a TextButton; without one, Text never reports state.",
 			story = InteractionStory,
 		},
 		{
@@ -1095,7 +1092,6 @@ return {
 		},
 		{
 			name = "Style library",
-			summary = "Developer catalog of the typography tags and color tokens a Text can carry.",
 			story = StyleLibraryStory,
 		},
 	},

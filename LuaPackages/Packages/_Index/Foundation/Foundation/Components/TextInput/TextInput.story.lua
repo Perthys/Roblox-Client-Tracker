@@ -7,8 +7,7 @@ local React = require(Packages.React)
 
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local StoryIcons = require(Foundation.Utility.Stories.Shared.StoryIcons)
-local StorySection = require(Foundation.Utility.Stories.Shared.StorySection).StorySection
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local TextInput = require(Foundation.Components.TextInput)
 local View = require(Foundation.Components.View)
 
@@ -19,6 +18,8 @@ local InputVariant = require(Foundation.Enums.InputVariant)
 local MatrixGrid = MatrixGridShared.MatrixGrid
 local matrixLabel = MatrixGridShared.matrixLabel
 local IconName = BuilderIcons.Icon
+local Section = StorySection.Section
+local LabeledCell = StorySection.LabeledCell
 
 type InputFocusBehavior = InputFocusBehavior.InputFocusBehavior
 type InputSize = InputSize.InputSize
@@ -33,9 +34,7 @@ local SIZE_ORDER: { InputSize } = {
 	InputSize.Large,
 }
 
-local SIZE_HEADERS: { string } = Dash.map(SIZE_ORDER, function(size: InputSize): string
-	return size
-end)
+local SIZE_HEADERS: { string } = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local VARIANT_ORDER: { InputVariant } = {
 	InputVariant.Standard,
@@ -74,7 +73,7 @@ local HINT_TEXT = "Hint"
 local PLACEHOLDER_TEXT = "Placeholder"
 local VALUE_TEXT = "Value"
 
-local STORY_PAGE_TAG = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0"
+local STORY_PAGE_TAG = StorySection.STORY_PAGE_COL_TAG
 local SWEEP_TAG = "col gap-xlarge size-full-0 auto-y"
 local SWEEP_ROW_TAG = "row wrap align-y-top gap-large size-full-0 auto-y"
 local SWEEP_ROW_PAGE_TAG = "row wrap align-y-top gap-large size-full-0 auto-y padding-y-large bg-surface-0"
@@ -128,25 +127,6 @@ local function StaticTextInput(props: StaticTextInputProps): React.ReactNode
 			}
 		) :: TextInputElementProps
 	)
-end
-
--- A cell here is a whole input field, so a swept axis laid out as a MatrixGrid header
--- row runs wider than any screen. Each cell carries its own caption instead.
-local function LabeledCell(props: { LayoutOrder: number, label: string, children: React.ReactNode? })
-	return React.createElement(View, {
-		tag = "col align-x-left gap-small auto-xy",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Label = React.createElement(Text, {
-			Text = props.label,
-			tag = "auto-xy text-caption-small text-align-x-left content-muted",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = "col auto-xy",
-			LayoutOrder = 2,
-		}, props.children),
-	})
 end
 
 local function WidthFrame(props: { children: React.ReactNode? })
@@ -231,10 +211,10 @@ local function SizingStory(): React.ReactNode
 		tag = STORY_PAGE_TAG,
 	}, {
 		Size = React.createElement(
-			StorySection,
+			Section,
 			{
 				LayoutOrder = 1,
-				caption = "Size",
+				name = "Size",
 				note = "size drives the label typography as well as the field, so they scale together. Cells share one width so only the scaling differs. Icon scaling is in Content.",
 				contentTag = SWEEP_ROW_TAG,
 			},
@@ -252,10 +232,10 @@ local function SizingStory(): React.ReactNode
 			end)
 		),
 		Width = React.createElement(
-			StorySection,
+			Section,
 			{
 				LayoutOrder = 2,
-				caption = "Width",
+				name = "Width",
 				note = "Omitting width falls back to a 400px footprint scaled for the platform. Cells sit in a 600px frame so Fill has a parent to fill.",
 				contentTag = SWEEP_TAG,
 			},
@@ -351,9 +331,9 @@ local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
 		tag = STORY_PAGE_TAG,
 	}, {
-		LeadingIcon = React.createElement(StorySection, {
+		LeadingIcon = React.createElement(Section, {
 			LayoutOrder = 1,
-			caption = "Leading icon",
+			name = "Leading icon",
 			note = "leadingIcon takes any icon string the design system accepts; the migrated path resolves to a builder icon and the non-migrated one renders through Image. size scales the icon with the field, so each kind is shown at every size.",
 			contentTag = SWEEP_TAG,
 		}, {
@@ -378,9 +358,9 @@ local function ContentStory(): React.ReactNode
 				end),
 			}),
 		}),
-		TrailingIcon = React.createElement(StorySection, {
+		TrailingIcon = React.createElement(Section, {
 			LayoutOrder = 2,
-			caption = "Trailing icon",
+			name = "Trailing icon",
 			note = "iconTrailing is a union: a bare string renders a static Icon, while the table arm renders a pressable IconButton that disables with the field. size scales both arms with the field.",
 			contentTag = SWEEP_TAG,
 		}, {
@@ -417,9 +397,9 @@ local function ContentStory(): React.ReactNode
 				},
 			}),
 		}),
-		ClearButton = React.createElement(StorySection, {
+		ClearButton = React.createElement(Section, {
 			LayoutOrder = 3,
-			caption = "Clear button",
+			name = "Clear button",
 			note = "The clear affordance is only rendered while the field holds text, so the cells are seeded. With a trailing icon present the two sit side by side. Clearing is in Controlled component.",
 			contentTag = SWEEP_ROW_TAG,
 		}, {
@@ -441,9 +421,9 @@ local function ContentStory(): React.ReactNode
 				})
 			),
 		}),
-		Placeholder = React.createElement(StorySection, {
+		Placeholder = React.createElement(Section, {
 			LayoutOrder = 4,
-			caption = "Placeholder",
+			name = "Placeholder",
 			contentTag = SWEEP_TAG,
 		}, {
 			Empty = React.createElement(StaticTextInput, {
@@ -464,7 +444,6 @@ return {
 		},
 		{
 			name = "Variants",
-			summary = "Utility drops both the container background and its stroke, so only the text marks the field.",
 			story = VariantsStory,
 		},
 		{
@@ -473,7 +452,6 @@ return {
 		},
 		{
 			name = "States",
-			summary = "hasError restyles the hint rather than adding layout, so Error is shown with a hint. isRequired is swept in its true form only; false renders an optional marker on the label rather than a state.",
 			story = StatesStory,
 		},
 		{

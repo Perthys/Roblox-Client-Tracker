@@ -6,8 +6,11 @@ local React = require(Packages.React)
 
 local IconSize = require(Foundation.Enums.IconSize)
 local Loading = require(Foundation.Components.Loading)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local Text = require(Foundation.Components.Text)
 local View = require(Foundation.Components.View)
+
+local Section = StorySection.Section
 
 type IconSize = IconSize.IconSize
 
@@ -28,28 +31,6 @@ local PLAYGROUND_SIZE_OPTIONS: { IconSize } = {
 	IconSize.XLarge,
 	IconSize.XXLarge,
 }
-
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large align-y-top auto-xy wrap",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
 
 local function SizeColumn(props: {
 	LayoutOrder: number,
@@ -87,7 +68,7 @@ end
 
 local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Size = React.createElement(
 			Section,

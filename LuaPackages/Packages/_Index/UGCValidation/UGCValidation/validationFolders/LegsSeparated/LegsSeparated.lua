@@ -14,8 +14,6 @@ local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 local BoundsDataUtils = require(root.util.BoundsDataUtils)
 local BoundsCalculator = require(root.util.BoundsCalculator)
 
-local getFFlagUGCValidateMigratePoseBlocking = require(root.flags.getFFlagUGCValidateMigratePoseBlocking)
-local getFFlagUGCValidateLegFullBodySeparation = require(root.flags.getFFlagUGCValidateLegFullBodySeparation)
 local getFFlagUGCValidateHeadAboveTorso = require(root.flags.getFFlagUGCValidateHeadAboveTorso)
 local GetFStringUGCValidateLegHipAttachmentRange = require(root.flags.GetFStringUGCValidateLegHipAttachmentRange)
 local GetFStringUGCValidateAllowedLegOverlapMultiplier =
@@ -38,8 +36,6 @@ if getFFlagUGCValidateHeadAboveTorso() then
 		ValidationEnums.SharedDataMember.fullBodyPartsMetrics,
 	}
 end
-
-LegsSeparated.fflag = getFFlagUGCValidateMigratePoseBlocking
 
 LegsSeparated.expectedFailures = {}
 
@@ -142,10 +138,6 @@ local function checkLegOverlap(reporter: Types.ValidationReporter, allPartsMetri
 end
 
 local function validateFullBodySeparation(reporter: Types.ValidationReporter, data: Types.SharedData)
-	if not getFFlagUGCValidateLegFullBodySeparation() then
-		return
-	end
-
 	if getFFlagUGCValidateHeadAboveTorso() then
 		local allPartsMetrics = data.fullBodyPartsMetrics
 		if not allPartsMetrics or not next(allPartsMetrics) then

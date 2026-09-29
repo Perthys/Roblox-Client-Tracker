@@ -8,12 +8,14 @@ local Accordion = require(Foundation.Components.Accordion)
 local InputPlacement = require(Foundation.Enums.InputPlacement)
 local InputSize = require(Foundation.Enums.InputSize)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local Text = require(Foundation.Components.Text)
 local Types = require(Foundation.Components.Types)
 local View = require(Foundation.Components.View)
 
 local MatrixGrid = MatrixGridShared.MatrixGrid
 local matrixLabel = MatrixGridShared.matrixLabel
+local Section = StorySection.Section
 
 local IconName = BuilderIcons.Icon
 
@@ -56,36 +58,6 @@ local function resolveWidth(preset: string): UDim
 		return UDim.new(0, 240)
 	end
 	return UDim.new(0, 400)
-end
-
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	note: string?,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Note = if props.note
-			then React.createElement(Text, {
-				Text = props.note,
-				tag = "auto-xy text-caption-small text-wrap text-align-x-left content-muted",
-				LayoutOrder = 2,
-			})
-			else nil,
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large align-y-top auto-xy wrap",
-			LayoutOrder = 3,
-		}, props.children),
-	})
 end
 
 local function ItemBody(props: { LayoutOrder: number?, text: string? })
@@ -162,7 +134,7 @@ end
 
 local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Size = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -172,9 +144,7 @@ local function SizingStory(): React.ReactNode
 		}, {
 			Matrix = React.createElement(MatrixGrid, {
 				showLabelColumn = false,
-				columnHeaders = Dash.map(SIZE_ORDER, function(value): string
-					return value
-				end),
+				columnHeaders = MatrixGridShared.enumHeaders(SIZE_ORDER),
 				headerTextAlign = "left",
 				cellAlign = "left",
 				cellColumnWidth = MATRIX_COLUMN_WIDTH,
@@ -320,7 +290,7 @@ end
 
 local function ControlledStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Exclusive = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -347,7 +317,7 @@ end
 
 local function ContainmentStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		IsContained = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -474,7 +444,7 @@ end
 
 local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		ChevronPosition = React.createElement(ChevronPositionSection, { LayoutOrder = 1 }),
 		FullComposition = React.createElement(Section, {

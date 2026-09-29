@@ -100,6 +100,9 @@ export type UiComponentType =
 	| "UI_COMPONENT_TYPE_LIST_ROOT"
 	| "UI_COMPONENT_TYPE_LIST_ITEM"
 	| "UI_COMPONENT_TYPE_MARKDOWN_TEXT"
+	| "UI_COMPONENT_TYPE_SIGN_UP_FORM"
+	| "UI_COMPONENT_TYPE_BANNER_CONTEXT"
+	| "UI_COMPONENT_TYPE_VIEWPORT_VISIBILITY"
 	| "UI_COMPONENT_TYPE_FOCUS_NAV_ACTIONS"
 	| "UI_COMPONENT_TYPE_FRAGMENT"
 	| "UI_COMPONENT_TYPE_EXPERIMENTAL"
@@ -111,6 +114,8 @@ export type UiComponentType =
 	| "UI_COMPONENT_TYPE_CATALOG_HERO_UNIT"
 	| "UI_COMPONENT_TYPE_MARKETPLACE_FAVORITES_CATEGORY_MENU"
 	| "UI_COMPONENT_TYPE_CATALOG_ITEM_GRID"
+	| "UI_COMPONENT_TYPE_ITEM_MEDIA_HEADER"
+	| "UI_COMPONENT_TYPE_CATALOG_ITEM_CARD"
 	| "UI_COMPONENT_TYPE_FILTER_PILLS_CAROUSEL"
 	| "UI_COMPONENT_TYPE_PILL_TABS_CAROUSEL"
 	| "UI_COMPONENT_TYPE_USER_LIST"
@@ -296,6 +301,12 @@ messages.UiComponentType = {
 			return "UI_COMPONENT_TYPE_LIST_ITEM"
 		elseif value == 269 then
 			return "UI_COMPONENT_TYPE_MARKDOWN_TEXT"
+		elseif value == 270 then
+			return "UI_COMPONENT_TYPE_SIGN_UP_FORM"
+		elseif value == 271 then
+			return "UI_COMPONENT_TYPE_BANNER_CONTEXT"
+		elseif value == 272 then
+			return "UI_COMPONENT_TYPE_VIEWPORT_VISIBILITY"
 		elseif value == 300 then
 			return "UI_COMPONENT_TYPE_FOCUS_NAV_ACTIONS"
 		elseif value == 400 then
@@ -318,6 +329,10 @@ messages.UiComponentType = {
 			return "UI_COMPONENT_TYPE_MARKETPLACE_FAVORITES_CATEGORY_MENU"
 		elseif value == 606 then
 			return "UI_COMPONENT_TYPE_CATALOG_ITEM_GRID"
+		elseif value == 607 then
+			return "UI_COMPONENT_TYPE_ITEM_MEDIA_HEADER"
+		elseif value == 608 then
+			return "UI_COMPONENT_TYPE_CATALOG_ITEM_CARD"
 		elseif value == 700 then
 			return "UI_COMPONENT_TYPE_FILTER_PILLS_CAROUSEL"
 		elseif value == 701 then
@@ -512,6 +527,12 @@ messages.UiComponentType = {
 			return 268
 		elseif self == "UI_COMPONENT_TYPE_MARKDOWN_TEXT" then
 			return 269
+		elseif self == "UI_COMPONENT_TYPE_SIGN_UP_FORM" then
+			return 270
+		elseif self == "UI_COMPONENT_TYPE_BANNER_CONTEXT" then
+			return 271
+		elseif self == "UI_COMPONENT_TYPE_VIEWPORT_VISIBILITY" then
+			return 272
 		elseif self == "UI_COMPONENT_TYPE_FOCUS_NAV_ACTIONS" then
 			return 300
 		elseif self == "UI_COMPONENT_TYPE_FRAGMENT" then
@@ -534,6 +555,10 @@ messages.UiComponentType = {
 			return 605
 		elseif self == "UI_COMPONENT_TYPE_CATALOG_ITEM_GRID" then
 			return 606
+		elseif self == "UI_COMPONENT_TYPE_ITEM_MEDIA_HEADER" then
+			return 607
+		elseif self == "UI_COMPONENT_TYPE_CATALOG_ITEM_CARD" then
+			return 608
 		elseif self == "UI_COMPONENT_TYPE_FILTER_PILLS_CAROUSEL" then
 			return 700
 		elseif self == "UI_COMPONENT_TYPE_PILL_TABS_CAROUSEL" then
@@ -728,6 +753,12 @@ messages.UiComponentType = {
 			return "UI_COMPONENT_TYPE_LIST_ITEM"
 		elseif name == "UI_COMPONENT_TYPE_MARKDOWN_TEXT" then
 			return "UI_COMPONENT_TYPE_MARKDOWN_TEXT"
+		elseif name == "UI_COMPONENT_TYPE_SIGN_UP_FORM" then
+			return "UI_COMPONENT_TYPE_SIGN_UP_FORM"
+		elseif name == "UI_COMPONENT_TYPE_BANNER_CONTEXT" then
+			return "UI_COMPONENT_TYPE_BANNER_CONTEXT"
+		elseif name == "UI_COMPONENT_TYPE_VIEWPORT_VISIBILITY" then
+			return "UI_COMPONENT_TYPE_VIEWPORT_VISIBILITY"
 		elseif name == "UI_COMPONENT_TYPE_FOCUS_NAV_ACTIONS" then
 			return "UI_COMPONENT_TYPE_FOCUS_NAV_ACTIONS"
 		elseif name == "UI_COMPONENT_TYPE_FRAGMENT" then
@@ -750,6 +781,10 @@ messages.UiComponentType = {
 			return "UI_COMPONENT_TYPE_MARKETPLACE_FAVORITES_CATEGORY_MENU"
 		elseif name == "UI_COMPONENT_TYPE_CATALOG_ITEM_GRID" then
 			return "UI_COMPONENT_TYPE_CATALOG_ITEM_GRID"
+		elseif name == "UI_COMPONENT_TYPE_ITEM_MEDIA_HEADER" then
+			return "UI_COMPONENT_TYPE_ITEM_MEDIA_HEADER"
+		elseif name == "UI_COMPONENT_TYPE_CATALOG_ITEM_CARD" then
+			return "UI_COMPONENT_TYPE_CATALOG_ITEM_CARD"
 		elseif name == "UI_COMPONENT_TYPE_FILTER_PILLS_CAROUSEL" then
 			return "UI_COMPONENT_TYPE_FILTER_PILLS_CAROUSEL"
 		elseif name == "UI_COMPONENT_TYPE_PILL_TABS_CAROUSEL" then

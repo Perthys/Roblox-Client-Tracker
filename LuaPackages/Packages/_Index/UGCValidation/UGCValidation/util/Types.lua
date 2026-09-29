@@ -103,6 +103,8 @@ export type EditableImageWithPBRData = {
 	NormalMap: EditableImageData?,
 	RoughnessMap: EditableImageData?,
 	EmissiveMask: EditableImageData?,
+	EmissiveTint: Color3?,
+	EmissiveStrength: number?,
 }
 
 export type CurveAnimationsData = { CurveAnimation }

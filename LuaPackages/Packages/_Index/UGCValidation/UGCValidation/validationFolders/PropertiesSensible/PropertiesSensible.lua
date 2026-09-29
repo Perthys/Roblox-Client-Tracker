@@ -7,7 +7,6 @@ local Types = require(root.util.Types)
 local ValidationEnums = require(root.validationSystem.ValidationEnums)
 local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 
-local getFFlagUGCValidateMigrateSchemaProperties = require(root.flags.getFFlagUGCValidateMigrateSchemaProperties)
 local getEngineFeatureEngineUGCValidatePropertiesSensible =
 	require(root.flags.getEngineFeatureEngineUGCValidatePropertiesSensible)
 local getFIntUGCValidateMaxHSRDataLen = require(root.flags.getFIntUGCValidateMaxHSRDataLen)
@@ -35,7 +34,6 @@ PropertiesSensible.requiredData = {
 	ValidationEnums.SharedDataMember.consumerConfig,
 	ValidationEnums.SharedDataMember.uploadCategory,
 }
-PropertiesSensible.fflag = getFFlagUGCValidateMigrateSchemaProperties
 PropertiesSensible.expectedFailures = {}
 
 local function walkInstanceTree(

@@ -51,6 +51,12 @@ local ROW_ALIGN_TAG: { [string]: string } = {
 	center = "align-y-center",
 }
 
+local function enumHeaders<T>(order: { T }): { string }
+	return Dash.map(order, function(value): string
+		return tostring(value)
+	end)
+end
+
 local function matrixLabel(text: string): React.ReactNode
 	return React.createElement(Text, {
 		Text = text,
@@ -181,7 +187,7 @@ local function MatrixGrid(props: MatrixGridProps): React.ReactNode
 	local labelColumnWidth = props.labelColumnWidth or 80
 	local headerTextAlign = props.headerTextAlign or "center"
 	local cellAlign = props.cellAlign or "center"
-	local rowAlign = props.rowAlign or "center"
+	local rowAlign = props.rowAlign or "top"
 	local rowGap = props.rowGap or "large"
 	local headerAlignTag = HEADER_ALIGN_TAG[headerTextAlign]
 	local cellAlignTag = CELL_ALIGN_TAG[cellAlign]
@@ -246,6 +252,7 @@ end
 
 return {
 	MatrixGrid = MatrixGrid,
+	enumHeaders = enumHeaders,
 	matrixLabel = matrixLabel,
 	matrixInfoLabel = matrixInfoLabel,
 }

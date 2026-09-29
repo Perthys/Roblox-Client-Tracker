@@ -10,7 +10,8 @@ local ButtonVariant = require(Foundation.Enums.ButtonVariant)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local Snackbar = require(Foundation.Components.Snackbar)
 local StoryIcons = require(Foundation.Utility.Stories.Shared.StoryIcons)
-local StorySection = require(Foundation.Utility.Stories.Shared.StorySection).StorySection
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
+local Section = StorySection.Section
 local Text = require(Foundation.Components.Text)
 local View = require(Foundation.Components.View)
 
@@ -93,9 +94,9 @@ local function ActionExample(props: {
 }): React.ReactNode
 	local activationCount, setActivationCount = React.useState(0)
 
-	return React.createElement(StorySection, {
+	return React.createElement(Section, {
 		LayoutOrder = props.LayoutOrder,
-		caption = "Action",
+		name = "Action",
 		note = "Activating the action leaves the snackbar mounted; what it does is the consumer's.",
 		contentTag = "col gap-medium auto-xy",
 	}, {
@@ -125,9 +126,9 @@ local function DismissalExample(props: {
 }): React.ReactNode
 	local isVisible, setIsVisible = React.useState(true)
 
-	return React.createElement(StorySection, {
+	return React.createElement(Section, {
 		LayoutOrder = props.LayoutOrder,
-		caption = "Dismissal",
+		name = "Dismissal",
 		note = "Snackbar holds no open state, so onClose only reports the press and the consumer unmounts it.",
 		contentTag = "col gap-medium auto-xy",
 	}, {
@@ -152,7 +153,7 @@ end
 
 local function ControlledStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Action = React.createElement(ActionExample, { LayoutOrder = 1 }),
 		Dismissal = React.createElement(DismissalExample, { LayoutOrder = 2 }),
@@ -161,7 +162,7 @@ end
 
 local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Occupancy = React.createElement(View, {
 			tag = "col gap-medium size-full-0 auto-y",
@@ -198,9 +199,9 @@ local function ContentStory(): React.ReactNode
 				}),
 			}),
 		}),
-		IconByType = React.createElement(StorySection, {
+		IconByType = React.createElement(Section, {
 			LayoutOrder = 2,
-			caption = "Icon by type",
+			name = "Icon by type",
 			contentTag = "col auto-xy",
 		}, {
 			Grid = React.createElement(GridBlock, { LayoutOrder = 1 }, {
@@ -222,9 +223,9 @@ local function ContentStory(): React.ReactNode
 				}),
 			}),
 		}),
-		IconVariant = React.createElement(StorySection, {
+		IconVariant = React.createElement(Section, {
 			LayoutOrder = 3,
-			caption = "Icon by variant",
+			name = "Icon by variant",
 			note = "A string icon is rendered as the Regular variant; the table arm is the only way to pass another.",
 			contentTag = "col auto-xy",
 		}, {
@@ -252,9 +253,9 @@ local function ContentStory(): React.ReactNode
 				}),
 			}),
 		}),
-		Truncation = React.createElement(StorySection, {
+		Truncation = React.createElement(Section, {
 			LayoutOrder = 4,
-			caption = "Truncation",
+			name = "Truncation",
 			contentTag = "col auto-xy",
 		}, {
 			Snackbar = React.createElement(Snackbar, {
@@ -274,7 +275,6 @@ return {
 		},
 		{
 			name = "Controlled component",
-			summary = "Both callbacks are consumer-owned: the snackbar neither counts activations nor dismisses itself.",
 			story = ControlledStory,
 		},
 		{

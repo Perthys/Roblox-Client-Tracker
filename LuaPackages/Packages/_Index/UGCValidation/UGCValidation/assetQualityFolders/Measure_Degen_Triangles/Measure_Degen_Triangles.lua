@@ -48,7 +48,6 @@ Measure_Degen_Triangles.run = function(reporter: Types.ValidationReporter, data:
 						"%.2f",
 						(tonumber(partData.degenerate_triangle_percent) or 0) * 100
 					),
-					score = tostring(math.floor(tonumber(partData.score) or 0)),
 				}
 				if shouldBlockUpload then
 					reporter:fail(ErrorSourceStrings.Keys.AQSWarn_DegenTriangles, params)

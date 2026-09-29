@@ -123,6 +123,6 @@ return {
 		},
 	},
 	controls = {
-		rootSize = Dash.values(DialogSize),
+		rootSize = SIZE_ORDER,
 	},
 }

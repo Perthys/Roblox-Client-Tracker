@@ -14,7 +14,7 @@ local InputSize = require(Foundation.Enums.InputSize)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local PresentationContext = require(Foundation.Providers.Style.PresentationContext)
 local StoryIcons = require(Foundation.Utility.Stories.Shared.StoryIcons)
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local TextInput = require(Foundation.Components.TextInput)
 local View = require(Foundation.Components.View)
 local useTokens = require(Foundation.Providers.Style.useTokens)
@@ -23,6 +23,7 @@ local IconName = BuilderIcons.Icon
 local IconVariant = BuilderIcons.IconVariant
 local MatrixGrid = MatrixGridShared.MatrixGrid
 local matrixLabel = MatrixGridShared.matrixLabel
+local Section = StorySection.Section
 
 type MatrixGridRow = MatrixGridShared.MatrixGridRow
 
@@ -78,46 +79,18 @@ local PLAYGROUND_ICON_OPTIONS = Dash.map(StoryIcons.ICON_TYPE_EXAMPLES, function
 	return example.name
 end)
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
-local VARIANT_HEADERS = Dash.map(VARIANT_ORDER, function(value): string
-	return value
-end)
+local VARIANT_HEADERS = MatrixGridShared.enumHeaders(VARIANT_ORDER)
 
 local FILL_BEHAVIOR_ORDER: { FillBehavior } = {
 	FillBehavior.Fit,
 	FillBehavior.Fill,
 }
 
-local FILL_BEHAVIOR_HEADERS = Dash.map(FILL_BEHAVIOR_ORDER, function(value): string
-	return value
-end)
+local FILL_BEHAVIOR_HEADERS = MatrixGridShared.enumHeaders(FILL_BEHAVIOR_ORDER)
 
 local function noop() end
-
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large auto-xy wrap",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
 
 local function StoryIconButton(props: {
 	variant: IconButtonVariant?,
@@ -261,7 +234,7 @@ end
 
 local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Size = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -317,7 +290,7 @@ local CIRCULAR_ORDER: { { label: string, isCircular: boolean } } = {
 
 local function ShapeStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Rounding = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -349,7 +322,7 @@ end
 
 local function StatesStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Disabled = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -379,7 +352,7 @@ end
 
 local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		IconVariations = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -456,7 +429,7 @@ end
 
 local function InContextStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Inverse = React.createElement(Section, {
 			LayoutOrder = 1,

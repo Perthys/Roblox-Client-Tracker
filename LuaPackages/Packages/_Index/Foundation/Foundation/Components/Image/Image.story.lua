@@ -827,7 +827,6 @@ end
 
 type StoryEntry = {
 	name: string,
-	summary: string?,
 	story: unknown,
 }
 
@@ -842,32 +841,26 @@ local stories: { StoryEntry } = {
 	},
 	{
 		name = "Image style",
-		summary = "imageStyle drives ImageColor3 and ImageTransparency together, so a token that carries transparency applies both.",
 		story = ImageStyleStory,
 	},
 	{
 		name = "Slice",
-		summary = "Passing slice forces ScaleType.Slice, and for a Foundation image the center is rescaled to the resolution the key resolves to.",
 		story = SliceStory,
 	},
 	{
 		name = "Scale type",
-		summary = "Slice is absent from the sweep because the slice prop is what selects it.",
 		story = ScaleTypeStory,
 	},
 	{
 		name = "Resample mode",
-		summary = "The source is a 22 px sprite drawn at 120 px; at or below native size the two modes are indistinguishable.",
 		story = ResampleModeStory,
 	},
 	{
 		name = "Controlled component",
-		summary = "The page holds the control state onStateChanged reports and maps it back to Image, so the source changes on hover and press.",
 		story = ControlledStory,
 	},
 	{
 		name = "Load reporting",
-		summary = "onLoaded fires once with the final status, and immediately when the asset was already fetched.",
 		story = LoadReportingStory,
 	},
 	{

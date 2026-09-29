@@ -75,9 +75,7 @@ local IN_CONTEXT_AVATARS = { DEFAULT_USER_ID, 24813338 }
 local IN_CONTEXT_CELL_COLUMN_WIDTH = 170
 local IN_CONTEXT_LABEL_COLUMN_WIDTH = 90
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local function StoryAvatar(props: {
 	size: AvatarSize?,
@@ -301,7 +299,6 @@ return {
 		},
 		{
 			name = "In context",
-			summary = "AvatarGroup is the group that renders Avatar; AvatarIcon and AvatarIconGroup are a separate pair.",
 			story = InContextStory,
 		},
 	},

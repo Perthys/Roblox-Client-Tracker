@@ -7,7 +7,6 @@ local React = require(Packages.React)
 local ButtonGroup = require(Foundation.Components.ButtonGroup)
 local ButtonVariant = require(Foundation.Enums.ButtonVariant)
 local EducationalTooltip = require(Foundation.Components.EducationalTooltip)
-local Flags = require(Foundation.Utility.Flags)
 local Image = require(Foundation.Components.Image)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local OverlayStoryAnchor = require(Foundation.Utility.Stories.Shared.OverlayStoryAnchor)
@@ -43,9 +42,7 @@ local ALIGN_ORDER: { PopoverAlign } = {
 	PopoverAlign.End,
 }
 
-local ALIGN_HEADERS = Dash.map(ALIGN_ORDER, function(value): string
-	return value
-end)
+local ALIGN_HEADERS = MatrixGridShared.enumHeaders(ALIGN_ORDER)
 
 local TITLE = "Title"
 local TEXT = "Text"
@@ -158,7 +155,7 @@ local function EducationalTooltipTarget(props: TooltipTargetProps): React.ReactN
 					setOpen(false, "Close affordance")
 				end
 				else nil,
-			onPressedOutside = if Flags.FoundationCoachmarkPressedOutside and props.hasPressOutsideDismiss
+			onPressedOutside = if props.hasPressOutsideDismiss
 				then function()
 					setOpen(false, "Press outside")
 				end
@@ -427,17 +424,14 @@ return {
 		},
 		{
 			name = "Placement",
-			summary = "Rows are side, columns are align. Press a cell's anchor to open it.",
 			story = PlacementStory,
 		},
 		{
 			name = "Controlled component",
-			summary = "The caller owns isOpen. The anchor toggles it in every cell; each cell reports which path closed the panel.",
 			story = ControlledStory,
 		},
 		{
 			name = "Content",
-			summary = "Press each anchor to open its panel.",
 			story = ContentStory,
 		},
 	},

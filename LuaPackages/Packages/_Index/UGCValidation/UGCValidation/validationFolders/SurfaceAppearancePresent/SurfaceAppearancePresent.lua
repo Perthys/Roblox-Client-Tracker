@@ -10,18 +10,14 @@ local Types = require(root.util.Types)
 local ValidationEnums = require(root.validationSystem.ValidationEnums)
 local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 
-local getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality =
-	require(root.flags.getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality)
-
--- Honest-origin routing (lifecycle): IEC-origin uploads carry live editable TextureContent.Object.
+-- IEC consumers (in-experience). Read directly from `source` (always populated)
+-- so the IEC alternate-content path works regardless of consumer surface.
 local IEC_SOURCES = {
 	InExpServer = true,
 	InExpClient = true,
 }
 
 local SurfaceAppearancePresent = {}
-
-SurfaceAppearancePresent.fflag = getFFlagUGCValidateMigrateSurfaceAppearanceMeshQuality
 
 SurfaceAppearancePresent.categories = {
 	ValidationEnums.UploadCategory.TORSO_AND_LIMBS,

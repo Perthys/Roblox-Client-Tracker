@@ -25,6 +25,7 @@ type _ExperimentalPropImpl = {
 }
 
 type _ExperimentalPropFields = {
+	prop_builder: string?,
 	oneof_prop: (
 		{ type: "string_prop", value: _roblox_apppageplatform_shared_v1beta1_prop_types.StringProp }
 		| { type: "int32_prop", value: _roblox_apppageplatform_shared_v1beta1_prop_types.Int32Prop }
@@ -88,6 +89,7 @@ type _ExperimentalPropFields = {
 }
 
 type _ExperimentalPropPartialFields = {
+	prop_builder: string?,
 	oneof_prop: (
 		{ type: "string_prop", value: _roblox_apppageplatform_shared_v1beta1_prop_types.StringProp }
 		| { type: "int32_prop", value: _roblox_apppageplatform_shared_v1beta1_prop_types.Int32Prop }
@@ -159,6 +161,7 @@ do
 
 	function _ExperimentalPropImpl.new(data: _ExperimentalPropPartialFields?): ExperimentalProp
 		return setmetatable({
+			prop_builder = if data == nil or data.prop_builder == nil then nil else data.prop_builder,
 			oneof_prop = if data == nil or data.oneof_prop == nil then nil else data.oneof_prop,
 		}, _ExperimentalPropImpl :: _ExperimentalPropImpl)
 	end
@@ -166,6 +169,11 @@ do
 	function _ExperimentalPropImpl.encode(self: ExperimentalProp): buffer
 		local output = buffer.create(0)
 		local cursor = 0
+
+		if self.prop_builder ~= nil then
+			output, cursor = proto.writeTag(output, cursor, 1000, proto.wireTypes.lengthDelimited)
+			output, cursor = proto.writeString(output, cursor, self.prop_builder)
+		end
 
 		if self.oneof_prop ~= nil then
 			if self.oneof_prop.type == "string_prop" then
@@ -648,6 +656,11 @@ do
 						value = _roblox_apppageplatform_shared_v1beta1_prop_types_engine.KeyCodeProp.decode(value),
 					}
 					continue
+				elseif field == 1000 then
+					local value
+					value, cursor = proto.readBuffer(input, cursor)
+					self.prop_builder = buffer.tostring(value)
+					continue
 				end
 
 				local length
@@ -674,6 +687,10 @@ do
 
 	function _ExperimentalPropImpl.jsonEncode(self: ExperimentalProp): any
 		local output = {}
+
+		if self.prop_builder ~= nil then
+			output.propBuilder = self.prop_builder
+		end
 
 		if self.oneof_prop ~= nil then
 			if self.oneof_prop.type == "string_prop" then
@@ -758,6 +775,14 @@ do
 
 	function _ExperimentalPropImpl.jsonDecode(input: { [string]: any }): ExperimentalProp
 		local self = _ExperimentalPropImpl.new()
+
+		if input.prop_builder ~= nil then
+			self.prop_builder = input.prop_builder
+		end
+
+		if input.propBuilder ~= nil then
+			self.prop_builder = input.propBuilder
+		end
 
 		if input.string_prop ~= nil then
 			self.oneof_prop = {

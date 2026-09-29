@@ -55,7 +55,6 @@ Measure_Cage_UV.run = function(reporter: Types.ValidationReporter, data: Types.S
 					})
 				elseif getFFlagUGCValidateAQScoreWarnings() and score ~= 100 then
 					reporter:warn(ErrorSourceStrings.Keys.AQSWarn_CageUV, {
-						score = tostring(score),
 						cage_name = cageName,
 						incorrect_uv_count = tostring(incorrectUVCount),
 						unreferenced_vertex_count = unreferencedCount,
@@ -77,7 +76,6 @@ Measure_Cage_UV.run = function(reporter: Types.ValidationReporter, data: Types.S
 				end
 				if getFFlagUGCValidateAQScoreWarnings() and score ~= nil and score ~= 100 then
 					reporter:warn(ErrorSourceStrings.Keys.AQSWarn_CageUV, {
-						score = tostring(score),
 						cage_name = cageName,
 						incorrect_uv_count = tostring(incorrectUVCount),
 						unreferenced_vertex_count = unreferencedCount,

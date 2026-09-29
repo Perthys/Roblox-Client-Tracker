@@ -56,9 +56,7 @@ local PLAYGROUND_SIZE_OPTIONS: { InputSize } = {
 	InputSize.Large,
 }
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local STYLE_PRESET_OPTIONS = { DEFAULT, NONE }
 local STROKE_PRESET_OPTIONS = { NONE, EMPHASIS }
@@ -132,7 +130,7 @@ end
 
 local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Size = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -187,7 +185,7 @@ local function ContentStory(): React.ReactNode
 	local tokens = useTokens()
 
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		FillAndOutline = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -295,7 +293,6 @@ local function ColorSliderSection(props: { LayoutOrder: number }): React.ReactNo
 	return React.createElement(Section, {
 		LayoutOrder = props.LayoutOrder,
 		name = "In color slider",
-		contentTag = "row gap-large align-y-top auto-xy wrap",
 	}, {
 		WithoutStroke = React.createElement(HueSliderCell, {
 			LayoutOrder = 1,
@@ -316,7 +313,7 @@ end
 
 local function InContextStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Inverse = React.createElement(Section, {
 			LayoutOrder = 1,

@@ -28,6 +28,7 @@ local function RobuxWidgetIntegration(props: SideSheetWidgetProps): React.ReactN
 		layoutOrder = props.layoutOrder,
 		placement = props.placement,
 		onBuyActivated = openShop,
+		firstIntegrationToFocusCallback = props.firstIntegrationToFocusCallback,
 	})
 end
 

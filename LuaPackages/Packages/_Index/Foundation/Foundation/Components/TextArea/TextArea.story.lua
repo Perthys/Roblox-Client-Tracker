@@ -4,10 +4,12 @@ local Packages = Foundation.Parent
 local Dash = require(Packages.Dash)
 local React = require(Packages.React)
 
-local StorySection = require(Foundation.Utility.Stories.Shared.StorySection).StorySection
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local TextArea = require(Foundation.Components.TextArea)
 local View = require(Foundation.Components.View)
+
+local Section = StorySection.Section
+local LabeledCell = StorySection.LabeledCell
 
 local InputFocusBehavior = require(Foundation.Enums.InputFocusBehavior)
 local InputSize = require(Foundation.Enums.InputSize)
@@ -55,7 +57,7 @@ local OVERFLOW_TEXT = "This is a much longer value. It runs well past the lines 
 	.. "so the box keeps its height and the content scrolls instead. Keep typing to move the cursor past the "
 	.. "last visible line and watch the view follow it."
 
-local STORY_PAGE_TAG = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0"
+local STORY_PAGE_TAG = StorySection.STORY_PAGE_COL_TAG
 local SWEEP_TAG = "col gap-xlarge size-full-0 auto-y"
 local SWEEP_ROW_TAG = "row wrap align-y-top gap-large size-full-0 auto-y"
 local SWEEP_ROW_PAGE_TAG = "row wrap align-y-top gap-large size-full-0 auto-y padding-y-large bg-surface-0"
@@ -113,25 +115,6 @@ local function StaticTextArea(props: StaticTextAreaProps): React.ReactNode
 			}
 		) :: TextAreaElementProps
 	)
-end
-
--- A cell here is a whole input field, so a swept axis laid out as a MatrixGrid header
--- row runs wider than any screen. Each cell carries its own caption instead.
-local function LabeledCell(props: { LayoutOrder: number, label: string, children: React.ReactNode? })
-	return React.createElement(View, {
-		tag = "col align-x-left gap-small auto-xy",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Label = React.createElement(Text, {
-			Text = props.label,
-			tag = "auto-xy text-caption-small text-align-x-left content-muted",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = "col auto-xy",
-			LayoutOrder = 2,
-		}, props.children),
-	})
 end
 
 local function WidthFrame(props: { children: React.ReactNode? })
@@ -210,10 +193,10 @@ local function SizingStory(): React.ReactNode
 		tag = STORY_PAGE_TAG,
 	}, {
 		Size = React.createElement(
-			StorySection,
+			Section,
 			{
 				LayoutOrder = 1,
-				caption = "Size",
+				name = "Size",
 				note = "size drives the label typography as well as the field, so both scale together. Cells share one width so only the scaling differs.",
 				contentTag = SWEEP_ROW_TAG,
 			},
@@ -231,10 +214,10 @@ local function SizingStory(): React.ReactNode
 			end)
 		),
 		Width = React.createElement(
-			StorySection,
+			Section,
 			{
 				LayoutOrder = 2,
-				caption = "Width",
+				name = "Width",
 				note = "Omitting width falls back to a 400px footprint scaled for the platform. Cells sit in a 600px frame so Fill has a parent to fill.",
 				contentTag = SWEEP_TAG,
 			},
@@ -255,10 +238,10 @@ local function SizingStory(): React.ReactNode
 			end)
 		),
 		Height = React.createElement(
-			StorySection,
+			Section,
 			{
 				LayoutOrder = 3,
-				caption = "Height",
+				name = "Height",
 				note = "numLines fixes how many lines the field shows at once; anything longer scrolls. A single line drops the multi-line treatment entirely.",
 				contentTag = SWEEP_ROW_TAG,
 			},
@@ -350,9 +333,9 @@ local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
 		tag = STORY_PAGE_TAG,
 	}, {
-		Wrapping = React.createElement(StorySection, {
+		Wrapping = React.createElement(Section, {
 			LayoutOrder = 1,
-			caption = "Wrapping",
+			name = "Wrapping",
 			contentTag = SWEEP_TAG,
 		}, {
 			LongValue = React.createElement(
@@ -363,9 +346,9 @@ local function ContentStory(): React.ReactNode
 				})
 			),
 		}),
-		Overflow = React.createElement(StorySection, {
+		Overflow = React.createElement(Section, {
 			LayoutOrder = 2,
-			caption = "Overflow",
+			name = "Overflow",
 			note = "Past numLines the field keeps its height and scrolls.",
 			contentTag = SWEEP_TAG,
 		}, {
@@ -377,9 +360,9 @@ local function ContentStory(): React.ReactNode
 				})
 			),
 		}),
-		ClearButton = React.createElement(StorySection, {
+		ClearButton = React.createElement(Section, {
 			LayoutOrder = 3,
-			caption = "Clear button",
+			name = "Clear button",
 			note = "The clear affordance is only rendered while the field holds text, so the cell is seeded. Clearing is in Controlled component.",
 			contentTag = SWEEP_TAG,
 		}, {
@@ -392,9 +375,9 @@ local function ContentStory(): React.ReactNode
 				})
 			),
 		}),
-		Placeholder = React.createElement(StorySection, {
+		Placeholder = React.createElement(Section, {
 			LayoutOrder = 4,
-			caption = "Placeholder",
+			name = "Placeholder",
 			contentTag = SWEEP_TAG,
 		}, {
 			Empty = React.createElement(StaticTextArea, {
@@ -415,7 +398,6 @@ return {
 		},
 		{
 			name = "Variants",
-			summary = "Utility drops both the container background and its stroke, so only the text marks the field.",
 			story = VariantsStory,
 		},
 		{
@@ -424,7 +406,6 @@ return {
 		},
 		{
 			name = "States",
-			summary = "hasError restyles the hint rather than adding layout, so Error is shown with a hint. isRequired is swept in its true form only; false renders an optional marker on the label rather than a state.",
 			story = StatesStory,
 		},
 		{

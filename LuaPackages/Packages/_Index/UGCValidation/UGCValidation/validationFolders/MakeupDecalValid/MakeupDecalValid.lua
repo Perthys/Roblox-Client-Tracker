@@ -9,7 +9,6 @@ local ValidationEnums = require(root.validationSystem.ValidationEnums)
 local ErrorSourceStrings = require(root.validationSystem.ErrorSourceStrings)
 local createEditableInstancesForContext = require(root.util.createEditableInstancesForContext)
 
-local getFFlagUGCValidateMigrateWrapAndMakeup = require(root.flags.getFFlagUGCValidateMigrateWrapAndMakeup)
 local getFFlagUGCValidateDecalTextureLimits = require(root.flags.getFFlagUGCValidateDecalTextureLimits)
 local getFFlagUGCValidationAllowFullVaas = require(root.flags.getFFlagUGCValidationAllowFullVaas)
 
@@ -20,7 +19,9 @@ local FIntValidateMakeupZoneIncludeToleranceHundredPercent =
 local FIntValidateMakeupZoneExcludeToleranceHundredPercent =
 	game:DefineFastInt("ValidateMakeupZoneExcludeHundredthsPercent", 200)
 
--- Flag-off routing tables: consumerEnv is unset pre-FFlagUGCValidateMigrateSchemaProperties, so route by source.
+-- Server-side and IEC consumer routing. Read directly from `consumerConfig.source`
+-- (always populated) so the RCC-retry and IEC pre-load paths work regardless of
+-- consumer surface.
 local SERVER_SOURCES = {
 	Publish = true,
 	Backend = true,
@@ -33,8 +34,6 @@ local IEC_SOURCES = {
 }
 
 local MakeupDecalValid = {}
-
-MakeupDecalValid.fflag = getFFlagUGCValidateMigrateWrapAndMakeup
 
 MakeupDecalValid.categories = { ValidationEnums.UploadCategory.MAKEUP }
 

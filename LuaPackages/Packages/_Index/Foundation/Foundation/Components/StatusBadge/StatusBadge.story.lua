@@ -12,11 +12,12 @@ local StatusBadge = require(Foundation.Components.StatusBadge)
 local StatusBadgeShape = require(Foundation.Enums.StatusBadgeShape)
 local StatusBadgeSize = require(Foundation.Enums.StatusBadgeSize)
 local StatusBadgeVariant = require(Foundation.Enums.StatusBadgeVariant)
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local View = require(Foundation.Components.View)
 
 local MatrixGrid = MatrixGridShared.MatrixGrid
 local matrixLabel = MatrixGridShared.matrixLabel
+local Section = StorySection.Section
 
 type BadgeSize = BadgeSize.BadgeSize
 type StatusBadgeShape = StatusBadgeShape.StatusBadgeShape
@@ -41,16 +42,9 @@ local SIZE_ORDER: { StatusBadgeSize } = {
 	StatusBadgeSize.Small,
 }
 
--- `columnHeaders` is an invariant `{ string }`, so the enum orders are copied rather than cast.
-local VARIANT_HEADERS: { string } = Dash.map(VARIANT_ORDER, function(variant): string
-	return variant
-end)
-local SHAPE_HEADERS: { string } = Dash.map(SHAPE_ORDER, function(shape): string
-	return shape
-end)
-local SIZE_HEADERS: { string } = Dash.map(SIZE_ORDER, function(size): string
-	return size
-end)
+local VARIANT_HEADERS: { string } = MatrixGridShared.enumHeaders(VARIANT_ORDER)
+local SHAPE_HEADERS: { string } = MatrixGridShared.enumHeaders(SHAPE_ORDER)
+local SIZE_HEADERS: { string } = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local DEFAULT_TEXT = "Label"
 local LONG_TEXT = "This is a longer label than the maximum content width allows"
@@ -68,28 +62,6 @@ local CELL_COLUMN_WIDTH = 120
 local TRUNCATION_CELL_COLUMN_WIDTH = 240
 -- A pairing cell holds both components; the widest pair measures 151px, so the columns still align.
 local SIBLING_CELL_COLUMN_WIDTH = 170
-
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large align-y-top auto-xy wrap",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
 
 local function SiblingPair(props: { size: StatusBadgeSize, badgeSize: BadgeSize }): React.ReactNode
 	return React.createElement(View, {
@@ -152,7 +124,7 @@ end
 
 local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Size = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -208,7 +180,7 @@ end
 
 local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Truncation = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -238,7 +210,7 @@ end
 
 local function InContextStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Badges = React.createElement(Section, {
 			LayoutOrder = 1,

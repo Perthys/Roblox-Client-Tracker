@@ -17,6 +17,7 @@ local ShortcutSeparator = require(Foundation.Enums.ShortcutSeparator)
 local ShortcutVariant = require(Foundation.Enums.ShortcutVariant)
 
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local MatrixGrid = MatrixGridShared.MatrixGrid
 local matrixLabel = MatrixGridShared.matrixLabel
 type MatrixGridRow = MatrixGridShared.MatrixGridRow
@@ -599,7 +600,7 @@ end
 
 local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Keybinding = React.createElement(KeybindingSection, { LayoutOrder = 1 }),
 		Keys = React.createElement(Section, {

@@ -247,9 +247,7 @@ local function ContentStory()
 		}, {
 			Matrix = React.createElement(MatrixGrid, {
 				labelColumnWidth = FULL_COMPOSITION_MATRIX_LABEL_WIDTH,
-				columnHeaders = Dash.map(SIZE_ORDER, function(size)
-					return size
-				end),
+				columnHeaders = MatrixGridShared.enumHeaders(SIZE_ORDER),
 				cellColumnWidth = ACTIONS_MATRIX_CELL_WIDTH,
 				headerTextAlign = "left",
 				cellAlign = "left",
@@ -302,16 +300,14 @@ return {
 		},
 		{
 			name = "Controlled component",
-			summary = "Parent owns open state; dismiss via onClose or action buttons.",
 			story = ControlledStory,
 		},
 		{
 			name = "Content",
-			summary = "Optional subparts and full compositions.",
 			story = ContentStory,
 		},
 	},
 	controls = {
-		size = Dash.values(DialogSize),
+		size = SIZE_ORDER,
 	},
 }

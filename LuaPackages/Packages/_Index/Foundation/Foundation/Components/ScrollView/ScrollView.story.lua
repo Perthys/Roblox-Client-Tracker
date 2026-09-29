@@ -477,7 +477,6 @@ return {
 		},
 		{
 			name = "Sizing",
-			summary = "The wrapper Size is the scroll window; canvas size is independent and is what decides whether anything actually scrolls.",
 			story = SizingStory,
 		},
 		{
@@ -494,7 +493,6 @@ return {
 		},
 		{
 			name = "Content",
-			summary = "Auto paints the bar only while the view is hovered, selected, or pressed and fades it three seconds after the last scroll, so every other story here pins Always.",
 			story = ContentStory,
 		},
 	},

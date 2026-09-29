@@ -190,9 +190,7 @@ local function ModeGrid(props: {
 	return React.createElement(StoryMatrixGrid, {
 		LayoutOrder = props.LayoutOrder,
 		showLabelColumn = false,
-		columnHeaders = Dash.map(props.modes, function(value): string
-			return value
-		end),
+		columnHeaders = MatrixGridShared.enumHeaders(props.modes),
 		cellColumnWidth = PICKER_WIDTH,
 		rows = {
 			{
@@ -380,7 +378,6 @@ local function ContentStory(): React.ReactNode
 			LayoutOrder = 1,
 			name = "Optional affordances",
 			note = "Passing onAlphaChanged is what mounts the alpha slider.",
-			contentTag = "row gap-large align-y-top auto-xy wrap",
 		}, {
 			Default = React.createElement(LabeledCell, {
 				LayoutOrder = 1,
@@ -412,7 +409,6 @@ local function ContentStory(): React.ReactNode
 			LayoutOrder = 2,
 			name = "Empty",
 			note = "Omitting saturation and value leaves every input blank and hides the SV indicator until the caller completes the color.",
-			contentTag = "row gap-large align-y-top auto-xy wrap",
 		}, {
 			Complete = React.createElement(LabeledCell, {
 				LayoutOrder = 1,
@@ -453,7 +449,6 @@ return {
 		},
 		{
 			name = "Color input mode",
-			summary = "RGBA is absent from the sweep because ColorInputs derives that tab from RGB whenever onAlphaChanged is passed.",
 			story = ColorInputModeStory,
 		},
 		{
@@ -462,7 +457,6 @@ return {
 		},
 		{
 			name = "Change reporting",
-			summary = "Selecting a brick reports a named BrickColor and no drag, while scrubbing reports a stream of Color3 values bracketed by the same drag pair for the SV canvas, hue, and alpha; the update count resets when a drag starts.",
 			story = ChangeReportingStory,
 		},
 		{

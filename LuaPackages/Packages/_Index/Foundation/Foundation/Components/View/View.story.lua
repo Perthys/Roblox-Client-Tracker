@@ -144,9 +144,7 @@ end
 
 local GROUP_TRANSPARENCY_OPTIONS = { 0, 0.25, 0.5, 0.75, 1 }
 
-local GROUP_TRANSPARENCY_HEADERS: { string } = Dash.map(GROUP_TRANSPARENCY_OPTIONS, function(value): string
-	return tostring(value)
-end)
+local GROUP_TRANSPARENCY_HEADERS: { string } = MatrixGridShared.enumHeaders(GROUP_TRANSPARENCY_OPTIONS)
 
 local DIMENSION_SIZES: { UDim2 } = {
 	UDim2.fromOffset(80, 48),
@@ -1094,12 +1092,10 @@ return {
 		},
 		{
 			name = "GroupTransparency",
-			summary = "Any value above 0 renders the subtree into a CanvasGroup, so the group fades as one instead of per child.",
 			story = GroupTransparencyStory,
 		},
 		{
 			name = "Interaction",
-			summary = "Passing onActivated or onStateChanged swaps the engine instance to an ImageButton; without one, a View never reports state.",
 			story = InteractionStory,
 		},
 		{
@@ -1108,7 +1104,6 @@ return {
 		},
 		{
 			name = "Style library",
-			summary = "Developer catalog of the background, stroke, and radius tags a View can carry.",
 			story = StyleLibraryStory,
 		},
 	},

@@ -9,7 +9,6 @@ local RunService = game:GetService("RunService")
 local canPublishAssets = require(root.util.canPublishAssets)
 local getAssetCreationDetails = require(root.util.getAssetCreationDetails)
 local getAssetCreationDetailsRCC = require(root.util.getAssetCreationDetailsRCC)
-local getFFlagUGCValidateMigrateSchemaProperties = require(root.flags.getFFlagUGCValidateMigrateSchemaProperties)
 local getFFlagUGCValidateForwardIECRestrictedUserIds =
 	require(root.flags.getFFlagUGCValidateForwardIECRestrictedUserIds)
 local getFFlagUGCValidateBackendInExperienceViaCanPublish =
@@ -199,7 +198,6 @@ DescendantIdsAllowed.requiredData = {
 	ValidationEnums.SharedDataMember.consumerConfig,
 	ValidationEnums.SharedDataMember.contentIds,
 }
-DescendantIdsAllowed.fflag = getFFlagUGCValidateMigrateSchemaProperties
 DescendantIdsAllowed.expectedFailures = {}
 
 DescendantIdsAllowed.run = function(reporter: Types.ValidationReporter, data: Types.SharedData)

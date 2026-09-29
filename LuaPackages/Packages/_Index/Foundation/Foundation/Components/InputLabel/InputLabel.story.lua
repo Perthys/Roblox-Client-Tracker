@@ -8,11 +8,12 @@ local Checkbox = require(Foundation.Components.Checkbox)
 local InputLabel = require(Foundation.Components.InputLabel)
 local InputLabelSize = require(Foundation.Enums.InputLabelSize)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
-local Text = require(Foundation.Components.Text)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local TextInput = require(Foundation.Components.TextInput)
 local View = require(Foundation.Components.View)
 
 local MatrixGrid = MatrixGridShared.MatrixGrid
+local Section = StorySection.Section
 
 type InputLabelSize = InputLabelSize.InputLabelSize
 
@@ -36,31 +37,7 @@ local PLAYGROUND_SIZE_OPTIONS: { InputLabelSize } = {
 	InputLabelSize.Large,
 }
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
-
-local function Section(props: {
-	LayoutOrder: number,
-	name: string,
-	contentTag: string?,
-	children: React.ReactNode,
-})
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
-		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.name,
-			tag = "auto-xy text-label-medium content-default",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-large auto-xy wrap",
-			LayoutOrder = 2,
-		}, props.children),
-	})
-end
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local function PlaygroundStory(props: {
 	controls: {
@@ -88,7 +65,7 @@ end
 
 local function SizingStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Size = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -149,7 +126,7 @@ end
 
 local function ContentStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		Wrapping = React.createElement(Section, {
 			LayoutOrder = 1,
@@ -196,7 +173,7 @@ end
 
 local function InContextStory(): React.ReactNode
 	return React.createElement(View, {
-		tag = "col gap-xxlarge size-full-0 auto-y padding-y-large bg-surface-0",
+		tag = StorySection.STORY_PAGE_COL_TAG,
 	}, {
 		InCheckbox = React.createElement(Section, {
 			LayoutOrder = 1,

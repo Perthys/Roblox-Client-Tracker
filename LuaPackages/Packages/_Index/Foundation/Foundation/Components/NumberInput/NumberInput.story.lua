@@ -19,6 +19,7 @@ local ScrubBehavior = require(Foundation.Enums.ScrubBehavior)
 type ScrubBehavior = ScrubBehavior.ScrubBehavior
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local StoryIcons = require(Foundation.Utility.Stories.Shared.StoryIcons)
+local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local Text = require(Foundation.Components.Text)
 local View = require(Foundation.Components.View)
 
@@ -33,6 +34,10 @@ local SIZE_ORDER: { InputSize } = {
 	InputSize.Small,
 	InputSize.Medium,
 	InputSize.Large,
+}
+local FOCUS_BEHAVIOR_ORDER: { InputFocusBehavior } = {
+	InputFocusBehavior.Clear,
+	InputFocusBehavior.Highlight,
 }
 local VARIANT_ORDER: { InputVariant } = {
 	InputVariant.Standard,
@@ -108,20 +113,11 @@ type SectionProps = {
 }
 
 local function Section(props: SectionProps)
-	return React.createElement(View, {
-		tag = "col gap-medium size-full-0 auto-y",
+	return React.createElement(StorySection.Section, {
 		LayoutOrder = props.LayoutOrder,
-	}, {
-		Title = React.createElement(Text, {
-			Text = props.caption,
-			tag = "auto-xy text-label-medium text-align-x-left content-default",
-			LayoutOrder = 1,
-		}),
-		Content = React.createElement(View, {
-			tag = props.contentTag or "row gap-xxlarge auto-xy wrap",
-			LayoutOrder = 2,
-		}, props.children),
-	})
+		name = props.caption,
+		contentTag = props.contentTag or "row gap-xxlarge auto-xy wrap",
+	}, props.children)
 end
 
 type GroupProps = {
@@ -754,7 +750,6 @@ local stories = {
 }
 table.insert(stories, {
 	name = "Expression input",
-	summary = "Uses `onTextChanged` to allow for custom expressions to be written instead of exclusively numbers.",
 	story = ExpressionInputStory,
 })
 
@@ -785,6 +780,6 @@ return {
 		leadingIcon = ICON_CONTROL_OPTIONS,
 		trailingIcon = if Flags.FoundationNumberInputBeta then ICON_CONTROL_OPTIONS else nil,
 		hasControls = if Flags.FoundationNumberInputBeta then true else nil,
-		focusBehavior = { React.None, unpack(Dash.values(InputFocusBehavior)) },
+		focusBehavior = { React.None, unpack(FOCUS_BEHAVIOR_ORDER) },
 	},
 }

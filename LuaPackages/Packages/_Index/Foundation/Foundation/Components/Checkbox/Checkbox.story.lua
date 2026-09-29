@@ -5,7 +5,6 @@ local Dash = require(Packages.Dash)
 local React = require(Packages.React)
 
 local Checkbox = require(Foundation.Components.Checkbox)
-local Flags = require(Foundation.Utility.Flags)
 local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local StorySection = require(Foundation.Utility.Stories.Shared.StorySection)
 local View = require(Foundation.Components.View)
@@ -60,13 +59,10 @@ local STATE_ORDER: { StateFixture } = {
 	{ label = "isDisabled", isDisabled = true },
 	{ label = "isDisabled · checked", isChecked = true, isDisabled = true },
 	{ label = "isDisabled · indeterminate", isIndeterminate = true, isDisabled = true },
+	{ label = "hint", hint = HINT },
 }
 
-local HINT_FIXTURE: StateFixture = { label = "hint", hint = HINT }
-
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
 local function noop() end
 
@@ -88,7 +84,7 @@ local function PlaygroundStory(props: { controls: PlaygroundControls })
 	}, {
 		Checkbox = React.createElement(Checkbox, {
 			label = controls.label,
-			hint = if Flags.FoundationCheckboxBeta and controls.hint ~= "" then controls.hint else nil,
+			hint = if controls.hint ~= "" then controls.hint else nil,
 			isChecked = controls.isChecked,
 			isIndeterminate = controls.isIndeterminate,
 			isDisabled = controls.isDisabled,
@@ -166,10 +162,6 @@ end
 local function StatesStory()
 	local fixtures = table.clone(STATE_ORDER)
 
-	if Flags.FoundationCheckboxBeta then
-		table.insert(fixtures, HINT_FIXTURE)
-	end
-
 	return React.createElement(View, {
 		tag = `col gap-xxlarge {STORY_PAGE_TAG}`,
 	}, {
@@ -213,8 +205,7 @@ local function ControlledStory()
 end
 
 local function ContentStory()
-	local hint = if Flags.FoundationCheckboxBeta then LONG_HINT else nil
-
+	local hint = LONG_HINT
 	return React.createElement(View, {
 		tag = `col gap-xxlarge {STORY_PAGE_TAG}`,
 	}, {
@@ -246,14 +237,15 @@ local function ContentStory()
 	})
 end
 
-local controls: { [string]: unknown } = Dash.join({
+local controls: { [string]: unknown } = {
 	label = LABEL,
 	size = SIZE_ORDER,
 	placement = PLACEMENT_ORDER,
 	isChecked = false,
 	isIndeterminate = false,
 	isDisabled = false,
-}, if Flags.FoundationCheckboxBeta then { hint = HINT } else {})
+	hint = HINT,
+}
 
 return {
 	summary = "Checkbox turns a single boolean on or off, with an optional label and hint beside it.",

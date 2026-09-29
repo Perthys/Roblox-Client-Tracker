@@ -8,6 +8,7 @@ local React = require(Packages.React)
 local FillBehavior = require(Foundation.Enums.FillBehavior)
 local Flags = require(Foundation.Utility.Flags)
 local InputSize = require(Foundation.Enums.InputSize)
+local MatrixGridShared = require(Foundation.Utility.Stories.Shared.MatrixGrid)
 local SegmentedControl = require(Foundation.Components.SegmentedControl)
 local SegmentedControlVariant = require(Foundation.Enums.SegmentedControlVariant)
 local StoryIcons = require(Foundation.Utility.Stories.Shared.StoryIcons)
@@ -59,17 +60,11 @@ local FILL_BEHAVIOR_ORDER: { FillBehavior } = {
 
 local VALUE_ORDER: { ItemId } = { "1", "2", "3" }
 
-local SIZE_HEADERS = Dash.map(SIZE_ORDER, function(value): string
-	return value
-end)
+local SIZE_HEADERS = MatrixGridShared.enumHeaders(SIZE_ORDER)
 
-local VARIANT_HEADERS = Dash.map(VARIANT_ORDER, function(value): string
-	return value
-end)
+local VARIANT_HEADERS = MatrixGridShared.enumHeaders(VARIANT_ORDER)
 
-local FILL_BEHAVIOR_HEADERS = Dash.map(FILL_BEHAVIOR_ORDER, function(value): string
-	return value
-end)
+local FILL_BEHAVIOR_HEADERS = MatrixGridShared.enumHeaders(FILL_BEHAVIOR_ORDER)
 
 local TEXT_SEGMENTS: { Segment } = {
 	{ id = "1", text = "Label" },
