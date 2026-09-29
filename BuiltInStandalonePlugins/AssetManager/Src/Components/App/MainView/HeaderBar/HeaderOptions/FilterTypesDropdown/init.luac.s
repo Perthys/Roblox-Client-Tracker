@@ -162,7 +162,7 @@ PROTO_7:
       126 GETTABLEKS                       R22 R22 K5 ["createElement"]
       128 GETUPVAL                         R23 7
       129 GETTABLEKS                       R23 R23 K6 ["View"]
-      131 DUPTABLE                         R24 K52 [{["LayoutOrder"] = 1, ["tag"] = "col gap-small size-full-0 auto-y padding-bottom-small"}]
+      131 DUPTABLE                         R24 K52 [{["LayoutOrder"] = 1, ["tag"] = "col size-full-0 auto-y padding-xxsmall"}]
       132 DUPTABLE                         R25 K54 [{"SearchInput"}]
       133 GETUPVAL                         R26 3
       134 GETTABLEKS                       R26 R26 K5 ["createElement"]
@@ -215,7 +215,7 @@ PROTO_7:
       207 GETTABLEKS                       R22 R22 K5 ["createElement"]
       209 GETUPVAL                         R23 7
       210 GETTABLEKS                       R23 R23 K6 ["View"]
-      212 DUPTABLE                         R24 K83 [{["LayoutOrder"] = 2, ["tag"] = "col gap-xsmall auto-xy padding-bottom-xsmall"}]
+      212 DUPTABLE                         R24 K83 [{["LayoutOrder"] = 2, ["tag"] = "col gap-xsmall auto-xy padding-top-xsmall padding-bottom-xsmall"}]
       213 GETIMPORT                        R27 K85 [next]
       215 MOVE                             R28 R10
       216 CALL                             R27 1 1

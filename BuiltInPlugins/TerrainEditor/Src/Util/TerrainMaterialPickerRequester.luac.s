@@ -118,7 +118,7 @@ PROTO_6:
         4 LOADB                            R4 0
         5 NAMECALL                         R2 R2 K1 ["GenerateGUID"]
         7 CALL                             R2 2 1
-        8 DUPTABLE                         R3 K7 [{"requestId", "selectedSlotIndex", "allowAir", "allowWater", "anchorWidgetUri"}]
+        8 DUPTABLE                         R3 K10 [{["requestId"], ["selectedSlotIndex"], ["allowAir"], ["allowWater"], ["allowInvalidSource"] = False, ["invalidSourceSelected"] = False, ["anchorWidgetUri"]}]
         9 SETTABLEKS                       R2 R3 K2 ["requestId"]
        11 GETTABLEKS                       R4 R1 K3 ["selectedSlotIndex"]
        13 SETTABLEKS                       R4 R3 K3 ["selectedSlotIndex"]
@@ -126,29 +126,29 @@ PROTO_6:
        17 SETTABLEKS                       R4 R3 K4 ["allowAir"]
        19 GETTABLEKS                       R4 R1 K5 ["allowWater"]
        21 SETTABLEKS                       R4 R3 K5 ["allowWater"]
-       23 GETTABLEKS                       R4 R1 K6 ["anchorWidgetUri"]
-       25 SETTABLEKS                       R4 R3 K6 ["anchorWidgetUri"]
+       23 GETTABLEKS                       R4 R1 K9 ["anchorWidgetUri"]
+       25 SETTABLEKS                       R4 R3 K9 ["anchorWidgetUri"]
        27 GETUPVAL                         R5 1
-       28 GETTABLEKS                       R5 R5 K8 ["isValidRequest"]
+       28 GETTABLEKS                       R5 R5 K11 ["isValidRequest"]
        30 MOVE                             R6 R3
        31 CALL                             R5 1 1
-       32 FASTCALL2K                       ASSERT R5 K9 ; [+4]
-       34 LOADK                            R6 K9 ["Invalid Terrain material picker request"]
-       35 GETIMPORT                        R4 K11 [assert]
+       32 FASTCALL2K                       ASSERT R5 K12 ; [+4]
+       34 LOADK                            R6 K12 ["Invalid Terrain material picker request"]
+       35 GETIMPORT                        R4 K14 [assert]
        37 CALL                             R4 2 0
        38 SETTABLEKS                       R2 R0 K2 ["requestId"]
-       40 GETTABLEKS                       R4 R0 K12 ["communication"]
+       40 GETTABLEKS                       R4 R0 K15 ["communication"]
        42 GETUPVAL                         R6 2
-       43 GETTABLEKS                       R6 R6 K13 ["CPC_EVENTS"]
-       45 GETTABLEKS                       R6 R6 K14 ["MATERIAL_PICKER_RESPONSE"]
+       43 GETTABLEKS                       R6 R6 K16 ["CPC_EVENTS"]
+       45 GETTABLEKS                       R6 R6 K17 ["MATERIAL_PICKER_RESPONSE"]
        47 NEWCLOSURE                       R7 P0
        48 CAPTURE                          VAL R0
        49 CAPTURE                          VAL R2
        50 CAPTURE                          UPVAL U1
-       51 NAMECALL                         R4 R4 K15 ["Connect"]
+       51 NAMECALL                         R4 R4 K18 ["Connect"]
        53 CALL                             R4 3 1
-       54 SETTABLEKS                       R4 R0 K16 ["responseConnection"]
-       56 GETIMPORT                        R4 K19 [task.spawn]
+       54 SETTABLEKS                       R4 R0 K19 ["responseConnection"]
+       56 GETIMPORT                        R4 K22 [task.spawn]
        58 NEWCLOSURE                       R5 P1
        59 CAPTURE                          VAL R0
        60 CAPTURE                          VAL R2

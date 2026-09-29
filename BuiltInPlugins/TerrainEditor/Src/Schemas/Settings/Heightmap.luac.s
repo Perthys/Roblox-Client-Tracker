@@ -171,7 +171,7 @@ MAIN:
        29 GETTABLEKS                       R6 R1 K13 ["Storage"]
        31 GETTABLEKS                       R7 R3 K11 ["HeightmapSettings"]
        33 NEWTABLE                         R8 2 0
-       35 NEWTABLE                         R9 4 0
+       35 NEWTABLE                         R9 8 0
        37 GETTABLEKS                       R10 R4 K14 ["Colormap"]
        39 GETTABLEKS                       R11 R6 K15 ["LocalSession"]
        41 SETTABLE                         R11 R9 R10
@@ -184,11 +184,14 @@ MAIN:
        52 GETTABLEKS                       R10 R4 K18 ["DefaultMaterial"]
        54 GETTABLEKS                       R11 R6 K19 ["LocalPersistent"]
        56 SETTABLE                         R11 R9 R10
-       57 SETTABLEKS                       R9 R8 K13 ["Storage"]
-       59 DUPCLOSURE                       R9 K20 [PROTO_2]
-       60 CAPTURE                          VAL R2
-       61 CAPTURE                          VAL R4
-       62 CAPTURE                          VAL R5
-       63 CAPTURE                          VAL R7
-       64 SETTABLEKS                       R9 R8 K21 ["Generator"]
-       66 RETURN                           R8 1
+       57 GETTABLEKS                       R10 R4 K20 ["DefaultMaterialSlot"]
+       59 GETTABLEKS                       R11 R6 K21 ["PlacePersistent"]
+       61 SETTABLE                         R11 R9 R10
+       62 SETTABLEKS                       R9 R8 K13 ["Storage"]
+       64 DUPCLOSURE                       R9 K22 [PROTO_2]
+       65 CAPTURE                          VAL R2
+       66 CAPTURE                          VAL R4
+       67 CAPTURE                          VAL R5
+       68 CAPTURE                          VAL R7
+       69 SETTABLEKS                       R9 R8 K23 ["Generator"]
+       71 RETURN                           R8 1

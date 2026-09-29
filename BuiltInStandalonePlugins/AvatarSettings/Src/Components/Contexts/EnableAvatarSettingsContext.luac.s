@@ -13,7 +13,7 @@ MAIN:
        18 GETTABLEKS                       R3 R3 K9 ["Util"]
        20 GETTABLEKS                       R3 R3 K10 ["createUnimplemented"]
        22 CALL                             R2 1 1
-       23 DUPTABLE                         R3 K17 [{["default"] = True, ["currentGameId"] = 0, ["setCurrentGameId"], ["requestSaveToRoblox"]}]
+       23 DUPTABLE                         R3 K17 [{["default"] = True, ["currentGameId"] = , ["setCurrentGameId"], ["requestSaveToRoblox"]}]
        24 MOVE                             R4 R2
        25 LOADK                            R5 K15 ["setCurrentGameId"]
        26 CALL                             R4 1 1

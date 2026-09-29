@@ -156,38 +156,42 @@ MAIN:
        20 GETTABLEKS                       R3 R3 K10 ["Framework"]
        22 CALL                             R2 1 1
        23 GETIMPORT                        R3 K5 [require]
-       25 GETTABLEKS                       R4 R0 K9 ["Packages"]
-       27 GETTABLEKS                       R4 R4 K11 ["React"]
-       29 CALL                             R3 1 1
-       30 GETIMPORT                        R4 K5 [require]
-       32 GETTABLEKS                       R5 R0 K9 ["Packages"]
-       34 GETTABLEKS                       R5 R5 K12 ["ReactUtils"]
-       36 CALL                             R4 1 1
-       37 GETIMPORT                        R5 K5 [require]
-       39 GETTABLEKS                       R6 R0 K6 ["Src"]
-       41 GETTABLEKS                       R6 R6 K7 ["Util"]
-       43 GETTABLEKS                       R6 R6 K13 ["isValidNumberInput"]
+       25 GETTABLEKS                       R4 R0 K6 ["Src"]
+       27 GETTABLEKS                       R4 R4 K11 ["Components"]
+       29 GETTABLEKS                       R4 R4 K12 ["NumericTextInput"]
+       31 CALL                             R3 1 1
+       32 GETIMPORT                        R4 K5 [require]
+       34 GETTABLEKS                       R5 R0 K9 ["Packages"]
+       36 GETTABLEKS                       R5 R5 K13 ["React"]
+       38 CALL                             R4 1 1
+       39 GETIMPORT                        R5 K5 [require]
+       41 GETTABLEKS                       R6 R0 K9 ["Packages"]
+       43 GETTABLEKS                       R6 R6 K14 ["ReactUtils"]
        45 CALL                             R5 1 1
-       46 GETTABLEKS                       R6 R2 K14 ["UI"]
-       48 GETTABLEKS                       R7 R6 K15 ["Pane"]
-       50 GETTABLEKS                       R8 R6 K16 ["TextInput"]
-       52 GETTABLEKS                       R9 R6 K17 ["Tooltip"]
-       54 GETTABLEKS                       R10 R6 K18 ["showContextMenu"]
-       56 GETTABLEKS                       R11 R2 K19 ["ContextServices"]
-       58 GETTABLEKS                       R12 R11 K20 ["Localization"]
-       60 GETTABLEKS                       R13 R11 K21 ["Plugin"]
-       62 GETTABLEKS                       R14 R4 K22 ["createNextOrder"]
-       64 GETTABLEKS                       R15 R3 K23 ["createElement"]
-       66 DUPCLOSURE                       R16 K24 [PROTO_3]
-       67 CAPTURE                          VAL R12
-       68 CAPTURE                          VAL R14
-       69 CAPTURE                          VAL R5
-       70 CAPTURE                          VAL R13
-       71 CAPTURE                          VAL R15
-       72 CAPTURE                          VAL R7
-       73 CAPTURE                          VAL R3
-       74 CAPTURE                          VAL R10
-       75 CAPTURE                          VAL R8
-       76 CAPTURE                          VAL R1
-       77 CAPTURE                          VAL R9
-       78 RETURN                           R16 1
+       46 GETIMPORT                        R6 K5 [require]
+       48 GETTABLEKS                       R7 R0 K6 ["Src"]
+       50 GETTABLEKS                       R7 R7 K7 ["Util"]
+       52 GETTABLEKS                       R7 R7 K15 ["isValidNumberInput"]
+       54 CALL                             R6 1 1
+       55 GETTABLEKS                       R7 R2 K16 ["UI"]
+       57 GETTABLEKS                       R8 R7 K17 ["Pane"]
+       59 GETTABLEKS                       R9 R7 K18 ["Tooltip"]
+       61 GETTABLEKS                       R10 R7 K19 ["showContextMenu"]
+       63 GETTABLEKS                       R11 R2 K20 ["ContextServices"]
+       65 GETTABLEKS                       R12 R11 K21 ["Localization"]
+       67 GETTABLEKS                       R13 R11 K22 ["Plugin"]
+       69 GETTABLEKS                       R14 R5 K23 ["createNextOrder"]
+       71 GETTABLEKS                       R15 R4 K24 ["createElement"]
+       73 DUPCLOSURE                       R16 K25 [PROTO_3]
+       74 CAPTURE                          VAL R12
+       75 CAPTURE                          VAL R14
+       76 CAPTURE                          VAL R6
+       77 CAPTURE                          VAL R13
+       78 CAPTURE                          VAL R15
+       79 CAPTURE                          VAL R8
+       80 CAPTURE                          VAL R4
+       81 CAPTURE                          VAL R10
+       82 CAPTURE                          VAL R3
+       83 CAPTURE                          VAL R1
+       84 CAPTURE                          VAL R9
+       85 RETURN                           R16 1

@@ -1,54 +1,65 @@
 PROTO_0:
-        0 GETUPVAL                         R0 0
-        1 CALL                             R0 0 2
-        2 GETUPVAL                         R2 1
-        3 GETTABLEKS                       R2 R2 K0 ["Hooks"]
-        5 GETTABLEKS                       R2 R2 K1 ["useTokens"]
-        7 CALL                             R2 0 1
-        8 GETUPVAL                         R3 2
-        9 GETTABLEKS                       R3 R3 K2 ["createElement"]
-       11 GETUPVAL                         R4 1
-       12 GETTABLEKS                       R4 R4 K3 ["View"]
-       14 DUPTABLE                         R5 K9 [{["Size"], ["tag"] = "position-center-center anchor-center-center", ["testId"] = "folder-thumbnail-content"}]
-       15 GETIMPORT                        R6 K12 [UDim2.fromOffset]
-       17 MOVE                             R7 R1
-       18 MOVE                             R8 R1
-       19 CALL                             R6 2 1
-       20 SETTABLEKS                       R6 R5 K4 ["Size"]
-       22 NEWTABLE                         R6 0 1
-       24 GETUPVAL                         R7 2
-       25 GETTABLEKS                       R7 R7 K2 ["createElement"]
-       27 GETUPVAL                         R8 1
-       28 GETTABLEKS                       R8 R8 K13 ["Icon"]
-       30 DUPTABLE                         R9 K18 [{"name", "variant", "style", "size"}]
-       31 GETUPVAL                         R10 1
-       32 GETTABLEKS                       R10 R10 K19 ["Enums"]
-       34 GETTABLEKS                       R10 R10 K20 ["IconName"]
-       36 GETTABLEKS                       R10 R10 K21 ["Folder"]
-       38 SETTABLEKS                       R10 R9 K14 ["name"]
-       40 GETUPVAL                         R10 1
-       41 GETTABLEKS                       R10 R10 K19 ["Enums"]
-       43 GETTABLEKS                       R10 R10 K22 ["IconVariant"]
-       45 GETTABLEKS                       R10 R10 K23 ["Filled"]
-       47 SETTABLEKS                       R10 R9 K15 ["variant"]
-       49 GETTABLEKS                       R10 R2 K24 ["Color"]
-       51 GETTABLEKS                       R10 R10 K25 ["Extended"]
-       53 GETTABLEKS                       R10 R10 K26 ["Yellow"]
-       55 GETTABLEKS                       R10 R10 K27 ["Yellow_300"]
-       57 SETTABLEKS                       R10 R9 K16 ["style"]
-       59 SETTABLEKS                       R1 R9 K17 ["size"]
-       61 CALL                             R7 2 -1
-       62 SETLIST                          R6 R7 -1 [1]
-       64 CALL                             R3 3 -1
-       65 RETURN                           R3 -1
+        0 GETTABLEKS                       R1 R0 K0 ["Color"]
+        2 GETTABLEKS                       R1 R1 K1 ["Extended"]
+        4 GETTABLEKS                       R1 R1 K2 ["Yellow"]
+        6 GETTABLEKS                       R1 R1 K3 ["Yellow_300"]
+        8 RETURN                           R1 1
 
 PROTO_1:
+        0 GETTABLEKS                       R1 R0 K0 ["Color"]
+        2 GETTABLEKS                       R1 R1 K1 ["Content"]
+        4 GETTABLEKS                       R1 R1 K2 ["Default"]
+        6 RETURN                           R1 1
+
+PROTO_2:
+        0 GETUPVAL                         R1 0
+        1 CALL                             R1 0 2
+        2 GETUPVAL                         R3 1
+        3 GETTABLEKS                       R3 R3 K0 ["Hooks"]
+        5 GETTABLEKS                       R3 R3 K1 ["useTokens"]
+        7 CALL                             R3 0 1
+        8 GETUPVAL                         R4 2
+        9 GETTABLEKS                       R4 R4 K2 ["createElement"]
+       11 GETUPVAL                         R5 1
+       12 GETTABLEKS                       R5 R5 K3 ["View"]
+       14 DUPTABLE                         R6 K8 [{["Size"], ["tag"] = "position-center-center anchor-center-center", ["testId"]}]
+       15 GETIMPORT                        R7 K11 [UDim2.fromOffset]
+       17 MOVE                             R8 R2
+       18 MOVE                             R9 R2
+       19 CALL                             R7 2 1
+       20 SETTABLEKS                       R7 R6 K4 ["Size"]
+       22 GETTABLEKS                       R7 R0 K12 ["TestId"]
+       24 SETTABLEKS                       R7 R6 K7 ["testId"]
+       26 NEWTABLE                         R7 0 1
+       28 GETUPVAL                         R8 2
+       29 GETTABLEKS                       R8 R8 K2 ["createElement"]
+       31 GETUPVAL                         R9 1
+       32 GETTABLEKS                       R9 R9 K13 ["Icon"]
+       34 DUPTABLE                         R10 K18 [{"name", "variant", "style", "size"}]
+       35 GETTABLEKS                       R11 R0 K13 ["Icon"]
+       37 SETTABLEKS                       R11 R10 K14 ["name"]
+       39 GETUPVAL                         R11 1
+       40 GETTABLEKS                       R11 R11 K19 ["Enums"]
+       42 GETTABLEKS                       R11 R11 K20 ["IconVariant"]
+       44 GETTABLEKS                       R11 R11 K21 ["Filled"]
+       46 SETTABLEKS                       R11 R10 K15 ["variant"]
+       48 GETTABLEKS                       R11 R0 K22 ["getStyle"]
+       50 MOVE                             R12 R3
+       51 CALL                             R11 1 1
+       52 SETTABLEKS                       R11 R10 K16 ["style"]
+       54 SETTABLEKS                       R2 R10 K17 ["size"]
+       56 CALL                             R8 2 -1
+       57 SETLIST                          R7 R8 -1 [1]
+       59 CALL                             R4 3 -1
+       60 RETURN                           R4 -1
+
+PROTO_3:
         0 GETUPVAL                         R2 0
         1 MOVE                             R3 R1
         2 CALL                             R2 1 0
         3 RETURN                           R0 0
 
-PROTO_2:
+PROTO_4:
         0 GETUPVAL                         R0 0
         1 GETUPVAL                         R2 1
         2 GETTABLEKS                       R2 R2 K0 ["AssetId"]
@@ -60,110 +71,110 @@ PROTO_2:
        11 CALL                             R0 4 0
        12 RETURN                           R0 0
 
-PROTO_3:
-        0 GETTABLEKS                       R1 R0 K0 ["AssetType"]
-        2 GETUPVAL                         R2 0
-        3 GETTABLEKS                       R2 R2 K0 ["AssetType"]
-        5 GETTABLEKS                       R2 R2 K1 ["Folder"]
-        7 JUMPIFNOTEQ                      R1 R2 ; [+7]
-        9 GETUPVAL                         R1 1
-       10 GETTABLEKS                       R1 R1 K2 ["createElement"]
-       12 GETUPVAL                         R2 2
-       13 CALL                             R1 1 -1
-       14 RETURN                           R1 -1
-       15 GETUPVAL                         R1 3
-       16 GETTABLEKS                       R1 R1 K3 ["use"]
-       18 CALL                             R1 0 1
-       19 GETTABLEKS                       R4 R0 K4 ["AssetId"]
-       21 GETTABLEKS                       R5 R0 K0 ["AssetType"]
-       23 NAMECALL                         R2 R1 K5 ["getThumbnailForItem"]
-       25 CALL                             R2 3 1
-       26 GETUPVAL                         R3 1
-       27 GETTABLEKS                       R3 R3 K6 ["useState"]
-       29 GETIMPORT                        R4 K10 [Enum.AssetFetchStatus.None]
-       31 CALL                             R3 1 2
-       32 GETUPVAL                         R5 1
-       33 GETTABLEKS                       R5 R5 K11 ["useEffect"]
-       35 NEWCLOSURE                       R6 P0
-       36 CAPTURE                          VAL R1
-       37 CAPTURE                          VAL R0
-       38 CAPTURE                          VAL R4
-       39 NEWTABLE                         R7 0 1
-       41 GETTABLEKS                       R8 R0 K4 ["AssetId"]
-       43 SETLIST                          R7 R8 1 [1]
-       45 CALL                             R5 2 0
-       46 GETIMPORT                        R5 K13 [Enum.AssetFetchStatus.Success]
-       48 JUMPIFNOTEQ                      R3 R5 ; [+42]
-       50 GETUPVAL                         R5 1
-       51 GETTABLEKS                       R5 R5 K2 ["createElement"]
-       53 GETUPVAL                         R6 4
-       54 GETTABLEKS                       R6 R6 K14 ["Image"]
-       56 DUPTABLE                         R7 K19 [{["Image"], ["tag"] = "position-center-center anchor-center-center size-full", ["testId"] = "item-thumbnail-content"}]
-       57 SETTABLEKS                       R2 R7 K14 ["Image"]
-       59 CALL                             R5 2 1
-       60 GETTABLEKS                       R6 R0 K0 ["AssetType"]
-       62 GETUPVAL                         R7 0
-       63 GETTABLEKS                       R7 R7 K0 ["AssetType"]
-       65 GETTABLEKS                       R7 R7 K14 ["Image"]
-       67 JUMPIFEQ                         R6 R7 ; [+10]
-       69 GETTABLEKS                       R6 R0 K0 ["AssetType"]
-       71 GETUPVAL                         R7 0
-       72 GETTABLEKS                       R7 R7 K0 ["AssetType"]
-       74 GETTABLEKS                       R7 R7 K20 ["Decal"]
-       76 JUMPIFNOTEQ                      R6 R7 ; [+13]
-       78 GETUPVAL                         R6 1
-       79 GETTABLEKS                       R6 R6 K2 ["createElement"]
-       81 GETUPVAL                         R7 4
-       82 GETTABLEKS                       R7 R7 K21 ["View"]
-       84 DUPTABLE                         R8 K23 [{["tag"] = "size-full padding-xsmall"}]
-       85 DUPTABLE                         R9 K25 [{"Content"}]
-       86 SETTABLEKS                       R5 R9 K24 ["Content"]
-       88 CALL                             R6 3 -1
-       89 RETURN                           R6 -1
-       90 RETURN                           R5 1
-       91 GETIMPORT                        R5 K27 [Enum.AssetFetchStatus.Failure]
-       93 JUMPIFEQ                         R3 R5 ; [+5]
-       95 GETIMPORT                        R5 K29 [Enum.AssetFetchStatus.TimedOut]
-       97 JUMPIFNOTEQ                      R3 R5 ; [+33]
-       99 GETUPVAL                         R5 1
-      100 GETTABLEKS                       R5 R5 K2 ["createElement"]
-      102 GETUPVAL                         R6 4
-      103 GETTABLEKS                       R6 R6 K21 ["View"]
-      105 DUPTABLE                         R7 K23 [{["tag"] = "size-full padding-xsmall"}]
-      106 NEWTABLE                         R8 0 1
-      108 GETUPVAL                         R9 1
-      109 GETTABLEKS                       R9 R9 K2 ["createElement"]
-      111 GETUPVAL                         R10 4
-      112 GETTABLEKS                       R10 R10 K14 ["Image"]
-      114 DUPTABLE                         R11 K31 [{["Image"], ["tag"] = "position-center-center anchor-center-center size-full", ["testId"] = "default-thumbnail"}]
-      115 GETUPVAL                         R12 5
-      116 GETTABLEKS                       R12 R12 K32 ["get"]
-      118 GETUPVAL                         R13 5
-      119 GETTABLEKS                       R13 R13 K33 ["AvailableImages"]
-      121 GETTABLEKS                       R13 R13 K34 ["DefaultThumbnail"]
-      123 CALL                             R12 1 1
-      124 SETTABLEKS                       R12 R11 K14 ["Image"]
-      126 CALL                             R9 2 -1
-      127 SETLIST                          R8 R9 -1 [1]
-      129 CALL                             R5 3 -1
-      130 RETURN                           R5 -1
-      131 GETUPVAL                         R5 1
-      132 GETTABLEKS                       R5 R5 K2 ["createElement"]
-      134 GETUPVAL                         R6 6
-      135 GETTABLEKS                       R6 R6 K35 ["Component"]
-      137 DUPTABLE                         R7 K38 [{"Rotation", "Transparency"}]
-      138 GETUPVAL                         R8 7
-      139 LOADK                            R10 K36 ["Rotation"]
-      140 NAMECALL                         R8 R8 K39 ["GetAttribute"]
-      142 CALL                             R8 2 1
-      143 SETTABLEKS                       R8 R7 K36 ["Rotation"]
-      145 GETUPVAL                         R8 7
-      146 LOADK                            R10 K37 ["Transparency"]
-      147 NAMECALL                         R8 R8 K39 ["GetAttribute"]
-      149 CALL                             R8 2 1
-      150 SETTABLEKS                       R8 R7 K37 ["Transparency"]
-      152 CALL                             R5 2 -1
-      153 RETURN                           R5 -1
+PROTO_5:
+        0 GETUPVAL                         R2 0
+        1 GETTABLEKS                       R3 R0 K0 ["AssetType"]
+        3 GETTABLE                         R1 R2 R3
+        4 JUMPIFNOT                        R1 ; [+7]
+        5 GETUPVAL                         R2 1
+        6 GETTABLEKS                       R2 R2 K1 ["createElement"]
+        8 GETUPVAL                         R3 2
+        9 MOVE                             R4 R1
+       10 CALL                             R2 2 -1
+       11 RETURN                           R2 -1
+       12 GETUPVAL                         R2 3
+       13 GETTABLEKS                       R2 R2 K2 ["use"]
+       15 CALL                             R2 0 1
+       16 GETTABLEKS                       R5 R0 K3 ["AssetId"]
+       18 GETTABLEKS                       R6 R0 K0 ["AssetType"]
+       20 NAMECALL                         R3 R2 K4 ["getThumbnailForItem"]
+       22 CALL                             R3 3 1
+       23 GETUPVAL                         R4 1
+       24 GETTABLEKS                       R4 R4 K5 ["useState"]
+       26 GETIMPORT                        R5 K9 [Enum.AssetFetchStatus.None]
+       28 CALL                             R4 1 2
+       29 GETUPVAL                         R6 1
+       30 GETTABLEKS                       R6 R6 K10 ["useEffect"]
+       32 NEWCLOSURE                       R7 P0
+       33 CAPTURE                          VAL R2
+       34 CAPTURE                          VAL R0
+       35 CAPTURE                          VAL R5
+       36 NEWTABLE                         R8 0 1
+       38 GETTABLEKS                       R9 R0 K3 ["AssetId"]
+       40 SETLIST                          R8 R9 1 [1]
+       42 CALL                             R6 2 0
+       43 GETIMPORT                        R6 K12 [Enum.AssetFetchStatus.Success]
+       45 JUMPIFNOTEQ                      R4 R6 ; [+42]
+       47 GETUPVAL                         R6 1
+       48 GETTABLEKS                       R6 R6 K1 ["createElement"]
+       50 GETUPVAL                         R7 4
+       51 GETTABLEKS                       R7 R7 K13 ["Image"]
+       53 DUPTABLE                         R8 K18 [{["Image"], ["tag"] = "position-center-center anchor-center-center size-full", ["testId"] = "item-thumbnail-content"}]
+       54 SETTABLEKS                       R3 R8 K13 ["Image"]
+       56 CALL                             R6 2 1
+       57 GETTABLEKS                       R7 R0 K0 ["AssetType"]
+       59 GETUPVAL                         R8 5
+       60 GETTABLEKS                       R8 R8 K0 ["AssetType"]
+       62 GETTABLEKS                       R8 R8 K13 ["Image"]
+       64 JUMPIFEQ                         R7 R8 ; [+10]
+       66 GETTABLEKS                       R7 R0 K0 ["AssetType"]
+       68 GETUPVAL                         R8 5
+       69 GETTABLEKS                       R8 R8 K0 ["AssetType"]
+       71 GETTABLEKS                       R8 R8 K19 ["Decal"]
+       73 JUMPIFNOTEQ                      R7 R8 ; [+13]
+       75 GETUPVAL                         R7 1
+       76 GETTABLEKS                       R7 R7 K1 ["createElement"]
+       78 GETUPVAL                         R8 4
+       79 GETTABLEKS                       R8 R8 K20 ["View"]
+       81 DUPTABLE                         R9 K22 [{["tag"] = "size-full padding-xsmall"}]
+       82 DUPTABLE                         R10 K24 [{"Content"}]
+       83 SETTABLEKS                       R6 R10 K23 ["Content"]
+       85 CALL                             R7 3 -1
+       86 RETURN                           R7 -1
+       87 RETURN                           R6 1
+       88 GETIMPORT                        R6 K26 [Enum.AssetFetchStatus.Failure]
+       90 JUMPIFEQ                         R4 R6 ; [+5]
+       92 GETIMPORT                        R6 K28 [Enum.AssetFetchStatus.TimedOut]
+       94 JUMPIFNOTEQ                      R4 R6 ; [+33]
+       96 GETUPVAL                         R6 1
+       97 GETTABLEKS                       R6 R6 K1 ["createElement"]
+       99 GETUPVAL                         R7 4
+      100 GETTABLEKS                       R7 R7 K20 ["View"]
+      102 DUPTABLE                         R8 K22 [{["tag"] = "size-full padding-xsmall"}]
+      103 NEWTABLE                         R9 0 1
+      105 GETUPVAL                         R10 1
+      106 GETTABLEKS                       R10 R10 K1 ["createElement"]
+      108 GETUPVAL                         R11 4
+      109 GETTABLEKS                       R11 R11 K13 ["Image"]
+      111 DUPTABLE                         R12 K30 [{["Image"], ["tag"] = "position-center-center anchor-center-center size-full", ["testId"] = "default-thumbnail"}]
+      112 GETUPVAL                         R13 6
+      113 GETTABLEKS                       R13 R13 K31 ["get"]
+      115 GETUPVAL                         R14 6
+      116 GETTABLEKS                       R14 R14 K32 ["AvailableImages"]
+      118 GETTABLEKS                       R14 R14 K33 ["DefaultThumbnail"]
+      120 CALL                             R13 1 1
+      121 SETTABLEKS                       R13 R12 K13 ["Image"]
+      123 CALL                             R10 2 -1
+      124 SETLIST                          R9 R10 -1 [1]
+      126 CALL                             R6 3 -1
+      127 RETURN                           R6 -1
+      128 GETUPVAL                         R6 1
+      129 GETTABLEKS                       R6 R6 K1 ["createElement"]
+      131 GETUPVAL                         R7 7
+      132 GETTABLEKS                       R7 R7 K34 ["Component"]
+      134 DUPTABLE                         R8 K37 [{"Rotation", "Transparency"}]
+      135 GETUPVAL                         R9 8
+      136 LOADK                            R11 K35 ["Rotation"]
+      137 NAMECALL                         R9 R9 K38 ["GetAttribute"]
+      139 CALL                             R9 2 1
+      140 SETTABLEKS                       R9 R8 K35 ["Rotation"]
+      142 GETUPVAL                         R9 8
+      143 LOADK                            R11 K36 ["Transparency"]
+      144 NAMECALL                         R9 R9 K38 ["GetAttribute"]
+      146 CALL                             R9 2 1
+      147 SETTABLEKS                       R9 R8 K36 ["Transparency"]
+      149 CALL                             R6 2 -1
+      150 RETURN                           R6 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -206,17 +217,47 @@ MAIN:
        64 GETTABLEKS                       R9 R9 K17 ["Util"]
        66 GETTABLEKS                       R9 R9 K18 ["Images"]
        68 CALL                             R8 1 1
-       69 DUPCLOSURE                       R9 K19 [PROTO_0]
-       70 CAPTURE                          VAL R5
-       71 CAPTURE                          VAL R2
-       72 CAPTURE                          VAL R1
-       73 DUPCLOSURE                       R10 K20 [PROTO_3]
-       74 CAPTURE                          VAL R3
-       75 CAPTURE                          VAL R1
-       76 CAPTURE                          VAL R9
-       77 CAPTURE                          VAL R4
-       78 CAPTURE                          VAL R2
-       79 CAPTURE                          VAL R8
-       80 CAPTURE                          VAL R7
-       81 CAPTURE                          VAL R6
-       82 RETURN                           R10 1
+       69 GETIMPORT                        R9 K5 [require]
+       71 GETTABLEKS                       R10 R0 K9 ["Src"]
+       73 GETTABLEKS                       R10 R10 K19 ["Flags"]
+       75 GETTABLEKS                       R10 R10 K20 ["getFFlagAmrEnableTextDocuments"]
+       77 CALL                             R9 1 1
+       78 NEWTABLE                         R10 1 0
+       80 GETTABLEKS                       R11 R3 K21 ["AssetType"]
+       82 GETTABLEKS                       R11 R11 K22 ["Folder"]
+       84 DUPTABLE                         R12 K27 [{["Icon"], ["TestId"] = "folder-thumbnail-content", ["getStyle"]}]
+       85 GETTABLEKS                       R13 R2 K28 ["Enums"]
+       87 GETTABLEKS                       R13 R13 K29 ["IconName"]
+       89 GETTABLEKS                       R13 R13 K22 ["Folder"]
+       91 SETTABLEKS                       R13 R12 K23 ["Icon"]
+       93 DUPCLOSURE                       R13 K30 [PROTO_0]
+       94 SETTABLEKS                       R13 R12 K26 ["getStyle"]
+       96 SETTABLE                         R12 R10 R11
+       97 MOVE                             R11 R9
+       98 CALL                             R11 0 1
+       99 JUMPIFNOT                        R11 ; [+17]
+      100 GETTABLEKS                       R11 R3 K21 ["AssetType"]
+      102 GETTABLEKS                       R11 R11 K31 ["TextDocument"]
+      104 DUPTABLE                         R12 K33 [{["Icon"], ["TestId"] = "text-document-thumbnail-content", ["getStyle"]}]
+      105 GETTABLEKS                       R13 R2 K28 ["Enums"]
+      107 GETTABLEKS                       R13 R13 K29 ["IconName"]
+      109 GETTABLEKS                       R13 R13 K34 ["Page"]
+      111 SETTABLEKS                       R13 R12 K23 ["Icon"]
+      113 DUPCLOSURE                       R13 K35 [PROTO_1]
+      114 SETTABLEKS                       R13 R12 K26 ["getStyle"]
+      116 SETTABLE                         R12 R10 R11
+      117 DUPCLOSURE                       R11 K36 [PROTO_2]
+      118 CAPTURE                          VAL R5
+      119 CAPTURE                          VAL R2
+      120 CAPTURE                          VAL R1
+      121 DUPCLOSURE                       R12 K37 [PROTO_5]
+      122 CAPTURE                          VAL R10
+      123 CAPTURE                          VAL R1
+      124 CAPTURE                          VAL R11
+      125 CAPTURE                          VAL R4
+      126 CAPTURE                          VAL R2
+      127 CAPTURE                          VAL R3
+      128 CAPTURE                          VAL R8
+      129 CAPTURE                          VAL R7
+      130 CAPTURE                          VAL R6
+      131 RETURN                           R12 1

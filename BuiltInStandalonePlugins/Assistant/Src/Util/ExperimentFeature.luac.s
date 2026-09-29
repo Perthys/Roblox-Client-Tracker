@@ -130,33 +130,30 @@ MAIN:
        18 GETTABLEKS                       R3 R0 K6 ["Src"]
        20 GETTABLEKS                       R3 R3 K9 ["Flags"]
        22 CALL                             R2 1 1
-       23 DUPTABLE                         R3 K12 [{["NewAssetToolSet"] = "NewAssetToolSet", ["AssistantUseRemoteService"] = "AssistantUseRemoteService"}]
-       24 NEWTABLE                         R4 1 0
-       26 GETTABLEKS                       R5 R3 K10 ["NewAssetToolSet"]
-       28 GETTABLEKS                       R6 R2 K13 ["FFlagAssistantAssetSearchInsertTool"]
-       30 SETTABLE                         R6 R4 R5
-       31 LOADNIL                          R5
-       32 LOADNIL                          R6
-       33 NEWCLOSURE                       R7 P0
-       34 CAPTURE                          REF R6
-       35 CAPTURE                          REF R5
-       36 NEWCLOSURE                       R8 P1
-       37 CAPTURE                          VAL R4
+       23 DUPTABLE                         R3 K12 [{["AssistantUseRemoteService"] = "AssistantUseRemoteService", ["AssistantCreditMeteringLocalBackend"] = "AssistantCreditMeteringLocalBackend"}]
+       24 NEWTABLE                         R4 0 0
+       26 LOADNIL                          R5
+       27 LOADNIL                          R6
+       28 NEWCLOSURE                       R7 P0
+       29 CAPTURE                          REF R6
+       30 CAPTURE                          REF R5
+       31 NEWCLOSURE                       R8 P1
+       32 CAPTURE                          VAL R4
+       33 CAPTURE                          REF R6
+       34 CAPTURE                          REF R5
+       35 CAPTURE                          VAL R1
+       36 CAPTURE                          VAL R2
+       37 NEWCLOSURE                       R9 P2
        38 CAPTURE                          REF R6
-       39 CAPTURE                          REF R5
-       40 CAPTURE                          VAL R1
-       41 CAPTURE                          VAL R2
-       42 NEWCLOSURE                       R9 P2
-       43 CAPTURE                          REF R6
-       44 NEWCLOSURE                       R10 P3
-       45 CAPTURE                          VAL R8
-       46 CAPTURE                          REF R6
-       47 DUPTABLE                         R11 K20 [{"FeatureNames", "ForceEnabledFeatureNames", "setIxpService", "getExperimentFeatureEnabled", "getOnExperimentChanged", "onceExperimentFeatureEnabled"}]
-       48 SETTABLEKS                       R3 R11 K14 ["FeatureNames"]
-       50 SETTABLEKS                       R4 R11 K15 ["ForceEnabledFeatureNames"]
-       52 SETTABLEKS                       R7 R11 K16 ["setIxpService"]
-       54 SETTABLEKS                       R8 R11 K17 ["getExperimentFeatureEnabled"]
-       56 SETTABLEKS                       R9 R11 K18 ["getOnExperimentChanged"]
-       58 SETTABLEKS                       R10 R11 K19 ["onceExperimentFeatureEnabled"]
-       60 CLOSEUPVALS                      R5
-       61 RETURN                           R11 1
+       39 NEWCLOSURE                       R10 P3
+       40 CAPTURE                          VAL R8
+       41 CAPTURE                          REF R6
+       42 DUPTABLE                         R11 K19 [{"FeatureNames", "ForceEnabledFeatureNames", "setIxpService", "getExperimentFeatureEnabled", "getOnExperimentChanged", "onceExperimentFeatureEnabled"}]
+       43 SETTABLEKS                       R3 R11 K13 ["FeatureNames"]
+       45 SETTABLEKS                       R4 R11 K14 ["ForceEnabledFeatureNames"]
+       47 SETTABLEKS                       R7 R11 K15 ["setIxpService"]
+       49 SETTABLEKS                       R8 R11 K16 ["getExperimentFeatureEnabled"]
+       51 SETTABLEKS                       R9 R11 K17 ["getOnExperimentChanged"]
+       53 SETTABLEKS                       R10 R11 K18 ["onceExperimentFeatureEnabled"]
+       55 CLOSEUPVALS                      R5
+       56 RETURN                           R11 1

@@ -442,7 +442,7 @@ MAIN:
       727 LOADK                            R13 K288 ["CollisionRightArm"]
       728 SETLIST                          R6 R7 7 [1]
       730 SETTABLEKS                       R6 R5 K59 ["CollisionBoxPartNames"]
-      732 DUPTABLE                         R6 K296 [{["HighlightName"] = "AccessoryHighlight", ["FillColor"], ["OutlineColor"], ["FillTransparency"] = 0.15, ["OutlineTransparency"] = 0.5}]
+      732 DUPTABLE                         R6 K295 [{["HighlightName"] = "AccessoryHighlight", ["FillColor"], ["OutlineColor"], ["FillTransparency"] = 0.5, ["OutlineTransparency"] = 0.5}]
       733 GETIMPORT                        R7 K65 [Color3.fromRGB]
       735 LOADN                            R8 255
       736 LOADN                            R9 0
@@ -456,14 +456,14 @@ MAIN:
       746 CALL                             R7 3 1
       747 SETTABLEKS                       R7 R6 K292 ["OutlineColor"]
       749 SETTABLEKS                       R6 R5 K60 ["HighlightProperties"]
-      751 DUPTABLE                         R6 K304 [{["name"] = "BoundingBoxPart", ["tag"] = "AvatarPreviewBoundingBox", ["color"], ["transparency"] = 0.7, ["material"]}]
+      751 DUPTABLE                         R6 K303 [{["name"] = "BoundingBoxPart", ["tag"] = "AvatarPreviewBoundingBox", ["color"], ["transparency"] = 0.7, ["material"]}]
       752 GETIMPORT                        R7 K65 [Color3.fromRGB]
       754 LOADN                            R8 0
       755 LOADN                            R9 139
       756 LOADN                            R10 219
       757 CALL                             R7 3 1
-      758 SETTABLEKS                       R7 R6 K300 ["color"]
-      760 GETIMPORT                        R7 K307 [Enum.Material.SmoothPlastic]
-      762 SETTABLEKS                       R7 R6 K303 ["material"]
+      758 SETTABLEKS                       R7 R6 K299 ["color"]
+      760 GETIMPORT                        R7 K306 [Enum.Material.SmoothPlastic]
+      762 SETTABLEKS                       R7 R6 K302 ["material"]
       764 SETTABLEKS                       R6 R5 K61 ["boundingBoxProps"]
       766 RETURN                           R5 1

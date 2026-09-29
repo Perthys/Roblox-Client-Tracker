@@ -124,7 +124,7 @@ PROTO_5:
        85 SETTABLE                         R11 R9 R10
        86 DUPTABLE                         R10 K34 [{"ContextServices"}]
        87 GETTABLEKS                       R12 R2 K35 ["popUpGui"]
-       89 JUMPIFNOT                        R12 ; [+110]
+       89 JUMPIFNOT                        R12 ; [+100]
        90 GETUPVAL                         R11 5
        91 GETTABLEKS                       R11 R11 K36 ["provide"]
        93 NEWTABLE                         R12 0 8
@@ -148,63 +148,53 @@ PROTO_5:
       118 GETUPVAL                         R17 10
       119 GETTABLEKS                       R17 R17 K11 ["new"]
       121 CALL                             R17 0 1
-      122 GETUPVAL                         R19 11
-      123 CALL                             R19 0 1
-      124 JUMPIFNOT                        R19 ; [+5]
-      125 GETUPVAL                         R18 12
-      126 GETTABLEKS                       R18 R18 K11 ["new"]
-      128 CALL                             R18 0 1
-      129 JUMP                             ; [+1]
-      130 LOADNIL                          R18
-      131 GETUPVAL                         R20 11
-      132 CALL                             R20 0 1
-      133 JUMPIFNOT                        R20 ; [+5]
-      134 GETUPVAL                         R19 13
-      135 GETTABLEKS                       R19 R19 K11 ["new"]
-      137 CALL                             R19 0 1
-      138 JUMP                             ; [+1]
-      139 LOADNIL                          R19
-      140 GETUPVAL                         R20 14
-      141 GETTABLEKS                       R20 R20 K11 ["new"]
-      143 GETTABLEKS                       R21 R0 K38 ["design"]
-      145 CALL                             R20 1 -1
-      146 SETLIST                          R12 R13 -1 [1]
-      148 DUPTABLE                         R13 K40 [{"FoundationProviderAdapter"}]
-      149 GETUPVAL                         R14 15
-      150 GETTABLEKS                       R14 R14 K6 ["createElement"]
-      152 GETUPVAL                         R15 16
-      153 DUPTABLE                         R16 K43 [{"onStyleSheetChange", "overlayGui"}]
-      154 GETTABLEKS                       R17 R0 K44 ["onFoundationStyleSheetChange"]
-      156 SETTABLEKS                       R17 R16 K41 ["onStyleSheetChange"]
-      158 GETTABLEKS                       R17 R2 K35 ["popUpGui"]
-      160 SETTABLEKS                       R17 R16 K42 ["overlayGui"]
-      162 DUPTABLE                         R17 K46 [{"ScreenSelect"}]
-      163 GETUPVAL                         R18 0
-      164 GETTABLEKS                       R18 R18 K6 ["createElement"]
-      166 GETUPVAL                         R19 17
-      167 DUPTABLE                         R20 K51 [{"assetId", "assetTypeEnum", "onClose", "pluginGui", "owner", "groupId", "setOwner"}]
-      168 SETTABLEKS                       R3 R20 K2 ["assetId"]
-      170 SETTABLEKS                       R4 R20 K3 ["assetTypeEnum"]
-      172 GETTABLEKS                       R21 R0 K27 ["onClose"]
-      174 SETTABLEKS                       R21 R20 K27 ["onClose"]
-      176 GETTABLEKS                       R21 R2 K35 ["popUpGui"]
-      178 SETTABLEKS                       R21 R20 K47 ["pluginGui"]
-      180 GETTABLEKS                       R21 R2 K48 ["owner"]
-      182 SETTABLEKS                       R21 R20 K48 ["owner"]
-      184 GETTABLEKS                       R21 R2 K49 ["groupId"]
-      186 SETTABLEKS                       R21 R20 K49 ["groupId"]
-      188 GETTABLEKS                       R21 R0 K50 ["setOwner"]
-      190 SETTABLEKS                       R21 R20 K50 ["setOwner"]
-      192 CALL                             R18 2 1
-      193 SETTABLEKS                       R18 R17 K45 ["ScreenSelect"]
-      195 CALL                             R14 3 1
-      196 SETTABLEKS                       R14 R13 K39 ["FoundationProviderAdapter"]
-      198 CALL                             R11 2 1
-      199 JUMP                             ; [+1]
-      200 LOADNIL                          R11
-      201 SETTABLEKS                       R11 R10 K33 ["ContextServices"]
-      203 CALL                             R7 3 -1
-      204 RETURN                           R7 -1
+      122 GETUPVAL                         R18 11
+      123 GETTABLEKS                       R18 R18 K11 ["new"]
+      125 CALL                             R18 0 1
+      126 GETUPVAL                         R19 12
+      127 GETTABLEKS                       R19 R19 K11 ["new"]
+      129 CALL                             R19 0 1
+      130 GETUPVAL                         R20 13
+      131 GETTABLEKS                       R20 R20 K11 ["new"]
+      133 GETTABLEKS                       R21 R0 K38 ["design"]
+      135 CALL                             R20 1 -1
+      136 SETLIST                          R12 R13 -1 [1]
+      138 DUPTABLE                         R13 K40 [{"FoundationProviderAdapter"}]
+      139 GETUPVAL                         R14 14
+      140 GETTABLEKS                       R14 R14 K6 ["createElement"]
+      142 GETUPVAL                         R15 15
+      143 DUPTABLE                         R16 K43 [{"onStyleSheetChange", "overlayGui"}]
+      144 GETTABLEKS                       R17 R0 K44 ["onFoundationStyleSheetChange"]
+      146 SETTABLEKS                       R17 R16 K41 ["onStyleSheetChange"]
+      148 GETTABLEKS                       R17 R2 K35 ["popUpGui"]
+      150 SETTABLEKS                       R17 R16 K42 ["overlayGui"]
+      152 DUPTABLE                         R17 K46 [{"ScreenSelect"}]
+      153 GETUPVAL                         R18 0
+      154 GETTABLEKS                       R18 R18 K6 ["createElement"]
+      156 GETUPVAL                         R19 16
+      157 DUPTABLE                         R20 K51 [{"assetId", "assetTypeEnum", "onClose", "pluginGui", "owner", "groupId", "setOwner"}]
+      158 SETTABLEKS                       R3 R20 K2 ["assetId"]
+      160 SETTABLEKS                       R4 R20 K3 ["assetTypeEnum"]
+      162 GETTABLEKS                       R21 R0 K27 ["onClose"]
+      164 SETTABLEKS                       R21 R20 K27 ["onClose"]
+      166 GETTABLEKS                       R21 R2 K35 ["popUpGui"]
+      168 SETTABLEKS                       R21 R20 K47 ["pluginGui"]
+      170 GETTABLEKS                       R21 R2 K48 ["owner"]
+      172 SETTABLEKS                       R21 R20 K48 ["owner"]
+      174 GETTABLEKS                       R21 R2 K49 ["groupId"]
+      176 SETTABLEKS                       R21 R20 K49 ["groupId"]
+      178 GETTABLEKS                       R21 R0 K50 ["setOwner"]
+      180 SETTABLEKS                       R21 R20 K50 ["setOwner"]
+      182 CALL                             R18 2 1
+      183 SETTABLEKS                       R18 R17 K45 ["ScreenSelect"]
+      185 CALL                             R14 3 1
+      186 SETTABLEKS                       R14 R13 K39 ["FoundationProviderAdapter"]
+      188 CALL                             R11 2 1
+      189 JUMP                             ; [+1]
+      190 LOADNIL                          R11
+      191 SETTABLEKS                       R11 R10 K33 ["ContextServices"]
+      193 CALL                             R7 3 -1
+      194 RETURN                           R7 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -300,38 +290,32 @@ MAIN:
       159 GETIMPORT                        R25 K11 [require]
       161 GETTABLEKS                       R26 R0 K3 ["Src"]
       163 GETTABLEKS                       R26 R26 K40 ["Flags"]
-      165 GETTABLEKS                       R26 R26 K41 ["getFFlagCheckAvatarAssetPrivacy"]
+      165 GETTABLEKS                       R26 R26 K41 ["getFFlagToolboxAssetConfigGroupOwnership"]
       167 CALL                             R25 1 1
-      168 GETIMPORT                        R26 K11 [require]
-      170 GETTABLEKS                       R27 R0 K3 ["Src"]
-      172 GETTABLEKS                       R27 R27 K40 ["Flags"]
-      174 GETTABLEKS                       R27 R27 K42 ["getFFlagToolboxAssetConfigGroupOwnership"]
-      176 CALL                             R26 1 1
-      177 DUPCLOSURE                       R27 K43 [PROTO_3]
-      178 CAPTURE                          VAL R26
-      179 CAPTURE                          VAL R7
-      180 CAPTURE                          VAL R21
-      181 SETTABLEKS                       R27 R24 K44 ["init"]
-      183 DUPCLOSURE                       R27 K45 [PROTO_4]
-      184 SETTABLEKS                       R27 R24 K46 ["didMount"]
-      186 DUPCLOSURE                       R27 K47 [PROTO_5]
-      187 CAPTURE                          VAL R5
-      188 CAPTURE                          VAL R9
-      189 CAPTURE                          VAL R12
-      190 CAPTURE                          VAL R23
-      191 CAPTURE                          VAL R2
-      192 CAPTURE                          VAL R14
-      193 CAPTURE                          VAL R16
-      194 CAPTURE                          VAL R17
-      195 CAPTURE                          VAL R13
-      196 CAPTURE                          VAL R11
-      197 CAPTURE                          VAL R18
-      198 CAPTURE                          VAL R25
-      199 CAPTURE                          VAL R19
-      200 CAPTURE                          VAL R20
-      201 CAPTURE                          VAL R15
-      202 CAPTURE                          VAL R4
-      203 CAPTURE                          VAL R22
-      204 CAPTURE                          VAL R10
-      205 SETTABLEKS                       R27 R24 K48 ["render"]
-      207 RETURN                           R24 1
+      168 DUPCLOSURE                       R26 K42 [PROTO_3]
+      169 CAPTURE                          VAL R25
+      170 CAPTURE                          VAL R7
+      171 CAPTURE                          VAL R21
+      172 SETTABLEKS                       R26 R24 K43 ["init"]
+      174 DUPCLOSURE                       R26 K44 [PROTO_4]
+      175 SETTABLEKS                       R26 R24 K45 ["didMount"]
+      177 DUPCLOSURE                       R26 K46 [PROTO_5]
+      178 CAPTURE                          VAL R5
+      179 CAPTURE                          VAL R9
+      180 CAPTURE                          VAL R12
+      181 CAPTURE                          VAL R23
+      182 CAPTURE                          VAL R2
+      183 CAPTURE                          VAL R14
+      184 CAPTURE                          VAL R16
+      185 CAPTURE                          VAL R17
+      186 CAPTURE                          VAL R13
+      187 CAPTURE                          VAL R11
+      188 CAPTURE                          VAL R18
+      189 CAPTURE                          VAL R19
+      190 CAPTURE                          VAL R20
+      191 CAPTURE                          VAL R15
+      192 CAPTURE                          VAL R4
+      193 CAPTURE                          VAL R22
+      194 CAPTURE                          VAL R10
+      195 SETTABLEKS                       R26 R24 K47 ["render"]
+      197 RETURN                           R24 1

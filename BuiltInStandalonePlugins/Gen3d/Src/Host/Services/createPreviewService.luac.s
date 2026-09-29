@@ -46,12 +46,16 @@ PROTO_3:
         5 RETURN                           R1 -1
 
 PROTO_4:
-        0 DUPTABLE                         R0 K11 [{[1] = 512, ["cameraDistanceMultiplier"] = 0.5, ["placeholderImageOnFailure"] = , ["viewportAlignedSeedFov"] = 10, ["viewportAlignedCapture"], ["cancelSupersededCaptures"] = False}]
+        0 DUPTABLE                         R0 K12 [{[1] = 512, ["cameraDistanceMultiplier"] = 0.5, ["placeholderImageOnFailure"] = , ["viewportAlignedSeedFov"] = 10, ["viewportAlignedCapture"], ["viewportAlignedCaptureRespectsTransform"], ["cancelSupersededCaptures"] = False}]
         1 GETUPVAL                         R1 0
-        2 GETTABLEKS                       R1 R1 K12 ["getFFlagGen3dSeedImageViewportAlignedCapture"]
+        2 GETTABLEKS                       R1 R1 K13 ["getFFlagGen3dSeedImageViewportAlignedCapture"]
         4 CALL                             R1 0 1
         5 SETTABLEKS                       R1 R0 K8 ["viewportAlignedCapture"]
-        7 RETURN                           R0 1
+        7 GETUPVAL                         R1 0
+        8 GETTABLEKS                       R1 R1 K14 ["getFFlagGen3dSeedImageCaptureRespectsTransform"]
+       10 CALL                             R1 0 1
+       11 SETTABLEKS                       R1 R0 K9 ["viewportAlignedCaptureRespectsTransform"]
+       13 RETURN                           R0 1
 
 PROTO_5:
         0 GETUPVAL                         R0 0
@@ -87,13 +91,17 @@ PROTO_7:
         4 MOVE                             R5 R0
         5 MOVE                             R6 R1
         6 MOVE                             R7 R2
-        7 DUPTABLE                         R8 K12 [{["sizePx"] = 512, ["cameraDistanceMultiplier"] = 0.5, ["placeholderImageOnFailure"] = , ["viewportAlignedSeedFov"] = 10, ["viewportAlignedCapture"], ["cancelSupersededCaptures"] = False}]
+        7 DUPTABLE                         R8 K13 [{["sizePx"] = 512, ["cameraDistanceMultiplier"] = 0.5, ["placeholderImageOnFailure"] = , ["viewportAlignedSeedFov"] = 10, ["viewportAlignedCapture"], ["viewportAlignedCaptureRespectsTransform"], ["cancelSupersededCaptures"] = False}]
         8 GETUPVAL                         R9 2
-        9 GETTABLEKS                       R9 R9 K13 ["getFFlagGen3dSeedImageViewportAlignedCapture"]
+        9 GETTABLEKS                       R9 R9 K14 ["getFFlagGen3dSeedImageViewportAlignedCapture"]
        11 CALL                             R9 0 1
        12 SETTABLEKS                       R9 R8 K9 ["viewportAlignedCapture"]
-       14 CALL                             R3 5 -1
-       15 RETURN                           R3 -1
+       14 GETUPVAL                         R9 2
+       15 GETTABLEKS                       R9 R9 K15 ["getFFlagGen3dSeedImageCaptureRespectsTransform"]
+       17 CALL                             R9 0 1
+       18 SETTABLEKS                       R9 R8 K10 ["viewportAlignedCaptureRespectsTransform"]
+       20 CALL                             R3 5 -1
+       21 RETURN                           R3 -1
 
 PROTO_8:
         0 RETURN                           R0 0

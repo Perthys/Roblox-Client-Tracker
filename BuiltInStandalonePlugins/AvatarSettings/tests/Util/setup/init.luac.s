@@ -82,7 +82,7 @@ PROTO_5:
        35 SETTABLEKS                       R7 R6 K6 ["ZIndexBehavior"]
        37 DUPTABLE                         R7 K13 [{"Content", "StyleLink"}]
        38 MOVE                             R8 R2
-       39 JUMPIFNOT                        R8 ; [+84]
+       39 JUMPIFNOT                        R8 ; [+97]
        40 GETUPVAL                         R8 4
        41 GETTABLEKS                       R8 R8 K14 ["provideMockContext"]
        43 NEWTABLE                         R9 0 2
@@ -103,68 +103,75 @@ PROTO_5:
        64 NEWTABLE                         R14 0 9
        66 GETUPVAL                         R15 3
        67 GETUPVAL                         R16 8
-       68 CALL                             R15 1 1
-       69 GETUPVAL                         R16 3
-       70 GETUPVAL                         R17 9
-       71 CALL                             R16 1 1
-       72 GETUPVAL                         R17 3
-       73 GETUPVAL                         R18 10
-       74 CALL                             R17 1 1
-       75 GETUPVAL                         R18 3
-       76 GETUPVAL                         R19 11
-       77 CALL                             R18 1 1
-       78 GETUPVAL                         R19 3
-       79 GETUPVAL                         R20 12
-       80 CALL                             R19 1 1
-       81 GETUPVAL                         R20 3
-       82 GETUPVAL                         R21 13
-       83 CALL                             R20 1 1
-       84 GETUPVAL                         R21 3
-       85 GETUPVAL                         R22 14
-       86 CALL                             R21 1 1
-       87 GETUPVAL                         R22 3
-       88 GETUPVAL                         R23 15
-       89 CALL                             R22 1 1
-       90 GETTABLEKS                       R24 R0 K22 ["setupConfig"]
-       92 GETTABLEKS                       R24 R24 K23 ["doNotMockPublishProvider"]
-       94 JUMPIFNOT                        R24 ; [+4]
-       95 GETUPVAL                         R23 3
-       96 GETUPVAL                         R24 16
-       97 CALL                             R23 1 1
-       98 JUMP                             ; [+10]
-       99 GETUPVAL                         R23 3
-      100 GETUPVAL                         R24 17
-      101 DUPTABLE                         R25 K25 [{"databaseLoaded"}]
-      102 GETTABLEKS                       R26 R0 K22 ["setupConfig"]
-      104 GETTABLEKS                       R26 R26 K24 ["databaseLoaded"]
-      106 SETTABLEKS                       R26 R25 K24 ["databaseLoaded"]
-      108 CALL                             R23 2 1
-      109 SETLIST                          R14 R15 9 [1]
-      111 SETTABLEKS                       R14 R13 K20 ["providers"]
-      113 GETTABLEKS                       R15 R0 K26 ["node"]
-      115 JUMPIFNOT                        R15 ; [+3]
-      116 GETTABLEKS                       R14 R0 K26 ["node"]
-      118 JUMP                             ; [+1]
-      119 LOADNIL                          R14
-      120 CALL                             R11 3 1
-      121 SETTABLEKS                       R11 R10 K18 ["ContextStack"]
-      123 CALL                             R8 2 1
-      124 SETTABLEKS                       R8 R7 K11 ["Content"]
-      126 GETUPVAL                         R8 3
-      127 LOADK                            R9 K12 ["StyleLink"]
-      128 DUPTABLE                         R10 K28 [{"StyleSheet"}]
-      129 GETUPVAL                         R11 18
-      130 GETUPVAL                         R12 19
-      131 LOADK                            R14 K29 ["Plugin"]
-      132 NAMECALL                         R12 R12 K30 ["FindFirstAncestorWhichIsA"]
-      134 CALL                             R12 2 1
-      135 GETUPVAL                         R13 19
-      136 CALL                             R11 2 1
-      137 SETTABLEKS                       R11 R10 K27 ["StyleSheet"]
-      139 CALL                             R8 2 1
-      140 SETTABLEKS                       R8 R7 K12 ["StyleLink"]
-      142 CALL                             R4 3 1
-      143 RETURN                           R4 1
+       68 DUPTABLE                         R17 K24 [{"initialGameId", "initialGameIdUnknown"}]
+       69 GETTABLEKS                       R18 R0 K25 ["setupConfig"]
+       71 GETTABLEKS                       R18 R18 K22 ["initialGameId"]
+       73 SETTABLEKS                       R18 R17 K22 ["initialGameId"]
+       75 GETTABLEKS                       R18 R0 K25 ["setupConfig"]
+       77 GETTABLEKS                       R18 R18 K23 ["initialGameIdUnknown"]
+       79 SETTABLEKS                       R18 R17 K23 ["initialGameIdUnknown"]
+       81 CALL                             R15 2 1
+       82 GETUPVAL                         R16 3
+       83 GETUPVAL                         R17 9
+       84 CALL                             R16 1 1
+       85 GETUPVAL                         R17 3
+       86 GETUPVAL                         R18 10
+       87 CALL                             R17 1 1
+       88 GETUPVAL                         R18 3
+       89 GETUPVAL                         R19 11
+       90 CALL                             R18 1 1
+       91 GETUPVAL                         R19 3
+       92 GETUPVAL                         R20 12
+       93 CALL                             R19 1 1
+       94 GETUPVAL                         R20 3
+       95 GETUPVAL                         R21 13
+       96 CALL                             R20 1 1
+       97 GETUPVAL                         R21 3
+       98 GETUPVAL                         R22 14
+       99 CALL                             R21 1 1
+      100 GETUPVAL                         R22 3
+      101 GETUPVAL                         R23 15
+      102 CALL                             R22 1 1
+      103 GETTABLEKS                       R24 R0 K25 ["setupConfig"]
+      105 GETTABLEKS                       R24 R24 K26 ["doNotMockPublishProvider"]
+      107 JUMPIFNOT                        R24 ; [+4]
+      108 GETUPVAL                         R23 3
+      109 GETUPVAL                         R24 16
+      110 CALL                             R23 1 1
+      111 JUMP                             ; [+10]
+      112 GETUPVAL                         R23 3
+      113 GETUPVAL                         R24 17
+      114 DUPTABLE                         R25 K28 [{"databaseLoaded"}]
+      115 GETTABLEKS                       R26 R0 K25 ["setupConfig"]
+      117 GETTABLEKS                       R26 R26 K27 ["databaseLoaded"]
+      119 SETTABLEKS                       R26 R25 K27 ["databaseLoaded"]
+      121 CALL                             R23 2 1
+      122 SETLIST                          R14 R15 9 [1]
+      124 SETTABLEKS                       R14 R13 K20 ["providers"]
+      126 GETTABLEKS                       R15 R0 K29 ["node"]
+      128 JUMPIFNOT                        R15 ; [+3]
+      129 GETTABLEKS                       R14 R0 K29 ["node"]
+      131 JUMP                             ; [+1]
+      132 LOADNIL                          R14
+      133 CALL                             R11 3 1
+      134 SETTABLEKS                       R11 R10 K18 ["ContextStack"]
+      136 CALL                             R8 2 1
+      137 SETTABLEKS                       R8 R7 K11 ["Content"]
+      139 GETUPVAL                         R8 3
+      140 LOADK                            R9 K12 ["StyleLink"]
+      141 DUPTABLE                         R10 K31 [{"StyleSheet"}]
+      142 GETUPVAL                         R11 18
+      143 GETUPVAL                         R12 19
+      144 LOADK                            R14 K32 ["Plugin"]
+      145 NAMECALL                         R12 R12 K33 ["FindFirstAncestorWhichIsA"]
+      147 CALL                             R12 2 1
+      148 GETUPVAL                         R13 19
+      149 CALL                             R11 2 1
+      150 SETTABLEKS                       R11 R10 K30 ["StyleSheet"]
+      152 CALL                             R8 2 1
+      153 SETTABLEKS                       R8 R7 K12 ["StyleLink"]
+      155 CALL                             R4 3 1
+      156 RETURN                           R4 1
 
 PROTO_6:
         0 GETIMPORT                        R2 K1 [print]

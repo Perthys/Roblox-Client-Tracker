@@ -1,5 +1,22 @@
 PROTO_0:
         0 GETUPVAL                         R1 0
+        1 LOADK                            R2 K0 ["Frame"]
+        2 LOADK                            R3 K1 ["UIListLayout"]
+        3 DUPTABLE                         R4 K5 [{"SortOrder", "Padding", "HorizontalAlignment"}]
+        4 GETIMPORT                        R5 K8 [Enum.SortOrder.LayoutOrder]
+        6 SETTABLEKS                       R5 R4 K2 ["SortOrder"]
+        8 GETIMPORT                        R5 K11 [UDim.new]
+       10 LOADN                            R6 0
+       11 MOVE                             R7 R0
+       12 CALL                             R5 2 1
+       13 SETTABLEKS                       R5 R4 K3 ["Padding"]
+       15 GETIMPORT                        R5 K13 [Enum.HorizontalAlignment.Center]
+       17 SETTABLEKS                       R5 R4 K4 ["HorizontalAlignment"]
+       19 CALL                             R1 3 -1
+       20 RETURN                           R1 -1
+
+PROTO_1:
+        0 GETUPVAL                         R1 0
         1 GETTABLEKS                       R1 R1 K0 ["createBinding"]
         3 LOADK                            R2 K1 [""]
         4 CALL                             R1 1 2
@@ -30,7 +47,7 @@ PROTO_0:
        41 SETTABLEKS                       R1 R0 K14 ["state"]
        43 RETURN                           R0 0
 
-PROTO_1:
+PROTO_2:
         0 GETTABLEKS                       R1 R0 K0 ["props"]
         2 GETTABLEKS                       R2 R1 K1 ["SearchData"]
         4 GETTABLEKS                       R3 R2 K2 ["CachedSearchResults"]
@@ -55,7 +72,7 @@ PROTO_1:
        32 LOADB                            R5 1
        33 RETURN                           R5 1
 
-PROTO_2:
+PROTO_3:
         0 GETTABLEKS                       R2 R0 K0 ["props"]
         2 GETTABLEKS                       R3 R2 K1 ["ownerType"]
         4 GETTABLEKS                       R4 R2 K2 ["ownerFriends"]
@@ -71,31 +88,6 @@ PROTO_2:
        19 FORGLOOP                         R5 2 [inext] ; [-5]
        21 LOADB                            R5 0
        22 RETURN                           R5 1
-
-PROTO_3:
-        0 GETUPVAL                         R0 0
-        1 DUPTABLE                         R2 K2 [{[1] = True}]
-        2 NAMECALL                         R0 R0 K3 ["setState"]
-        4 CALL                             R0 2 0
-        5 GETUPVAL                         R0 1
-        6 GETTABLEKS                       R0 R0 K4 ["fflagManageCollaboratorsAgeGatingTelemetry"]
-        8 JUMPIFNOT                        R0 ; [+24]
-        9 GETUPVAL                         R0 2
-       10 GETUPVAL                         R2 3
-       11 DUPTABLE                         R3 K12 [{["userId"], ["telemetryType"] = "load", ["upsellEntrySurface"] = "manage_collaborators_search_country_blocked", ["placeId"], ["universeId"]}]
-       12 GETUPVAL                         R4 4
-       13 NAMECALL                         R4 R4 K13 ["GetUserId"]
-       15 CALL                             R4 1 1
-       16 SETTABLEKS                       R4 R3 K5 ["userId"]
-       18 GETIMPORT                        R4 K15 [game]
-       20 GETTABLEKS                       R4 R4 K16 ["PlaceId"]
-       22 SETTABLEKS                       R4 R3 K10 ["placeId"]
-       24 GETIMPORT                        R4 K15 [game]
-       26 GETTABLEKS                       R4 R4 K17 ["GameId"]
-       28 SETTABLEKS                       R4 R3 K11 ["universeId"]
-       30 NAMECALL                         R0 R0 K18 ["logRobloxTelemetryEvent"]
-       32 CALL                             R0 3 0
-       33 RETURN                           R0 0
 
 PROTO_4:
         0 GETUPVAL                         R0 0
@@ -123,6 +115,31 @@ PROTO_4:
        33 RETURN                           R0 0
 
 PROTO_5:
+        0 GETUPVAL                         R0 0
+        1 DUPTABLE                         R2 K2 [{[1] = True}]
+        2 NAMECALL                         R0 R0 K3 ["setState"]
+        4 CALL                             R0 2 0
+        5 GETUPVAL                         R0 1
+        6 GETTABLEKS                       R0 R0 K4 ["fflagManageCollaboratorsAgeGatingTelemetry"]
+        8 JUMPIFNOT                        R0 ; [+24]
+        9 GETUPVAL                         R0 2
+       10 GETUPVAL                         R2 3
+       11 DUPTABLE                         R3 K12 [{["userId"], ["telemetryType"] = "load", ["upsellEntrySurface"] = "manage_collaborators_search_country_blocked", ["placeId"], ["universeId"]}]
+       12 GETUPVAL                         R4 4
+       13 NAMECALL                         R4 R4 K13 ["GetUserId"]
+       15 CALL                             R4 1 1
+       16 SETTABLEKS                       R4 R3 K5 ["userId"]
+       18 GETIMPORT                        R4 K15 [game]
+       20 GETTABLEKS                       R4 R4 K16 ["PlaceId"]
+       22 SETTABLEKS                       R4 R3 K10 ["placeId"]
+       24 GETIMPORT                        R4 K15 [game]
+       26 GETTABLEKS                       R4 R4 K17 ["GameId"]
+       28 SETTABLEKS                       R4 R3 K11 ["universeId"]
+       30 NAMECALL                         R0 R0 K18 ["logRobloxTelemetryEvent"]
+       32 CALL                             R0 3 0
+       33 RETURN                           R0 0
+
+PROTO_6:
         0 GETUPVAL                         R0 0
         1 JUMPIFNOT                        R0 ; [+17]
         2 GETUPVAL                         R0 1
@@ -155,7 +172,7 @@ PROTO_5:
        35 CALL                             R0 4 0
        36 RETURN                           R0 0
 
-PROTO_6:
+PROTO_7:
         0 GETTABLEKS                       R2 R0 K0 ["props"]
         2 GETTABLEKS                       R3 R2 K1 ["ActiveTab"]
         4 GETUPVAL                         R4 0
@@ -164,67 +181,56 @@ PROTO_6:
         8 MOVE                             R5 R4
         9 JUMPIFNOT                        R5 ; [+7]
        10 GETUPVAL                         R6 1
-       11 GETTABLEKS                       R6 R6 K3 ["AUDIENCE_TAB_PLAY_TESTERS"]
+       11 GETTABLEKS                       R6 R6 K3 ["AUDIENCE_TAB_EARLY_TESTERS"]
        13 JUMPIFEQ                         R3 R6 ; [+2]
        15 LOADB                            R5 0 +1
        16 LOADB                            R5 1
-       17 LOADNIL                          R6
-       18 JUMPIF                           R5 ; [+20]
-       19 GETTABLEKS                       R9 R1 K4 ["Id"]
-       21 NAMECALL                         R7 R0 K5 ["isFriend"]
-       23 CALL                             R7 2 1
-       24 JUMPIFNOT                        R4 ; [+10]
-       25 MOVE                             R8 R7
-       26 JUMPIFNOT                        R8 ; [+7]
-       27 GETUPVAL                         R9 1
-       28 GETTABLEKS                       R9 R9 K6 ["AUDIENCE_TAB_EDITORS"]
-       30 JUMPIFEQ                         R3 R9 ; [+2]
-       32 LOADB                            R8 0 +1
-       33 LOADB                            R8 1
-       34 MOVE                             R7 R8
-       35 JUMPIFNOT                        R7 ; [+2]
-       36 GETUPVAL                         R6 2
-       37 JUMP                             ; [+1]
-       38 GETUPVAL                         R6 3
-       39 GETUPVAL                         R7 4
-       40 GETTABLEKS                       R7 R7 K7 ["fflagManageCollaboratorsOwnerCountryBlocked"]
-       42 JUMPIFNOT                        R7 ; [+16]
-       43 GETIMPORT                        R7 K10 [coroutine.wrap]
-       45 NEWCLOSURE                       R8 P0
-       46 CAPTURE                          VAL R5
-       47 CAPTURE                          VAL R2
-       48 CAPTURE                          VAL R1
-       49 CAPTURE                          VAL R0
-       50 CAPTURE                          UPVAL U4
-       51 CAPTURE                          UPVAL U5
-       52 CAPTURE                          UPVAL U6
-       53 CAPTURE                          UPVAL U7
-       54 CAPTURE                          REF R6
-       55 CALL                             R7 1 1
-       56 CALL                             R7 0 0
-       57 CLOSEUPVALS                      R6
-       58 RETURN                           R0 0
-       59 JUMPIFNOT                        R5 ; [+8]
-       60 GETTABLEKS                       R7 R2 K11 ["AddPlayTester"]
-       62 GETTABLEKS                       R8 R1 K4 ["Id"]
-       64 GETTABLEKS                       R9 R1 K12 ["Name"]
-       66 CALL                             R7 2 0
-       67 JUMP                             ; [+8]
-       68 GETTABLEKS                       R7 R2 K13 ["AddUserCollaborator"]
-       70 GETTABLEKS                       R8 R1 K4 ["Id"]
-       72 GETTABLEKS                       R9 R1 K12 ["Name"]
-       74 MOVE                             R10 R6
-       75 CALL                             R7 3 0
-       76 CLOSEUPVALS                      R6
-       77 RETURN                           R0 0
-
-PROTO_7:
-        0 GETUPVAL                         R3 0
-        1 GETTABLE                         R2 R3 R0
-        2 JUMPIFNOTEQKNIL                  R2 ; [+2]
-        4 LOADB                            R1 0 +1
-        5 LOADB                            R1 1
-        6 RETURN                           R1 1
+       17 JUMPIFNOT                        R5 ; [+7]
+       18 GETTABLEKS                       R8 R1 K4 ["Id"]
+       20 NAMECALL                         R6 R0 K5 ["isFriend"]
+       22 CALL                             R6 2 1
+       23 JUMPIF                           R6 ; [+1]
+       24 RETURN                           R0 0
+       25 LOADNIL                          R6
+       26 JUMPIF                           R5 ; [+9]
+       27 GETTABLEKS                       R9 R1 K4 ["Id"]
+       29 NAMECALL                         R7 R0 K5 ["isFriend"]
+       31 CALL                             R7 2 1
+       32 JUMPIFNOT                        R7 ; [+2]
+       33 GETUPVAL                         R6 2
+       34 JUMP                             ; [+1]
+       35 GETUPVAL                         R6 3
+       36 GETUPVAL                         R7 4
+       37 GETTABLEKS                       R7 R7 K6 ["fflagManageCollaboratorsOwnerCountryBlocked"]
+       39 JUMPIFNOT                        R7 ; [+16]
+       40 GETIMPORT                        R7 K9 [coroutine.wrap]
+       42 NEWCLOSURE                       R8 P0
+       43 CAPTURE                          VAL R5
+       44 CAPTURE                          VAL R2
+       45 CAPTURE                          VAL R1
+       46 CAPTURE                          VAL R0
+       47 CAPTURE                          UPVAL U4
+       48 CAPTURE                          UPVAL U5
+       49 CAPTURE                          UPVAL U6
+       50 CAPTURE                          UPVAL U7
+       51 CAPTURE                          REF R6
+       52 CALL                             R7 1 1
+       53 CALL                             R7 0 0
+       54 CLOSEUPVALS                      R6
+       55 RETURN                           R0 0
+       56 JUMPIFNOT                        R5 ; [+8]
+       57 GETTABLEKS                       R7 R2 K10 ["AddPlayTester"]
+       59 GETTABLEKS                       R8 R1 K4 ["Id"]
+       61 GETTABLEKS                       R9 R1 K11 ["Name"]
+       63 CALL                             R7 2 0
+       64 JUMP                             ; [+8]
+       65 GETTABLEKS                       R7 R2 K12 ["AddUserCollaborator"]
+       67 GETTABLEKS                       R8 R1 K4 ["Id"]
+       69 GETTABLEKS                       R9 R1 K11 ["Name"]
+       71 MOVE                             R10 R6
+       72 CALL                             R7 3 0
+       73 CLOSEUPVALS                      R6
+       74 RETURN                           R0 0
 
 PROTO_8:
         0 GETUPVAL                         R3 0
@@ -243,6 +249,14 @@ PROTO_9:
         6 RETURN                           R1 1
 
 PROTO_10:
+        0 GETUPVAL                         R3 0
+        1 GETTABLE                         R2 R3 R0
+        2 JUMPIFNOTEQKNIL                  R2 ; [+2]
+        4 LOADB                            R1 0 +1
+        5 LOADB                            R1 1
+        6 RETURN                           R1 1
+
+PROTO_11:
         0 GETUPVAL                         R1 0
         1 GETTABLEKS                       R1 R1 K0 ["fflagFixMCSearchWidgetErrors"]
         3 JUMPIFNOT                        R1 ; [+5]
@@ -277,7 +291,7 @@ PROTO_10:
        39 OR                               R4 R2 R3
        40 RETURN                           R4 1
 
-PROTO_11:
+PROTO_12:
         0 GETTABLEKS                       R1 R0 K0 ["props"]
         2 GETTABLEKS                       R2 R1 K1 ["SearchData"]
         4 GETTABLEKS                       R3 R1 K2 ["UserCollaborators"]
@@ -426,9 +440,39 @@ PROTO_11:
       194 GETTABLEKS                       R16 R11 K8 ["Users"]
       196 CALL                             R14 2 1
       197 SETTABLEKS                       R14 R11 K8 ["Users"]
-      199 RETURN                           R11 1
+      199 GETUPVAL                         R14 6
+      200 GETTABLEKS                       R15 R1 K23 ["IsGroupGame"]
+      202 CALL                             R14 1 1
+      203 JUMPIFNOT                        R14 ; [+9]
+      204 GETTABLEKS                       R15 R1 K24 ["ActiveTab"]
+      206 GETUPVAL                         R16 7
+      207 GETTABLEKS                       R16 R16 K25 ["AUDIENCE_TAB_EARLY_TESTERS"]
+      209 JUMPIFEQ                         R15 R16 ; [+2]
+      211 LOADB                            R14 0 +1
+      212 LOADB                            R14 1
+      213 JUMPIFNOT                        R14 ; [+27]
+      214 NEWTABLE                         R15 0 0
+      216 GETTABLEKS                       R16 R11 K8 ["Users"]
+      218 LOADNIL                          R17
+      219 LOADNIL                          R18
+      220 FORGPREP                         R16
+      221 GETUPVAL                         R22 3
+      222 GETTABLEKS                       R22 R22 K12 ["SubjectIdKey"]
+      224 GETTABLE                         R21 R20 R22
+      225 MOVE                             R24 R21
+      226 NAMECALL                         R22 R0 K26 ["isFriend"]
+      228 CALL                             R22 2 1
+      229 JUMPIFNOT                        R22 ; [+7]
+      230 FASTCALL2                        TABLE_INSERT R15 R20 ; [+5]
+      232 MOVE                             R23 R15
+      233 MOVE                             R24 R20
+      234 GETIMPORT                        R22 K15 [table.insert]
+      236 CALL                             R22 2 0
+      237 FORGLOOP                         R16 2 ; [-17]
+      239 SETTABLEKS                       R15 R11 K8 ["Users"]
+      241 RETURN                           R11 1
 
-PROTO_12:
+PROTO_13:
         0 GETTABLEKS                       R1 R0 K0 ["props"]
         2 GETTABLEKS                       R2 R1 K1 ["SearchData"]
         4 GETTABLEKS                       R3 R1 K2 ["IsGroupGame"]
@@ -578,7 +622,7 @@ PROTO_12:
       206 JUMPIFNOT                        R11 ; [+9]
       207 GETTABLEKS                       R12 R1 K43 ["ActiveTab"]
       209 GETUPVAL                         R13 6
-      210 GETTABLEKS                       R13 R13 K44 ["AUDIENCE_TAB_PLAY_TESTERS"]
+      210 GETTABLEKS                       R13 R13 K44 ["AUDIENCE_TAB_EARLY_TESTERS"]
       212 JUMPIFEQ                         R12 R13 ; [+2]
       214 LOADB                            R11 0 +1
       215 LOADB                            R11 1
@@ -642,14 +686,14 @@ PROTO_12:
       298 SETTABLE                         R12 R6 R13
       299 RETURN                           R6 1
 
-PROTO_13:
+PROTO_14:
         0 GETUPVAL                         R1 0
         1 MOVE                             R2 R0
         2 LOADB                            R3 1
         3 CALL                             R1 2 0
         4 RETURN                           R0 0
 
-PROTO_14:
+PROTO_15:
         0 GETUPVAL                         R1 0
         1 GETTABLEKS                       R1 R1 K0 ["updateSearchbarText"]
         3 MOVE                             R2 R0
@@ -670,7 +714,7 @@ PROTO_14:
        24 CALL                             R1 2 0
        25 RETURN                           R0 0
 
-PROTO_15:
+PROTO_16:
         0 GETUPVAL                         R0 0
         1 GETTABLEKS                       R0 R0 K0 ["fflagManageCollaboratorsOwnerCountryBlocked"]
         3 JUMPIFNOT                        R0 ; [+11]
@@ -698,7 +742,7 @@ PROTO_15:
        34 CALL                             R0 1 0
        35 RETURN                           R0 0
 
-PROTO_16:
+PROTO_17:
         0 GETUPVAL                         R1 0
         1 JUMPIFNOT                        R1 ; [+3]
         2 GETUPVAL                         R1 1
@@ -806,7 +850,7 @@ PROTO_16:
       147 CALL                             R5 1 0
       148 RETURN                           R0 0
 
-PROTO_17:
+PROTO_18:
         0 GETTABLEKS                       R1 R0 K0 ["props"]
         2 GETTABLEKS                       R2 R1 K1 ["LayoutOrder"]
         4 GETTABLEKS                       R3 R1 K2 ["Writable"]
@@ -835,202 +879,249 @@ PROTO_17:
        41 GETUPVAL                         R18 1
        42 MOVE                             R19 R8
        43 CALL                             R18 1 1
-       44 JUMPIFNOT                        R18 ; [+9]
-       45 GETTABLEKS                       R19 R1 K17 ["ActiveTab"]
-       47 GETUPVAL                         R20 2
-       48 GETTABLEKS                       R20 R20 K18 ["AUDIENCE_TAB_PLAY_TESTERS"]
-       50 JUMPIFEQ                         R19 R20 ; [+2]
-       52 LOADB                            R18 0 +1
-       53 LOADB                            R18 1
-       54 MOVE                             R19 R18
-       55 JUMPIFNOT                        R19 ; [+7]
-       56 GETTABLEKS                       R21 R1 K20 ["PendingPlayTesterCount"]
-       58 ORK                              R20 R21 K19 [0]
-       59 JUMPIFLE                         R17 R20 ; [+2]
-       61 LOADB                            R19 0 +1
-       62 LOADB                            R19 1
-       63 LOADK                            R22 K21 ["SearchBar"]
-       64 LOADK                            R23 K22 ["TooManyResultsText"]
-       65 DUPTABLE                         R24 K24 [{"maxNumCollaborators"}]
-       66 SETTABLEKS                       R15 R24 K23 ["maxNumCollaborators"]
-       68 NAMECALL                         R20 R11 K25 ["getText"]
-       70 CALL                             R20 4 1
-       71 LOADK                            R23 K26 ["AudienceTabs"]
-       72 LOADK                            R24 K27 ["PlayTesterLimit"]
-       73 DUPTABLE                         R25 K29 [{"maxNumPlayTesters"}]
-       74 SETTABLEKS                       R17 R25 K28 ["maxNumPlayTesters"]
-       76 NAMECALL                         R21 R11 K25 ["getText"]
-       78 CALL                             R21 4 1
-       79 GETUPVAL                         R22 3
-       80 JUMPIFNOT                        R22 ; [+2]
-       81 GETTABLEKS                       R22 R1 K30 ["SearchDisabled"]
-       83 GETUPVAL                         R24 4
-       84 GETTABLEKS                       R24 R24 K31 ["fflagManageCollaboratorsOwnerCountryBlocked"]
-       86 JUMPIFNOT                        R24 ; [+11]
-       87 GETTABLEKS                       R24 R0 K32 ["state"]
-       89 GETTABLEKS                       R24 R24 K33 ["countryBlockedError"]
-       91 JUMPIFNOT                        R24 ; [+6]
-       92 LOADK                            R25 K21 ["SearchBar"]
-       93 LOADK                            R26 K34 ["CountryBlockedError"]
-       94 NAMECALL                         R23 R11 K25 ["getText"]
-       96 CALL                             R23 3 1
-       97 JUMP                             ; [+1]
-       98 LOADNIL                          R23
-       99 JUMPIFNOT                        R8 ; [+6]
-      100 LOADK                            R26 K21 ["SearchBar"]
-      101 LOADK                            R27 K35 ["AgeWarningGroups"]
-      102 NAMECALL                         R24 R11 K25 ["getText"]
-      104 CALL                             R24 3 1
-      105 JUMP                             ; [+13]
-      106 GETUPVAL                         R25 5
-      107 JUMPIFNOT                        R25 ; [+6]
-      108 LOADK                            R26 K21 ["SearchBar"]
-      109 LOADK                            R27 K36 ["AgeWarningConnectionUsers"]
-      110 NAMECALL                         R24 R11 K25 ["getText"]
-      112 CALL                             R24 3 1
-      113 JUMP                             ; [+5]
-      114 LOADK                            R26 K21 ["SearchBar"]
-      115 LOADK                            R27 K37 ["AgeWarningUsers"]
-      116 NAMECALL                         R24 R11 K25 ["getText"]
-      118 CALL                             R24 3 1
-      119 GETUPVAL                         R25 6
-      120 GETTABLEKS                       R25 R25 K38 ["createElement"]
-      122 GETUPVAL                         R26 7
-      123 DUPTABLE                         R27 K41 [{["BackgroundTransparency"] = 1, ["LayoutOrder"]}]
-      124 SETTABLEKS                       R2 R27 K1 ["LayoutOrder"]
-      126 DUPTABLE                         R28 K45 [{"Padding", "AgeWarningFrame", "Searchbar"}]
-      127 GETUPVAL                         R29 6
-      128 GETTABLEKS                       R29 R29 K38 ["createElement"]
-      130 LOADK                            R30 K46 ["UIPadding"]
-      131 DUPTABLE                         R31 K50 [{"PaddingTop", "PaddingLeft", "PaddingRight"}]
-      132 GETTABLEKS                       R32 R10 K51 ["searchWidget"]
-      134 GETTABLEKS                       R32 R32 K52 ["paddingTop"]
-      136 SETTABLEKS                       R32 R31 K47 ["PaddingTop"]
-      138 GETTABLEKS                       R32 R10 K51 ["searchWidget"]
-      140 GETTABLEKS                       R32 R32 K53 ["paddingHorizontal"]
-      142 SETTABLEKS                       R32 R31 K48 ["PaddingLeft"]
-      144 GETTABLEKS                       R32 R10 K51 ["searchWidget"]
-      146 GETTABLEKS                       R32 R32 K53 ["paddingHorizontal"]
-      148 SETTABLEKS                       R32 R31 K49 ["PaddingRight"]
-      150 CALL                             R29 2 1
-      151 SETTABLEKS                       R29 R28 K42 ["Padding"]
-      153 MOVE                             R29 R9
-      154 JUMPIFNOT                        R29 ; [+47]
-      155 GETUPVAL                         R29 6
-      156 GETTABLEKS                       R29 R29 K38 ["createElement"]
-      158 LOADK                            R30 K54 ["Frame"]
-      159 DUPTABLE                         R31 K57 [{["BackgroundTransparency"] = 1, ["LayoutOrder"] = 1, ["Size"], ["BorderSizePixel"] = 0}]
-      160 GETIMPORT                        R32 K60 [UDim2.new]
-      162 LOADN                            R33 1
-      163 LOADN                            R34 0
-      164 LOADN                            R35 0
-      165 GETTABLEKS                       R36 R10 K51 ["searchWidget"]
-      167 GETTABLEKS                       R36 R36 K61 ["ageWarning"]
-      169 GETTABLEKS                       R36 R36 K62 ["Height"]
-      171 CALL                             R32 4 1
-      172 SETTABLEKS                       R32 R31 K55 ["Size"]
-      174 DUPTABLE                         R32 K64 [{"AgeWarning"}]
-      175 GETUPVAL                         R33 6
-      176 GETTABLEKS                       R33 R33 K38 ["createElement"]
-      178 LOADK                            R34 K65 ["TextLabel"]
-      179 GETUPVAL                         R35 8
-      180 GETTABLEKS                       R35 R35 K66 ["Dictionary"]
-      182 GETTABLEKS                       R35 R35 K67 ["join"]
-      184 GETTABLEKS                       R36 R10 K51 ["searchWidget"]
-      186 GETTABLEKS                       R36 R36 K61 ["ageWarning"]
-      188 GETTABLEKS                       R36 R36 K68 ["fontStyle"]
-      190 DUPTABLE                         R37 K71 [{"Text", "TextXAlignment"}]
-      191 SETTABLEKS                       R24 R37 K69 ["Text"]
-      193 GETIMPORT                        R38 K74 [Enum.TextXAlignment.Left]
-      195 SETTABLEKS                       R38 R37 K70 ["TextXAlignment"]
-      197 CALL                             R35 2 -1
-      198 CALL                             R33 -1 1
-      199 SETTABLEKS                       R33 R32 K63 ["AgeWarning"]
-      201 CALL                             R29 3 1
-      202 SETTABLEKS                       R29 R28 K43 ["AgeWarningFrame"]
-      204 GETUPVAL                         R29 6
-      205 GETTABLEKS                       R29 R29 K38 ["createElement"]
-      207 GETUPVAL                         R30 9
-      208 DUPTABLE                         R31 K89 [{["LayoutOrder"] = 2, ["Enabled"], ["HeaderHeight"], ["ItemHeight"], ["ErrorText"], ["ErrorSubtitle"], ["DefaultText"], ["NoResultsText"], ["LoadingMore"], ["IsGroupGame"], ["onSearchRequested"], ["onTextChanged"], ["onTextBoxFocused"], ["OnItemClicked"], ["Results"], ["Is17PlusGame"]}]
-      209 MOVE                             R32 R3
-      210 JUMPIFNOT                        R32 ; [+5]
-      211 NOT                              R32 R16
-      212 JUMPIFNOT                        R32 ; [+3]
-      213 NOT                              R32 R19
-      214 JUMPIFNOT                        R32 ; [+1]
-      215 NOT                              R32 R22
-      216 SETTABLEKS                       R32 R31 K76 ["Enabled"]
-      218 GETTABLEKS                       R32 R10 K90 ["searchBar"]
-      220 GETTABLEKS                       R32 R32 K91 ["headerHeight"]
-      222 SETTABLEKS                       R32 R31 K77 ["HeaderHeight"]
-      224 GETTABLEKS                       R32 R10 K90 ["searchBar"]
-      226 GETTABLEKS                       R32 R32 K92 ["itemHeight"]
-      228 SETTABLEKS                       R32 R31 K78 ["ItemHeight"]
-      230 JUMPIFNOT                        R19 ; [+2]
-      231 MOVE                             R32 R21
-      232 JUMPIF                           R32 ; [+4]
-      233 JUMPIFNOT                        R16 ; [+2]
-      234 MOVE                             R32 R20
-      235 JUMPIF                           R32 ; [+1]
-      236 LOADNIL                          R32
-      237 SETTABLEKS                       R32 R31 K79 ["ErrorText"]
-      239 ORK                              R32 R23 K93 []
-      240 SETTABLEKS                       R32 R31 K80 ["ErrorSubtitle"]
-      242 LOADK                            R34 K21 ["SearchBar"]
-      243 JUMPIFNOT                        R8 ; [+2]
-      244 LOADK                            R35 K94 ["AddUsers"]
-      245 JUMP                             ; [+1]
-      246 LOADK                            R35 K95 ["AddUsersGroups"]
-      247 NAMECALL                         R32 R11 K25 ["getText"]
-      249 CALL                             R32 3 1
-      250 SETTABLEKS                       R32 R31 K81 ["DefaultText"]
-      252 LOADK                            R34 K21 ["SearchBar"]
-      253 LOADK                            R35 K82 ["NoResultsText"]
-      254 NAMECALL                         R32 R11 K25 ["getText"]
-      256 CALL                             R32 3 1
-      257 SETTABLEKS                       R32 R31 K82 ["NoResultsText"]
-      259 SETTABLEKS                       R13 R31 K83 ["LoadingMore"]
-      261 SETTABLEKS                       R8 R31 K7 ["IsGroupGame"]
-      263 NEWCLOSURE                       R32 P0
-      264 CAPTURE                          VAL R6
-      265 SETTABLEKS                       R32 R31 K84 ["onSearchRequested"]
-      267 NEWCLOSURE                       R32 P1
-      268 CAPTURE                          VAL R0
-      269 CAPTURE                          VAL R6
-      270 SETTABLEKS                       R32 R31 K85 ["onTextChanged"]
-      272 NEWCLOSURE                       R32 P2
-      273 CAPTURE                          UPVAL U4
-      274 CAPTURE                          VAL R0
-      275 SETTABLEKS                       R32 R31 K86 ["onTextBoxFocused"]
-      277 NEWCLOSURE                       R32 P3
-      278 CAPTURE                          UPVAL U3
-      279 CAPTURE                          VAL R22
-      280 CAPTURE                          UPVAL U10
-      281 CAPTURE                          VAL R0
-      282 CAPTURE                          VAL R8
-      283 CAPTURE                          UPVAL U11
-      284 CAPTURE                          UPVAL U12
-      285 CAPTURE                          VAL R1
-      286 CAPTURE                          VAL R7
-      287 CAPTURE                          UPVAL U13
-      288 CAPTURE                          VAL R5
-      289 CAPTURE                          UPVAL U14
-      290 CAPTURE                          UPVAL U15
-      291 SETTABLEKS                       R32 R31 K87 ["OnItemClicked"]
-      293 GETUPVAL                         R33 3
-      294 JUMPIFNOT                        R33 ; [+4]
-      295 JUMPIFNOT                        R22 ; [+3]
-      296 NEWTABLE                         R32 0 0
-      298 JUMP                             ; [+1]
-      299 MOVE                             R32 R12
-      300 SETTABLEKS                       R32 R31 K88 ["Results"]
-      302 SETTABLEKS                       R9 R31 K8 ["Is17PlusGame"]
-      304 CALL                             R29 2 1
-      305 SETTABLEKS                       R29 R28 K44 ["Searchbar"]
-      307 CALL                             R25 3 -1
-      308 RETURN                           R25 -1
+       44 MOVE                             R19 R18
+       45 JUMPIFNOT                        R19 ; [+9]
+       46 GETTABLEKS                       R20 R1 K17 ["ActiveTab"]
+       48 GETUPVAL                         R21 2
+       49 GETTABLEKS                       R21 R21 K18 ["AUDIENCE_TAB_EARLY_TESTERS"]
+       51 JUMPIFEQ                         R20 R21 ; [+2]
+       53 LOADB                            R19 0 +1
+       54 LOADB                            R19 1
+       55 MOVE                             R20 R19
+       56 JUMPIFNOT                        R20 ; [+7]
+       57 GETTABLEKS                       R22 R1 K20 ["PendingPlayTesterCount"]
+       59 ORK                              R21 R22 K19 [0]
+       60 JUMPIFLE                         R17 R21 ; [+2]
+       62 LOADB                            R20 0 +1
+       63 LOADB                            R20 1
+       64 LOADK                            R23 K21 ["SearchBar"]
+       65 LOADK                            R24 K22 ["TooManyResultsText"]
+       66 DUPTABLE                         R25 K24 [{"maxNumCollaborators"}]
+       67 SETTABLEKS                       R15 R25 K23 ["maxNumCollaborators"]
+       69 NAMECALL                         R21 R11 K25 ["getText"]
+       71 CALL                             R21 4 1
+       72 LOADK                            R24 K26 ["AudienceTabs"]
+       73 LOADK                            R25 K27 ["EarlyTesterLimitReached"]
+       74 DUPTABLE                         R26 K29 [{"maxNumPlayTesters"}]
+       75 SETTABLEKS                       R17 R26 K28 ["maxNumPlayTesters"]
+       77 NAMECALL                         R22 R11 K25 ["getText"]
+       79 CALL                             R22 4 1
+       80 GETUPVAL                         R23 3
+       81 JUMPIFNOT                        R23 ; [+2]
+       82 GETTABLEKS                       R23 R1 K30 ["SearchDisabled"]
+       84 GETUPVAL                         R25 4
+       85 GETTABLEKS                       R25 R25 K31 ["fflagManageCollaboratorsOwnerCountryBlocked"]
+       87 JUMPIFNOT                        R25 ; [+11]
+       88 GETTABLEKS                       R25 R0 K32 ["state"]
+       90 GETTABLEKS                       R25 R25 K33 ["countryBlockedError"]
+       92 JUMPIFNOT                        R25 ; [+6]
+       93 LOADK                            R26 K21 ["SearchBar"]
+       94 LOADK                            R27 K34 ["CountryBlockedError"]
+       95 NAMECALL                         R24 R11 K25 ["getText"]
+       97 CALL                             R24 3 1
+       98 JUMP                             ; [+1]
+       99 LOADNIL                          R24
+      100 JUMPIFNOT                        R8 ; [+6]
+      101 LOADK                            R27 K21 ["SearchBar"]
+      102 LOADK                            R28 K35 ["AgeWarningGroups"]
+      103 NAMECALL                         R25 R11 K25 ["getText"]
+      105 CALL                             R25 3 1
+      106 JUMP                             ; [+13]
+      107 GETUPVAL                         R26 5
+      108 JUMPIFNOT                        R26 ; [+6]
+      109 LOADK                            R27 K21 ["SearchBar"]
+      110 LOADK                            R28 K36 ["AgeWarningConnectionUsers"]
+      111 NAMECALL                         R25 R11 K25 ["getText"]
+      113 CALL                             R25 3 1
+      114 JUMP                             ; [+5]
+      115 LOADK                            R27 K21 ["SearchBar"]
+      116 LOADK                            R28 K37 ["AgeWarningUsers"]
+      117 NAMECALL                         R25 R11 K25 ["getText"]
+      119 CALL                             R25 3 1
+      120 JUMPIFNOT                        R19 ; [+6]
+      121 LOADK                            R28 K26 ["AudienceTabs"]
+      122 LOADK                            R29 K38 ["SearchFriends"]
+      123 NAMECALL                         R26 R11 K25 ["getText"]
+      125 CALL                             R26 3 1
+      126 JUMP                             ; [+5]
+      127 LOADK                            R28 K39 ["Subtitle"]
+      128 LOADK                            R29 K5 ["SearchCollaborators"]
+      129 NAMECALL                         R26 R11 K25 ["getText"]
+      131 CALL                             R26 3 1
+      132 JUMPIFNOT                        R19 ; [+6]
+      133 LOADK                            R29 K26 ["AudienceTabs"]
+      134 LOADK                            R30 K40 ["AddFriendsAsEarlyTesters"]
+      135 NAMECALL                         R27 R11 K25 ["getText"]
+      137 CALL                             R27 3 1
+      138 JUMP                             ; [+12]
+      139 JUMPIFNOT                        R8 ; [+6]
+      140 LOADK                            R29 K21 ["SearchBar"]
+      141 LOADK                            R30 K41 ["AddUsers"]
+      142 NAMECALL                         R27 R11 K25 ["getText"]
+      144 CALL                             R27 3 1
+      145 JUMP                             ; [+5]
+      146 LOADK                            R29 K21 ["SearchBar"]
+      147 LOADK                            R30 K42 ["AddUsersGroups"]
+      148 NAMECALL                         R27 R11 K25 ["getText"]
+      150 CALL                             R27 3 1
+      151 GETUPVAL                         R28 6
+      152 GETTABLEKS                       R28 R28 K43 ["createElement"]
+      154 JUMPIFNOT                        R18 ; [+2]
+      155 GETUPVAL                         R29 7
+      156 JUMP                             ; [+1]
+      157 GETUPVAL                         R29 8
+      158 DUPTABLE                         R30 K46 [{["BackgroundTransparency"] = 1, ["LayoutOrder"]}]
+      159 SETTABLEKS                       R2 R30 K1 ["LayoutOrder"]
+      161 DUPTABLE                         R31 K51 [{"Padding", "SearchCaption", "AgeWarningFrame", "Searchbar"}]
+      162 GETUPVAL                         R32 6
+      163 GETTABLEKS                       R32 R32 K43 ["createElement"]
+      165 LOADK                            R33 K52 ["UIPadding"]
+      166 DUPTABLE                         R34 K56 [{"PaddingTop", "PaddingLeft", "PaddingRight"}]
+      167 GETTABLEKS                       R35 R10 K57 ["searchWidget"]
+      169 GETTABLEKS                       R35 R35 K58 ["paddingTop"]
+      171 SETTABLEKS                       R35 R34 K53 ["PaddingTop"]
+      173 GETTABLEKS                       R35 R10 K57 ["searchWidget"]
+      175 GETTABLEKS                       R35 R35 K59 ["paddingHorizontal"]
+      177 SETTABLEKS                       R35 R34 K54 ["PaddingLeft"]
+      179 GETTABLEKS                       R35 R10 K57 ["searchWidget"]
+      181 GETTABLEKS                       R35 R35 K59 ["paddingHorizontal"]
+      183 SETTABLEKS                       R35 R34 K55 ["PaddingRight"]
+      185 CALL                             R32 2 1
+      186 SETTABLEKS                       R32 R31 K47 ["Padding"]
+      188 MOVE                             R32 R18
+      189 JUMPIFNOT                        R32 ; [+31]
+      190 GETUPVAL                         R32 6
+      191 GETTABLEKS                       R32 R32 K43 ["createElement"]
+      193 LOADK                            R33 K60 ["TextLabel"]
+      194 GETUPVAL                         R34 9
+      195 GETTABLEKS                       R34 R34 K61 ["Dictionary"]
+      197 GETTABLEKS                       R34 R34 K62 ["join"]
+      199 GETTABLEKS                       R35 R10 K63 ["fontStyle"]
+      201 GETTABLEKS                       R35 R35 K64 ["Subtext"]
+      203 DUPTABLE                         R36 K68 [{["LayoutOrder"] = 0, ["Size"], ["BackgroundTransparency"] = 1, ["Text"], ["TextXAlignment"]}]
+      204 GETIMPORT                        R37 K71 [UDim2.new]
+      206 LOADN                            R38 1
+      207 LOADN                            R39 0
+      208 LOADN                            R40 0
+      209 LOADN                            R41 14
+      210 CALL                             R37 4 1
+      211 SETTABLEKS                       R37 R36 K65 ["Size"]
+      213 SETTABLEKS                       R26 R36 K66 ["Text"]
+      215 GETIMPORT                        R37 K74 [Enum.TextXAlignment.Left]
+      217 SETTABLEKS                       R37 R36 K67 ["TextXAlignment"]
+      219 CALL                             R34 2 -1
+      220 CALL                             R32 -1 1
+      221 SETTABLEKS                       R32 R31 K48 ["SearchCaption"]
+      223 MOVE                             R32 R9
+      224 JUMPIFNOT                        R32 ; [+47]
+      225 GETUPVAL                         R32 6
+      226 GETTABLEKS                       R32 R32 K43 ["createElement"]
+      228 LOADK                            R33 K75 ["Frame"]
+      229 DUPTABLE                         R34 K77 [{["BackgroundTransparency"] = 1, ["LayoutOrder"] = 1, ["Size"], ["BorderSizePixel"] = 0}]
+      230 GETIMPORT                        R35 K71 [UDim2.new]
+      232 LOADN                            R36 1
+      233 LOADN                            R37 0
+      234 LOADN                            R38 0
+      235 GETTABLEKS                       R39 R10 K57 ["searchWidget"]
+      237 GETTABLEKS                       R39 R39 K78 ["ageWarning"]
+      239 GETTABLEKS                       R39 R39 K79 ["Height"]
+      241 CALL                             R35 4 1
+      242 SETTABLEKS                       R35 R34 K65 ["Size"]
+      244 DUPTABLE                         R35 K81 [{"AgeWarning"}]
+      245 GETUPVAL                         R36 6
+      246 GETTABLEKS                       R36 R36 K43 ["createElement"]
+      248 LOADK                            R37 K60 ["TextLabel"]
+      249 GETUPVAL                         R38 9
+      250 GETTABLEKS                       R38 R38 K61 ["Dictionary"]
+      252 GETTABLEKS                       R38 R38 K62 ["join"]
+      254 GETTABLEKS                       R39 R10 K57 ["searchWidget"]
+      256 GETTABLEKS                       R39 R39 K78 ["ageWarning"]
+      258 GETTABLEKS                       R39 R39 K63 ["fontStyle"]
+      260 DUPTABLE                         R40 K82 [{"Text", "TextXAlignment"}]
+      261 SETTABLEKS                       R25 R40 K66 ["Text"]
+      263 GETIMPORT                        R41 K74 [Enum.TextXAlignment.Left]
+      265 SETTABLEKS                       R41 R40 K67 ["TextXAlignment"]
+      267 CALL                             R38 2 -1
+      268 CALL                             R36 -1 1
+      269 SETTABLEKS                       R36 R35 K80 ["AgeWarning"]
+      271 CALL                             R32 3 1
+      272 SETTABLEKS                       R32 R31 K49 ["AgeWarningFrame"]
+      274 GETUPVAL                         R32 6
+      275 GETTABLEKS                       R32 R32 K43 ["createElement"]
+      277 GETUPVAL                         R33 10
+      278 DUPTABLE                         R34 K97 [{["LayoutOrder"] = 2, ["Enabled"], ["HeaderHeight"], ["ItemHeight"], ["ErrorText"], ["ErrorSubtitle"], ["DefaultText"], ["NoResultsText"], ["LoadingMore"], ["IsGroupGame"], ["onSearchRequested"], ["onTextChanged"], ["onTextBoxFocused"], ["OnItemClicked"], ["Results"], ["Is17PlusGame"]}]
+      279 MOVE                             R35 R3
+      280 JUMPIFNOT                        R35 ; [+5]
+      281 NOT                              R35 R16
+      282 JUMPIFNOT                        R35 ; [+3]
+      283 NOT                              R35 R20
+      284 JUMPIFNOT                        R35 ; [+1]
+      285 NOT                              R35 R23
+      286 SETTABLEKS                       R35 R34 K84 ["Enabled"]
+      288 GETTABLEKS                       R35 R10 K98 ["searchBar"]
+      290 GETTABLEKS                       R35 R35 K99 ["headerHeight"]
+      292 SETTABLEKS                       R35 R34 K85 ["HeaderHeight"]
+      294 GETTABLEKS                       R35 R10 K98 ["searchBar"]
+      296 GETTABLEKS                       R35 R35 K100 ["itemHeight"]
+      298 SETTABLEKS                       R35 R34 K86 ["ItemHeight"]
+      300 JUMPIFNOT                        R20 ; [+2]
+      301 MOVE                             R35 R22
+      302 JUMPIF                           R35 ; [+4]
+      303 JUMPIFNOT                        R16 ; [+2]
+      304 MOVE                             R35 R21
+      305 JUMPIF                           R35 ; [+1]
+      306 LOADNIL                          R35
+      307 SETTABLEKS                       R35 R34 K87 ["ErrorText"]
+      309 ORK                              R35 R24 K101 []
+      310 SETTABLEKS                       R35 R34 K88 ["ErrorSubtitle"]
+      312 SETTABLEKS                       R27 R34 K89 ["DefaultText"]
+      314 LOADK                            R37 K21 ["SearchBar"]
+      315 LOADK                            R38 K90 ["NoResultsText"]
+      316 NAMECALL                         R35 R11 K25 ["getText"]
+      318 CALL                             R35 3 1
+      319 SETTABLEKS                       R35 R34 K90 ["NoResultsText"]
+      321 SETTABLEKS                       R13 R34 K91 ["LoadingMore"]
+      323 SETTABLEKS                       R8 R34 K7 ["IsGroupGame"]
+      325 NEWCLOSURE                       R35 P0
+      326 CAPTURE                          VAL R6
+      327 SETTABLEKS                       R35 R34 K92 ["onSearchRequested"]
+      329 NEWCLOSURE                       R35 P1
+      330 CAPTURE                          VAL R0
+      331 CAPTURE                          VAL R6
+      332 SETTABLEKS                       R35 R34 K93 ["onTextChanged"]
+      334 NEWCLOSURE                       R35 P2
+      335 CAPTURE                          UPVAL U4
+      336 CAPTURE                          VAL R0
+      337 SETTABLEKS                       R35 R34 K94 ["onTextBoxFocused"]
+      339 NEWCLOSURE                       R35 P3
+      340 CAPTURE                          UPVAL U3
+      341 CAPTURE                          VAL R23
+      342 CAPTURE                          UPVAL U11
+      343 CAPTURE                          VAL R0
+      344 CAPTURE                          VAL R8
+      345 CAPTURE                          UPVAL U12
+      346 CAPTURE                          UPVAL U13
+      347 CAPTURE                          VAL R1
+      348 CAPTURE                          VAL R7
+      349 CAPTURE                          UPVAL U14
+      350 CAPTURE                          VAL R5
+      351 CAPTURE                          UPVAL U15
+      352 CAPTURE                          UPVAL U16
+      353 SETTABLEKS                       R35 R34 K95 ["OnItemClicked"]
+      355 GETUPVAL                         R36 3
+      356 JUMPIFNOT                        R36 ; [+4]
+      357 JUMPIFNOT                        R23 ; [+3]
+      358 NEWTABLE                         R35 0 0
+      360 JUMP                             ; [+1]
+      361 MOVE                             R35 R12
+      362 SETTABLEKS                       R35 R34 K96 ["Results"]
+      364 SETTABLEKS                       R9 R34 K8 ["Is17PlusGame"]
+      366 CALL                             R32 2 1
+      367 SETTABLEKS                       R32 R31 K50 ["Searchbar"]
+      369 CALL                             R28 3 -1
+      370 RETURN                           R28 -1
 
-PROTO_18:
+PROTO_19:
         0 GETUPVAL                         R2 0
         1 MOVE                             R3 R0
         2 CALL                             R2 1 2
@@ -1072,54 +1163,50 @@ PROTO_18:
        46 MOVE                             R7 R8
        47 GETUPVAL                         R8 4
        48 GETTABLEKS                       R8 R8 K3 ["fflagAddPlayTesterPermission"]
-       50 JUMPIFNOT                        R8 ; [+11]
-       51 GETUPVAL                         R8 3
-       52 GETTABLEKS                       R8 R8 K0 ["List"]
-       54 GETTABLEKS                       R8 R8 K1 ["join"]
-       56 MOVE                             R9 R6
-       57 GETUPVAL                         R10 5
-       58 MOVE                             R11 R0
-       59 CALL                             R10 1 -1
-       60 CALL                             R8 -1 1
-       61 MOVE                             R6 R8
-       62 DUPTABLE                         R8 K12 [{"IsGroupGame", "Is17PlusGame", "UserCollaborators", "GroupCollaborators", "SearchData", "ownerType", "ownerFriends", "PendingPlayTesterCount"}]
-       63 GETUPVAL                         R9 6
-       64 MOVE                             R10 R0
-       65 CALL                             R9 1 1
-       66 SETTABLEKS                       R9 R8 K4 ["IsGroupGame"]
-       68 GETUPVAL                         R9 7
-       69 MOVE                             R10 R0
-       70 CALL                             R9 1 1
-       71 SETTABLEKS                       R9 R8 K5 ["Is17PlusGame"]
-       73 SETTABLEKS                       R6 R8 K6 ["UserCollaborators"]
-       75 SETTABLEKS                       R7 R8 K7 ["GroupCollaborators"]
-       77 GETTABLEKS                       R9 R0 K13 ["CollaboratorSearch"]
-       79 SETTABLEKS                       R9 R8 K8 ["SearchData"]
-       81 GETTABLEKS                       R9 R0 K14 ["GameOwnerMetadata"]
-       83 GETTABLEKS                       R9 R9 K15 ["creatorType"]
-       85 SETTABLEKS                       R9 R8 K9 ["ownerType"]
-       87 GETTABLEKS                       R9 R0 K14 ["GameOwnerMetadata"]
-       89 GETTABLEKS                       R9 R9 K16 ["creatorFriends"]
-       91 SETTABLEKS                       R9 R8 K10 ["ownerFriends"]
-       93 GETUPVAL                         R10 4
-       94 GETTABLEKS                       R10 R10 K3 ["fflagAddPlayTesterPermission"]
-       96 JUMPIFNOT                        R10 ; [+4]
-       97 GETUPVAL                         R9 8
-       98 MOVE                             R10 R0
-       99 CALL                             R9 1 1
-      100 JUMP                             ; [+1]
-      101 LOADNIL                          R9
-      102 SETTABLEKS                       R9 R8 K11 ["PendingPlayTesterCount"]
-      104 RETURN                           R8 1
-
-PROTO_19:
-        0 PREPVARARGS                      0
-        1 GETUPVAL                         R0 0
-        2 GETUPVAL                         R1 1
-        3 GETVARARGS                       R2 -1
-        4 CALL                             R1 -1 -1
-        5 CALL                             R0 -1 0
-        6 RETURN                           R0 0
+       50 JUMPIFNOT                        R8 ; [+17]
+       51 GETUPVAL                         R8 5
+       52 GETUPVAL                         R9 6
+       53 MOVE                             R10 R0
+       54 CALL                             R9 1 -1
+       55 CALL                             R8 -1 1
+       56 JUMPIFNOT                        R8 ; [+11]
+       57 GETTABLEKS                       R8 R1 K4 ["ActiveTab"]
+       59 GETUPVAL                         R9 7
+       60 GETTABLEKS                       R9 R9 K5 ["AUDIENCE_TAB_EARLY_TESTERS"]
+       62 JUMPIFNOTEQ                      R8 R9 ; [+5]
+       64 GETUPVAL                         R8 8
+       65 MOVE                             R9 R0
+       66 CALL                             R8 1 1
+       67 MOVE                             R6 R8
+       68 DUPTABLE                         R8 K14 [{"IsGroupGame", "Is17PlusGame", "UserCollaborators", "GroupCollaborators", "SearchData", "ownerType", "ownerFriends", "PendingPlayTesterCount"}]
+       69 GETUPVAL                         R9 6
+       70 MOVE                             R10 R0
+       71 CALL                             R9 1 1
+       72 SETTABLEKS                       R9 R8 K6 ["IsGroupGame"]
+       74 GETUPVAL                         R9 9
+       75 MOVE                             R10 R0
+       76 CALL                             R9 1 1
+       77 SETTABLEKS                       R9 R8 K7 ["Is17PlusGame"]
+       79 SETTABLEKS                       R6 R8 K8 ["UserCollaborators"]
+       81 SETTABLEKS                       R7 R8 K9 ["GroupCollaborators"]
+       83 GETTABLEKS                       R9 R0 K15 ["CollaboratorSearch"]
+       85 SETTABLEKS                       R9 R8 K10 ["SearchData"]
+       87 GETTABLEKS                       R9 R0 K16 ["GameOwnerMetadata"]
+       89 GETTABLEKS                       R9 R9 K17 ["creatorType"]
+       91 SETTABLEKS                       R9 R8 K11 ["ownerType"]
+       93 GETTABLEKS                       R9 R0 K16 ["GameOwnerMetadata"]
+       95 GETTABLEKS                       R9 R9 K18 ["creatorFriends"]
+       97 SETTABLEKS                       R9 R8 K12 ["ownerFriends"]
+       99 GETUPVAL                         R10 4
+      100 GETTABLEKS                       R10 R10 K3 ["fflagAddPlayTesterPermission"]
+      102 JUMPIFNOT                        R10 ; [+4]
+      103 GETUPVAL                         R9 10
+      104 MOVE                             R10 R0
+      105 CALL                             R9 1 1
+      106 JUMP                             ; [+1]
+      107 LOADNIL                          R9
+      108 SETTABLEKS                       R9 R8 K13 ["PendingPlayTesterCount"]
+      110 RETURN                           R8 1
 
 PROTO_20:
         0 PREPVARARGS                      0
@@ -1149,6 +1236,15 @@ PROTO_22:
         6 RETURN                           R0 0
 
 PROTO_23:
+        0 PREPVARARGS                      0
+        1 GETUPVAL                         R0 0
+        2 GETUPVAL                         R1 1
+        3 GETVARARGS                       R2 -1
+        4 CALL                             R1 -1 -1
+        5 CALL                             R0 -1 0
+        6 RETURN                           R0 0
+
+PROTO_24:
         0 GETUPVAL                         R0 0
         1 GETUPVAL                         R1 1
         2 NAMECALL                         R1 R1 K0 ["LoadFriends"]
@@ -1156,7 +1252,7 @@ PROTO_23:
         5 CALL                             R0 -1 0
         6 RETURN                           R0 0
 
-PROTO_24:
+PROTO_25:
         0 GETUPVAL                         R3 0
         1 NEWTABLE                         R4 0 1
         3 GETUPVAL                         R5 1
@@ -1186,7 +1282,7 @@ PROTO_24:
        35 CALL                             R2 -1 0
        36 RETURN                           R0 0
 
-PROTO_25:
+PROTO_26:
         0 GETUPVAL                         R4 0
         1 NEWCLOSURE                       R5 P0
         2 CAPTURE                          UPVAL U1
@@ -1199,7 +1295,7 @@ PROTO_25:
         9 CALL                             R4 1 0
        10 RETURN                           R0 0
 
-PROTO_26:
+PROTO_27:
         0 GETUPVAL                         R3 0
         1 NEWTABLE                         R4 0 1
         3 GETUPVAL                         R5 1
@@ -1228,7 +1324,7 @@ PROTO_26:
        34 CALL                             R2 -1 0
        35 RETURN                           R0 0
 
-PROTO_27:
+PROTO_28:
         0 GETUPVAL                         R3 0
         1 NEWCLOSURE                       R4 P0
         2 CAPTURE                          UPVAL U1
@@ -1240,7 +1336,7 @@ PROTO_27:
         8 CALL                             R3 1 0
         9 RETURN                           R0 0
 
-PROTO_28:
+PROTO_29:
         0 PREPVARARGS                      0
         1 GETUPVAL                         R0 0
         2 GETUPVAL                         R1 1
@@ -1249,7 +1345,7 @@ PROTO_28:
         5 CALL                             R0 -1 0
         6 RETURN                           R0 0
 
-PROTO_29:
+PROTO_30:
         0 DUPTABLE                         R1 K8 [{"AddUserCollaborator", "AddPlayTester", "AddGroupCollaborator", "SearchCollaborators", "LoadFriends", "CheckAndAddUserCollaborator", "CheckAndAddPlayTester", "AddSearchItemLog"}]
         1 NEWCLOSURE                       R2 P0
         2 CAPTURE                          VAL R0
@@ -1458,141 +1554,140 @@ MAIN:
       280 LOADK                            R40 K56 ["StudioFriendToConnection"]
       281 NAMECALL                         R38 R38 K57 ["GetFastFlag"]
       283 CALL                             R38 2 1
-      284 MOVE                             R39 R23
-      285 LOADK                            R40 K58 ["Frame"]
-      286 LOADK                            R41 K59 ["UIListLayout"]
-      287 DUPTABLE                         R42 K63 [{"SortOrder", "Padding", "HorizontalAlignment"}]
-      288 GETIMPORT                        R43 K66 [Enum.SortOrder.LayoutOrder]
-      290 SETTABLEKS                       R43 R42 K60 ["SortOrder"]
-      292 GETIMPORT                        R43 K69 [UDim.new]
-      294 LOADN                            R44 0
-      295 LOADN                            R45 32
-      296 CALL                             R43 2 1
-      297 SETTABLEKS                       R43 R42 K61 ["Padding"]
-      299 GETIMPORT                        R43 K71 [Enum.HorizontalAlignment.Center]
-      301 SETTABLEKS                       R43 R42 K62 ["HorizontalAlignment"]
-      303 CALL                             R39 3 1
-      304 GETIMPORT                        R40 K55 [game]
-      306 LOADK                            R42 K72 ["StudioService"]
-      307 NAMECALL                         R40 R40 K73 ["GetService"]
-      309 CALL                             R40 2 1
-      310 GETIMPORT                        R41 K4 [require]
-      312 GETTABLEKS                       R42 R0 K5 ["Packages"]
-      314 GETTABLEKS                       R42 R42 K74 ["TelemetryProtocol"]
-      316 CALL                             R41 1 1
-      317 GETIMPORT                        R42 K4 [require]
-      319 GETTABLEKS                       R43 R0 K17 ["Src"]
-      321 GETTABLEKS                       R43 R43 K24 ["Util"]
-      323 GETTABLEKS                       R43 R43 K75 ["Telemetry"]
-      325 GETTABLEKS                       R43 R43 K76 ["SafetyUpsellBannerShownEvent"]
-      327 CALL                             R42 1 1
-      328 GETTABLEKS                       R43 R41 K68 ["new"]
-      330 CALL                             R43 0 1
-      331 GETIMPORT                        R44 K4 [require]
-      333 GETTABLEKS                       R45 R0 K17 ["Src"]
-      335 GETTABLEKS                       R45 R45 K24 ["Util"]
-      337 GETTABLEKS                       R45 R45 K77 ["IsLikelyCollaboratorPrefetchEnabled"]
-      339 CALL                             R44 1 1
-      340 MOVE                             R45 R44
-      341 CALL                             R45 0 1
-      342 GETIMPORT                        R46 K4 [require]
-      344 GETTABLEKS                       R47 R0 K17 ["Src"]
-      346 GETTABLEKS                       R47 R47 K24 ["Util"]
-      348 GETTABLEKS                       R47 R47 K78 ["likelyCollaboratorMatchesSearch"]
-      350 CALL                             R46 1 1
-      351 GETTABLEKS                       R47 R1 K79 ["PureComponent"]
-      353 LOADK                            R49 K80 ["CollaboratorSearchWidget"]
-      354 NAMECALL                         R47 R47 K81 ["extend"]
-      356 CALL                             R47 2 1
-      357 DUPCLOSURE                       R48 K82 [PROTO_0]
-      358 CAPTURE                          VAL R1
-      359 CAPTURE                          VAL R9
-      360 SETTABLEKS                       R48 R47 K83 ["init"]
-      362 DUPCLOSURE                       R48 K84 [PROTO_1]
-      363 CAPTURE                          VAL R14
-      364 SETTABLEKS                       R48 R47 K85 ["isLoading"]
-      366 DUPCLOSURE                       R48 K86 [PROTO_2]
-      367 SETTABLEKS                       R48 R47 K87 ["isFriend"]
-      369 DUPCLOSURE                       R48 K88 [PROTO_6]
-      370 CAPTURE                          VAL R36
-      371 CAPTURE                          VAL R17
-      372 CAPTURE                          VAL R16
-      373 CAPTURE                          VAL R15
-      374 CAPTURE                          VAL R9
-      375 CAPTURE                          VAL R43
-      376 CAPTURE                          VAL R42
-      377 CAPTURE                          VAL R40
-      378 SETTABLEKS                       R48 R47 K89 ["addUserFromSearch"]
-      380 DUPCLOSURE                       R48 K90 [PROTO_11]
-      381 CAPTURE                          VAL R45
-      382 CAPTURE                          VAL R9
-      383 CAPTURE                          VAL R46
-      384 CAPTURE                          VAL R13
-      385 CAPTURE                          VAL R14
-      386 CAPTURE                          VAL R3
-      387 SETTABLEKS                       R48 R47 K91 ["getMatches"]
-      389 DUPCLOSURE                       R48 K92 [PROTO_12]
-      390 CAPTURE                          VAL R45
-      391 CAPTURE                          VAL R13
-      392 CAPTURE                          VAL R1
-      393 CAPTURE                          VAL R20
-      394 CAPTURE                          VAL R18
-      395 CAPTURE                          VAL R36
-      396 CAPTURE                          VAL R17
-      397 CAPTURE                          VAL R21
-      398 CAPTURE                          VAL R19
-      399 SETTABLEKS                       R48 R47 K93 ["getResults"]
-      401 DUPCLOSURE                       R48 K94 [PROTO_17]
-      402 CAPTURE                          VAL R37
-      403 CAPTURE                          VAL R36
-      404 CAPTURE                          VAL R17
-      405 CAPTURE                          VAL R12
-      406 CAPTURE                          VAL R9
-      407 CAPTURE                          VAL R38
-      408 CAPTURE                          VAL R1
-      409 CAPTURE                          VAL R39
-      410 CAPTURE                          VAL R3
-      411 CAPTURE                          VAL R22
-      412 CAPTURE                          VAL R13
-      413 CAPTURE                          VAL R45
-      414 CAPTURE                          VAL R40
-      415 CAPTURE                          VAL R18
-      416 CAPTURE                          VAL R15
-      417 CAPTURE                          VAL R19
-      418 SETTABLEKS                       R48 R47 K95 ["render"]
-      420 MOVE                             R48 R7
-      421 DUPTABLE                         R49 K97 [{"Stylizer", "Localization", "Mouse"}]
-      422 SETTABLEKS                       R5 R49 K11 ["Stylizer"]
-      424 SETTABLEKS                       R8 R49 K14 ["Localization"]
-      426 GETTABLEKS                       R50 R6 K96 ["Mouse"]
-      428 SETTABLEKS                       R50 R49 K96 ["Mouse"]
-      430 CALL                             R48 1 1
-      431 MOVE                             R49 R47
-      432 CALL                             R48 1 1
-      433 MOVE                             R47 R48
-      434 GETTABLEKS                       R48 R2 K98 ["connect"]
-      436 DUPCLOSURE                       R49 K99 [PROTO_18]
-      437 CAPTURE                          VAL R24
-      438 CAPTURE                          VAL R25
-      439 CAPTURE                          VAL R45
-      440 CAPTURE                          VAL R3
-      441 CAPTURE                          VAL R9
-      442 CAPTURE                          VAL R26
-      443 CAPTURE                          VAL R34
-      444 CAPTURE                          VAL R35
-      445 CAPTURE                          VAL R27
-      446 DUPCLOSURE                       R50 K100 [PROTO_29]
-      447 CAPTURE                          VAL R28
-      448 CAPTURE                          VAL R30
-      449 CAPTURE                          VAL R29
-      450 CAPTURE                          VAL R31
-      451 CAPTURE                          VAL R32
-      452 CAPTURE                          VAL R9
-      453 CAPTURE                          VAL R11
-      454 CAPTURE                          VAL R10
-      455 CAPTURE                          VAL R33
-      456 CALL                             R48 2 1
-      457 MOVE                             R49 R47
-      458 CALL                             R48 1 1
-      459 MOVE                             R47 R48
-      460 RETURN                           R47 1
+      284 DUPCLOSURE                       R39 K58 [PROTO_0]
+      285 CAPTURE                          VAL R23
+      286 MOVE                             R40 R39
+      287 LOADN                            R41 32
+      288 CALL                             R40 1 1
+      289 MOVE                             R41 R39
+      290 LOADN                            R42 8
+      291 CALL                             R41 1 1
+      292 GETIMPORT                        R42 K55 [game]
+      294 LOADK                            R44 K59 ["StudioService"]
+      295 NAMECALL                         R42 R42 K60 ["GetService"]
+      297 CALL                             R42 2 1
+      298 GETIMPORT                        R43 K4 [require]
+      300 GETTABLEKS                       R44 R0 K5 ["Packages"]
+      302 GETTABLEKS                       R44 R44 K61 ["TelemetryProtocol"]
+      304 CALL                             R43 1 1
+      305 GETIMPORT                        R44 K4 [require]
+      307 GETTABLEKS                       R45 R0 K17 ["Src"]
+      309 GETTABLEKS                       R45 R45 K24 ["Util"]
+      311 GETTABLEKS                       R45 R45 K62 ["Telemetry"]
+      313 GETTABLEKS                       R45 R45 K63 ["SafetyUpsellBannerShownEvent"]
+      315 CALL                             R44 1 1
+      316 GETTABLEKS                       R45 R43 K64 ["new"]
+      318 CALL                             R45 0 1
+      319 GETIMPORT                        R46 K4 [require]
+      321 GETTABLEKS                       R47 R0 K17 ["Src"]
+      323 GETTABLEKS                       R47 R47 K24 ["Util"]
+      325 GETTABLEKS                       R47 R47 K65 ["IsLikelyCollaboratorPrefetchEnabled"]
+      327 CALL                             R46 1 1
+      328 MOVE                             R47 R46
+      329 CALL                             R47 0 1
+      330 GETIMPORT                        R48 K4 [require]
+      332 GETTABLEKS                       R49 R0 K17 ["Src"]
+      334 GETTABLEKS                       R49 R49 K24 ["Util"]
+      336 GETTABLEKS                       R49 R49 K66 ["likelyCollaboratorMatchesSearch"]
+      338 CALL                             R48 1 1
+      339 GETTABLEKS                       R49 R1 K67 ["PureComponent"]
+      341 LOADK                            R51 K68 ["CollaboratorSearchWidget"]
+      342 NAMECALL                         R49 R49 K69 ["extend"]
+      344 CALL                             R49 2 1
+      345 DUPCLOSURE                       R50 K70 [PROTO_1]
+      346 CAPTURE                          VAL R1
+      347 CAPTURE                          VAL R9
+      348 SETTABLEKS                       R50 R49 K71 ["init"]
+      350 DUPCLOSURE                       R50 K72 [PROTO_2]
+      351 CAPTURE                          VAL R14
+      352 SETTABLEKS                       R50 R49 K73 ["isLoading"]
+      354 DUPCLOSURE                       R50 K74 [PROTO_3]
+      355 SETTABLEKS                       R50 R49 K75 ["isFriend"]
+      357 DUPCLOSURE                       R50 K76 [PROTO_7]
+      358 CAPTURE                          VAL R36
+      359 CAPTURE                          VAL R17
+      360 CAPTURE                          VAL R16
+      361 CAPTURE                          VAL R15
+      362 CAPTURE                          VAL R9
+      363 CAPTURE                          VAL R45
+      364 CAPTURE                          VAL R44
+      365 CAPTURE                          VAL R42
+      366 SETTABLEKS                       R50 R49 K77 ["addUserFromSearch"]
+      368 DUPCLOSURE                       R50 K78 [PROTO_12]
+      369 CAPTURE                          VAL R47
+      370 CAPTURE                          VAL R9
+      371 CAPTURE                          VAL R48
+      372 CAPTURE                          VAL R13
+      373 CAPTURE                          VAL R14
+      374 CAPTURE                          VAL R3
+      375 CAPTURE                          VAL R36
+      376 CAPTURE                          VAL R17
+      377 SETTABLEKS                       R50 R49 K79 ["getMatches"]
+      379 DUPCLOSURE                       R50 K80 [PROTO_13]
+      380 CAPTURE                          VAL R47
+      381 CAPTURE                          VAL R13
+      382 CAPTURE                          VAL R1
+      383 CAPTURE                          VAL R20
+      384 CAPTURE                          VAL R18
+      385 CAPTURE                          VAL R36
+      386 CAPTURE                          VAL R17
+      387 CAPTURE                          VAL R21
+      388 CAPTURE                          VAL R19
+      389 SETTABLEKS                       R50 R49 K81 ["getResults"]
+      391 DUPCLOSURE                       R50 K82 [PROTO_18]
+      392 CAPTURE                          VAL R37
+      393 CAPTURE                          VAL R36
+      394 CAPTURE                          VAL R17
+      395 CAPTURE                          VAL R12
+      396 CAPTURE                          VAL R9
+      397 CAPTURE                          VAL R38
+      398 CAPTURE                          VAL R1
+      399 CAPTURE                          VAL R41
+      400 CAPTURE                          VAL R40
+      401 CAPTURE                          VAL R3
+      402 CAPTURE                          VAL R22
+      403 CAPTURE                          VAL R13
+      404 CAPTURE                          VAL R47
+      405 CAPTURE                          VAL R42
+      406 CAPTURE                          VAL R18
+      407 CAPTURE                          VAL R15
+      408 CAPTURE                          VAL R19
+      409 SETTABLEKS                       R50 R49 K83 ["render"]
+      411 MOVE                             R50 R7
+      412 DUPTABLE                         R51 K85 [{"Stylizer", "Localization", "Mouse"}]
+      413 SETTABLEKS                       R5 R51 K11 ["Stylizer"]
+      415 SETTABLEKS                       R8 R51 K14 ["Localization"]
+      417 GETTABLEKS                       R52 R6 K84 ["Mouse"]
+      419 SETTABLEKS                       R52 R51 K84 ["Mouse"]
+      421 CALL                             R50 1 1
+      422 MOVE                             R51 R49
+      423 CALL                             R50 1 1
+      424 MOVE                             R49 R50
+      425 GETTABLEKS                       R50 R2 K86 ["connect"]
+      427 DUPCLOSURE                       R51 K87 [PROTO_19]
+      428 CAPTURE                          VAL R24
+      429 CAPTURE                          VAL R25
+      430 CAPTURE                          VAL R47
+      431 CAPTURE                          VAL R3
+      432 CAPTURE                          VAL R9
+      433 CAPTURE                          VAL R36
+      434 CAPTURE                          VAL R34
+      435 CAPTURE                          VAL R17
+      436 CAPTURE                          VAL R26
+      437 CAPTURE                          VAL R35
+      438 CAPTURE                          VAL R27
+      439 DUPCLOSURE                       R52 K88 [PROTO_30]
+      440 CAPTURE                          VAL R28
+      441 CAPTURE                          VAL R30
+      442 CAPTURE                          VAL R29
+      443 CAPTURE                          VAL R31
+      444 CAPTURE                          VAL R32
+      445 CAPTURE                          VAL R9
+      446 CAPTURE                          VAL R11
+      447 CAPTURE                          VAL R10
+      448 CAPTURE                          VAL R33
+      449 CALL                             R50 2 1
+      450 MOVE                             R51 R49
+      451 CALL                             R50 1 1
+      452 MOVE                             R49 R50
+      453 RETURN                           R49 1

@@ -22,7 +22,7 @@ PROTO_2:
 
 PROTO_3:
         0 GETUPVAL                         R0 0
-        1 GETTABLEKS                       R0 R0 K0 ["OnSearchTermChanged"]
+        1 GETTABLEKS                       R0 R0 K0 ["OnPendingSearchTermChanged"]
         3 GETUPVAL                         R2 1
         4 NAMECALL                         R0 R0 K1 ["Connect"]
         6 CALL                             R0 2 1
@@ -38,7 +38,7 @@ PROTO_4:
 
 PROTO_5:
         0 GETUPVAL                         R0 0
-        1 GETTABLEKS                       R0 R0 K0 ["OnSearchOptionsChanged"]
+        1 GETTABLEKS                       R0 R0 K0 ["OnActiveSearchTermChanged"]
         3 GETUPVAL                         R2 1
         4 NAMECALL                         R0 R0 K1 ["Connect"]
         6 CALL                             R0 2 1
@@ -54,7 +54,7 @@ PROTO_6:
 
 PROTO_7:
         0 GETUPVAL                         R0 0
-        1 GETTABLEKS                       R0 R0 K0 ["OnIsDefaultSearchStateChanged"]
+        1 GETTABLEKS                       R0 R0 K0 ["OnSearchOptionsChanged"]
         3 GETUPVAL                         R2 1
         4 NAMECALL                         R0 R0 K1 ["Connect"]
         6 CALL                             R0 2 1
@@ -63,6 +63,22 @@ PROTO_7:
         9 RETURN                           R1 1
 
 PROTO_8:
+        0 GETUPVAL                         R0 0
+        1 NAMECALL                         R0 R0 K0 ["Disconnect"]
+        3 CALL                             R0 1 0
+        4 RETURN                           R0 0
+
+PROTO_9:
+        0 GETUPVAL                         R0 0
+        1 GETTABLEKS                       R0 R0 K0 ["OnIsDefaultSearchStateChanged"]
+        3 GETUPVAL                         R2 1
+        4 NAMECALL                         R0 R0 K1 ["Connect"]
+        6 CALL                             R0 2 1
+        7 NEWCLOSURE                       R1 P0
+        8 CAPTURE                          VAL R0
+        9 RETURN                           R1 1
+
+PROTO_10:
         0 GETUPVAL                         R0 0
         1 GETTABLEKS                       R0 R0 K0 ["use"]
         3 CALL                             R0 0 1
@@ -75,43 +91,54 @@ PROTO_8:
        12 CALL                             R4 1 -1
        13 CALL                             R3 -1 2
        14 GETUPVAL                         R5 1
-       15 NAMECALL                         R6 R0 K3 ["getSearchTerm"]
+       15 NAMECALL                         R6 R0 K3 ["getPendingSearchTerm"]
        17 CALL                             R6 1 -1
        18 CALL                             R5 -1 2
        19 GETUPVAL                         R7 1
-       20 NAMECALL                         R8 R0 K4 ["getSearchOptions"]
+       20 NAMECALL                         R8 R0 K4 ["getActiveSearchTerm"]
        22 CALL                             R8 1 -1
        23 CALL                             R7 -1 2
-       24 DUPTABLE                         R9 K9 [{"ShowSearchOptions", "SearchTerm", "SearchOptions", "IsDefaultSearchState"}]
-       25 SETTABLEKS                       R1 R9 K5 ["ShowSearchOptions"]
-       27 SETTABLEKS                       R5 R9 K6 ["SearchTerm"]
-       29 SETTABLEKS                       R7 R9 K7 ["SearchOptions"]
-       31 SETTABLEKS                       R3 R9 K8 ["IsDefaultSearchState"]
-       33 GETUPVAL                         R10 2
-       34 NEWCLOSURE                       R11 P0
-       35 CAPTURE                          VAL R0
-       36 CAPTURE                          VAL R2
-       37 NEWTABLE                         R12 0 0
-       39 CALL                             R10 2 0
-       40 GETUPVAL                         R10 2
-       41 NEWCLOSURE                       R11 P1
+       24 GETUPVAL                         R9 1
+       25 NAMECALL                         R10 R0 K5 ["getSearchOptions"]
+       27 CALL                             R10 1 -1
+       28 CALL                             R9 -1 2
+       29 DUPTABLE                         R11 K11 [{"ShowSearchOptions", "PendingSearchTerm", "ActiveSearchTerm", "SearchOptions", "IsDefaultSearchState"}]
+       30 SETTABLEKS                       R1 R11 K6 ["ShowSearchOptions"]
+       32 SETTABLEKS                       R5 R11 K7 ["PendingSearchTerm"]
+       34 SETTABLEKS                       R7 R11 K8 ["ActiveSearchTerm"]
+       36 SETTABLEKS                       R9 R11 K9 ["SearchOptions"]
+       38 SETTABLEKS                       R3 R11 K10 ["IsDefaultSearchState"]
+       40 GETUPVAL                         R12 2
+       41 NEWCLOSURE                       R13 P0
        42 CAPTURE                          VAL R0
-       43 CAPTURE                          VAL R6
-       44 NEWTABLE                         R12 0 0
-       46 CALL                             R10 2 0
-       47 GETUPVAL                         R10 2
-       48 NEWCLOSURE                       R11 P2
+       43 CAPTURE                          VAL R2
+       44 NEWTABLE                         R14 0 0
+       46 CALL                             R12 2 0
+       47 GETUPVAL                         R12 2
+       48 NEWCLOSURE                       R13 P1
        49 CAPTURE                          VAL R0
-       50 CAPTURE                          VAL R8
-       51 NEWTABLE                         R12 0 0
-       53 CALL                             R10 2 0
-       54 GETUPVAL                         R10 2
-       55 NEWCLOSURE                       R11 P3
+       50 CAPTURE                          VAL R6
+       51 NEWTABLE                         R14 0 0
+       53 CALL                             R12 2 0
+       54 GETUPVAL                         R12 2
+       55 NEWCLOSURE                       R13 P2
        56 CAPTURE                          VAL R0
-       57 CAPTURE                          VAL R4
-       58 NEWTABLE                         R12 0 0
-       60 CALL                             R10 2 0
-       61 RETURN                           R9 1
+       57 CAPTURE                          VAL R8
+       58 NEWTABLE                         R14 0 0
+       60 CALL                             R12 2 0
+       61 GETUPVAL                         R12 2
+       62 NEWCLOSURE                       R13 P3
+       63 CAPTURE                          VAL R0
+       64 CAPTURE                          VAL R10
+       65 NEWTABLE                         R14 0 0
+       67 CALL                             R12 2 0
+       68 GETUPVAL                         R12 2
+       69 NEWCLOSURE                       R13 P4
+       70 CAPTURE                          VAL R0
+       71 CAPTURE                          VAL R4
+       72 NEWTABLE                         R14 0 0
+       74 CALL                             R12 2 0
+       75 RETURN                           R11 1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -134,7 +161,7 @@ MAIN:
        29 GETTABLEKS                       R6 R6 K12 ["Controllers"]
        31 GETTABLEKS                       R6 R6 K13 ["SearchController"]
        33 CALL                             R5 1 1
-       34 DUPCLOSURE                       R6 K14 [PROTO_8]
+       34 DUPCLOSURE                       R6 K14 [PROTO_10]
        35 CAPTURE                          VAL R5
        36 CAPTURE                          VAL R3
        37 CAPTURE                          VAL R4

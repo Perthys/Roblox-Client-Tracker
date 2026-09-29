@@ -70,33 +70,47 @@ PROTO_9:
 
 PROTO_10:
         0 GETIMPORT                        R0 K1 [game]
-        2 LOADK                            R2 K2 ["AssistantTextureGenImageGenModelOverride"]
-        3 NAMECALL                         R0 R0 K3 ["GetFastString"]
+        2 LOADK                            R2 K2 ["Gen3dSeedImageCaptureRespectsTransform"]
+        3 NAMECALL                         R0 R0 K3 ["GetFastFlag"]
         5 CALL                             R0 2 -1
         6 RETURN                           R0 -1
 
 PROTO_11:
         0 GETIMPORT                        R0 K1 [game]
-        2 LOADK                            R2 K2 ["CubeGenerationGatewayApiKey"]
-        3 NAMECALL                         R0 R0 K3 ["GetFastString"]
+        2 LOADK                            R2 K2 ["Gen3dSkipFoundationPanelPrewarm"]
+        3 NAMECALL                         R0 R0 K3 ["GetFastFlag"]
         5 CALL                             R0 2 -1
         6 RETURN                           R0 -1
 
 PROTO_12:
         0 GETIMPORT                        R0 K1 [game]
-        2 LOADK                            R2 K2 ["CubeGenerationGatewayBaseUrlOverride"]
+        2 LOADK                            R2 K2 ["AssistantTextureGenImageGenModelOverride"]
         3 NAMECALL                         R0 R0 K3 ["GetFastString"]
         5 CALL                             R0 2 -1
         6 RETURN                           R0 -1
 
 PROTO_13:
         0 GETIMPORT                        R0 K1 [game]
-        2 LOADK                            R2 K2 ["TextureGenImageGenPromptTemplate"]
+        2 LOADK                            R2 K2 ["CubeGenerationGatewayApiKey"]
         3 NAMECALL                         R0 R0 K3 ["GetFastString"]
         5 CALL                             R0 2 -1
         6 RETURN                           R0 -1
 
 PROTO_14:
+        0 GETIMPORT                        R0 K1 [game]
+        2 LOADK                            R2 K2 ["CubeGenerationGatewayBaseUrlOverride"]
+        3 NAMECALL                         R0 R0 K3 ["GetFastString"]
+        5 CALL                             R0 2 -1
+        6 RETURN                           R0 -1
+
+PROTO_15:
+        0 GETIMPORT                        R0 K1 [game]
+        2 LOADK                            R2 K2 ["TextureGenImageGenPromptTemplate"]
+        3 NAMECALL                         R0 R0 K3 ["GetFastString"]
+        5 CALL                             R0 2 -1
+        6 RETURN                           R0 -1
+
+PROTO_16:
         0 GETIMPORT                        R0 K1 [game]
         2 LOADK                            R2 K2 ["TextureGenTexturePromptTemplate"]
         3 NAMECALL                         R0 R0 K3 ["GetFastString"]
@@ -156,59 +170,73 @@ MAIN:
        68 NAMECALL                         R0 R0 K3 ["DefineFastFlag"]
        70 CALL                             R0 3 0
        71 GETIMPORT                        R0 K1 [game]
-       73 LOADK                            R2 K13 ["AssistantTextureGenImageGenModelOverride"]
-       74 LOADK                            R3 K14 ["gemini"]
-       75 NAMECALL                         R0 R0 K15 ["DefineFastString"]
+       73 LOADK                            R2 K13 ["Gen3dSeedImageCaptureRespectsTransform"]
+       74 LOADB                            R3 0
+       75 NAMECALL                         R0 R0 K3 ["DefineFastFlag"]
        77 CALL                             R0 3 0
        78 GETIMPORT                        R0 K1 [game]
-       80 LOADK                            R2 K16 ["CubeGenerationGatewayApiKey"]
-       81 LOADK                            R3 K17 [""]
-       82 NAMECALL                         R0 R0 K15 ["DefineFastString"]
+       80 LOADK                            R2 K14 ["Gen3dSkipFoundationPanelPrewarm"]
+       81 LOADB                            R3 0
+       82 NAMECALL                         R0 R0 K3 ["DefineFastFlag"]
        84 CALL                             R0 3 0
        85 GETIMPORT                        R0 K1 [game]
-       87 LOADK                            R2 K18 ["CubeGenerationGatewayBaseUrlOverride"]
-       88 LOADK                            R3 K17 [""]
-       89 NAMECALL                         R0 R0 K15 ["DefineFastString"]
+       87 LOADK                            R2 K15 ["AssistantTextureGenImageGenModelOverride"]
+       88 LOADK                            R3 K16 ["gemini"]
+       89 NAMECALL                         R0 R0 K17 ["DefineFastString"]
        91 CALL                             R0 3 0
        92 GETIMPORT                        R0 K1 [game]
-       94 LOADK                            R2 K19 ["TextureGenImageGenPromptTemplate"]
-       95 LOADK                            R3 K17 [""]
-       96 NAMECALL                         R0 R0 K15 ["DefineFastString"]
+       94 LOADK                            R2 K18 ["CubeGenerationGatewayApiKey"]
+       95 LOADK                            R3 K19 [""]
+       96 NAMECALL                         R0 R0 K17 ["DefineFastString"]
        98 CALL                             R0 3 0
        99 GETIMPORT                        R0 K1 [game]
-      101 LOADK                            R2 K20 ["TextureGenTexturePromptTemplate"]
-      102 LOADK                            R3 K17 [""]
-      103 NAMECALL                         R0 R0 K15 ["DefineFastString"]
+      101 LOADK                            R2 K20 ["CubeGenerationGatewayBaseUrlOverride"]
+      102 LOADK                            R3 K19 [""]
+      103 NAMECALL                         R0 R0 K17 ["DefineFastString"]
       105 CALL                             R0 3 0
-      106 DUPTABLE                         R0 K36 [{"getFFlagEnableTextureGenStudio", "getFFlagTextureGenStudioMultiSelect", "getFFlagTextureGenStudioReplaceInPlace", "getFFlagTextureGenModelSelector", "getFFlagTextureGenReferenceImage", "getFFlagTextureGenImageGenPromptTemplateEnabled", "getFFlagTextureGenTexturePromptTemplateEnabled", "getFFlagTextureGenRevertAfterInsert", "getFFlagTextureGenDebugLog", "getFFlagGen3dSeedImageViewportAlignedCapture", "getFStringAssistantTextureGenImageGenModelOverride", "getFStringCubeGenerationGatewayApiKey", "getFStringCubeGenerationGatewayBaseUrlOverride", "getFStringTextureGenImageGenPromptTemplate", "getFStringTextureGenTexturePromptTemplate"}]
-      107 DUPCLOSURE                       R1 K37 [PROTO_0]
-      108 SETTABLEKS                       R1 R0 K21 ["getFFlagEnableTextureGenStudio"]
-      110 DUPCLOSURE                       R1 K38 [PROTO_1]
-      111 SETTABLEKS                       R1 R0 K22 ["getFFlagTextureGenStudioMultiSelect"]
-      113 DUPCLOSURE                       R1 K39 [PROTO_2]
-      114 SETTABLEKS                       R1 R0 K23 ["getFFlagTextureGenStudioReplaceInPlace"]
-      116 DUPCLOSURE                       R1 K40 [PROTO_3]
-      117 SETTABLEKS                       R1 R0 K24 ["getFFlagTextureGenModelSelector"]
-      119 DUPCLOSURE                       R1 K41 [PROTO_4]
-      120 SETTABLEKS                       R1 R0 K25 ["getFFlagTextureGenReferenceImage"]
-      122 DUPCLOSURE                       R1 K42 [PROTO_5]
-      123 SETTABLEKS                       R1 R0 K26 ["getFFlagTextureGenImageGenPromptTemplateEnabled"]
-      125 DUPCLOSURE                       R1 K43 [PROTO_6]
-      126 SETTABLEKS                       R1 R0 K27 ["getFFlagTextureGenTexturePromptTemplateEnabled"]
-      128 DUPCLOSURE                       R1 K44 [PROTO_7]
-      129 SETTABLEKS                       R1 R0 K28 ["getFFlagTextureGenRevertAfterInsert"]
-      131 DUPCLOSURE                       R1 K45 [PROTO_8]
-      132 SETTABLEKS                       R1 R0 K29 ["getFFlagTextureGenDebugLog"]
-      134 DUPCLOSURE                       R1 K46 [PROTO_9]
-      135 SETTABLEKS                       R1 R0 K30 ["getFFlagGen3dSeedImageViewportAlignedCapture"]
-      137 DUPCLOSURE                       R1 K47 [PROTO_10]
-      138 SETTABLEKS                       R1 R0 K31 ["getFStringAssistantTextureGenImageGenModelOverride"]
-      140 DUPCLOSURE                       R1 K48 [PROTO_11]
-      141 SETTABLEKS                       R1 R0 K32 ["getFStringCubeGenerationGatewayApiKey"]
-      143 DUPCLOSURE                       R1 K49 [PROTO_12]
-      144 SETTABLEKS                       R1 R0 K33 ["getFStringCubeGenerationGatewayBaseUrlOverride"]
-      146 DUPCLOSURE                       R1 K50 [PROTO_13]
-      147 SETTABLEKS                       R1 R0 K34 ["getFStringTextureGenImageGenPromptTemplate"]
-      149 DUPCLOSURE                       R1 K51 [PROTO_14]
-      150 SETTABLEKS                       R1 R0 K35 ["getFStringTextureGenTexturePromptTemplate"]
-      152 RETURN                           R0 1
+      106 GETIMPORT                        R0 K1 [game]
+      108 LOADK                            R2 K21 ["TextureGenImageGenPromptTemplate"]
+      109 LOADK                            R3 K19 [""]
+      110 NAMECALL                         R0 R0 K17 ["DefineFastString"]
+      112 CALL                             R0 3 0
+      113 GETIMPORT                        R0 K1 [game]
+      115 LOADK                            R2 K22 ["TextureGenTexturePromptTemplate"]
+      116 LOADK                            R3 K19 [""]
+      117 NAMECALL                         R0 R0 K17 ["DefineFastString"]
+      119 CALL                             R0 3 0
+      120 DUPTABLE                         R0 K40 [{"getFFlagEnableTextureGenStudio", "getFFlagTextureGenStudioMultiSelect", "getFFlagTextureGenStudioReplaceInPlace", "getFFlagTextureGenModelSelector", "getFFlagTextureGenReferenceImage", "getFFlagTextureGenImageGenPromptTemplateEnabled", "getFFlagTextureGenTexturePromptTemplateEnabled", "getFFlagTextureGenRevertAfterInsert", "getFFlagTextureGenDebugLog", "getFFlagGen3dSeedImageViewportAlignedCapture", "getFFlagGen3dSeedImageCaptureRespectsTransform", "getFFlagGen3dSkipFoundationPanelPrewarm", "getFStringAssistantTextureGenImageGenModelOverride", "getFStringCubeGenerationGatewayApiKey", "getFStringCubeGenerationGatewayBaseUrlOverride", "getFStringTextureGenImageGenPromptTemplate", "getFStringTextureGenTexturePromptTemplate"}]
+      121 DUPCLOSURE                       R1 K41 [PROTO_0]
+      122 SETTABLEKS                       R1 R0 K23 ["getFFlagEnableTextureGenStudio"]
+      124 DUPCLOSURE                       R1 K42 [PROTO_1]
+      125 SETTABLEKS                       R1 R0 K24 ["getFFlagTextureGenStudioMultiSelect"]
+      127 DUPCLOSURE                       R1 K43 [PROTO_2]
+      128 SETTABLEKS                       R1 R0 K25 ["getFFlagTextureGenStudioReplaceInPlace"]
+      130 DUPCLOSURE                       R1 K44 [PROTO_3]
+      131 SETTABLEKS                       R1 R0 K26 ["getFFlagTextureGenModelSelector"]
+      133 DUPCLOSURE                       R1 K45 [PROTO_4]
+      134 SETTABLEKS                       R1 R0 K27 ["getFFlagTextureGenReferenceImage"]
+      136 DUPCLOSURE                       R1 K46 [PROTO_5]
+      137 SETTABLEKS                       R1 R0 K28 ["getFFlagTextureGenImageGenPromptTemplateEnabled"]
+      139 DUPCLOSURE                       R1 K47 [PROTO_6]
+      140 SETTABLEKS                       R1 R0 K29 ["getFFlagTextureGenTexturePromptTemplateEnabled"]
+      142 DUPCLOSURE                       R1 K48 [PROTO_7]
+      143 SETTABLEKS                       R1 R0 K30 ["getFFlagTextureGenRevertAfterInsert"]
+      145 DUPCLOSURE                       R1 K49 [PROTO_8]
+      146 SETTABLEKS                       R1 R0 K31 ["getFFlagTextureGenDebugLog"]
+      148 DUPCLOSURE                       R1 K50 [PROTO_9]
+      149 SETTABLEKS                       R1 R0 K32 ["getFFlagGen3dSeedImageViewportAlignedCapture"]
+      151 DUPCLOSURE                       R1 K51 [PROTO_10]
+      152 SETTABLEKS                       R1 R0 K33 ["getFFlagGen3dSeedImageCaptureRespectsTransform"]
+      154 DUPCLOSURE                       R1 K52 [PROTO_11]
+      155 SETTABLEKS                       R1 R0 K34 ["getFFlagGen3dSkipFoundationPanelPrewarm"]
+      157 DUPCLOSURE                       R1 K53 [PROTO_12]
+      158 SETTABLEKS                       R1 R0 K35 ["getFStringAssistantTextureGenImageGenModelOverride"]
+      160 DUPCLOSURE                       R1 K54 [PROTO_13]
+      161 SETTABLEKS                       R1 R0 K36 ["getFStringCubeGenerationGatewayApiKey"]
+      163 DUPCLOSURE                       R1 K55 [PROTO_14]
+      164 SETTABLEKS                       R1 R0 K37 ["getFStringCubeGenerationGatewayBaseUrlOverride"]
+      166 DUPCLOSURE                       R1 K56 [PROTO_15]
+      167 SETTABLEKS                       R1 R0 K38 ["getFStringTextureGenImageGenPromptTemplate"]
+      169 DUPCLOSURE                       R1 K57 [PROTO_16]
+      170 SETTABLEKS                       R1 R0 K39 ["getFStringTextureGenTexturePromptTemplate"]
+      172 RETURN                           R0 1

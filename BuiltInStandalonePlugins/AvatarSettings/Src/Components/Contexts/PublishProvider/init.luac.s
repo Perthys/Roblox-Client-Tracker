@@ -234,116 +234,131 @@ PROTO_11:
        13 LOADK                            R4 K2 ["Settings must not be nil in AvatarSettingsContext"]
        14 GETIMPORT                        R2 K4 [assert]
        16 CALL                             R2 2 0
-       17 GETUPVAL                         R2 2
-       18 NAMECALL                         R2 R2 K5 ["use"]
-       20 CALL                             R2 1 1
-       21 NAMECALL                         R2 R2 K6 ["get"]
-       23 CALL                             R2 1 1
-       24 GETUPVAL                         R3 3
-       25 LOADB                            R4 0
-       26 CALL                             R3 1 1
-       27 GETUPVAL                         R4 0
-       28 GETTABLEKS                       R4 R4 K7 ["useState"]
+       17 GETUPVAL                         R2 0
+       18 GETTABLEKS                       R2 R2 K0 ["useContext"]
+       20 GETUPVAL                         R3 2
+       21 CALL                             R2 1 1
+       22 GETUPVAL                         R3 3
+       23 NAMECALL                         R3 R3 K5 ["use"]
+       25 CALL                             R3 1 1
+       26 NAMECALL                         R3 R3 K6 ["get"]
+       28 CALL                             R3 1 1
+       29 GETUPVAL                         R4 4
        30 LOADB                            R5 0
-       31 CALL                             R4 1 2
-       32 GETUPVAL                         R6 0
-       33 GETTABLEKS                       R6 R6 K7 ["useState"]
-       35 NEWTABLE                         R7 0 0
-       37 CALL                             R6 1 2
-       38 GETUPVAL                         R8 0
-       39 GETTABLEKS                       R8 R8 K8 ["useRef"]
-       41 MOVE                             R9 R1
-       42 CALL                             R8 1 1
-       43 SETTABLEKS                       R1 R8 K9 ["current"]
-       45 GETTABLEKS                       R11 R8 K9 ["current"]
-       47 JUMPIFNOTEQKNIL                  R11 ; [+2]
-       49 LOADB                            R10 0 +1
-       50 LOADB                            R10 1
-       51 FASTCALL2K                       ASSERT R10 K10 ; [+4]
-       53 LOADK                            R11 K10 ["AvatarSettingsContext must not be nil"]
-       54 GETIMPORT                        R9 K4 [assert]
-       56 CALL                             R9 2 0
-       57 DUPTABLE                         R9 K12 [{"content"}]
-       58 DUPTABLE                         R10 K21 [{["databaseLoaded"], ["canPublish"] = False, ["canCreatePlaceSettings"] = False, ["isAvatarTypeOutOfSync"], ["isSettingOutOfSync"], ["saveUnpublishedSettings"], ["discardUnpublishedSettings"]}]
-       59 SETTABLEKS                       R3 R10 K13 ["databaseLoaded"]
-       61 NEWCLOSURE                       R11 P0
-       62 CAPTURE                          VAL R8
-       63 CAPTURE                          UPVAL U4
-       64 SETTABLEKS                       R11 R10 K17 ["isAvatarTypeOutOfSync"]
-       66 NEWCLOSURE                       R11 P1
-       67 CAPTURE                          VAL R8
-       68 CAPTURE                          UPVAL U4
-       69 SETTABLEKS                       R11 R10 K18 ["isSettingOutOfSync"]
-       71 NEWCLOSURE                       R11 P2
-       72 CAPTURE                          VAL R2
+       31 CALL                             R4 1 1
+       32 GETUPVAL                         R5 0
+       33 GETTABLEKS                       R5 R5 K7 ["useState"]
+       35 LOADB                            R6 0
+       36 CALL                             R5 1 2
+       37 GETUPVAL                         R7 0
+       38 GETTABLEKS                       R7 R7 K7 ["useState"]
+       40 NEWTABLE                         R8 0 0
+       42 CALL                             R7 1 2
+       43 GETUPVAL                         R9 0
+       44 GETTABLEKS                       R9 R9 K8 ["useRef"]
+       46 MOVE                             R10 R1
+       47 CALL                             R9 1 1
+       48 SETTABLEKS                       R1 R9 K9 ["current"]
+       50 GETTABLEKS                       R12 R9 K9 ["current"]
+       52 JUMPIFNOTEQKNIL                  R12 ; [+2]
+       54 LOADB                            R11 0 +1
+       55 LOADB                            R11 1
+       56 FASTCALL2K                       ASSERT R11 K10 ; [+4]
+       58 LOADK                            R12 K10 ["AvatarSettingsContext must not be nil"]
+       59 GETIMPORT                        R10 K4 [assert]
+       61 CALL                             R10 2 0
+       62 DUPTABLE                         R10 K12 [{"content"}]
+       63 DUPTABLE                         R11 K21 [{["databaseLoaded"], ["canPublish"] = False, ["canCreatePlaceSettings"] = False, ["isAvatarTypeOutOfSync"], ["isSettingOutOfSync"], ["saveUnpublishedSettings"], ["discardUnpublishedSettings"]}]
+       64 SETTABLEKS                       R4 R11 K13 ["databaseLoaded"]
+       66 NEWCLOSURE                       R12 P0
+       67 CAPTURE                          VAL R9
+       68 CAPTURE                          UPVAL U5
+       69 SETTABLEKS                       R12 R11 K17 ["isAvatarTypeOutOfSync"]
+       71 NEWCLOSURE                       R12 P1
+       72 CAPTURE                          VAL R9
        73 CAPTURE                          UPVAL U5
-       74 SETTABLEKS                       R11 R10 K19 ["saveUnpublishedSettings"]
-       76 NEWCLOSURE                       R11 P3
-       77 CAPTURE                          VAL R2
-       78 CAPTURE                          UPVAL U5
-       79 CAPTURE                          UPVAL U6
-       80 CAPTURE                          VAL R8
-       81 CAPTURE                          UPVAL U4
-       82 CAPTURE                          VAL R7
-       83 SETTABLEKS                       R11 R10 K20 ["discardUnpublishedSettings"]
-       85 SETTABLEKS                       R10 R9 K11 ["content"]
-       87 GETTABLEKS                       R12 R9 K11 ["content"]
-       89 JUMPIFNOTEQKNIL                  R12 ; [+2]
-       91 LOADB                            R11 0 +1
-       92 LOADB                            R11 1
-       93 FASTCALL2K                       ASSERT R11 K22 ; [+4]
-       95 LOADK                            R12 K22 ["Content must not be nil in PublishContext"]
-       96 GETIMPORT                        R10 K4 [assert]
-       98 CALL                             R10 2 0
-       99 GETUPVAL                         R11 4
-      100 GETTABLEKS                       R11 R11 K23 ["isEqualToCurrentSettings"]
-      102 MOVE                             R12 R1
-      103 CALL                             R11 1 1
-      104 NOT                              R10 R11
-      105 GETUPVAL                         R12 4
-      106 GETTABLEKS                       R12 R12 K24 ["isAvatarTypeEqual"]
-      108 MOVE                             R13 R1
-      109 CALL                             R12 1 1
-      110 NOT                              R11 R12
-      111 GETUPVAL                         R14 5
-      112 GETTABLEKS                       R14 R14 K25 ["hasUnpublishedChanges"]
-      114 MOVE                             R15 R10
-      115 NAMECALL                         R12 R2 K26 ["Invoke"]
-      117 CALL                             R12 3 0
-      118 GETUPVAL                         R14 5
-      119 GETTABLEKS                       R14 R14 K27 ["hasUnpublishedAvatarTypeChanges"]
-      121 MOVE                             R15 R11
-      122 NAMECALL                         R12 R2 K26 ["Invoke"]
-      124 CALL                             R12 3 0
-      125 GETUPVAL                         R12 0
-      126 GETTABLEKS                       R12 R12 K28 ["useEffect"]
-      128 NEWCLOSURE                       R13 P4
-      129 CAPTURE                          VAL R2
-      130 CAPTURE                          UPVAL U5
-      131 CAPTURE                          UPVAL U4
-      132 CAPTURE                          VAL R8
-      133 CAPTURE                          VAL R3
-      134 CAPTURE                          VAL R7
-      135 CAPTURE                          UPVAL U7
-      136 CAPTURE                          VAL R5
-      137 NEWTABLE                         R14 0 0
-      139 CALL                             R12 2 0
-      140 GETTABLEKS                       R12 R9 K11 ["content"]
-      142 GETTABLEKS                       R14 R3 K29 ["value"]
-      144 AND                              R13 R14 R10
-      145 SETTABLEKS                       R13 R12 K14 ["canPublish"]
-      147 GETTABLEKS                       R12 R9 K11 ["content"]
-      149 GETTABLEKS                       R14 R3 K29 ["value"]
-      151 AND                              R13 R14 R4
-      152 SETTABLEKS                       R13 R12 K16 ["canCreatePlaceSettings"]
-      154 GETUPVAL                         R12 8
-      155 GETUPVAL                         R13 9
-      156 GETTABLEKS                       R13 R13 K30 ["Provider"]
-      158 DUPTABLE                         R14 K31 [{"value"}]
-      159 SETTABLEKS                       R9 R14 K29 ["value"]
-      161 GETTABLEKS                       R15 R0 K32 ["children"]
-      163 CALL                             R12 3 -1
-      164 RETURN                           R12 -1
+       74 SETTABLEKS                       R12 R11 K18 ["isSettingOutOfSync"]
+       76 NEWCLOSURE                       R12 P2
+       77 CAPTURE                          VAL R3
+       78 CAPTURE                          UPVAL U6
+       79 SETTABLEKS                       R12 R11 K19 ["saveUnpublishedSettings"]
+       81 NEWCLOSURE                       R12 P3
+       82 CAPTURE                          VAL R3
+       83 CAPTURE                          UPVAL U6
+       84 CAPTURE                          UPVAL U7
+       85 CAPTURE                          VAL R9
+       86 CAPTURE                          UPVAL U5
+       87 CAPTURE                          VAL R8
+       88 SETTABLEKS                       R12 R11 K20 ["discardUnpublishedSettings"]
+       90 SETTABLEKS                       R11 R10 K11 ["content"]
+       92 GETTABLEKS                       R13 R10 K11 ["content"]
+       94 JUMPIFNOTEQKNIL                  R13 ; [+2]
+       96 LOADB                            R12 0 +1
+       97 LOADB                            R12 1
+       98 FASTCALL2K                       ASSERT R12 K22 ; [+4]
+      100 LOADK                            R13 K22 ["Content must not be nil in PublishContext"]
+      101 GETIMPORT                        R11 K4 [assert]
+      103 CALL                             R11 2 0
+      104 GETUPVAL                         R12 5
+      105 GETTABLEKS                       R12 R12 K23 ["isEqualToCurrentSettings"]
+      107 MOVE                             R13 R1
+      108 CALL                             R12 1 1
+      109 NOT                              R11 R12
+      110 GETUPVAL                         R13 5
+      111 GETTABLEKS                       R13 R13 K24 ["isAvatarTypeEqual"]
+      113 MOVE                             R14 R1
+      114 CALL                             R13 1 1
+      115 NOT                              R12 R13
+      116 GETUPVAL                         R15 6
+      117 GETTABLEKS                       R15 R15 K25 ["hasUnpublishedChanges"]
+      119 MOVE                             R16 R11
+      120 NAMECALL                         R13 R3 K26 ["Invoke"]
+      122 CALL                             R13 3 0
+      123 GETUPVAL                         R15 6
+      124 GETTABLEKS                       R15 R15 K27 ["hasUnpublishedAvatarTypeChanges"]
+      126 MOVE                             R16 R12
+      127 NAMECALL                         R13 R3 K26 ["Invoke"]
+      129 CALL                             R13 3 0
+      130 GETUPVAL                         R13 0
+      131 GETTABLEKS                       R13 R13 K28 ["useEffect"]
+      133 NEWCLOSURE                       R14 P4
+      134 CAPTURE                          VAL R3
+      135 CAPTURE                          UPVAL U6
+      136 CAPTURE                          UPVAL U5
+      137 CAPTURE                          VAL R9
+      138 CAPTURE                          VAL R4
+      139 CAPTURE                          VAL R8
+      140 CAPTURE                          UPVAL U8
+      141 CAPTURE                          VAL R6
+      142 NEWTABLE                         R15 0 0
+      144 CALL                             R13 2 0
+      145 GETTABLEKS                       R13 R10 K11 ["content"]
+      147 GETTABLEKS                       R15 R4 K29 ["value"]
+      149 AND                              R14 R15 R11
+      150 SETTABLEKS                       R14 R13 K14 ["canPublish"]
+      152 GETTABLEKS                       R13 R10 K11 ["content"]
+      154 GETTABLEKS                       R15 R4 K29 ["value"]
+      156 AND                              R14 R15 R5
+      157 SETTABLEKS                       R14 R13 K16 ["canCreatePlaceSettings"]
+      159 GETUPVAL                         R13 9
+      160 CALL                             R13 0 1
+      161 JUMPIFNOT                        R13 ; [+14]
+      162 GETTABLEKS                       R13 R2 K30 ["currentGameId"]
+      164 JUMPIFNOTEQKN                    R13 K31 [0] ; [+11]
+      166 GETTABLEKS                       R13 R10 K11 ["content"]
+      168 LOADB                            R14 0
+      169 SETTABLEKS                       R14 R13 K14 ["canPublish"]
+      171 GETTABLEKS                       R13 R10 K11 ["content"]
+      173 LOADB                            R14 0
+      174 SETTABLEKS                       R14 R13 K16 ["canCreatePlaceSettings"]
+      176 GETUPVAL                         R13 10
+      177 GETUPVAL                         R14 11
+      178 GETTABLEKS                       R14 R14 K32 ["Provider"]
+      180 DUPTABLE                         R15 K33 [{"value"}]
+      181 SETTABLEKS                       R10 R15 K29 ["value"]
+      183 GETTABLEKS                       R16 R0 K34 ["children"]
+      185 CALL                             R13 3 -1
+      186 RETURN                           R13 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -358,60 +373,73 @@ MAIN:
        15 GETTABLEKS                       R2 R2 K9 ["AvatarSettingsContext"]
        17 CALL                             R1 1 1
        18 GETIMPORT                        R2 K5 [require]
-       20 GETTABLEKS                       R3 R0 K10 ["Packages"]
-       22 GETTABLEKS                       R3 R3 K11 ["Framework"]
-       24 CALL                             R2 1 1
-       25 GETIMPORT                        R3 K5 [require]
-       27 GETTABLEKS                       R4 R0 K6 ["Src"]
-       29 GETTABLEKS                       R4 R4 K7 ["Components"]
-       31 GETTABLEKS                       R4 R4 K8 ["Contexts"]
-       33 GETTABLEKS                       R4 R4 K12 ["PublishProvider"]
-       35 GETTABLEKS                       R4 R4 K13 ["PublishContext"]
-       37 CALL                             R3 1 1
-       38 GETIMPORT                        R4 K5 [require]
-       40 GETTABLEKS                       R5 R0 K10 ["Packages"]
-       42 GETTABLEKS                       R5 R5 K14 ["React"]
-       44 CALL                             R4 1 1
-       45 GETIMPORT                        R5 K5 [require]
-       47 GETTABLEKS                       R6 R0 K6 ["Src"]
-       49 GETTABLEKS                       R6 R6 K15 ["Util"]
-       51 GETTABLEKS                       R6 R6 K16 ["InvokeKeys"]
-       53 CALL                             R5 1 1
-       54 GETIMPORT                        R6 K5 [require]
-       56 GETTABLEKS                       R7 R0 K6 ["Src"]
-       58 GETTABLEKS                       R7 R7 K7 ["Components"]
-       60 GETTABLEKS                       R7 R7 K8 ["Contexts"]
-       62 GETTABLEKS                       R7 R7 K12 ["PublishProvider"]
-       64 GETTABLEKS                       R7 R7 K17 ["publishedSettingsManager"]
-       66 CALL                             R6 1 1
-       67 GETIMPORT                        R7 K5 [require]
-       69 GETTABLEKS                       R8 R0 K6 ["Src"]
-       71 GETTABLEKS                       R8 R8 K15 ["Util"]
-       73 GETTABLEKS                       R8 R8 K18 ["settingUtil"]
-       75 CALL                             R7 1 1
-       76 GETIMPORT                        R8 K5 [require]
-       78 GETTABLEKS                       R9 R0 K6 ["Src"]
-       80 GETTABLEKS                       R9 R9 K19 ["Flags"]
-       82 GETTABLEKS                       R9 R9 K20 ["getEngineFeatureAvatarSettingsPlaceAvatarRules"]
-       84 CALL                             R8 1 1
-       85 GETIMPORT                        R9 K5 [require]
-       87 GETTABLEKS                       R10 R0 K6 ["Src"]
-       89 GETTABLEKS                       R10 R10 K19 ["Flags"]
-       91 GETTABLEKS                       R10 R10 K21 ["getFFlagAvatarSettingsFixRevertButtonStuck"]
-       93 CALL                             R9 1 1
-       94 GETTABLEKS                       R10 R2 K22 ["ContextServices"]
-       96 GETTABLEKS                       R11 R10 K23 ["Plugin"]
-       98 GETTABLEKS                       R12 R7 K24 ["useSetting"]
-      100 GETTABLEKS                       R13 R4 K25 ["createElement"]
-      102 DUPCLOSURE                       R14 K26 [PROTO_11]
-      103 CAPTURE                          VAL R4
-      104 CAPTURE                          VAL R1
-      105 CAPTURE                          VAL R11
-      106 CAPTURE                          VAL R12
-      107 CAPTURE                          VAL R6
-      108 CAPTURE                          VAL R5
-      109 CAPTURE                          VAL R9
-      110 CAPTURE                          VAL R8
-      111 CAPTURE                          VAL R13
-      112 CAPTURE                          VAL R3
-      113 RETURN                           R14 1
+       20 GETTABLEKS                       R3 R0 K6 ["Src"]
+       22 GETTABLEKS                       R3 R3 K7 ["Components"]
+       24 GETTABLEKS                       R3 R3 K8 ["Contexts"]
+       26 GETTABLEKS                       R3 R3 K10 ["EnableAvatarSettingsContext"]
+       28 CALL                             R2 1 1
+       29 GETIMPORT                        R3 K5 [require]
+       31 GETTABLEKS                       R4 R0 K11 ["Packages"]
+       33 GETTABLEKS                       R4 R4 K12 ["Framework"]
+       35 CALL                             R3 1 1
+       36 GETIMPORT                        R4 K5 [require]
+       38 GETTABLEKS                       R5 R0 K6 ["Src"]
+       40 GETTABLEKS                       R5 R5 K7 ["Components"]
+       42 GETTABLEKS                       R5 R5 K8 ["Contexts"]
+       44 GETTABLEKS                       R5 R5 K13 ["PublishProvider"]
+       46 GETTABLEKS                       R5 R5 K14 ["PublishContext"]
+       48 CALL                             R4 1 1
+       49 GETIMPORT                        R5 K5 [require]
+       51 GETTABLEKS                       R6 R0 K11 ["Packages"]
+       53 GETTABLEKS                       R6 R6 K15 ["React"]
+       55 CALL                             R5 1 1
+       56 GETIMPORT                        R6 K5 [require]
+       58 GETTABLEKS                       R7 R0 K6 ["Src"]
+       60 GETTABLEKS                       R7 R7 K16 ["Flags"]
+       62 GETTABLEKS                       R7 R7 K17 ["getFFlagAvatarSettingsEditUnsavedPlace"]
+       64 CALL                             R6 1 1
+       65 GETIMPORT                        R7 K5 [require]
+       67 GETTABLEKS                       R8 R0 K6 ["Src"]
+       69 GETTABLEKS                       R8 R8 K18 ["Util"]
+       71 GETTABLEKS                       R8 R8 K19 ["InvokeKeys"]
+       73 CALL                             R7 1 1
+       74 GETIMPORT                        R8 K5 [require]
+       76 GETTABLEKS                       R9 R0 K6 ["Src"]
+       78 GETTABLEKS                       R9 R9 K7 ["Components"]
+       80 GETTABLEKS                       R9 R9 K8 ["Contexts"]
+       82 GETTABLEKS                       R9 R9 K13 ["PublishProvider"]
+       84 GETTABLEKS                       R9 R9 K20 ["publishedSettingsManager"]
+       86 CALL                             R8 1 1
+       87 GETIMPORT                        R9 K5 [require]
+       89 GETTABLEKS                       R10 R0 K6 ["Src"]
+       91 GETTABLEKS                       R10 R10 K18 ["Util"]
+       93 GETTABLEKS                       R10 R10 K21 ["settingUtil"]
+       95 CALL                             R9 1 1
+       96 GETIMPORT                        R10 K5 [require]
+       98 GETTABLEKS                       R11 R0 K6 ["Src"]
+      100 GETTABLEKS                       R11 R11 K16 ["Flags"]
+      102 GETTABLEKS                       R11 R11 K22 ["getEngineFeatureAvatarSettingsPlaceAvatarRules"]
+      104 CALL                             R10 1 1
+      105 GETIMPORT                        R11 K5 [require]
+      107 GETTABLEKS                       R12 R0 K6 ["Src"]
+      109 GETTABLEKS                       R12 R12 K16 ["Flags"]
+      111 GETTABLEKS                       R12 R12 K23 ["getFFlagAvatarSettingsFixRevertButtonStuck"]
+      113 CALL                             R11 1 1
+      114 GETTABLEKS                       R12 R3 K24 ["ContextServices"]
+      116 GETTABLEKS                       R13 R12 K25 ["Plugin"]
+      118 GETTABLEKS                       R14 R9 K26 ["useSetting"]
+      120 GETTABLEKS                       R15 R5 K27 ["createElement"]
+      122 DUPCLOSURE                       R16 K28 [PROTO_11]
+      123 CAPTURE                          VAL R5
+      124 CAPTURE                          VAL R1
+      125 CAPTURE                          VAL R2
+      126 CAPTURE                          VAL R13
+      127 CAPTURE                          VAL R14
+      128 CAPTURE                          VAL R8
+      129 CAPTURE                          VAL R7
+      130 CAPTURE                          VAL R11
+      131 CAPTURE                          VAL R10
+      132 CAPTURE                          VAL R6
+      133 CAPTURE                          VAL R15
+      134 CAPTURE                          VAL R4
+      135 RETURN                           R16 1

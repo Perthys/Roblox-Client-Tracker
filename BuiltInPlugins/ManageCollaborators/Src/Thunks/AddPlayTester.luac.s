@@ -34,25 +34,51 @@ PROTO_0:
        45 GETUPVAL                         R7 4
        46 GETTABLEKS                       R7 R7 K8 ["UserSubjectKey"]
        48 GETTABLE                         R6 R5 R7
-       49 JUMPIFNOT                        R6 ; [+5]
+       49 JUMPIFNOT                        R6 ; [+36]
        50 GETUPVAL                         R8 1
        51 GETTABLE                         R7 R6 R8
-       52 JUMPIFEQKNIL                     R7 ; [+2]
-       54 RETURN                           R0 0
-       55 GETUPVAL                         R9 5
-       56 GETUPVAL                         R10 1
-       57 GETUPVAL                         R11 4
-       58 GETTABLEKS                       R11 R11 K9 ["PlayTestKey"]
-       60 CALL                             R9 2 -1
-       61 NAMECALL                         R7 R0 K10 ["dispatch"]
-       63 CALL                             R7 -1 0
-       64 GETUPVAL                         R9 6
-       65 GETUPVAL                         R10 1
-       66 GETUPVAL                         R11 7
-       67 CALL                             R9 2 -1
-       68 NAMECALL                         R7 R0 K10 ["dispatch"]
-       70 CALL                             R7 -1 0
-       71 RETURN                           R0 0
+       52 JUMPIFEQKNIL                     R7 ; [+33]
+       54 GETUPVAL                         R9 5
+       55 GETUPVAL                         R10 1
+       56 GETIMPORT                        R11 K10 [select]
+       58 LOADN                            R12 1
+       59 GETUPVAL                         R13 6
+       60 MOVE                             R14 R2
+       61 GETUPVAL                         R15 1
+       62 CALL                             R13 2 -1
+       63 CALL                             R11 -1 1
+       64 JUMPIF                           R11 ; [+3]
+       65 GETUPVAL                         R11 4
+       66 GETTABLEKS                       R11 R11 K11 ["PlayTestKey"]
+       68 CALL                             R9 2 -1
+       69 NAMECALL                         R7 R0 K12 ["dispatch"]
+       71 CALL                             R7 -1 0
+       72 GETUPVAL                         R9 7
+       73 GETUPVAL                         R10 1
+       74 GETUPVAL                         R11 8
+       75 CALL                             R9 2 -1
+       76 NAMECALL                         R7 R0 K12 ["dispatch"]
+       78 CALL                             R7 -1 0
+       79 GETUPVAL                         R9 9
+       80 GETUPVAL                         R10 1
+       81 CALL                             R9 1 -1
+       82 NAMECALL                         R7 R0 K12 ["dispatch"]
+       84 CALL                             R7 -1 0
+       85 RETURN                           R0 0
+       86 GETUPVAL                         R9 5
+       87 GETUPVAL                         R10 1
+       88 GETUPVAL                         R11 4
+       89 GETTABLEKS                       R11 R11 K11 ["PlayTestKey"]
+       91 CALL                             R9 2 -1
+       92 NAMECALL                         R7 R0 K12 ["dispatch"]
+       94 CALL                             R7 -1 0
+       95 GETUPVAL                         R9 7
+       96 GETUPVAL                         R10 1
+       97 GETUPVAL                         R11 8
+       98 CALL                             R9 2 -1
+       99 NAMECALL                         R7 R0 K12 ["dispatch"]
+      101 CALL                             R7 -1 0
+      102 RETURN                           R0 0
 
 PROTO_1:
         0 NEWCLOSURE                       R2 P0
@@ -63,8 +89,10 @@ PROTO_1:
         5 CAPTURE                          UPVAL U3
         6 CAPTURE                          UPVAL U4
         7 CAPTURE                          UPVAL U5
-        8 CAPTURE                          VAL R1
-        9 RETURN                           R2 1
+        8 CAPTURE                          UPVAL U6
+        9 CAPTURE                          VAL R1
+       10 CAPTURE                          UPVAL U7
+       11 RETURN                           R2 1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -83,29 +111,41 @@ MAIN:
        24 CALL                             R2 1 1
        25 GETIMPORT                        R3 K4 [require]
        27 GETTABLEKS                       R4 R0 K7 ["Src"]
-       29 GETTABLEKS                       R4 R4 K10 ["Util"]
-       31 GETTABLEKS                       R4 R4 K11 ["PermissionsConstants"]
+       29 GETTABLEKS                       R4 R4 K10 ["Thunks"]
+       31 GETTABLEKS                       R4 R4 K11 ["RemoveUserCollaborator"]
        33 CALL                             R3 1 1
        34 GETIMPORT                        R4 K4 [require]
        36 GETTABLEKS                       R5 R0 K7 ["Src"]
        38 GETTABLEKS                       R5 R5 K12 ["Selectors"]
-       40 GETTABLEKS                       R5 R5 K13 ["GetPendingPlayTesterCount"]
+       40 GETTABLEKS                       R5 R5 K13 ["GetAudienceRole"]
        42 CALL                             R4 1 1
        43 GETIMPORT                        R5 K4 [require]
        45 GETTABLEKS                       R6 R0 K7 ["Src"]
-       47 GETTABLEKS                       R6 R6 K10 ["Util"]
-       49 GETTABLEKS                       R6 R6 K14 ["GetPlayTesterPermissionMaxCount"]
+       47 GETTABLEKS                       R6 R6 K14 ["Util"]
+       49 GETTABLEKS                       R6 R6 K15 ["PermissionsConstants"]
        51 CALL                             R5 1 1
        52 GETIMPORT                        R6 K4 [require]
        54 GETTABLEKS                       R7 R0 K7 ["Src"]
-       56 GETTABLEKS                       R7 R7 K8 ["Actions"]
-       58 GETTABLEKS                       R7 R7 K15 ["RecordAudienceOriginRole"]
+       56 GETTABLEKS                       R7 R7 K12 ["Selectors"]
+       58 GETTABLEKS                       R7 R7 K16 ["GetPendingPlayTesterCount"]
        60 CALL                             R6 1 1
-       61 DUPCLOSURE                       R7 K16 [PROTO_1]
-       62 CAPTURE                          VAL R1
-       63 CAPTURE                          VAL R4
-       64 CAPTURE                          VAL R5
-       65 CAPTURE                          VAL R3
-       66 CAPTURE                          VAL R6
-       67 CAPTURE                          VAL R2
-       68 RETURN                           R7 1
+       61 GETIMPORT                        R7 K4 [require]
+       63 GETTABLEKS                       R8 R0 K7 ["Src"]
+       65 GETTABLEKS                       R8 R8 K14 ["Util"]
+       67 GETTABLEKS                       R8 R8 K17 ["GetPlayTesterPermissionMaxCount"]
+       69 CALL                             R7 1 1
+       70 GETIMPORT                        R8 K4 [require]
+       72 GETTABLEKS                       R9 R0 K7 ["Src"]
+       74 GETTABLEKS                       R9 R9 K8 ["Actions"]
+       76 GETTABLEKS                       R9 R9 K18 ["RecordAudienceOriginRole"]
+       78 CALL                             R8 1 1
+       79 DUPCLOSURE                       R9 K19 [PROTO_1]
+       80 CAPTURE                          VAL R1
+       81 CAPTURE                          VAL R6
+       82 CAPTURE                          VAL R7
+       83 CAPTURE                          VAL R5
+       84 CAPTURE                          VAL R8
+       85 CAPTURE                          VAL R4
+       86 CAPTURE                          VAL R2
+       87 CAPTURE                          VAL R3
+       88 RETURN                           R9 1

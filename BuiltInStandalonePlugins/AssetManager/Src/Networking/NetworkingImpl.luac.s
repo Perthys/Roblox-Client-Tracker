@@ -2242,6 +2242,141 @@ PROTO_83:
        79 RETURN                           R5 -1
 
 PROTO_84:
+        0 GETTABLEKS                       R1 R0 K0 ["modelTechnicalDetails"]
+        2 MOVE                             R2 R1
+        3 JUMPIFNOT                        R2 ; [+2]
+        4 GETTABLEKS                       R2 R1 K1 ["objectMeshSummary"]
+        6 MOVE                             R3 R1
+        7 JUMPIFNOT                        R3 ; [+2]
+        8 GETTABLEKS                       R3 R1 K2 ["instanceCounts"]
+       10 GETTABLEKS                       R6 R0 K3 ["description"]
+       12 FASTCALL1                        TYPE R6 ; [+2]
+       13 GETIMPORT                        R5 K5 [type]
+       15 CALL                             R5 1 1
+       16 JUMPIFNOTEQKS                    R5 K6 ["string"] ; [+8]
+       18 GETTABLEKS                       R5 R0 K3 ["description"]
+       20 JUMPIFEQKS                       R5 K7 [""] ; [+4]
+       22 GETTABLEKS                       R4 R0 K3 ["description"]
+       24 JUMP                             ; [+1]
+       25 LOADNIL                          R4
+       26 DUPTABLE                         R5 K20 [{"Description", "Triangles", "Vertices", "HasScripts", "AudioDuration", "VideoDuration", "ScriptCount", "MeshPartCount", "AnimationCount", "AudioCount", "DecalCount", "ToolCount"}]
+       27 SETTABLEKS                       R4 R5 K8 ["Description"]
+       29 MOVE                             R6 R2
+       30 JUMPIFNOT                        R6 ; [+2]
+       31 GETTABLEKS                       R6 R2 K21 ["triangles"]
+       33 SETTABLEKS                       R6 R5 K9 ["Triangles"]
+       35 MOVE                             R6 R2
+       36 JUMPIFNOT                        R6 ; [+2]
+       37 GETTABLEKS                       R6 R2 K22 ["vertices"]
+       39 SETTABLEKS                       R6 R5 K10 ["Vertices"]
+       41 GETTABLEKS                       R6 R0 K23 ["hasScripts"]
+       43 SETTABLEKS                       R6 R5 K11 ["HasScripts"]
+       45 GETTABLEKS                       R6 R0 K24 ["duration"]
+       47 SETTABLEKS                       R6 R5 K12 ["AudioDuration"]
+       49 GETTABLEKS                       R6 R0 K24 ["duration"]
+       51 SETTABLEKS                       R6 R5 K13 ["VideoDuration"]
+       53 MOVE                             R6 R3
+       54 JUMPIFNOT                        R6 ; [+2]
+       55 GETTABLEKS                       R6 R3 K25 ["script"]
+       57 SETTABLEKS                       R6 R5 K14 ["ScriptCount"]
+       59 MOVE                             R6 R3
+       60 JUMPIFNOT                        R6 ; [+2]
+       61 GETTABLEKS                       R6 R3 K26 ["meshPart"]
+       63 SETTABLEKS                       R6 R5 K15 ["MeshPartCount"]
+       65 MOVE                             R6 R3
+       66 JUMPIFNOT                        R6 ; [+2]
+       67 GETTABLEKS                       R6 R3 K27 ["animation"]
+       69 SETTABLEKS                       R6 R5 K16 ["AnimationCount"]
+       71 MOVE                             R6 R3
+       72 JUMPIFNOT                        R6 ; [+2]
+       73 GETTABLEKS                       R6 R3 K28 ["audio"]
+       75 SETTABLEKS                       R6 R5 K17 ["AudioCount"]
+       77 MOVE                             R6 R3
+       78 JUMPIFNOT                        R6 ; [+2]
+       79 GETTABLEKS                       R6 R3 K29 ["decal"]
+       81 SETTABLEKS                       R6 R5 K18 ["DecalCount"]
+       83 MOVE                             R6 R3
+       84 JUMPIFNOT                        R6 ; [+2]
+       85 GETTABLEKS                       R6 R3 K30 ["tool"]
+       87 SETTABLEKS                       R6 R5 K19 ["ToolCount"]
+       89 RETURN                           R5 1
+
+PROTO_85:
+        0 GETTABLEKS                       R1 R0 K0 ["responseBody"]
+        2 JUMPIFNOT                        R1 ; [+13]
+        3 GETTABLEKS                       R3 R1 K1 ["data"]
+        5 JUMPIFNOT                        R3 ; [+10]
+        6 GETTABLEKS                       R4 R1 K1 ["data"]
+        8 GETTABLEN                        R3 R4 1
+        9 JUMPIFNOT                        R3 ; [+6]
+       10 GETTABLEKS                       R3 R1 K1 ["data"]
+       12 GETTABLEN                        R2 R3 1
+       13 GETTABLEKS                       R2 R2 K2 ["asset"]
+       15 JUMP                             ; [+1]
+       16 LOADNIL                          R2
+       17 JUMPIF                           R2 ; [+5]
+       18 GETUPVAL                         R3 0
+       19 NEWTABLE                         R4 0 0
+       21 CALL                             R3 1 0
+       22 RETURN                           R0 0
+       23 GETUPVAL                         R3 0
+       24 GETUPVAL                         R4 1
+       25 MOVE                             R5 R2
+       26 CALL                             R4 1 1
+       27 CALL                             R3 1 0
+       28 RETURN                           R0 0
+
+PROTO_86:
+        0 GETUPVAL                         R1 0
+        1 LOADK                            R2 K0 ["fetchAssetTechnicalDetailsAsync failed: %*"]
+        2 GETUPVAL                         R4 1
+        3 GETTABLEKS                       R4 R4 K1 ["pretty"]
+        5 MOVE                             R5 R0
+        6 CALL                             R4 1 1
+        7 NAMECALL                         R2 R2 K2 ["format"]
+        9 CALL                             R2 2 1
+       10 LOADK                            R3 K3 ["WARN"]
+       11 CALL                             R1 2 0
+       12 GETUPVAL                         R1 2
+       13 MOVE                             R2 R0
+       14 CALL                             R1 1 0
+       15 RETURN                           R0 0
+
+PROTO_87:
+        0 GETUPVAL                         R2 0
+        1 GETTABLEKS                       R2 R2 K0 ["GetItemDetailsRequest"]
+        3 NEWTABLE                         R3 0 1
+        5 GETUPVAL                         R4 1
+        6 SETLIST                          R3 R4 1 [1]
+        8 CALL                             R2 1 1
+        9 NAMECALL                         R2 R2 K1 ["makeRequest"]
+       11 CALL                             R2 1 1
+       12 NEWCLOSURE                       R4 P0
+       13 CAPTURE                          VAL R0
+       14 CAPTURE                          UPVAL U2
+       15 NAMECALL                         R2 R2 K2 ["andThen"]
+       17 CALL                             R2 2 1
+       18 NEWCLOSURE                       R4 P1
+       19 CAPTURE                          UPVAL U3
+       20 CAPTURE                          UPVAL U4
+       21 CAPTURE                          VAL R1
+       22 NAMECALL                         R2 R2 K3 ["catch"]
+       24 CALL                             R2 2 0
+       25 RETURN                           R0 0
+
+PROTO_88:
+        0 GETUPVAL                         R1 0
+        1 GETTABLEKS                       R1 R1 K0 ["new"]
+        3 NEWCLOSURE                       R2 P0
+        4 CAPTURE                          UPVAL U1
+        5 CAPTURE                          VAL R0
+        6 CAPTURE                          UPVAL U2
+        7 CAPTURE                          UPVAL U3
+        8 CAPTURE                          UPVAL U4
+        9 CALL                             R1 1 -1
+       10 RETURN                           R1 -1
+
+PROTO_89:
         0 PREPVARARGS                      1
         1 LOADB                            R1 0
         2 RETURN                           R1 1
@@ -2554,5 +2689,13 @@ MAIN:
       424 CAPTURE                          VAL R4
       425 SETTABLEKS                       R30 R27 K104 ["moveItemsAsync"]
       427 DUPCLOSURE                       R30 K105 [PROTO_84]
-      428 SETTABLEKS                       R30 R27 K106 ["resume"]
-      430 RETURN                           R27 1
+      428 DUPCLOSURE                       R31 K106 [PROTO_88]
+      429 CAPTURE                          VAL R3
+      430 CAPTURE                          VAL R5
+      431 CAPTURE                          VAL R30
+      432 CAPTURE                          VAL R22
+      433 CAPTURE                          VAL R4
+      434 SETTABLEKS                       R31 R27 K107 ["fetchAssetTechnicalDetailsAsync"]
+      436 DUPCLOSURE                       R31 K108 [PROTO_89]
+      437 SETTABLEKS                       R31 R27 K109 ["resume"]
+      439 RETURN                           R27 1

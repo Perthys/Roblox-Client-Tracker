@@ -174,45 +174,40 @@ PROTO_6:
       121 CALL                             R16 2 1
       122 SETTABLEKS                       R16 R15 K19 ["testId"]
       124 DUPTABLE                         R16 K31 [{"ClickTarget"}]
-      125 GETUPVAL                         R18 11
-      126 CALL                             R18 0 1
-      127 JUMPIFNOT                        R18 ; [+41]
-      128 GETUPVAL                         R17 3
-      129 GETTABLEKS                       R17 R17 K14 ["createElement"]
-      131 LOADK                            R18 K32 ["ImageButton"]
-      132 NEWTABLE                         R19 4 0
-      134 GETUPVAL                         R20 3
-      135 GETTABLEKS                       R20 R20 K33 ["Event"]
-      137 GETTABLEKS                       R20 R20 K34 ["MouseButton1Down"]
-      139 NEWCLOSURE                       R21 P1
-      140 CAPTURE                          VAL R3
-      141 CAPTURE                          UPVAL U6
-      142 CAPTURE                          VAL R5
-      143 SETTABLE                         R21 R19 R20
-      144 GETUPVAL                         R20 3
-      145 GETTABLEKS                       R20 R20 K33 ["Event"]
-      147 GETTABLEKS                       R20 R20 K35 ["MouseButton1Up"]
-      149 NEWCLOSURE                       R21 P2
-      150 CAPTURE                          VAL R3
-      151 CAPTURE                          UPVAL U6
-      152 CAPTURE                          VAL R5
-      153 SETTABLE                         R21 R19 R20
-      154 GETUPVAL                         R20 3
-      155 GETTABLEKS                       R20 R20 K33 ["Event"]
-      157 GETTABLEKS                       R20 R20 K36 ["MouseButton2Click"]
-      159 NEWCLOSURE                       R21 P3
-      160 CAPTURE                          VAL R7
-      161 SETTABLE                         R21 R19 R20
-      162 GETUPVAL                         R20 3
-      163 GETTABLEKS                       R20 R20 K37 ["Tag"]
-      165 LOADK                            R21 K38 ["size-full gui-object-defaults data-testid=underlay-row-click-target"]
-      166 SETTABLE                         R21 R19 R20
-      167 CALL                             R17 2 1
-      168 JUMP                             ; [+1]
-      169 LOADNIL                          R17
-      170 SETTABLEKS                       R17 R16 K30 ["ClickTarget"]
-      172 CALL                             R13 3 -1
-      173 RETURN                           R13 -1
+      125 GETUPVAL                         R17 3
+      126 GETTABLEKS                       R17 R17 K14 ["createElement"]
+      128 LOADK                            R18 K32 ["ImageButton"]
+      129 NEWTABLE                         R19 4 0
+      131 GETUPVAL                         R20 3
+      132 GETTABLEKS                       R20 R20 K33 ["Event"]
+      134 GETTABLEKS                       R20 R20 K34 ["MouseButton1Down"]
+      136 NEWCLOSURE                       R21 P1
+      137 CAPTURE                          VAL R3
+      138 CAPTURE                          UPVAL U6
+      139 CAPTURE                          VAL R5
+      140 SETTABLE                         R21 R19 R20
+      141 GETUPVAL                         R20 3
+      142 GETTABLEKS                       R20 R20 K33 ["Event"]
+      144 GETTABLEKS                       R20 R20 K35 ["MouseButton1Up"]
+      146 NEWCLOSURE                       R21 P2
+      147 CAPTURE                          VAL R3
+      148 CAPTURE                          UPVAL U6
+      149 CAPTURE                          VAL R5
+      150 SETTABLE                         R21 R19 R20
+      151 GETUPVAL                         R20 3
+      152 GETTABLEKS                       R20 R20 K33 ["Event"]
+      154 GETTABLEKS                       R20 R20 K36 ["MouseButton2Click"]
+      156 NEWCLOSURE                       R21 P3
+      157 CAPTURE                          VAL R7
+      158 SETTABLE                         R21 R19 R20
+      159 GETUPVAL                         R20 3
+      160 GETTABLEKS                       R20 R20 K37 ["Tag"]
+      162 LOADK                            R21 K38 ["size-full gui-object-defaults data-testid=underlay-row-click-target"]
+      163 SETTABLE                         R21 R19 R20
+      164 CALL                             R17 2 1
+      165 SETTABLEKS                       R17 R16 K30 ["ClickTarget"]
+      167 CALL                             R13 3 -1
+      168 RETURN                           R13 -1
 
 PROTO_7:
         0 GETTABLEKS                       R1 R0 K0 ["Item"]
@@ -297,30 +292,24 @@ MAIN:
        97 GETTABLEKS                       R12 R12 K21 ["useSidebarScopeDragHovered"]
        99 CALL                             R11 1 1
       100 GETIMPORT                        R12 K5 [require]
-      102 GETTABLEKS                       R13 R0 K9 ["Src"]
-      104 GETTABLEKS                       R13 R13 K22 ["Flags"]
-      106 GETTABLEKS                       R13 R13 K23 ["getFFlagAmrFixSidebar"]
+      102 GETIMPORT                        R13 K1 [script]
+      104 GETTABLEKS                       R13 R13 K22 ["Parent"]
+      106 GETTABLEKS                       R13 R13 K23 ["Row"]
       108 CALL                             R12 1 1
-      109 GETIMPORT                        R13 K5 [require]
-      111 GETIMPORT                        R14 K1 [script]
-      113 GETTABLEKS                       R14 R14 K24 ["Parent"]
-      115 GETTABLEKS                       R14 R14 K25 ["Row"]
-      117 CALL                             R13 1 1
-      118 DUPCLOSURE                       R14 K26 [PROTO_6]
-      119 CAPTURE                          VAL R5
-      120 CAPTURE                          VAL R6
-      121 CAPTURE                          VAL R7
-      122 CAPTURE                          VAL R2
-      123 CAPTURE                          VAL R8
-      124 CAPTURE                          VAL R9
-      125 CAPTURE                          VAL R3
-      126 CAPTURE                          VAL R10
-      127 CAPTURE                          VAL R11
-      128 CAPTURE                          VAL R4
-      129 CAPTURE                          VAL R1
-      130 CAPTURE                          VAL R12
-      131 DUPCLOSURE                       R15 K27 [PROTO_7]
-      132 CAPTURE                          VAL R3
-      133 CAPTURE                          VAL R2
-      134 CAPTURE                          VAL R14
-      135 RETURN                           R15 1
+      109 DUPCLOSURE                       R13 K24 [PROTO_6]
+      110 CAPTURE                          VAL R5
+      111 CAPTURE                          VAL R6
+      112 CAPTURE                          VAL R7
+      113 CAPTURE                          VAL R2
+      114 CAPTURE                          VAL R8
+      115 CAPTURE                          VAL R9
+      116 CAPTURE                          VAL R3
+      117 CAPTURE                          VAL R10
+      118 CAPTURE                          VAL R11
+      119 CAPTURE                          VAL R4
+      120 CAPTURE                          VAL R1
+      121 DUPCLOSURE                       R14 K25 [PROTO_7]
+      122 CAPTURE                          VAL R3
+      123 CAPTURE                          VAL R2
+      124 CAPTURE                          VAL R13
+      125 RETURN                           R14 1

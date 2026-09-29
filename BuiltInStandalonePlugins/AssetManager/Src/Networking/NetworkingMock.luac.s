@@ -901,6 +901,43 @@ PROTO_58:
         7 RETURN                           R2 -1
 
 PROTO_59:
+        0 JUMPIFNOT                        R0 ; [+4]
+        1 GETUPVAL                         R2 0
+        2 LOADK                            R3 K0 ["Test fetchAssetTechnicalDetailsAsync error"]
+        3 CALL                             R2 1 0
+        4 RETURN                           R0 0
+        5 GETUPVAL                         R2 1
+        6 MOVE                             R3 R1
+        7 JUMPIF                           R3 ; [+1]
+        8 DUPTABLE                         R3 K3 [{["Description"] = "This is a test model"}]
+        9 CALL                             R2 1 0
+       10 RETURN                           R0 0
+
+PROTO_60:
+        0 NEWCLOSURE                       R2 P0
+        1 CAPTURE                          VAL R1
+        2 CAPTURE                          VAL R0
+        3 RETURN                           R2 1
+
+PROTO_61:
+        0 GETUPVAL                         R2 0
+        1 GETTABLEKS                       R2 R2 K0 ["ResumeAsync"]
+        3 NEWCLOSURE                       R3 P0
+        4 CAPTURE                          VAL R1
+        5 CAPTURE                          VAL R0
+        6 SETTABLEKS                       R3 R2 K1 ["FetchAssetTechnicalDetails"]
+        8 RETURN                           R0 0
+
+PROTO_62:
+        0 DUPCLOSURE                       R1 K0 [PROTO_60]
+        1 GETUPVAL                         R2 0
+        2 GETTABLEKS                       R2 R2 K1 ["new"]
+        4 DUPCLOSURE                       R3 K2 [PROTO_61]
+        5 CAPTURE                          UPVAL U1
+        6 CALL                             R2 1 -1
+        7 RETURN                           R2 -1
+
+PROTO_63:
         0 PREPVARARGS                      1
         1 GETUPVAL                         R2 0
         2 GETTABLEKS                       R2 R2 K0 ["ResumeAsync"]
@@ -1053,7 +1090,11 @@ MAIN:
       179 CAPTURE                          VAL R3
       180 CAPTURE                          VAL R7
       181 SETTABLEKS                       R8 R7 K68 ["moveItemsAsync"]
-      183 DUPCLOSURE                       R8 K69 [PROTO_59]
-      184 CAPTURE                          VAL R7
-      185 SETTABLEKS                       R8 R7 K70 ["resume"]
-      187 RETURN                           R7 1
+      183 DUPCLOSURE                       R8 K69 [PROTO_62]
+      184 CAPTURE                          VAL R3
+      185 CAPTURE                          VAL R7
+      186 SETTABLEKS                       R8 R7 K70 ["fetchAssetTechnicalDetailsAsync"]
+      188 DUPCLOSURE                       R8 K71 [PROTO_63]
+      189 CAPTURE                          VAL R7
+      190 SETTABLEKS                       R8 R7 K72 ["resume"]
+      192 RETURN                           R7 1

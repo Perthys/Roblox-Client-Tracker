@@ -56,7 +56,14 @@ PROTO_4:
        27 NAMECALL                         R3 R2 K4 ["Disconnect"]
        29 CALL                             R3 1 0
        30 LOADK                            R3 K5 ["generation-1"]
-       31 RETURN                           R3 1
+       31 GETUPVAL                         R5 0
+       32 GETTABLEKS                       R5 R5 K6 ["jobId"]
+       34 JUMPIFEQKNIL                     R5 ; [+5]
+       36 GETUPVAL                         R4 0
+       37 GETTABLEKS                       R4 R4 K6 ["jobId"]
+       39 RETURN                           R3 2
+       40 LOADK                            R4 K7 ["job-1"]
+       41 RETURN                           R3 2
 
 PROTO_5:
         0 GETUPVAL                         R1 0
@@ -128,7 +135,7 @@ PROTO_8:
 
 PROTO_9:
         0 GETUPVAL                         R0 0
-        1 DUPTABLE                         R1 K4 [{"signal", "previewSignal", "progressSignal", "result"}]
+        1 DUPTABLE                         R1 K5 [{"signal", "previewSignal", "progressSignal", "result", "jobId"}]
         2 GETUPVAL                         R2 1
         3 GETTABLEKS                       R2 R2 K0 ["signal"]
         5 SETTABLEKS                       R2 R1 K0 ["signal"]
@@ -141,8 +148,11 @@ PROTO_9:
        17 GETUPVAL                         R2 1
        18 GETTABLEKS                       R2 R2 K3 ["result"]
        20 SETTABLEKS                       R2 R1 K3 ["result"]
-       22 CALL                             R0 1 1
-       23 RETURN                           R0 1
+       22 GETUPVAL                         R2 1
+       23 GETTABLEKS                       R2 R2 K4 ["jobId"]
+       25 SETTABLEKS                       R2 R1 K4 ["jobId"]
+       27 CALL                             R0 1 1
+       28 RETURN                           R0 1
 
 PROTO_10:
         0 GETUPVAL                         R1 0
@@ -150,22 +160,23 @@ PROTO_10:
         3 NEWCLOSURE                       R2 P0
         4 CAPTURE                          UPVAL U1
         5 CAPTURE                          VAL R0
-        6 NEWTABLE                         R3 0 4
+        6 NEWTABLE                         R3 0 5
         8 GETTABLEKS                       R4 R0 K1 ["signal"]
        10 GETTABLEKS                       R5 R0 K2 ["previewSignal"]
        12 GETTABLEKS                       R6 R0 K3 ["progressSignal"]
        14 GETTABLEKS                       R7 R0 K4 ["result"]
-       16 SETLIST                          R3 R4 4 [1]
-       18 CALL                             R1 2 1
-       19 GETUPVAL                         R2 0
-       20 GETTABLEKS                       R2 R2 K5 ["createElement"]
-       22 GETUPVAL                         R3 2
-       23 GETTABLEKS                       R3 R3 K6 ["Provider"]
-       25 DUPTABLE                         R4 K8 [{"value"}]
-       26 SETTABLEKS                       R1 R4 K7 ["value"]
-       28 GETTABLEKS                       R5 R0 K9 ["children"]
-       30 CALL                             R2 3 -1
-       31 RETURN                           R2 -1
+       16 GETTABLEKS                       R8 R0 K5 ["jobId"]
+       18 SETLIST                          R3 R4 5 [1]
+       20 CALL                             R1 2 1
+       21 GETUPVAL                         R2 0
+       22 GETTABLEKS                       R2 R2 K6 ["createElement"]
+       24 GETUPVAL                         R3 2
+       25 GETTABLEKS                       R3 R3 K7 ["Provider"]
+       27 DUPTABLE                         R4 K9 [{"value"}]
+       28 SETTABLEKS                       R1 R4 K8 ["value"]
+       30 GETTABLEKS                       R5 R0 K10 ["children"]
+       32 CALL                             R2 3 -1
+       33 RETURN                           R2 -1
 
 PROTO_11:
         0 GETUPVAL                         R2 0

@@ -1,6 +1,66 @@
 PROTO_0:
         0 GETUPVAL                         R0 0
         1 LOADK                            R2 K0 ["visualizationModeToggled"]
+        2 DUPTABLE                         R3 K8 [{["actionSource"] = "plugin_action", ["visualizationModeCategory"] = "PhysicsSimulation", ["visualizationMode"] = "CollisionFidelity", ["isEnabled"]}]
+        3 GETUPVAL                         R5 1
+        4 NOT                              R4 R5
+        5 SETTABLEKS                       R4 R3 K7 ["isEnabled"]
+        7 NAMECALL                         R0 R0 K9 ["report"]
+        9 CALL                             R0 3 0
+       10 GETUPVAL                         R0 2
+       11 GETUPVAL                         R2 1
+       12 NOT                              R1 R2
+       13 CALL                             R0 1 0
+       14 RETURN                           R0 0
+
+PROTO_1:
+        0 GETUPVAL                         R0 0
+        1 GETTABLEKS                       R0 R0 K0 ["Analytics"]
+        3 NAMECALL                         R0 R0 K1 ["use"]
+        5 CALL                             R0 1 1
+        6 GETUPVAL                         R1 0
+        7 GETTABLEKS                       R1 R1 K2 ["Localization"]
+        9 NAMECALL                         R1 R1 K1 ["use"]
+       11 CALL                             R1 1 1
+       12 GETUPVAL                         R2 1
+       13 GETIMPORT                        R3 K4 [settings]
+       15 CALL                             R3 0 1
+       16 GETTABLEKS                       R3 R3 K5 ["Physics"]
+       18 LOADK                            R4 K6 ["ShowDecompositionGeometry"]
+       19 LOADB                            R5 0
+       20 CALL                             R2 3 2
+       21 GETUPVAL                         R4 2
+       22 GETTABLEKS                       R4 R4 K7 ["createElement"]
+       24 GETUPVAL                         R5 3
+       25 DUPTABLE                         R6 K18 [{["ActionId"] = "ToggleVisualizationMode_User_PhysicsSimulation_CollisionFidelity", ["Text"], ["StatusTip"], ["IconName"] = "", ["Checked"], ["Enabled"] = True, ["OnTrigger"]}]
+       26 LOADK                            R9 K19 ["ToggleVisualizationMode"]
+       27 LOADK                            R10 K20 ["Title"]
+       28 DUPTABLE                         R11 K22 [{"visualizationModeName"}]
+       29 LOADK                            R14 K23 ["StudioModes"]
+       30 LOADK                            R15 K24 ["CollisionFidelity"]
+       31 NAMECALL                         R12 R1 K25 ["getText"]
+       33 CALL                             R12 3 1
+       34 SETTABLEKS                       R12 R11 K21 ["visualizationModeName"]
+       36 NAMECALL                         R7 R1 K25 ["getText"]
+       38 CALL                             R7 4 1
+       39 SETTABLEKS                       R7 R6 K10 ["Text"]
+       41 LOADK                            R9 K23 ["StudioModes"]
+       42 LOADK                            R10 K26 ["CollisionFidelityToolTip"]
+       43 NAMECALL                         R7 R1 K25 ["getText"]
+       45 CALL                             R7 3 1
+       46 SETTABLEKS                       R7 R6 K11 ["StatusTip"]
+       48 SETTABLEKS                       R2 R6 K14 ["Checked"]
+       50 NEWCLOSURE                       R7 P0
+       51 CAPTURE                          VAL R0
+       52 CAPTURE                          VAL R2
+       53 CAPTURE                          VAL R3
+       54 SETTABLEKS                       R7 R6 K17 ["OnTrigger"]
+       56 CALL                             R4 2 -1
+       57 RETURN                           R4 -1
+
+PROTO_2:
+        0 GETUPVAL                         R0 0
+        1 LOADK                            R2 K0 ["visualizationModeToggled"]
         2 DUPTABLE                         R3 K6 [{["actionSource"] = "plugin_action", ["visualizationModeCategory"], ["visualizationMode"], ["isEnabled"]}]
         3 GETUPVAL                         R4 1
         4 GETTABLEKS                       R4 R4 K7 ["name"]
@@ -27,7 +87,7 @@ PROTO_0:
        36 CALL                             R0 4 0
        37 RETURN                           R0 0
 
-PROTO_1:
+PROTO_3:
         0 NEWTABLE                         R1 0 0
         2 GETUPVAL                         R2 0
         3 GETTABLEKS                       R2 R2 K0 ["Analytics"]
@@ -89,14 +149,25 @@ PROTO_1:
        83 SETTABLE                         R17 R1 R14
        84 FORGLOOP                         R9 2 ; [-61]
        86 FORGLOOP                         R4 2 ; [-68]
-       88 GETUPVAL                         R4 1
-       89 GETTABLEKS                       R4 R4 K16 ["createElement"]
-       91 GETUPVAL                         R5 1
-       92 GETTABLEKS                       R5 R5 K28 ["Fragment"]
-       94 NEWTABLE                         R6 0 0
-       96 MOVE                             R7 R1
-       97 CALL                             R4 3 -1
-       98 RETURN                           R4 -1
+       88 GETUPVAL                         R4 3
+       89 CALL                             R4 0 1
+       90 JUMPIFNOT                        R4 ; [+10]
+       91 GETUPVAL                         R4 4
+       92 CALL                             R4 0 1
+       93 JUMPIFNOT                        R4 ; [+7]
+       94 GETUPVAL                         R4 1
+       95 GETTABLEKS                       R4 R4 K16 ["createElement"]
+       97 GETUPVAL                         R5 5
+       98 CALL                             R4 1 1
+       99 SETTABLEKS                       R4 R1 K28 ["ToggleVisualizationMode_User_PhysicsSimulation_CollisionFidelity"]
+      101 GETUPVAL                         R4 1
+      102 GETTABLEKS                       R4 R4 K16 ["createElement"]
+      104 GETUPVAL                         R5 1
+      105 GETTABLEKS                       R5 R5 K29 ["Fragment"]
+      107 NEWTABLE                         R6 0 0
+      109 MOVE                             R7 R1
+      110 CALL                             R4 3 -1
+      111 RETURN                           R4 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -122,9 +193,32 @@ MAIN:
        34 GETTABLEKS                       R5 R0 K6 ["Packages"]
        36 GETTABLEKS                       R5 R5 K13 ["Framework"]
        38 CALL                             R4 1 1
-       39 GETTABLEKS                       R5 R4 K14 ["ContextServices"]
-       41 DUPCLOSURE                       R6 K15 [PROTO_1]
-       42 CAPTURE                          VAL R5
-       43 CAPTURE                          VAL R1
-       44 CAPTURE                          VAL R2
-       45 RETURN                           R6 1
+       39 GETIMPORT                        R5 K5 [require]
+       41 GETTABLEKS                       R6 R0 K8 ["Src"]
+       43 GETTABLEKS                       R6 R6 K14 ["Hooks"]
+       45 GETTABLEKS                       R6 R6 K15 ["useInstanceSetting"]
+       47 CALL                             R5 1 1
+       48 GETIMPORT                        R6 K5 [require]
+       50 GETTABLEKS                       R7 R0 K8 ["Src"]
+       52 GETTABLEKS                       R7 R7 K16 ["Flags"]
+       54 GETTABLEKS                       R7 R7 K17 ["getFFlagCDVisShortcutSupport"]
+       56 CALL                             R6 1 1
+       57 GETIMPORT                        R7 K5 [require]
+       59 GETTABLEKS                       R8 R0 K8 ["Src"]
+       61 GETTABLEKS                       R8 R8 K16 ["Flags"]
+       63 GETTABLEKS                       R8 R8 K18 ["getFFlagUseAdornBasedCDDebugVis"]
+       65 CALL                             R7 1 1
+       66 GETTABLEKS                       R8 R4 K19 ["ContextServices"]
+       68 DUPCLOSURE                       R9 K20 [PROTO_1]
+       69 CAPTURE                          VAL R8
+       70 CAPTURE                          VAL R5
+       71 CAPTURE                          VAL R1
+       72 CAPTURE                          VAL R2
+       73 DUPCLOSURE                       R10 K21 [PROTO_3]
+       74 CAPTURE                          VAL R8
+       75 CAPTURE                          VAL R1
+       76 CAPTURE                          VAL R2
+       77 CAPTURE                          VAL R6
+       78 CAPTURE                          VAL R7
+       79 CAPTURE                          VAL R9
+       80 RETURN                           R10 1

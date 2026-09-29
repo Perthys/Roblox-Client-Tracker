@@ -73,19 +73,26 @@ PROTO_3:
         4 RETURN                           R1 1
 
 PROTO_4:
+        0 GETUPVAL                         R2 0
+        1 MOVE                             R3 R0
+        2 CALL                             R2 1 1
+        3 NOT                              R1 R2
+        4 RETURN                           R1 1
+
+PROTO_5:
         0 GETUPVAL                         R1 0
         1 MOVE                             R2 R0
         2 CALL                             R1 1 1
         3 RETURN                           R1 1
 
-PROTO_5:
+PROTO_6:
         0 GETTABLEKS                       R1 R0 K0 ["FastFlag"]
-        2 JUMPIFNOT                        R1 ; [+30]
+        2 JUMPIFNOT                        R1 ; [+46]
         3 FASTCALL1                        TYPEOF R1 ; [+3]
         4 MOVE                             R3 R1
         5 GETIMPORT                        R2 K2 [typeof]
         7 CALL                             R2 1 1
-        8 JUMPIFNOTEQKS                    R2 K3 ["table"] ; [+20]
+        8 JUMPIFNOTEQKS                    R2 K3 ["table"] ; [+36]
        10 GETUPVAL                         R2 0
        11 GETTABLEKS                       R3 R1 K4 ["EnableIfAll"]
        13 JUMPIF                           R3 ; [+1]
@@ -93,22 +100,35 @@ PROTO_5:
        15 DUPCLOSURE                       R4 K5 [PROTO_3]
        16 CAPTURE                          UPVAL U2
        17 CALL                             R2 2 1
-       18 GETUPVAL                         R3 0
-       19 GETTABLEKS                       R4 R1 K6 ["DisableIfAny"]
-       21 JUMPIF                           R4 ; [+1]
-       22 GETUPVAL                         R4 1
-       23 DUPCLOSURE                       R5 K7 [PROTO_4]
-       24 CAPTURE                          UPVAL U2
-       25 CALL                             R3 2 1
-       26 OR                               R5 R2 R3
-       27 NOT                              R4 R5
-       28 RETURN                           R4 1
-       29 GETUPVAL                         R2 2
-       30 MOVE                             R3 R1
-       31 CALL                             R2 1 1
-       32 RETURN                           R2 1
-       33 LOADB                            R2 1
-       34 RETURN                           R2 1
+       18 LOADB                            R3 0
+       19 GETTABLEKS                       R4 R1 K6 ["DisableIfAll"]
+       21 JUMPIFEQKNIL                     R4 ; [+8]
+       23 GETUPVAL                         R4 0
+       24 GETTABLEKS                       R5 R1 K6 ["DisableIfAll"]
+       26 DUPCLOSURE                       R6 K7 [PROTO_4]
+       27 CAPTURE                          UPVAL U2
+       28 CALL                             R4 2 1
+       29 NOT                              R3 R4
+       30 GETUPVAL                         R4 0
+       31 GETTABLEKS                       R5 R1 K8 ["DisableIfAny"]
+       33 JUMPIF                           R5 ; [+1]
+       34 GETUPVAL                         R5 1
+       35 DUPCLOSURE                       R6 K9 [PROTO_5]
+       36 CAPTURE                          UPVAL U2
+       37 CALL                             R4 2 1
+       38 MOVE                             R6 R2
+       39 JUMPIF                           R6 ; [+3]
+       40 MOVE                             R6 R3
+       41 JUMPIF                           R6 ; [+1]
+       42 MOVE                             R6 R4
+       43 NOT                              R5 R6
+       44 RETURN                           R5 1
+       45 GETUPVAL                         R2 2
+       46 MOVE                             R3 R1
+       47 CALL                             R2 1 1
+       48 RETURN                           R2 1
+       49 LOADB                            R2 1
+       50 RETURN                           R2 1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -129,7 +149,7 @@ MAIN:
        25 NEWTABLE                         R5 0 0
        27 DUPCLOSURE                       R6 K11 [PROTO_2]
        28 CAPTURE                          VAL R5
-       29 DUPCLOSURE                       R7 K12 [PROTO_5]
+       29 DUPCLOSURE                       R7 K12 [PROTO_6]
        30 CAPTURE                          VAL R4
        31 CAPTURE                          VAL R2
        32 CAPTURE                          VAL R6

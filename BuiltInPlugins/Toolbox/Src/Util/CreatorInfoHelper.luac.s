@@ -138,6 +138,35 @@ PROTO_5:
        34 LOADB                            R4 1
        35 RETURN                           R4 1
 
+PROTO_6:
+        0 GETTABLEKS                       R2 R0 K0 ["Type"]
+        2 FASTCALL1                        TYPE R2 ; [+2]
+        3 GETIMPORT                        R1 K2 [type]
+        5 CALL                             R1 1 1
+        6 JUMPIFEQKS                       R1 K3 ["number"] ; [+4]
+        8 GETTABLEKS                       R1 R0 K0 ["Type"]
+       10 RETURN                           R1 1
+       11 GETIMPORT                        R1 K5 [pcall]
+       13 GETUPVAL                         R2 0
+       14 GETTABLEKS                       R2 R2 K6 ["backendToClient"]
+       16 GETTABLEKS                       R3 R0 K0 ["Type"]
+       18 CALL                             R1 2 2
+       19 JUMPIF                           R1 ; [+2]
+       20 LOADNIL                          R3
+       21 RETURN                           R3 1
+       22 GETIMPORT                        R3 K8 [ipairs]
+       24 GETIMPORT                        R4 K11 [Enum.CreatorType]
+       26 NAMECALL                         R4 R4 K12 ["GetEnumItems"]
+       28 CALL                             R4 1 -1
+       29 CALL                             R3 -1 3
+       30 FORGPREP_INEXT                   R3
+       31 GETTABLEKS                       R8 R7 K13 ["Value"]
+       33 JUMPIFNOTEQ                      R8 R2 ; [+2]
+       35 RETURN                           R7 1
+       36 FORGLOOP                         R3 2 [inext] ; [-6]
+       38 LOADNIL                          R3
+       39 RETURN                           R3 1
+
 MAIN:
         0 PREPVARARGS                      0
         1 GETIMPORT                        R0 K1 [script]
@@ -159,4 +188,7 @@ MAIN:
        27 DUPCLOSURE                       R2 K13 [PROTO_5]
        28 CAPTURE                          VAL R1
        29 SETTABLEKS                       R2 R1 K14 ["isCached"]
-       31 RETURN                           R1 1
+       31 DUPCLOSURE                       R2 K15 [PROTO_6]
+       32 CAPTURE                          VAL R1
+       33 SETTABLEKS                       R2 R1 K16 ["getClientCreatorType"]
+       35 RETURN                           R1 1

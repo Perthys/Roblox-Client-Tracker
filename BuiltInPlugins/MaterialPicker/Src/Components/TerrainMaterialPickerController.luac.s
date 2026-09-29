@@ -83,6 +83,13 @@ PROTO_7:
 
 PROTO_8:
         0 GETUPVAL                         R1 0
+        1 MOVE                             R3 R0
+        2 NAMECALL                         R1 R1 K0 ["setInvalidSourceSelected"]
+        4 CALL                             R1 2 0
+        5 RETURN                           R0 0
+
+PROTO_9:
+        0 GETUPVAL                         R1 0
         1 GETTABLEKS                       R1 R1 K0 ["activeRequest"]
         3 GETUPVAL                         R2 0
         4 NAMECALL                         R2 R2 K1 ["cancel"]
@@ -94,7 +101,7 @@ PROTO_8:
        12 CALL                             R2 1 0
        13 RETURN                           R0 0
 
-PROTO_9:
+PROTO_10:
         0 GETUPVAL                         R1 0
         1 LOADK                            R3 K0 ["selected"]
         2 MOVE                             R4 R0
@@ -102,13 +109,13 @@ PROTO_9:
         5 CALL                             R1 3 0
         6 RETURN                           R0 0
 
-PROTO_10:
+PROTO_11:
         0 GETUPVAL                         R0 0
         1 NAMECALL                         R0 R0 K0 ["cancel"]
         3 CALL                             R0 1 0
         4 RETURN                           R0 0
 
-PROTO_11:
+PROTO_12:
         0 GETUPVAL                         R1 0
         1 GETTABLEKS                       R1 R1 K0 ["telemetry"]
         3 MOVE                             R3 R0
@@ -121,7 +128,7 @@ PROTO_11:
        13 CALL                             R1 2 0
        14 RETURN                           R0 0
 
-PROTO_12:
+PROTO_13:
         0 GETUPVAL                         R1 0
         1 GETTABLEKS                       R1 R1 K0 ["telemetry"]
         3 MOVE                             R3 R0
@@ -134,7 +141,7 @@ PROTO_12:
        13 CALL                             R1 2 0
        14 RETURN                           R0 0
 
-PROTO_13:
+PROTO_14:
         0 GETUPVAL                         R0 0
         1 GETTABLEKS                       R0 R0 K0 ["TerrainMaterialCatalog"]
         3 GETTABLEKS                       R0 R0 K1 ["read"]
@@ -142,7 +149,7 @@ PROTO_13:
         6 CALL                             R0 1 -1
         7 RETURN                           R0 -1
 
-PROTO_14:
+PROTO_15:
         0 GETUPVAL                         R1 0
         1 GETTABLEKS                       R1 R1 K0 ["isValidRequest"]
         3 MOVE                             R2 R0
@@ -221,7 +228,7 @@ PROTO_14:
       107 LOADB                            R5 1
       108 RETURN                           R5 1
 
-PROTO_15:
+PROTO_16:
         0 DUPTABLE                         R4 K9 [{[1], ["refreshKey"] = 0, ["request"] = False, ["sortType"] = "slotNumber", ["viewType"] = "grid"}]
         1 GETIMPORT                        R5 K12 [table.freeze]
         3 NEWTABLE                         R6 0 0
@@ -275,33 +282,71 @@ PROTO_15:
        72 SETTABLEKS                       R2 R0 K28 ["onSlotCreated"]
        74 NEWCLOSURE                       R2 P8
        75 CAPTURE                          VAL R0
-       76 CAPTURE                          VAL R1
-       77 SETTABLEKS                       R2 R0 K29 ["onEditSlot"]
-       79 NEWCLOSURE                       R2 P9
-       80 CAPTURE                          VAL R0
-       81 SETTABLEKS                       R2 R0 K30 ["onSlotSelected"]
+       76 SETTABLEKS                       R2 R0 K29 ["onInvalidSourceChanged"]
+       78 NEWCLOSURE                       R2 P9
+       79 CAPTURE                          VAL R0
+       80 CAPTURE                          VAL R1
+       81 SETTABLEKS                       R2 R0 K30 ["onEditSlot"]
        83 NEWCLOSURE                       R2 P10
        84 CAPTURE                          VAL R0
-       85 SETTABLEKS                       R2 R0 K31 ["onPressedOutside"]
+       85 SETTABLEKS                       R2 R0 K31 ["onSlotSelected"]
        87 NEWCLOSURE                       R2 P11
        88 CAPTURE                          VAL R0
-       89 SETTABLEKS                       R2 R0 K32 ["onSortTypeChanged"]
+       89 SETTABLEKS                       R2 R0 K32 ["onPressedOutside"]
        91 NEWCLOSURE                       R2 P12
        92 CAPTURE                          VAL R0
-       93 SETTABLEKS                       R2 R0 K33 ["onViewTypeChanged"]
-       95 GETTABLEKS                       R2 R0 K18 ["communication"]
-       97 GETUPVAL                         R4 2
-       98 GETTABLEKS                       R4 R4 K34 ["CPC_CALLBACKS"]
-      100 GETTABLEKS                       R4 R4 K35 ["OPEN_MATERIAL_PICKER"]
-      102 NEWCLOSURE                       R5 P13
-      103 CAPTURE                          UPVAL U3
-      104 CAPTURE                          VAL R0
-      105 CAPTURE                          UPVAL U4
-      106 NAMECALL                         R2 R2 K36 ["OnInvoke"]
-      108 CALL                             R2 3 0
-      109 RETURN                           R0 0
+       93 SETTABLEKS                       R2 R0 K33 ["onSortTypeChanged"]
+       95 NEWCLOSURE                       R2 P13
+       96 CAPTURE                          VAL R0
+       97 SETTABLEKS                       R2 R0 K34 ["onViewTypeChanged"]
+       99 GETTABLEKS                       R2 R0 K18 ["communication"]
+      101 GETUPVAL                         R4 2
+      102 GETTABLEKS                       R4 R4 K35 ["CPC_CALLBACKS"]
+      104 GETTABLEKS                       R4 R4 K36 ["OPEN_MATERIAL_PICKER"]
+      106 NEWCLOSURE                       R5 P14
+      107 CAPTURE                          UPVAL U3
+      108 CAPTURE                          VAL R0
+      109 CAPTURE                          UPVAL U4
+      110 NAMECALL                         R2 R2 K37 ["OnInvoke"]
+      112 CALL                             R2 3 0
+      113 RETURN                           R0 0
 
-PROTO_16:
+PROTO_17:
+        0 DUPTABLE                         R3 K4 [{[1], ["outcome"] = "invalidSourceChanged", ["invalidSourceSelected"]}]
+        1 GETTABLEKS                       R4 R1 K0 ["requestId"]
+        3 SETTABLEKS                       R4 R3 K0 ["requestId"]
+        5 SETTABLEKS                       R2 R3 K3 ["invalidSourceSelected"]
+        7 GETTABLEKS                       R4 R0 K5 ["communication"]
+        9 GETUPVAL                         R6 0
+       10 GETTABLEKS                       R6 R6 K6 ["CPC_EVENTS"]
+       12 GETTABLEKS                       R6 R6 K7 ["MATERIAL_PICKER_RESPONSE"]
+       14 MOVE                             R7 R3
+       15 NAMECALL                         R4 R4 K8 ["Fire"]
+       17 CALL                             R4 3 0
+       18 RETURN                           R0 0
+
+PROTO_18:
+        0 GETTABLEKS                       R2 R0 K0 ["activeRequest"]
+        2 JUMPIFEQKNIL                     R2 ; [+4]
+        4 GETTABLEKS                       R3 R2 K1 ["allowInvalidSource"]
+        6 JUMPIF                           R3 ; [+1]
+        7 RETURN                           R0 0
+        8 GETIMPORT                        R3 K4 [table.clone]
+       10 MOVE                             R4 R2
+       11 CALL                             R3 1 1
+       12 SETTABLEKS                       R1 R3 K5 ["invalidSourceSelected"]
+       14 SETTABLEKS                       R3 R0 K0 ["activeRequest"]
+       16 DUPTABLE                         R6 K7 [{"request"}]
+       17 SETTABLEKS                       R3 R6 K6 ["request"]
+       19 NAMECALL                         R4 R0 K8 ["setState"]
+       21 CALL                             R4 2 0
+       22 MOVE                             R6 R2
+       23 MOVE                             R7 R1
+       24 NAMECALL                         R4 R0 K9 ["fireInvalidSourceResponse"]
+       26 CALL                             R4 3 0
+       27 RETURN                           R0 0
+
+PROTO_19:
         0 JUMPIFEQKS                       R2 K0 ["slotCreated"] ; [+8]
         2 GETTABLEKS                       R4 R0 K1 ["telemetry"]
         4 MOVE                             R6 R2
@@ -321,7 +366,7 @@ PROTO_16:
        27 CALL                             R4 3 0
        28 RETURN                           R0 0
 
-PROTO_17:
+PROTO_20:
         0 DUPTABLE                         R1 K2 [{"refreshKey", "request"}]
         1 GETTABLEKS                       R3 R0 K0 ["refreshKey"]
         3 ADDK                             R2 R3 K3 [1]
@@ -330,30 +375,32 @@ PROTO_17:
         7 SETTABLEKS                       R2 R1 K1 ["request"]
         9 RETURN                           R1 1
 
-PROTO_18:
+PROTO_21:
         0 GETTABLEKS                       R2 R0 K0 ["activeRequest"]
         2 JUMPIFNOTEQKNIL                  R2 ; [+2]
         4 RETURN                           R0 0
         5 GETIMPORT                        R3 K3 [table.clone]
         7 MOVE                             R4 R2
         8 CALL                             R3 1 1
-        9 SETTABLEKS                       R1 R3 K4 ["selectedSlotIndex"]
-       11 SETTABLEKS                       R3 R0 K0 ["activeRequest"]
-       13 GETTABLEKS                       R4 R0 K5 ["telemetry"]
-       15 NAMECALL                         R4 R4 K6 ["recordSlotCreated"]
-       17 CALL                             R4 1 0
-       18 NEWCLOSURE                       R6 P0
-       19 CAPTURE                          VAL R3
-       20 NAMECALL                         R4 R0 K7 ["setState"]
-       22 CALL                             R4 2 0
-       23 MOVE                             R6 R2
-       24 LOADK                            R7 K8 ["slotCreated"]
-       25 MOVE                             R8 R1
-       26 NAMECALL                         R4 R0 K9 ["fireResponse"]
-       28 CALL                             R4 4 0
-       29 RETURN                           R0 0
+        9 LOADB                            R4 0
+       10 SETTABLEKS                       R4 R3 K4 ["invalidSourceSelected"]
+       12 SETTABLEKS                       R1 R3 K5 ["selectedSlotIndex"]
+       14 SETTABLEKS                       R3 R0 K0 ["activeRequest"]
+       16 GETTABLEKS                       R4 R0 K6 ["telemetry"]
+       18 NAMECALL                         R4 R4 K7 ["recordSlotCreated"]
+       20 CALL                             R4 1 0
+       21 NEWCLOSURE                       R6 P0
+       22 CAPTURE                          VAL R3
+       23 NAMECALL                         R4 R0 K8 ["setState"]
+       25 CALL                             R4 2 0
+       26 MOVE                             R6 R2
+       27 LOADK                            R7 K9 ["slotCreated"]
+       28 MOVE                             R8 R1
+       29 NAMECALL                         R4 R0 K10 ["fireResponse"]
+       31 CALL                             R4 4 0
+       32 RETURN                           R0 0
 
-PROTO_19:
+PROTO_22:
         0 GETTABLEKS                       R3 R0 K0 ["activeRequest"]
         2 JUMPIFNOTEQKNIL                  R3 ; [+2]
         4 RETURN                           R0 0
@@ -372,35 +419,35 @@ PROTO_19:
        22 CALL                             R4 0 0
        23 RETURN                           R0 0
 
-PROTO_20:
+PROTO_23:
         0 LOADK                            R3 K0 ["cancelled"]
         1 NAMECALL                         R1 R0 K1 ["completeRequest"]
         3 CALL                             R1 2 0
         4 RETURN                           R0 0
 
-PROTO_21:
+PROTO_24:
         0 GETTABLEKS                       R2 R0 K0 ["activeRequest"]
         2 JUMPIFNOTEQKNIL                  R2 ; [+2]
         4 LOADB                            R1 0 +1
         5 LOADB                            R1 1
         6 RETURN                           R1 1
 
-PROTO_22:
+PROTO_25:
         0 DUPTABLE                         R1 K1 [{"refreshKey"}]
         1 GETTABLEKS                       R3 R0 K0 ["refreshKey"]
         3 ADDK                             R2 R3 K2 [1]
         4 SETTABLEKS                       R2 R1 K0 ["refreshKey"]
         6 RETURN                           R1 1
 
-PROTO_23:
+PROTO_26:
         0 GETTABLEKS                       R1 R0 K0 ["activeRequest"]
         2 JUMPIFNOT                        R1 ; [+4]
-        3 DUPCLOSURE                       R3 K1 [PROTO_22]
+        3 DUPCLOSURE                       R3 K1 [PROTO_25]
         4 NAMECALL                         R1 R0 K2 ["setState"]
         6 CALL                             R1 2 0
         7 RETURN                           R0 0
 
-PROTO_24:
+PROTO_27:
         0 GETTABLEKS                       R1 R0 K0 ["activeRequest"]
         2 JUMPIFNOT                        R1 ; [+10]
         3 GETTABLEKS                       R1 R0 K0 ["activeRequest"]
@@ -418,7 +465,7 @@ PROTO_24:
        22 CALL                             R1 1 0
        23 RETURN                           R0 0
 
-PROTO_25:
+PROTO_28:
         0 GETTABLEKS                       R1 R0 K0 ["state"]
         2 GETTABLEKS                       R1 R1 K1 ["request"]
         4 JUMPIF                           R1 ; [+13]
@@ -473,12 +520,12 @@ PROTO_25:
        75 GETUPVAL                         R14 0
        76 GETTABLEKS                       R14 R14 K2 ["createElement"]
        78 GETUPVAL                         R15 5
-       79 DUPTABLE                         R16 K50 [{"hostService", "initialCatalog", "onCatalogRead", "onCatalogReadFailed", "onCatalogChanged", "onEditSlot", "onQuickAddOpened", "onQuickAddResult", "onSlotCreated", "onSlotSelected", "onSearchNoResults", "onSearchUsed", "onSortTypeChanged", "onViewTypeChanged", "refreshKey", "request", "sortType", "viewType"}]
+       79 DUPTABLE                         R16 K51 [{"hostService", "initialCatalog", "onCatalogRead", "onCatalogReadFailed", "onCatalogChanged", "onEditSlot", "onInvalidSourceChanged", "onQuickAddOpened", "onQuickAddResult", "onSlotCreated", "onSlotSelected", "onSearchNoResults", "onSearchUsed", "onSortTypeChanged", "onViewTypeChanged", "refreshKey", "request", "sortType", "viewType"}]
        80 GETTABLEKS                       R17 R0 K4 ["props"]
        82 GETTABLEKS                       R17 R17 K33 ["hostService"]
        84 SETTABLEKS                       R17 R16 K33 ["hostService"]
        86 GETTABLEKS                       R17 R0 K0 ["state"]
-       88 GETTABLEKS                       R17 R17 K51 ["catalog"]
+       88 GETTABLEKS                       R17 R17 K52 ["catalog"]
        90 SETTABLEKS                       R17 R16 K34 ["initialCatalog"]
        92 GETTABLEKS                       R17 R0 K35 ["onCatalogRead"]
        94 SETTABLEKS                       R17 R16 K35 ["onCatalogRead"]
@@ -488,40 +535,42 @@ PROTO_25:
       102 SETTABLEKS                       R17 R16 K37 ["onCatalogChanged"]
       104 GETTABLEKS                       R17 R0 K38 ["onEditSlot"]
       106 SETTABLEKS                       R17 R16 K38 ["onEditSlot"]
-      108 GETTABLEKS                       R17 R0 K39 ["onQuickAddOpened"]
-      110 SETTABLEKS                       R17 R16 K39 ["onQuickAddOpened"]
-      112 GETTABLEKS                       R17 R0 K40 ["onQuickAddResult"]
-      114 SETTABLEKS                       R17 R16 K40 ["onQuickAddResult"]
-      116 GETTABLEKS                       R17 R0 K41 ["onSlotCreated"]
-      118 SETTABLEKS                       R17 R16 K41 ["onSlotCreated"]
-      120 GETTABLEKS                       R17 R0 K42 ["onSlotSelected"]
-      122 SETTABLEKS                       R17 R16 K42 ["onSlotSelected"]
-      124 GETTABLEKS                       R17 R0 K43 ["onSearchNoResults"]
-      126 SETTABLEKS                       R17 R16 K43 ["onSearchNoResults"]
-      128 GETTABLEKS                       R17 R0 K44 ["onSearchUsed"]
-      130 SETTABLEKS                       R17 R16 K44 ["onSearchUsed"]
-      132 GETTABLEKS                       R17 R0 K45 ["onSortTypeChanged"]
-      134 SETTABLEKS                       R17 R16 K45 ["onSortTypeChanged"]
-      136 GETTABLEKS                       R17 R0 K46 ["onViewTypeChanged"]
-      138 SETTABLEKS                       R17 R16 K46 ["onViewTypeChanged"]
-      140 GETTABLEKS                       R17 R0 K0 ["state"]
-      142 GETTABLEKS                       R17 R17 K47 ["refreshKey"]
-      144 SETTABLEKS                       R17 R16 K47 ["refreshKey"]
-      146 SETTABLEKS                       R1 R16 K1 ["request"]
-      148 GETTABLEKS                       R17 R0 K0 ["state"]
-      150 GETTABLEKS                       R17 R17 K48 ["sortType"]
-      152 SETTABLEKS                       R17 R16 K48 ["sortType"]
-      154 GETTABLEKS                       R17 R0 K0 ["state"]
-      156 GETTABLEKS                       R17 R17 K49 ["viewType"]
-      158 SETTABLEKS                       R17 R16 K49 ["viewType"]
-      160 CALL                             R14 2 1
-      161 SETTABLEKS                       R14 R13 K11 ["Content"]
-      163 CALL                             R10 3 1
-      164 SETTABLEKS                       R10 R9 K25 ["Picker"]
-      166 CALL                             R6 3 1
-      167 SETTABLEKS                       R6 R5 K11 ["Content"]
-      169 CALL                             R2 3 -1
-      170 RETURN                           R2 -1
+      108 GETTABLEKS                       R17 R0 K39 ["onInvalidSourceChanged"]
+      110 SETTABLEKS                       R17 R16 K39 ["onInvalidSourceChanged"]
+      112 GETTABLEKS                       R17 R0 K40 ["onQuickAddOpened"]
+      114 SETTABLEKS                       R17 R16 K40 ["onQuickAddOpened"]
+      116 GETTABLEKS                       R17 R0 K41 ["onQuickAddResult"]
+      118 SETTABLEKS                       R17 R16 K41 ["onQuickAddResult"]
+      120 GETTABLEKS                       R17 R0 K42 ["onSlotCreated"]
+      122 SETTABLEKS                       R17 R16 K42 ["onSlotCreated"]
+      124 GETTABLEKS                       R17 R0 K43 ["onSlotSelected"]
+      126 SETTABLEKS                       R17 R16 K43 ["onSlotSelected"]
+      128 GETTABLEKS                       R17 R0 K44 ["onSearchNoResults"]
+      130 SETTABLEKS                       R17 R16 K44 ["onSearchNoResults"]
+      132 GETTABLEKS                       R17 R0 K45 ["onSearchUsed"]
+      134 SETTABLEKS                       R17 R16 K45 ["onSearchUsed"]
+      136 GETTABLEKS                       R17 R0 K46 ["onSortTypeChanged"]
+      138 SETTABLEKS                       R17 R16 K46 ["onSortTypeChanged"]
+      140 GETTABLEKS                       R17 R0 K47 ["onViewTypeChanged"]
+      142 SETTABLEKS                       R17 R16 K47 ["onViewTypeChanged"]
+      144 GETTABLEKS                       R17 R0 K0 ["state"]
+      146 GETTABLEKS                       R17 R17 K48 ["refreshKey"]
+      148 SETTABLEKS                       R17 R16 K48 ["refreshKey"]
+      150 SETTABLEKS                       R1 R16 K1 ["request"]
+      152 GETTABLEKS                       R17 R0 K0 ["state"]
+      154 GETTABLEKS                       R17 R17 K49 ["sortType"]
+      156 SETTABLEKS                       R17 R16 K49 ["sortType"]
+      158 GETTABLEKS                       R17 R0 K0 ["state"]
+      160 GETTABLEKS                       R17 R17 K50 ["viewType"]
+      162 SETTABLEKS                       R17 R16 K50 ["viewType"]
+      164 CALL                             R14 2 1
+      165 SETTABLEKS                       R14 R13 K11 ["Content"]
+      167 CALL                             R10 3 1
+      168 SETTABLEKS                       R10 R9 K25 ["Picker"]
+      170 CALL                             R6 3 1
+      171 SETTABLEKS                       R6 R5 K11 ["Content"]
+      173 CALL                             R2 3 -1
+      174 RETURN                           R2 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -581,34 +630,39 @@ MAIN:
        96 LOADK                            R18 K28 ["TerrainMaterialPickerController"]
        97 NAMECALL                         R16 R16 K29 ["extend"]
        99 CALL                             R16 2 1
-      100 DUPCLOSURE                       R17 K30 [PROTO_15]
+      100 DUPCLOSURE                       R17 K30 [PROTO_16]
       101 CAPTURE                          VAL R13
       102 CAPTURE                          VAL R14
       103 CAPTURE                          VAL R10
       104 CAPTURE                          VAL R15
       105 CAPTURE                          VAL R5
       106 SETTABLEKS                       R17 R16 K31 ["init"]
-      108 DUPCLOSURE                       R17 K32 [PROTO_16]
+      108 DUPCLOSURE                       R17 K32 [PROTO_17]
       109 CAPTURE                          VAL R10
-      110 SETTABLEKS                       R17 R16 K33 ["fireResponse"]
+      110 SETTABLEKS                       R17 R16 K33 ["fireInvalidSourceResponse"]
       112 DUPCLOSURE                       R17 K34 [PROTO_18]
-      113 SETTABLEKS                       R17 R16 K35 ["slotCreated"]
+      113 SETTABLEKS                       R17 R16 K35 ["setInvalidSourceSelected"]
       115 DUPCLOSURE                       R17 K36 [PROTO_19]
-      116 SETTABLEKS                       R17 R16 K37 ["completeRequest"]
-      118 DUPCLOSURE                       R17 K38 [PROTO_20]
-      119 SETTABLEKS                       R17 R16 K39 ["cancel"]
-      121 DUPCLOSURE                       R17 K40 [PROTO_21]
-      122 SETTABLEKS                       R17 R16 K41 ["hasActiveRequest"]
-      124 DUPCLOSURE                       R17 K42 [PROTO_23]
-      125 SETTABLEKS                       R17 R16 K43 ["refresh"]
-      127 DUPCLOSURE                       R17 K44 [PROTO_24]
-      128 SETTABLEKS                       R17 R16 K45 ["willUnmount"]
-      130 DUPCLOSURE                       R17 K46 [PROTO_25]
-      131 CAPTURE                          VAL R4
-      132 CAPTURE                          VAL R6
-      133 CAPTURE                          VAL R7
-      134 CAPTURE                          VAL R8
-      135 CAPTURE                          VAL R9
-      136 CAPTURE                          VAL R11
-      137 SETTABLEKS                       R17 R16 K47 ["render"]
-      139 RETURN                           R16 1
+      116 CAPTURE                          VAL R10
+      117 SETTABLEKS                       R17 R16 K37 ["fireResponse"]
+      119 DUPCLOSURE                       R17 K38 [PROTO_21]
+      120 SETTABLEKS                       R17 R16 K39 ["slotCreated"]
+      122 DUPCLOSURE                       R17 K40 [PROTO_22]
+      123 SETTABLEKS                       R17 R16 K41 ["completeRequest"]
+      125 DUPCLOSURE                       R17 K42 [PROTO_23]
+      126 SETTABLEKS                       R17 R16 K43 ["cancel"]
+      128 DUPCLOSURE                       R17 K44 [PROTO_24]
+      129 SETTABLEKS                       R17 R16 K45 ["hasActiveRequest"]
+      131 DUPCLOSURE                       R17 K46 [PROTO_26]
+      132 SETTABLEKS                       R17 R16 K47 ["refresh"]
+      134 DUPCLOSURE                       R17 K48 [PROTO_27]
+      135 SETTABLEKS                       R17 R16 K49 ["willUnmount"]
+      137 DUPCLOSURE                       R17 K50 [PROTO_28]
+      138 CAPTURE                          VAL R4
+      139 CAPTURE                          VAL R6
+      140 CAPTURE                          VAL R7
+      141 CAPTURE                          VAL R8
+      142 CAPTURE                          VAL R9
+      143 CAPTURE                          VAL R11
+      144 SETTABLEKS                       R17 R16 K51 ["render"]
+      146 RETURN                           R16 1

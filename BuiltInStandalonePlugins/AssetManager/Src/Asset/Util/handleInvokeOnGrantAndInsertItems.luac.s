@@ -369,15 +369,22 @@ PROTO_9:
         5 CALL                             R0 1 0
         6 LOADNIL                          R0
         7 SETUPVAL                         R0 0
-        8 GETUPVAL                         R1 1
-        9 LENGTH                           R0 R1
-       10 LOADN                            R1 0
-       11 JUMPIFNOTLT                      R1 R0 ; [+5]
-       13 GETUPVAL                         R0 2
-       14 GETUPVAL                         R1 1
-       15 GETUPVAL                         R2 3
-       16 CALL                             R0 2 0
-       17 RETURN                           R0 0
+        8 GETUPVAL                         R0 1
+        9 LOADK                            R1 K1 ["insert: grant settled, inserting %* asset(s)"]
+       10 GETUPVAL                         R4 2
+       11 LENGTH                           R3 R4
+       12 NAMECALL                         R1 R1 K2 ["format"]
+       14 CALL                             R1 2 1
+       15 CALL                             R0 1 0
+       16 GETUPVAL                         R1 2
+       17 LENGTH                           R0 R1
+       18 LOADN                            R1 0
+       19 JUMPIFNOTLT                      R1 R0 ; [+5]
+       21 GETUPVAL                         R0 3
+       22 GETUPVAL                         R1 2
+       23 GETUPVAL                         R2 4
+       24 CALL                             R0 2 0
+       25 RETURN                           R0 0
 
 PROTO_10:
         0 GETUPVAL                         R4 0
@@ -439,41 +446,107 @@ PROTO_10:
        71 CAPTURE                          VAL R6
        72 CAPTURE                          VAL R9
        73 CAPTURE                          REF R8
-       74 LOADNIL                          R12
-       75 NEWCLOSURE                       R13 P1
-       76 CAPTURE                          REF R12
-       77 GETUPVAL                         R14 8
-       78 GETTABLEKS                       R14 R14 K12 ["new"]
-       80 NEWCLOSURE                       R15 P2
-       81 CAPTURE                          VAL R13
-       82 CAPTURE                          REF R12
-       83 CAPTURE                          VAL R4
-       84 CAPTURE                          UPVAL U5
-       85 CAPTURE                          VAL R6
-       86 CAPTURE                          VAL R9
-       87 CAPTURE                          REF R8
-       88 CAPTURE                          VAL R5
-       89 CAPTURE                          UPVAL U9
-       90 CALL                             R14 1 1
-       91 MOVE                             R17 R10
-       92 NAMECALL                         R15 R14 K13 ["timeout"]
-       94 CALL                             R15 2 1
-       95 NEWCLOSURE                       R17 P3
-       96 CAPTURE                          UPVAL U8
-       97 CAPTURE                          VAL R6
-       98 CAPTURE                          VAL R10
-       99 CAPTURE                          VAL R9
-      100 NAMECALL                         R15 R15 K14 ["catch"]
-      102 CALL                             R15 2 1
-      103 NEWCLOSURE                       R17 P4
-      104 CAPTURE                          REF R12
-      105 CAPTURE                          VAL R9
-      106 CAPTURE                          UPVAL U4
-      107 CAPTURE                          VAL R7
-      108 NAMECALL                         R15 R15 K15 ["finally"]
-      110 CALL                             R15 2 0
-      111 CLOSEUPVALS                      R8
-      112 RETURN                           R0 0
+       74 MOVE                             R12 R5
+       75 GETUPVAL                         R13 8
+       76 CALL                             R13 0 1
+       77 JUMPIFNOT                        R13 ; [+80]
+       78 NEWTABLE                         R13 0 0
+       80 MOVE                             R14 R6
+       81 LOADNIL                          R15
+       82 LOADNIL                          R16
+       83 FORGPREP                         R14
+       84 GETTABLEKS                       R19 R18 K12 ["Creator"]
+       86 JUMPIFNOT                        R19 ; [+10]
+       87 DUPTABLE                         R20 K15 [{"CreatorType", "CreatorId"}]
+       88 GETTABLEKS                       R21 R19 K16 ["Type"]
+       90 SETTABLEKS                       R21 R20 K13 ["CreatorType"]
+       92 GETTABLEKS                       R21 R19 K17 ["Id"]
+       94 SETTABLEKS                       R21 R20 K14 ["CreatorId"]
+       96 SETTABLE                         R20 R13 R17
+       97 FORGLOOP                         R14 2 ; [-14]
+       99 GETUPVAL                         R14 9
+      100 MOVE                             R15 R4
+      101 MOVE                             R16 R5
+      102 GETIMPORT                        R17 K19 [game]
+      104 GETTABLEKS                       R17 R17 K13 ["CreatorType"]
+      106 GETIMPORT                        R18 K19 [game]
+      108 GETTABLEKS                       R18 R18 K14 ["CreatorId"]
+      110 MOVE                             R19 R13
+      111 CALL                             R14 5 1
+      112 GETIMPORT                        R15 K21 [next]
+      114 MOVE                             R16 R14
+      115 CALL                             R15 1 1
+      116 JUMPIFEQKNIL                     R15 ; [+25]
+      118 NEWTABLE                         R12 0 0
+      120 MOVE                             R15 R5
+      121 LOADNIL                          R16
+      122 LOADNIL                          R17
+      123 FORGPREP                         R15
+      124 GETTABLE                         R20 R14 R19
+      125 JUMPIFNOT                        R20 ; [+7]
+      126 GETTABLE                         R20 R6 R19
+      127 JUMPIF                           R20 ; [+1]
+      128 JUMP                             ; [+11]
+      129 LOADNIL                          R21
+      130 SETTABLE                         R21 R6 R19
+      131 SUBK                             R8 R8 K22 [1]
+      132 JUMP                             ; [+7]
+      133 FASTCALL2                        TABLE_INSERT R12 R19 ; [+5]
+      135 MOVE                             R21 R12
+      136 MOVE                             R22 R19
+      137 GETIMPORT                        R20 K25 [table.insert]
+      139 CALL                             R20 2 0
+      140 FORGLOOP                         R15 2 ; [-17]
+      142 GETUPVAL                         R15 10
+      143 LOADK                            R16 K26 ["insert: granting %* of %* asset(s) after the publish gate"]
+      144 LENGTH                           R18 R12
+      145 LENGTH                           R19 R5
+      146 NAMECALL                         R16 R16 K27 ["format"]
+      148 CALL                             R16 3 1
+      149 CALL                             R15 1 0
+      150 LENGTH                           R15 R12
+      151 JUMPIFNOTEQKN                    R15 K6 [0] ; [+6]
+      153 GETUPVAL                         R15 10
+      154 LOADK                            R16 K28 ["insert: nothing left to grant or insert after the publish gate"]
+      155 CALL                             R15 1 0
+      156 CLOSEUPVALS                      R8
+      157 RETURN                           R0 0
+      158 LOADNIL                          R13
+      159 NEWCLOSURE                       R14 P1
+      160 CAPTURE                          REF R13
+      161 GETUPVAL                         R15 11
+      162 GETTABLEKS                       R15 R15 K29 ["new"]
+      164 NEWCLOSURE                       R16 P2
+      165 CAPTURE                          VAL R14
+      166 CAPTURE                          REF R13
+      167 CAPTURE                          VAL R4
+      168 CAPTURE                          UPVAL U5
+      169 CAPTURE                          VAL R6
+      170 CAPTURE                          VAL R9
+      171 CAPTURE                          REF R8
+      172 CAPTURE                          REF R12
+      173 CAPTURE                          UPVAL U12
+      174 CALL                             R15 1 1
+      175 MOVE                             R18 R10
+      176 NAMECALL                         R16 R15 K30 ["timeout"]
+      178 CALL                             R16 2 1
+      179 NEWCLOSURE                       R18 P3
+      180 CAPTURE                          UPVAL U11
+      181 CAPTURE                          VAL R6
+      182 CAPTURE                          VAL R10
+      183 CAPTURE                          VAL R9
+      184 NAMECALL                         R16 R16 K31 ["catch"]
+      186 CALL                             R16 2 1
+      187 NEWCLOSURE                       R18 P4
+      188 CAPTURE                          REF R13
+      189 CAPTURE                          UPVAL U10
+      190 CAPTURE                          VAL R9
+      191 CAPTURE                          UPVAL U4
+      192 CAPTURE                          VAL R7
+      193 NAMECALL                         R16 R16 K32 ["finally"]
+      195 CALL                             R16 2 0
+      196 CLOSEUPVALS                      R8
+      197 RETURN                           R0 0
 
 MAIN:
         0 PREPVARARGS                      0
@@ -509,76 +582,95 @@ MAIN:
        53 GETTABLEKS                       R6 R6 K13 ["getInsertPosition"]
        55 CALL                             R5 1 1
        56 GETIMPORT                        R6 K5 [require]
-       58 GETTABLEKS                       R7 R0 K14 ["Packages"]
-       60 GETTABLEKS                       R7 R7 K15 ["Promise"]
-       62 CALL                             R6 1 1
-       63 GETIMPORT                        R7 K5 [require]
-       65 GETTABLEKS                       R8 R0 K6 ["Src"]
-       67 GETTABLEKS                       R8 R8 K8 ["Analytics"]
-       69 GETTABLEKS                       R8 R8 K16 ["Benchmarking"]
-       71 CALL                             R7 1 1
-       72 GETIMPORT                        R8 K18 [game]
-       74 LOADK                            R10 K19 ["ChangeHistoryService"]
-       75 NAMECALL                         R8 R8 K20 ["GetService"]
-       77 CALL                             R8 2 1
-       78 GETIMPORT                        R9 K18 [game]
-       80 LOADK                            R11 K21 ["HttpService"]
-       81 NAMECALL                         R9 R9 K20 ["GetService"]
-       83 CALL                             R9 2 1
-       84 GETIMPORT                        R10 K18 [game]
-       86 LOADK                            R12 K22 ["Selection"]
-       87 NAMECALL                         R10 R10 K20 ["GetService"]
-       89 CALL                             R10 2 1
-       90 GETIMPORT                        R11 K5 [require]
-       92 GETTABLEKS                       R12 R0 K6 ["Src"]
-       94 GETTABLEKS                       R12 R12 K23 ["Flags"]
-       96 GETTABLEKS                       R12 R12 K24 ["getFFlagDebugAmrOutput"]
-       98 CALL                             R11 1 1
-       99 GETIMPORT                        R12 K5 [require]
-      101 GETTABLEKS                       R13 R0 K6 ["Src"]
-      103 GETTABLEKS                       R13 R13 K23 ["Flags"]
-      105 GETTABLEKS                       R13 R13 K25 ["getFFlagAudioAssetInsertAssetManagerUsesSelection"]
-      107 CALL                             R12 1 1
-      108 GETIMPORT                        R13 K5 [require]
-      110 GETTABLEKS                       R14 R0 K6 ["Src"]
-      112 GETTABLEKS                       R14 R14 K23 ["Flags"]
-      114 GETTABLEKS                       R14 R14 K26 ["getFFlagAmrUseAssetAccessController"]
-      116 CALL                             R13 1 1
-      117 GETIMPORT                        R14 K5 [require]
-      119 GETTABLEKS                       R15 R0 K6 ["Src"]
-      121 GETTABLEKS                       R15 R15 K23 ["Flags"]
-      123 GETTABLEKS                       R15 R15 K27 ["getFIntAmrAssetDependencyGrantEventTimeout"]
-      125 CALL                             R14 1 1
-      126 GETIMPORT                        R15 K5 [require]
-      128 GETTABLEKS                       R16 R0 K6 ["Src"]
-      130 GETTABLEKS                       R16 R16 K23 ["Flags"]
-      132 GETTABLEKS                       R16 R16 K28 ["getFFlagAmrEnableBenchmarking"]
-      134 CALL                             R15 1 1
-      135 DUPCLOSURE                       R16 K29 [PROTO_0]
-      136 DUPCLOSURE                       R17 K30 [PROTO_1]
-      137 CAPTURE                          VAL R9
-      138 DUPCLOSURE                       R18 K31 [PROTO_2]
-      139 CAPTURE                          VAL R5
-      140 CAPTURE                          VAL R10
-      141 CAPTURE                          VAL R3
-      142 CAPTURE                          VAL R1
-      143 CAPTURE                          VAL R16
-      144 CAPTURE                          VAL R12
-      145 CAPTURE                          VAL R11
-      146 CAPTURE                          VAL R8
-      147 CAPTURE                          VAL R4
-      148 CAPTURE                          VAL R15
-      149 CAPTURE                          VAL R7
-      150 CAPTURE                          VAL R2
-      151 DUPCLOSURE                       R19 K32 [PROTO_10]
-      152 CAPTURE                          VAL R13
-      153 CAPTURE                          VAL R15
-      154 CAPTURE                          VAL R7
-      155 CAPTURE                          VAL R2
-      156 CAPTURE                          VAL R18
-      157 CAPTURE                          VAL R9
-      158 CAPTURE                          VAL R17
-      159 CAPTURE                          VAL R14
-      160 CAPTURE                          VAL R6
-      161 CAPTURE                          VAL R1
-      162 RETURN                           R19 1
+       58 GETTABLEKS                       R7 R0 K6 ["Src"]
+       60 GETTABLEKS                       R7 R7 K9 ["Asset"]
+       62 GETTABLEKS                       R7 R7 K10 ["Util"]
+       64 GETTABLEKS                       R7 R7 K14 ["publishDraftAssets"]
+       66 CALL                             R6 1 1
+       67 GETIMPORT                        R7 K5 [require]
+       69 GETTABLEKS                       R8 R0 K6 ["Src"]
+       71 GETTABLEKS                       R8 R8 K10 ["Util"]
+       73 GETTABLEKS                       R8 R8 K15 ["logIfDebug"]
+       75 CALL                             R7 1 1
+       76 GETIMPORT                        R8 K5 [require]
+       78 GETTABLEKS                       R9 R0 K16 ["Packages"]
+       80 GETTABLEKS                       R9 R9 K17 ["Promise"]
+       82 CALL                             R8 1 1
+       83 GETIMPORT                        R9 K5 [require]
+       85 GETTABLEKS                       R10 R0 K6 ["Src"]
+       87 GETTABLEKS                       R10 R10 K8 ["Analytics"]
+       89 GETTABLEKS                       R10 R10 K18 ["Benchmarking"]
+       91 CALL                             R9 1 1
+       92 GETIMPORT                        R10 K20 [game]
+       94 LOADK                            R12 K21 ["ChangeHistoryService"]
+       95 NAMECALL                         R10 R10 K22 ["GetService"]
+       97 CALL                             R10 2 1
+       98 GETIMPORT                        R11 K20 [game]
+      100 LOADK                            R13 K23 ["HttpService"]
+      101 NAMECALL                         R11 R11 K22 ["GetService"]
+      103 CALL                             R11 2 1
+      104 GETIMPORT                        R12 K20 [game]
+      106 LOADK                            R14 K24 ["Selection"]
+      107 NAMECALL                         R12 R12 K22 ["GetService"]
+      109 CALL                             R12 2 1
+      110 GETIMPORT                        R13 K5 [require]
+      112 GETTABLEKS                       R14 R0 K6 ["Src"]
+      114 GETTABLEKS                       R14 R14 K25 ["Flags"]
+      116 GETTABLEKS                       R14 R14 K26 ["getFFlagDebugAmrOutput"]
+      118 CALL                             R13 1 1
+      119 GETIMPORT                        R14 K5 [require]
+      121 GETTABLEKS                       R15 R0 K6 ["Src"]
+      123 GETTABLEKS                       R15 R15 K25 ["Flags"]
+      125 GETTABLEKS                       R15 R15 K27 ["getFFlagAudioAssetInsertAssetManagerUsesSelection"]
+      127 CALL                             R14 1 1
+      128 GETIMPORT                        R15 K5 [require]
+      130 GETTABLEKS                       R16 R0 K6 ["Src"]
+      132 GETTABLEKS                       R16 R16 K25 ["Flags"]
+      134 GETTABLEKS                       R16 R16 K28 ["getFFlagAmrUseAssetAccessController"]
+      136 CALL                             R15 1 1
+      137 GETIMPORT                        R16 K5 [require]
+      139 GETTABLEKS                       R17 R0 K6 ["Src"]
+      141 GETTABLEKS                       R17 R17 K25 ["Flags"]
+      143 GETTABLEKS                       R17 R17 K29 ["getFIntAmrAssetDependencyGrantEventTimeout"]
+      145 CALL                             R16 1 1
+      146 GETIMPORT                        R17 K5 [require]
+      148 GETTABLEKS                       R18 R0 K6 ["Src"]
+      150 GETTABLEKS                       R18 R18 K25 ["Flags"]
+      152 GETTABLEKS                       R18 R18 K30 ["getFFlagAmrEnableBenchmarking"]
+      154 CALL                             R17 1 1
+      155 GETIMPORT                        R18 K5 [require]
+      157 GETTABLEKS                       R19 R0 K6 ["Src"]
+      159 GETTABLEKS                       R19 R19 K25 ["Flags"]
+      161 GETTABLEKS                       R19 R19 K31 ["getFFlagAmrPublishDraftAssetsOnInsert"]
+      163 CALL                             R18 1 1
+      164 DUPCLOSURE                       R19 K32 [PROTO_0]
+      165 DUPCLOSURE                       R20 K33 [PROTO_1]
+      166 CAPTURE                          VAL R11
+      167 DUPCLOSURE                       R21 K34 [PROTO_2]
+      168 CAPTURE                          VAL R5
+      169 CAPTURE                          VAL R12
+      170 CAPTURE                          VAL R3
+      171 CAPTURE                          VAL R1
+      172 CAPTURE                          VAL R19
+      173 CAPTURE                          VAL R14
+      174 CAPTURE                          VAL R13
+      175 CAPTURE                          VAL R10
+      176 CAPTURE                          VAL R4
+      177 CAPTURE                          VAL R17
+      178 CAPTURE                          VAL R9
+      179 CAPTURE                          VAL R2
+      180 DUPCLOSURE                       R22 K35 [PROTO_10]
+      181 CAPTURE                          VAL R15
+      182 CAPTURE                          VAL R17
+      183 CAPTURE                          VAL R9
+      184 CAPTURE                          VAL R2
+      185 CAPTURE                          VAL R21
+      186 CAPTURE                          VAL R11
+      187 CAPTURE                          VAL R20
+      188 CAPTURE                          VAL R16
+      189 CAPTURE                          VAL R18
+      190 CAPTURE                          VAL R6
+      191 CAPTURE                          VAL R7
+      192 CAPTURE                          VAL R8
+      193 CAPTURE                          VAL R1
+      194 RETURN                           R22 1

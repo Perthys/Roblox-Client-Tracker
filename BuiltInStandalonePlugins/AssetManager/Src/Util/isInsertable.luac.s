@@ -15,7 +15,7 @@ MAIN:
        11 GETTABLEKS                       R2 R2 K7 ["Types"]
        13 CALL                             R1 1 1
        14 GETTABLEKS                       R2 R1 K8 ["AssetType"]
-       16 NEWTABLE                         R3 4 0
+       16 NEWTABLE                         R3 8 0
        18 GETTABLEKS                       R4 R2 K9 ["Plugin"]
        20 LOADB                            R5 1
        21 SETTABLE                         R5 R3 R4
@@ -28,6 +28,9 @@ MAIN:
        30 GETTABLEKS                       R4 R2 K12 ["Folder"]
        32 LOADB                            R5 1
        33 SETTABLE                         R5 R3 R4
-       34 DUPCLOSURE                       R4 K13 [PROTO_0]
-       35 CAPTURE                          VAL R3
-       36 RETURN                           R4 1
+       34 GETTABLEKS                       R4 R2 K13 ["TextDocument"]
+       36 LOADB                            R5 1
+       37 SETTABLE                         R5 R3 R4
+       38 DUPCLOSURE                       R4 K14 [PROTO_0]
+       39 CAPTURE                          VAL R3
+       40 RETURN                           R4 1

@@ -57,255 +57,254 @@ MAIN:
        62 CALL                             R4 0 1
        63 SETTABLEKS                       R4 R3 K25 ["FFlagAssistantQualityChangeWidgetTitle"]
        65 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-       67 LOADK                            R5 K26 ["AssistantRetryMessageLoadWithSmallerLimit"]
+       67 LOADK                            R5 K26 ["AssistantResetMcpSessionOnPlaceClose"]
        68 CALL                             R4 1 1
        69 CALL                             R4 0 1
-       70 SETTABLEKS                       R4 R3 K27 ["FFlagAssistantRetryMessageLoadWithSmallerLimit"]
+       70 SETTABLEKS                       R4 R3 K27 ["FFlagAssistantResetMcpSessionOnPlaceClose"]
        72 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-       74 LOADK                            R5 K28 ["AssistantStartMcpServerWithoutUI"]
+       74 LOADK                            R5 K28 ["AssistantRetryMessageLoadWithSmallerLimit"]
        75 CALL                             R4 1 1
        76 CALL                             R4 0 1
-       77 SETTABLEKS                       R4 R3 K29 ["FFlagAssistantStartMcpServerWithoutUI"]
+       77 SETTABLEKS                       R4 R3 K29 ["FFlagAssistantRetryMessageLoadWithSmallerLimit"]
        79 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-       81 LOADK                            R5 K30 ["AssistantUseNewOpenAPIClients2"]
+       81 LOADK                            R5 K30 ["AssistantStartMcpServerWithoutUI"]
        82 CALL                             R4 1 1
        83 CALL                             R4 0 1
-       84 SETTABLEKS                       R4 R3 K31 ["FFlagAssistantUseNewOpenAPIClients"]
+       84 SETTABLEKS                       R4 R3 K31 ["FFlagAssistantStartMcpServerWithoutUI"]
        86 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-       88 LOADK                            R5 K32 ["DebugAssistantCreditMeteringLogging"]
+       88 LOADK                            R5 K32 ["AssistantUseNewOpenAPIClients2"]
        89 CALL                             R4 1 1
        90 CALL                             R4 0 1
-       91 SETTABLEKS                       R4 R3 K33 ["FFlagDebugAssistantCreditMeteringLogging"]
+       91 SETTABLEKS                       R4 R3 K33 ["FFlagAssistantUseNewOpenAPIClients"]
        93 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-       95 LOADK                            R5 K34 ["DebugAssistantForceCloseTooltip"]
+       95 LOADK                            R5 K34 ["DebugAssistantCreditMeteringLogging"]
        96 CALL                             R4 1 1
        97 CALL                             R4 0 1
-       98 SETTABLEKS                       R4 R3 K35 ["FFlagDebugAssistantForceCloseTooltip"]
+       98 SETTABLEKS                       R4 R3 K35 ["FFlagDebugAssistantCreditMeteringLogging"]
       100 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      102 LOADK                            R5 K36 ["FixTargetIsNotReachable"]
+      102 LOADK                            R5 K36 ["DebugAssistantForceCloseTooltip"]
       103 CALL                             R4 1 1
       104 CALL                             R4 0 1
-      105 SETTABLEKS                       R4 R3 K37 ["FFlagFixTargetIsNotReachable"]
+      105 SETTABLEKS                       R4 R3 K37 ["FFlagDebugAssistantForceCloseTooltip"]
       107 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      109 LOADK                            R5 K38 ["GetOrCreateUniqueIdMethod2"]
+      109 LOADK                            R5 K38 ["FixTargetIsNotReachable"]
       110 CALL                             R4 1 1
       111 CALL                             R4 0 1
-      112 SETTABLEKS                       R4 R3 K39 ["FFlagGetOrCreateUniqueIdMethod"]
+      112 SETTABLEKS                       R4 R3 K39 ["FFlagFixTargetIsNotReachable"]
       114 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      116 LOADK                            R5 K40 ["IsLuobuBuild"]
+      116 LOADK                            R5 K40 ["GetOrCreateUniqueIdMethod2"]
       117 CALL                             R4 1 1
       118 CALL                             R4 0 1
-      119 SETTABLEKS                       R4 R3 K41 ["FFlagIsLuobuBuild"]
+      119 SETTABLEKS                       R4 R3 K41 ["FFlagGetOrCreateUniqueIdMethod"]
       121 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      123 LOADK                            R5 K42 ["MaterialGeneratorCounterEnabled"]
+      123 LOADK                            R5 K42 ["IsLuobuBuild"]
       124 CALL                             R4 1 1
       125 CALL                             R4 0 1
-      126 SETTABLEKS                       R4 R3 K43 ["FFlagMaterialGeneratorCounterEnabled"]
+      126 SETTABLEKS                       R4 R3 K43 ["FFlagIsLuobuBuild"]
       128 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      130 LOADK                            R5 K44 ["MCPAssistantPlaceID"]
+      130 LOADK                            R5 K44 ["MaterialGeneratorCounterEnabled"]
       131 CALL                             R4 1 1
       132 CALL                             R4 0 1
-      133 SETTABLEKS                       R4 R3 K45 ["FFlagMCPAssistantPlaceID"]
+      133 SETTABLEKS                       R4 R3 K45 ["FFlagMaterialGeneratorCounterEnabled"]
       135 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      137 LOADK                            R5 K46 ["MCPAssistantTooManyRequestLog"]
+      137 LOADK                            R5 K46 ["MCPAssistantPlaceID"]
       138 CALL                             R4 1 1
       139 CALL                             R4 0 1
-      140 SETTABLEKS                       R4 R3 K47 ["FFlagMCPAssistantTooManyRequestLog"]
+      140 SETTABLEKS                       R4 R3 K47 ["FFlagMCPAssistantPlaceID"]
       142 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      144 LOADK                            R5 K48 ["SendApplicationFieldFromAssistant"]
+      144 LOADK                            R5 K48 ["MCPAssistantTooManyRequestLog"]
       145 CALL                             R4 1 1
       146 CALL                             R4 0 1
-      147 SETTABLEKS                       R4 R3 K49 ["FFlagSendApplicationFieldFromAssistant"]
+      147 SETTABLEKS                       R4 R3 K49 ["FFlagMCPAssistantTooManyRequestLog"]
       149 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      151 LOADK                            R5 K50 ["SkipExternalToolsNoDebugMode"]
+      151 LOADK                            R5 K50 ["SendApplicationFieldFromAssistant"]
       152 CALL                             R4 1 1
       153 CALL                             R4 0 1
-      154 SETTABLEKS                       R4 R3 K51 ["FFlagSkipExternalToolsNoDebugMode"]
+      154 SETTABLEKS                       R4 R3 K51 ["FFlagSendApplicationFieldFromAssistant"]
       156 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      158 LOADK                            R5 K52 ["StudioAssistantCloseTooltip"]
+      158 LOADK                            R5 K52 ["SkipExternalToolsNoDebugMode"]
       159 CALL                             R4 1 1
       160 CALL                             R4 0 1
-      161 SETTABLEKS                       R4 R3 K53 ["FFlagStudioAssistantCloseTooltip"]
+      161 SETTABLEKS                       R4 R3 K53 ["FFlagSkipExternalToolsNoDebugMode"]
       163 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
-      165 LOADK                            R5 K54 ["StudioDialogManagerSuppression"]
+      165 LOADK                            R5 K54 ["StudioAssistantCloseTooltip"]
       166 CALL                             R4 1 1
       167 CALL                             R4 0 1
-      168 SETTABLEKS                       R4 R3 K55 ["FFlagStudioDialogManagerSuppression"]
-      170 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      172 LOADK                            R5 K57 ["AssistantAvatarAutoSetupIdleTimeoutMs"]
-      173 LOADK                            R6 K58 [300000]
-      174 CALL                             R4 2 1
-      175 CALL                             R4 0 1
-      176 SETTABLEKS                       R4 R3 K59 ["FIntAssistantAvatarAutoSetupIdleTimeoutMs"]
-      178 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      180 LOADK                            R5 K60 ["AssistantAvatarAutoSetupMaxSerializedModelToSendBytes"]
-      181 LOADK                            R6 K61 [25000000]
-      182 CALL                             R4 2 1
-      183 CALL                             R4 0 1
-      184 SETTABLEKS                       R4 R3 K62 ["FIntAssistantAvatarAutoSetupMaxSerializedModelToSendBytes"]
-      186 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      188 LOADK                            R5 K63 ["AssistantCreditMeteringPostCheckoutPollDelaySeconds"]
-      189 LOADN                            R6 30
-      190 CALL                             R4 2 1
-      191 CALL                             R4 0 1
-      192 SETTABLEKS                       R4 R3 K64 ["FIntAssistantCreditMeteringPostCheckoutPollDelaySeconds"]
-      194 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      196 LOADK                            R5 K65 ["AssistantCreditMeteringPostCheckoutPollIntervalSeconds"]
-      197 LOADN                            R6 3
-      198 CALL                             R4 2 1
-      199 CALL                             R4 0 1
-      200 SETTABLEKS                       R4 R3 K66 ["FIntAssistantCreditMeteringPostCheckoutPollIntervalSeconds"]
-      202 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      204 LOADK                            R5 K67 ["AssistantCreditMeteringPostCheckoutPollMaxAttempts"]
-      205 LOADN                            R6 8
-      206 CALL                             R4 2 1
-      207 CALL                             R4 0 1
-      208 SETTABLEKS                       R4 R3 K68 ["FIntAssistantCreditMeteringPostCheckoutPollMaxAttempts"]
-      210 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      212 LOADK                            R5 K69 ["AssistantCreditResetRefreshBufferSeconds"]
-      213 LOADN                            R6 5
-      214 CALL                             R4 2 1
-      215 CALL                             R4 0 1
-      216 SETTABLEKS                       R4 R3 K70 ["FIntAssistantCreditResetRefreshBufferSeconds"]
-      218 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      220 LOADK                            R5 K71 ["AssistantDisconnectDelaySeconds"]
-      221 LOADN                            R6 3
-      222 CALL                             R4 2 1
-      223 CALL                             R4 0 1
-      224 SETTABLEKS                       R4 R3 K72 ["FIntAssistantDisconnectDelaySeconds"]
-      226 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      228 LOADK                            R5 K73 ["AssistantExperimentReadyTimeoutSeconds"]
-      229 LOADN                            R6 2
-      230 CALL                             R4 2 1
-      231 CALL                             R4 0 1
-      232 SETTABLEKS                       R4 R3 K74 ["FIntAssistantExperimentReadyTimeoutSeconds"]
-      234 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      236 LOADK                            R5 K75 ["AssistantStudioNameCheckInterval"]
-      237 LOADN                            R6 10
-      238 CALL                             R4 2 1
-      239 CALL                             R4 0 1
-      240 SETTABLEKS                       R4 R3 K76 ["FIntAssistantStudioNameCheckInterval"]
-      242 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      244 LOADK                            R5 K77 ["ConvAIAssistantMaxTokens"]
-      245 LOADN                            R6 16000
-      246 CALL                             R4 2 1
-      247 CALL                             R4 0 1
-      248 SETTABLEKS                       R4 R3 K78 ["FIntConvAIAssistantMaxTokens"]
-      250 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      252 LOADK                            R5 K79 ["MarkdownErrorEventThrottlingHundredthPercent"]
-      253 LOADN                            R6 10000
-      254 CALL                             R4 2 1
-      255 CALL                             R4 0 1
-      256 SETTABLEKS                       R4 R3 K80 ["FIntMarkdownErrorEventThrottlingHundredthPercent"]
-      258 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      260 LOADK                            R5 K81 ["MaterialGenerationServicePollLimit"]
-      261 LOADN                            R6 5
-      262 CALL                             R4 2 1
-      263 CALL                             R4 0 1
-      264 SETTABLEKS                       R4 R3 K82 ["FIntMaterialGenerationServicePollLimit"]
-      266 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      268 LOADK                            R5 K83 ["MaterialGenerationServiceRePollDelaySeconds"]
-      269 LOADN                            R6 10
-      270 CALL                             R4 2 1
-      271 CALL                             R4 0 1
-      272 SETTABLEKS                       R4 R3 K84 ["FIntMaterialGenerationServiceRePollDelaySeconds"]
-      274 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      276 LOADK                            R5 K85 ["MaterialGenerationServiceUploadHttpTimeoutMs"]
-      277 LOADN                            R6 15000
-      278 CALL                             R4 2 1
-      279 CALL                             R4 0 1
-      280 SETTABLEKS                       R4 R3 K86 ["FIntMaterialGenerationServiceUploadHttpTimeoutMs"]
-      282 GETTABLEKS                       R4 R2 K56 ["createGetFInt"]
-      284 LOADK                            R5 K87 ["UserMessageSentEventThrottlingHundredthPercent"]
-      285 LOADN                            R6 10000
-      286 CALL                             R4 2 1
-      287 CALL                             R4 0 1
-      288 SETTABLEKS                       R4 R3 K88 ["FIntUserMessageSentEventThrottlingHundredthPercent"]
-      290 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      292 LOADK                            R5 K90 ["AssistantDisableContextCompactionKey"]
-      293 LOADK                            R6 K91 ["DisableContextCompaction"]
-      294 CALL                             R4 2 1
-      295 CALL                             R4 0 1
-      296 SETTABLEKS                       R4 R3 K92 ["FStringAssistantDisableContextCompactionKey"]
-      298 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      300 LOADK                            R5 K93 ["AssistantDisabledToolsKey"]
-      301 LOADK                            R6 K94 ["disabledTools"]
-      302 CALL                             R4 2 1
-      303 CALL                             R4 0 1
-      304 SETTABLEKS                       R4 R3 K95 ["FStringAssistantDisabledToolsKey"]
-      306 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      308 LOADK                            R5 K96 ["AssistantGroupNameKey"]
-      309 LOADK                            R6 K97 ["GROUP_NAME"]
-      310 CALL                             R4 2 1
-      311 CALL                             R4 0 1
-      312 SETTABLEKS                       R4 R3 K98 ["FStringAssistantGroupNameKey"]
-      314 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      316 LOADK                            R5 K99 ["CreditMeteringServiceURLOverride"]
-      317 LOADK                            R6 K100 [""]
-      318 CALL                             R4 2 1
-      319 CALL                             R4 0 1
-      320 SETTABLEKS                       R4 R3 K101 ["FStringCreditMeteringServiceURLOverride"]
-      322 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      324 LOADK                            R5 K102 ["CubeGenerationGatewayApiKey"]
-      325 LOADK                            R6 K100 [""]
-      326 CALL                             R4 2 1
-      327 CALL                             R4 0 1
-      328 SETTABLEKS                       R4 R3 K103 ["FStringCubeGenerationGatewayApiKey"]
-      330 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      332 LOADK                            R5 K104 ["CubeGenerationGatewayBaseUrlOverride"]
-      333 LOADK                            R6 K100 [""]
-      334 CALL                             R4 2 1
-      335 CALL                             R4 0 1
-      336 SETTABLEKS                       R4 R3 K105 ["FStringCubeGenerationGatewayBaseUrlOverride"]
-      338 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      340 LOADK                            R5 K106 ["DebugAssistantStudioSystemMessage"]
-      341 LOADK                            R6 K100 [""]
-      342 CALL                             R4 2 1
-      343 CALL                             R4 0 1
-      344 SETTABLEKS                       R4 R3 K107 ["FStringDebugAssistantStudioSystemMessage"]
-      346 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      348 LOADK                            R5 K108 ["DebugCASBaseUrlOverride"]
-      349 LOADK                            R6 K100 [""]
-      350 CALL                             R4 2 1
-      351 CALL                             R4 0 1
-      352 SETTABLEKS                       R4 R3 K109 ["FStringDebugCASBaseUrlOverride"]
-      354 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      356 LOADK                            R5 K110 ["DebugRemoteACPExperimentSpecVersion"]
-      357 LOADK                            R6 K100 [""]
-      358 CALL                             R4 2 1
-      359 CALL                             R4 0 1
-      360 SETTABLEKS                       R4 R3 K111 ["FStringDebugRemoteACPExperimentSpecVersion"]
-      362 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      364 LOADK                            R5 K112 ["DebugRemoteACPPlaceId"]
-      365 LOADK                            R6 K100 [""]
-      366 CALL                             R4 2 1
-      367 CALL                             R4 0 1
-      368 SETTABLEKS                       R4 R3 K113 ["FStringDebugRemoteACPPlaceId"]
-      370 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      372 LOADK                            R5 K114 ["DebugRemoteACPUniverseId"]
-      373 LOADK                            R6 K100 [""]
-      374 CALL                             R4 2 1
-      375 CALL                             R4 0 1
-      376 SETTABLEKS                       R4 R3 K115 ["FStringDebugRemoteACPUniverseId"]
-      378 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      380 LOADK                            R5 K116 ["MCPAssistantThinkingMode"]
-      381 LOADK                            R6 K100 [""]
-      382 CALL                             R4 2 1
-      383 CALL                             R4 0 1
-      384 SETTABLEKS                       R4 R3 K117 ["FStringMCPAssistantThinkingMode"]
-      386 GETTABLEKS                       R4 R2 K89 ["createGetFString"]
-      388 LOADK                            R5 K118 ["NewAssistantExperimentLayer"]
-      389 LOADK                            R6 K119 ["Creator.Assistant.MCPAssistant.CreatorId"]
-      390 CALL                             R4 2 1
-      391 CALL                             R4 0 1
-      392 SETTABLEKS                       R4 R3 K120 ["FStringNewAssistantExperimentLayer"]
-      394 DUPTABLE                         R6 K122 [{"__index", "__newindex"}]
-      395 GETTABLEKS                       R7 R1 K123 ["Flags"]
-      397 SETTABLEKS                       R7 R6 K121 ["__index"]
-      399 GETTABLEKS                       R7 R1 K123 ["Flags"]
-      401 SETTABLEKS                       R7 R6 K10 ["__newindex"]
-      403 FASTCALL2                        SETMETATABLE R3 R6 ; [+4]
-      405 MOVE                             R5 R3
-      406 GETIMPORT                        R4 K14 [setmetatable]
-      408 CALL                             R4 2 1
-      409 RETURN                           R4 1
+      168 SETTABLEKS                       R4 R3 K55 ["FFlagStudioAssistantCloseTooltip"]
+      170 GETTABLEKS                       R4 R2 K15 ["createGetFFlag"]
+      172 LOADK                            R5 K56 ["StudioDialogManagerSuppression"]
+      173 CALL                             R4 1 1
+      174 CALL                             R4 0 1
+      175 SETTABLEKS                       R4 R3 K57 ["FFlagStudioDialogManagerSuppression"]
+      177 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      179 LOADK                            R5 K59 ["AssistantAvatarAutoSetupIdleTimeoutMs"]
+      180 LOADK                            R6 K60 [300000]
+      181 CALL                             R4 2 1
+      182 CALL                             R4 0 1
+      183 SETTABLEKS                       R4 R3 K61 ["FIntAssistantAvatarAutoSetupIdleTimeoutMs"]
+      185 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      187 LOADK                            R5 K62 ["AssistantAvatarAutoSetupMaxSerializedModelToSendBytes"]
+      188 LOADK                            R6 K63 [25000000]
+      189 CALL                             R4 2 1
+      190 CALL                             R4 0 1
+      191 SETTABLEKS                       R4 R3 K64 ["FIntAssistantAvatarAutoSetupMaxSerializedModelToSendBytes"]
+      193 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      195 LOADK                            R5 K65 ["AssistantCreditMeteringPostCheckoutPollDelaySeconds"]
+      196 LOADN                            R6 30
+      197 CALL                             R4 2 1
+      198 CALL                             R4 0 1
+      199 SETTABLEKS                       R4 R3 K66 ["FIntAssistantCreditMeteringPostCheckoutPollDelaySeconds"]
+      201 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      203 LOADK                            R5 K67 ["AssistantCreditMeteringPostCheckoutPollIntervalSeconds"]
+      204 LOADN                            R6 3
+      205 CALL                             R4 2 1
+      206 CALL                             R4 0 1
+      207 SETTABLEKS                       R4 R3 K68 ["FIntAssistantCreditMeteringPostCheckoutPollIntervalSeconds"]
+      209 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      211 LOADK                            R5 K69 ["AssistantCreditMeteringPostCheckoutPollMaxAttempts"]
+      212 LOADN                            R6 8
+      213 CALL                             R4 2 1
+      214 CALL                             R4 0 1
+      215 SETTABLEKS                       R4 R3 K70 ["FIntAssistantCreditMeteringPostCheckoutPollMaxAttempts"]
+      217 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      219 LOADK                            R5 K71 ["AssistantCreditResetRefreshBufferSeconds"]
+      220 LOADN                            R6 5
+      221 CALL                             R4 2 1
+      222 CALL                             R4 0 1
+      223 SETTABLEKS                       R4 R3 K72 ["FIntAssistantCreditResetRefreshBufferSeconds"]
+      225 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      227 LOADK                            R5 K73 ["AssistantDisconnectDelaySeconds"]
+      228 LOADN                            R6 3
+      229 CALL                             R4 2 1
+      230 CALL                             R4 0 1
+      231 SETTABLEKS                       R4 R3 K74 ["FIntAssistantDisconnectDelaySeconds"]
+      233 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      235 LOADK                            R5 K75 ["AssistantExperimentReadyTimeoutSeconds"]
+      236 LOADN                            R6 2
+      237 CALL                             R4 2 1
+      238 CALL                             R4 0 1
+      239 SETTABLEKS                       R4 R3 K76 ["FIntAssistantExperimentReadyTimeoutSeconds"]
+      241 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      243 LOADK                            R5 K77 ["AssistantStudioNameCheckInterval"]
+      244 LOADN                            R6 10
+      245 CALL                             R4 2 1
+      246 CALL                             R4 0 1
+      247 SETTABLEKS                       R4 R3 K78 ["FIntAssistantStudioNameCheckInterval"]
+      249 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      251 LOADK                            R5 K79 ["ConvAIAssistantMaxTokens"]
+      252 LOADN                            R6 16000
+      253 CALL                             R4 2 1
+      254 CALL                             R4 0 1
+      255 SETTABLEKS                       R4 R3 K80 ["FIntConvAIAssistantMaxTokens"]
+      257 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      259 LOADK                            R5 K81 ["MarkdownErrorEventThrottlingHundredthPercent"]
+      260 LOADN                            R6 10000
+      261 CALL                             R4 2 1
+      262 CALL                             R4 0 1
+      263 SETTABLEKS                       R4 R3 K82 ["FIntMarkdownErrorEventThrottlingHundredthPercent"]
+      265 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      267 LOADK                            R5 K83 ["MaterialGenerationServicePollLimit"]
+      268 LOADN                            R6 5
+      269 CALL                             R4 2 1
+      270 CALL                             R4 0 1
+      271 SETTABLEKS                       R4 R3 K84 ["FIntMaterialGenerationServicePollLimit"]
+      273 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      275 LOADK                            R5 K85 ["MaterialGenerationServiceRePollDelaySeconds"]
+      276 LOADN                            R6 10
+      277 CALL                             R4 2 1
+      278 CALL                             R4 0 1
+      279 SETTABLEKS                       R4 R3 K86 ["FIntMaterialGenerationServiceRePollDelaySeconds"]
+      281 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      283 LOADK                            R5 K87 ["MaterialGenerationServiceUploadHttpTimeoutMs"]
+      284 LOADN                            R6 15000
+      285 CALL                             R4 2 1
+      286 CALL                             R4 0 1
+      287 SETTABLEKS                       R4 R3 K88 ["FIntMaterialGenerationServiceUploadHttpTimeoutMs"]
+      289 GETTABLEKS                       R4 R2 K58 ["createGetFInt"]
+      291 LOADK                            R5 K89 ["UserMessageSentEventThrottlingHundredthPercent"]
+      292 LOADN                            R6 10000
+      293 CALL                             R4 2 1
+      294 CALL                             R4 0 1
+      295 SETTABLEKS                       R4 R3 K90 ["FIntUserMessageSentEventThrottlingHundredthPercent"]
+      297 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      299 LOADK                            R5 K92 ["AssistantDisableContextCompactionKey"]
+      300 LOADK                            R6 K93 ["DisableContextCompaction"]
+      301 CALL                             R4 2 1
+      302 CALL                             R4 0 1
+      303 SETTABLEKS                       R4 R3 K94 ["FStringAssistantDisableContextCompactionKey"]
+      305 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      307 LOADK                            R5 K95 ["AssistantDisabledToolsKey"]
+      308 LOADK                            R6 K96 ["disabledTools"]
+      309 CALL                             R4 2 1
+      310 CALL                             R4 0 1
+      311 SETTABLEKS                       R4 R3 K97 ["FStringAssistantDisabledToolsKey"]
+      313 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      315 LOADK                            R5 K98 ["AssistantGroupNameKey"]
+      316 LOADK                            R6 K99 ["GROUP_NAME"]
+      317 CALL                             R4 2 1
+      318 CALL                             R4 0 1
+      319 SETTABLEKS                       R4 R3 K100 ["FStringAssistantGroupNameKey"]
+      321 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      323 LOADK                            R5 K101 ["CubeGenerationGatewayApiKey"]
+      324 LOADK                            R6 K102 [""]
+      325 CALL                             R4 2 1
+      326 CALL                             R4 0 1
+      327 SETTABLEKS                       R4 R3 K103 ["FStringCubeGenerationGatewayApiKey"]
+      329 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      331 LOADK                            R5 K104 ["CubeGenerationGatewayBaseUrlOverride"]
+      332 LOADK                            R6 K102 [""]
+      333 CALL                             R4 2 1
+      334 CALL                             R4 0 1
+      335 SETTABLEKS                       R4 R3 K105 ["FStringCubeGenerationGatewayBaseUrlOverride"]
+      337 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      339 LOADK                            R5 K106 ["DebugAssistantStudioSystemMessage"]
+      340 LOADK                            R6 K102 [""]
+      341 CALL                             R4 2 1
+      342 CALL                             R4 0 1
+      343 SETTABLEKS                       R4 R3 K107 ["FStringDebugAssistantStudioSystemMessage"]
+      345 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      347 LOADK                            R5 K108 ["DebugCASBaseUrlOverride"]
+      348 LOADK                            R6 K102 [""]
+      349 CALL                             R4 2 1
+      350 CALL                             R4 0 1
+      351 SETTABLEKS                       R4 R3 K109 ["FStringDebugCASBaseUrlOverride"]
+      353 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      355 LOADK                            R5 K110 ["DebugRemoteACPExperimentSpecVersion"]
+      356 LOADK                            R6 K102 [""]
+      357 CALL                             R4 2 1
+      358 CALL                             R4 0 1
+      359 SETTABLEKS                       R4 R3 K111 ["FStringDebugRemoteACPExperimentSpecVersion"]
+      361 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      363 LOADK                            R5 K112 ["DebugRemoteACPPlaceId"]
+      364 LOADK                            R6 K102 [""]
+      365 CALL                             R4 2 1
+      366 CALL                             R4 0 1
+      367 SETTABLEKS                       R4 R3 K113 ["FStringDebugRemoteACPPlaceId"]
+      369 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      371 LOADK                            R5 K114 ["DebugRemoteACPUniverseId"]
+      372 LOADK                            R6 K102 [""]
+      373 CALL                             R4 2 1
+      374 CALL                             R4 0 1
+      375 SETTABLEKS                       R4 R3 K115 ["FStringDebugRemoteACPUniverseId"]
+      377 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      379 LOADK                            R5 K116 ["MCPAssistantThinkingMode"]
+      380 LOADK                            R6 K102 [""]
+      381 CALL                             R4 2 1
+      382 CALL                             R4 0 1
+      383 SETTABLEKS                       R4 R3 K117 ["FStringMCPAssistantThinkingMode"]
+      385 GETTABLEKS                       R4 R2 K91 ["createGetFString"]
+      387 LOADK                            R5 K118 ["NewAssistantExperimentLayer"]
+      388 LOADK                            R6 K119 ["Creator.Assistant.MCPAssistant.CreatorId"]
+      389 CALL                             R4 2 1
+      390 CALL                             R4 0 1
+      391 SETTABLEKS                       R4 R3 K120 ["FStringNewAssistantExperimentLayer"]
+      393 DUPTABLE                         R6 K122 [{"__index", "__newindex"}]
+      394 GETTABLEKS                       R7 R1 K123 ["Flags"]
+      396 SETTABLEKS                       R7 R6 K121 ["__index"]
+      398 GETTABLEKS                       R7 R1 K123 ["Flags"]
+      400 SETTABLEKS                       R7 R6 K10 ["__newindex"]
+      402 FASTCALL2                        SETMETATABLE R3 R6 ; [+4]
+      404 MOVE                             R5 R3
+      405 GETIMPORT                        R4 K14 [setmetatable]
+      407 CALL                             R4 2 1
+      408 RETURN                           R4 1

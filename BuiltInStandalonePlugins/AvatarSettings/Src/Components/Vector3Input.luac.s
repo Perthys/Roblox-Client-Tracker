@@ -298,38 +298,42 @@ MAIN:
        20 GETTABLEKS                       R3 R3 K10 ["Framework"]
        22 CALL                             R2 1 1
        23 GETIMPORT                        R3 K5 [require]
-       25 GETTABLEKS                       R4 R0 K9 ["Packages"]
-       27 GETTABLEKS                       R4 R4 K11 ["React"]
-       29 CALL                             R3 1 1
-       30 GETIMPORT                        R4 K5 [require]
-       32 GETTABLEKS                       R5 R0 K9 ["Packages"]
-       34 GETTABLEKS                       R5 R5 K12 ["ReactUtils"]
-       36 CALL                             R4 1 1
-       37 GETIMPORT                        R5 K5 [require]
-       39 GETTABLEKS                       R6 R0 K6 ["Src"]
-       41 GETTABLEKS                       R6 R6 K7 ["Util"]
-       43 GETTABLEKS                       R6 R6 K13 ["isValidNumberInput"]
+       25 GETTABLEKS                       R4 R0 K6 ["Src"]
+       27 GETTABLEKS                       R4 R4 K11 ["Components"]
+       29 GETTABLEKS                       R4 R4 K12 ["NumericTextInput"]
+       31 CALL                             R3 1 1
+       32 GETIMPORT                        R4 K5 [require]
+       34 GETTABLEKS                       R5 R0 K9 ["Packages"]
+       36 GETTABLEKS                       R5 R5 K13 ["React"]
+       38 CALL                             R4 1 1
+       39 GETIMPORT                        R5 K5 [require]
+       41 GETTABLEKS                       R6 R0 K9 ["Packages"]
+       43 GETTABLEKS                       R6 R6 K14 ["ReactUtils"]
        45 CALL                             R5 1 1
        46 GETIMPORT                        R6 K5 [require]
        48 GETTABLEKS                       R7 R0 K6 ["Src"]
-       50 GETTABLEKS                       R7 R7 K14 ["Flags"]
-       52 GETTABLEKS                       R7 R7 K15 ["getFFlagAvatarSettingsRemoveVector3PlaceholderLabels"]
+       50 GETTABLEKS                       R7 R7 K7 ["Util"]
+       52 GETTABLEKS                       R7 R7 K15 ["isValidNumberInput"]
        54 CALL                             R6 1 1
-       55 GETTABLEKS                       R7 R2 K16 ["ContextServices"]
-       57 GETTABLEKS                       R8 R7 K17 ["Localization"]
-       59 GETTABLEKS                       R9 R2 K18 ["UI"]
-       61 GETTABLEKS                       R10 R9 K19 ["Pane"]
-       63 GETTABLEKS                       R11 R9 K20 ["TextInput"]
-       65 GETTABLEKS                       R12 R4 K21 ["createNextOrder"]
-       67 GETTABLEKS                       R13 R3 K22 ["createElement"]
-       69 DUPCLOSURE                       R14 K23 [PROTO_7]
-       70 CAPTURE                          VAL R8
-       71 CAPTURE                          VAL R12
-       72 CAPTURE                          VAL R1
-       73 CAPTURE                          VAL R5
-       74 CAPTURE                          VAL R13
-       75 CAPTURE                          VAL R10
-       76 CAPTURE                          VAL R3
-       77 CAPTURE                          VAL R11
-       78 CAPTURE                          VAL R6
-       79 RETURN                           R14 1
+       55 GETIMPORT                        R7 K5 [require]
+       57 GETTABLEKS                       R8 R0 K6 ["Src"]
+       59 GETTABLEKS                       R8 R8 K16 ["Flags"]
+       61 GETTABLEKS                       R8 R8 K17 ["getFFlagAvatarSettingsRemoveVector3PlaceholderLabels"]
+       63 CALL                             R7 1 1
+       64 GETTABLEKS                       R8 R2 K18 ["ContextServices"]
+       66 GETTABLEKS                       R9 R8 K19 ["Localization"]
+       68 GETTABLEKS                       R10 R2 K20 ["UI"]
+       70 GETTABLEKS                       R11 R10 K21 ["Pane"]
+       72 GETTABLEKS                       R12 R5 K22 ["createNextOrder"]
+       74 GETTABLEKS                       R13 R4 K23 ["createElement"]
+       76 DUPCLOSURE                       R14 K24 [PROTO_7]
+       77 CAPTURE                          VAL R9
+       78 CAPTURE                          VAL R12
+       79 CAPTURE                          VAL R1
+       80 CAPTURE                          VAL R6
+       81 CAPTURE                          VAL R13
+       82 CAPTURE                          VAL R11
+       83 CAPTURE                          VAL R4
+       84 CAPTURE                          VAL R3
+       85 CAPTURE                          VAL R7
+       86 RETURN                           R14 1

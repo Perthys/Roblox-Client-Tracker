@@ -31,20 +31,20 @@ PROTO_0:
        41 MOVE                             R3 R11
        42 FORGLOOP                         R6 2 ; [-18]
        44 LOADK                            R6 K11 ["Model"]
-       45 JUMPIFNOT                        R3 ; [+102]
-       46 JUMPIF                           R4 ; [+101]
+       45 JUMPIFNOT                        R3 ; [+111]
+       46 JUMPIF                           R4 ; [+110]
        47 GETUPVAL                         R7 0
        48 GETTABLEKS                       R7 R7 K9 ["AssetType"]
        50 GETTABLEKS                       R7 R7 K12 ["Animation"]
        52 JUMPIFNOTEQ                      R3 R7 ; [+3]
        54 LOADK                            R6 K12 ["Animation"]
-       55 JUMP                             ; [+92]
+       55 JUMP                             ; [+101]
        56 GETUPVAL                         R7 0
        57 GETTABLEKS                       R7 R7 K9 ["AssetType"]
        59 GETTABLEKS                       R7 R7 K13 ["Audio"]
        61 JUMPIFNOTEQ                      R3 R7 ; [+3]
        63 LOADK                            R6 K14 ["Sound"]
-       64 JUMP                             ; [+83]
+       64 JUMP                             ; [+92]
        65 GETUPVAL                         R7 0
        66 GETTABLEKS                       R7 R7 K9 ["AssetType"]
        68 GETTABLEKS                       R7 R7 K15 ["Decal"]
@@ -54,25 +54,25 @@ PROTO_0:
        75 GETTABLEKS                       R7 R7 K5 ["Image"]
        77 JUMPIFNOTEQ                      R3 R7 ; [+3]
        79 LOADK                            R6 K15 ["Decal"]
-       80 JUMP                             ; [+67]
+       80 JUMP                             ; [+76]
        81 GETUPVAL                         R7 0
        82 GETTABLEKS                       R7 R7 K9 ["AssetType"]
        84 GETTABLEKS                       R7 R7 K16 ["FontFamily"]
        86 JUMPIFNOTEQ                      R3 R7 ; [+3]
        88 LOADK                            R6 K17 ["UITextSizeConstraint"]
-       89 JUMP                             ; [+58]
+       89 JUMP                             ; [+67]
        90 GETUPVAL                         R7 0
        91 GETTABLEKS                       R7 R7 K9 ["AssetType"]
        93 GETTABLEKS                       R7 R7 K18 ["Mesh"]
        95 JUMPIFNOTEQ                      R3 R7 ; [+3]
        97 LOADK                            R6 K19 ["BlockMesh"]
-       98 JUMP                             ; [+49]
+       98 JUMP                             ; [+58]
        99 GETUPVAL                         R7 0
       100 GETTABLEKS                       R7 R7 K9 ["AssetType"]
       102 GETTABLEKS                       R7 R7 K20 ["MeshPart"]
       104 JUMPIFNOTEQ                      R3 R7 ; [+3]
       106 LOADK                            R6 K20 ["MeshPart"]
-      107 JUMP                             ; [+40]
+      107 JUMP                             ; [+49]
       108 GETUPVAL                         R7 0
       109 GETTABLEKS                       R7 R7 K9 ["AssetType"]
       111 GETTABLEKS                       R7 R7 K11 ["Model"]
@@ -86,24 +86,30 @@ PROTO_0:
       125 GETTABLEKS                       R7 R7 K22 ["Plugin"]
       127 JUMPIFNOTEQ                      R3 R7 ; [+3]
       129 LOADK                            R6 K11 ["Model"]
-      130 JUMP                             ; [+17]
+      130 JUMP                             ; [+26]
       131 GETUPVAL                         R7 0
       132 GETTABLEKS                       R7 R7 K9 ["AssetType"]
-      134 GETTABLEKS                       R7 R7 K23 ["Video"]
+      134 GETTABLEKS                       R7 R7 K23 ["TextDocument"]
       136 JUMPIFNOTEQ                      R3 R7 ; [+3]
-      138 LOADK                            R6 K24 ["VideoFrame"]
-      139 JUMP                             ; [+8]
+      138 LOADK                            R6 K24 ["TextLabel"]
+      139 JUMP                             ; [+17]
       140 GETUPVAL                         R7 0
       141 GETTABLEKS                       R7 R7 K9 ["AssetType"]
-      143 GETTABLEKS                       R7 R7 K3 ["Folder"]
-      145 JUMPIFNOTEQ                      R3 R7 ; [+2]
-      147 LOADK                            R6 K3 ["Folder"]
-      148 GETUPVAL                         R7 1
-      149 MOVE                             R9 R6
-      150 NAMECALL                         R7 R7 K4 ["GetClassIcon"]
-      152 CALL                             R7 2 1
-      153 GETTABLEKS                       R7 R7 K5 ["Image"]
-      155 RETURN                           R7 1
+      143 GETTABLEKS                       R7 R7 K25 ["Video"]
+      145 JUMPIFNOTEQ                      R3 R7 ; [+3]
+      147 LOADK                            R6 K26 ["VideoFrame"]
+      148 JUMP                             ; [+8]
+      149 GETUPVAL                         R7 0
+      150 GETTABLEKS                       R7 R7 K9 ["AssetType"]
+      152 GETTABLEKS                       R7 R7 K3 ["Folder"]
+      154 JUMPIFNOTEQ                      R3 R7 ; [+2]
+      156 LOADK                            R6 K3 ["Folder"]
+      157 GETUPVAL                         R7 1
+      158 MOVE                             R9 R6
+      159 NAMECALL                         R7 R7 K4 ["GetClassIcon"]
+      161 CALL                             R7 2 1
+      162 GETTABLEKS                       R7 R7 K5 ["Image"]
+      164 RETURN                           R7 1
 
 MAIN:
         0 PREPVARARGS                      0

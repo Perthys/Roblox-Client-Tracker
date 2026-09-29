@@ -44,9 +44,10 @@ PROTO_4:
         8 GETTABLEKS                       R5 R0 K2 ["Types"]
        10 GETTABLEKS                       R6 R0 K3 ["Names"]
        12 GETTABLEKS                       R7 R0 K4 ["IsPackage"]
-       14 NAMECALL                         R2 R1 K5 ["start"]
-       16 CALL                             R2 5 0
-       17 RETURN                           R0 0
+       14 GETTABLEKS                       R8 R0 K5 ["Creators"]
+       16 NAMECALL                         R2 R1 K6 ["start"]
+       18 CALL                             R2 6 0
+       19 RETURN                           R0 0
 
 PROTO_5:
         0 GETUPVAL                         R1 0

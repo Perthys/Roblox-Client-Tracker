@@ -1,91 +1,90 @@
 PROTO_0:
-        0 GETTABLEKS                       R1 R0 K0 ["baseMaterial"]
-        2 GETIMPORT                        R2 K4 [Enum.Material.Air]
-        4 JUMPIFNOTEQ                      R1 R2 ; [+11]
-        6 GETIMPORT                        R1 K6 [Enum.Material.Glass]
-        8 GETIMPORT                        R2 K9 [Color3.fromRGB]
-       10 LOADN                            R3 255
-       11 LOADN                            R4 255
-       12 LOADN                            R5 255
-       13 CALL                             R2 3 1
-       14 LOADK                            R3 K10 [0.5]
-       15 RETURN                           R1 3
-       16 GETTABLEKS                       R1 R0 K0 ["baseMaterial"]
-       18 GETIMPORT                        R2 K12 [Enum.Material.Water]
-       20 JUMPIFNOTEQ                      R1 R2 ; [+11]
-       22 GETIMPORT                        R1 K14 [Enum.Material.Glacier]
-       24 GETIMPORT                        R2 K9 [Color3.fromRGB]
-       26 LOADN                            R3 33
-       27 LOADN                            R4 84
-       28 LOADN                            R5 185
-       29 CALL                             R2 3 1
-       30 LOADK                            R3 K10 [0.5]
-       31 RETURN                           R1 3
-       32 GETTABLEKS                       R1 R0 K15 ["resolvedVariant"]
-       34 JUMPIF                           R1 ; [+2]
-       35 GETTABLEKS                       R1 R0 K0 ["baseMaterial"]
-       37 GETTABLEKS                       R2 R0 K16 ["color"]
-       39 LOADNIL                          R3
-       40 RETURN                           R1 3
+        0 GETUPVAL                         R1 0
+        1 GETTABLEKS                       R1 R1 K0 ["getMaterialPreviewOverride"]
+        3 GETTABLEKS                       R2 R0 K1 ["baseMaterial"]
+        5 CALL                             R1 1 1
+        6 JUMPIFNOT                        R1 ; [+7]
+        7 GETTABLEKS                       R2 R1 K2 ["material"]
+        9 GETTABLEKS                       R3 R1 K3 ["color"]
+       11 GETTABLEKS                       R4 R1 K4 ["transparency"]
+       13 RETURN                           R2 3
+       14 GETTABLEKS                       R2 R0 K5 ["resolvedVariant"]
+       16 JUMPIF                           R2 ; [+2]
+       17 GETTABLEKS                       R2 R0 K1 ["baseMaterial"]
+       19 GETTABLEKS                       R3 R0 K3 ["color"]
+       21 LOADNIL                          R4
+       22 RETURN                           R2 3
 
 PROTO_1:
-        0 GETUPVAL                         R1 0
-        1 GETTABLEKS                       R2 R0 K0 ["entry"]
-        3 CALL                             R1 1 3
-        4 GETUPVAL                         R4 1
-        5 GETTABLEKS                       R4 R4 K1 ["createElement"]
-        7 GETUPVAL                         R5 2
-        8 DUPTABLE                         R6 K7 [{"LayoutOrder", "Position", "Size", "tag", "testId"}]
-        9 GETTABLEKS                       R7 R0 K8 ["layoutOrder"]
-       11 SETTABLEKS                       R7 R6 K2 ["LayoutOrder"]
-       13 GETTABLEKS                       R7 R0 K9 ["position"]
-       15 SETTABLEKS                       R7 R6 K3 ["Position"]
-       17 GETTABLEKS                       R8 R0 K10 ["size"]
-       19 JUMPIFNOT                        R8 ; [+8]
-       20 GETIMPORT                        R7 K13 [UDim2.fromOffset]
-       22 GETTABLEKS                       R8 R0 K10 ["size"]
-       24 GETTABLEKS                       R9 R0 K10 ["size"]
-       26 CALL                             R7 2 1
-       27 JUMP                             ; [+1]
-       28 LOADNIL                          R7
-       29 SETTABLEKS                       R7 R6 K4 ["Size"]
-       31 GETTABLEKS                       R8 R0 K5 ["tag"]
-       33 ORK                              R7 R8 K14 ["radius-xsmall clip"]
-       34 SETTABLEKS                       R7 R6 K5 ["tag"]
-       36 LOADK                            R7 K15 ["terrain-material-preview-%*"]
-       37 GETTABLEKS                       R9 R0 K0 ["entry"]
-       39 GETTABLEKS                       R9 R9 K16 ["slotIndex"]
-       41 NAMECALL                         R7 R7 K17 ["format"]
-       43 CALL                             R7 2 1
-       44 SETTABLEKS                       R7 R6 K6 ["testId"]
-       46 DUPTABLE                         R7 K19 [{"Material"}]
-       47 GETUPVAL                         R8 1
-       48 GETTABLEKS                       R8 R8 K1 ["createElement"]
-       50 GETUPVAL                         R9 3
-       51 DUPTABLE                         R10 K28 [{["CornerRadius"], ["InitialDistance"], ["Material"], ["MaterialPreviewGeometryType"], ["OverrideColor"], ["OverrideTransparency"], ["Size"], ["Static"] = True, ["Transparent"] = True}]
-       52 GETIMPORT                        R11 K31 [UDim.new]
-       54 LOADN                            R12 0
-       55 LOADN                            R13 2
-       56 CALL                             R11 2 1
-       57 SETTABLEKS                       R11 R10 K20 ["CornerRadius"]
-       59 GETTABLEKS                       R12 R0 K33 ["initialDistance"]
-       61 ORK                              R11 R12 K32 [4.12]
-       62 SETTABLEKS                       R11 R10 K21 ["InitialDistance"]
-       64 SETTABLEKS                       R1 R10 K18 ["Material"]
-       66 GETUPVAL                         R11 4
-       67 GETTABLEKS                       R11 R11 K34 ["CubeCornerOn"]
-       69 SETTABLEKS                       R11 R10 K22 ["MaterialPreviewGeometryType"]
-       71 SETTABLEKS                       R2 R10 K23 ["OverrideColor"]
-       73 SETTABLEKS                       R3 R10 K24 ["OverrideTransparency"]
-       75 GETIMPORT                        R11 K36 [UDim2.fromScale]
-       77 LOADN                            R12 1
-       78 LOADN                            R13 1
-       79 CALL                             R11 2 1
-       80 SETTABLEKS                       R11 R10 K4 ["Size"]
-       82 CALL                             R8 2 1
-       83 SETTABLEKS                       R8 R7 K18 ["Material"]
-       85 CALL                             R4 3 -1
-       86 RETURN                           R4 -1
+        0 GETTABLEKS                       R4 R0 K0 ["entry"]
+        2 GETUPVAL                         R5 0
+        3 GETTABLEKS                       R5 R5 K1 ["getMaterialPreviewOverride"]
+        5 GETTABLEKS                       R6 R4 K2 ["baseMaterial"]
+        7 CALL                             R5 1 1
+        8 JUMPIFNOT                        R5 ; [+7]
+        9 GETTABLEKS                       R1 R5 K3 ["material"]
+       11 GETTABLEKS                       R2 R5 K4 ["color"]
+       13 GETTABLEKS                       R3 R5 K5 ["transparency"]
+       15 JUMP                             ; [+8]
+       16 GETTABLEKS                       R1 R4 K6 ["resolvedVariant"]
+       18 JUMPIF                           R1 ; [+2]
+       19 GETTABLEKS                       R1 R4 K2 ["baseMaterial"]
+       21 GETTABLEKS                       R2 R4 K4 ["color"]
+       23 LOADNIL                          R3
+       24 GETUPVAL                         R4 1
+       25 GETTABLEKS                       R4 R4 K7 ["createElement"]
+       27 GETUPVAL                         R5 2
+       28 DUPTABLE                         R6 K13 [{"LayoutOrder", "Position", "Size", "tag", "testId"}]
+       29 GETTABLEKS                       R7 R0 K14 ["layoutOrder"]
+       31 SETTABLEKS                       R7 R6 K8 ["LayoutOrder"]
+       33 GETTABLEKS                       R7 R0 K15 ["position"]
+       35 SETTABLEKS                       R7 R6 K9 ["Position"]
+       37 GETTABLEKS                       R8 R0 K16 ["size"]
+       39 JUMPIFNOT                        R8 ; [+8]
+       40 GETIMPORT                        R7 K19 [UDim2.fromOffset]
+       42 GETTABLEKS                       R8 R0 K16 ["size"]
+       44 GETTABLEKS                       R9 R0 K16 ["size"]
+       46 CALL                             R7 2 1
+       47 JUMP                             ; [+1]
+       48 LOADNIL                          R7
+       49 SETTABLEKS                       R7 R6 K10 ["Size"]
+       51 GETTABLEKS                       R8 R0 K11 ["tag"]
+       53 ORK                              R7 R8 K20 ["radius-xsmall clip"]
+       54 SETTABLEKS                       R7 R6 K11 ["tag"]
+       56 LOADK                            R7 K21 ["terrain-material-preview-%*"]
+       57 GETTABLEKS                       R9 R0 K0 ["entry"]
+       59 GETTABLEKS                       R9 R9 K22 ["slotIndex"]
+       61 NAMECALL                         R7 R7 K23 ["format"]
+       63 CALL                             R7 2 1
+       64 SETTABLEKS                       R7 R6 K12 ["testId"]
+       66 DUPTABLE                         R7 K25 [{"Material"}]
+       67 GETUPVAL                         R8 1
+       68 GETTABLEKS                       R8 R8 K7 ["createElement"]
+       70 GETUPVAL                         R9 3
+       71 DUPTABLE                         R10 K34 [{["CornerRadius"], ["InitialDistance"], ["Material"], ["MaterialPreviewGeometryType"], ["OverrideColor"], ["OverrideTransparency"], ["Size"], ["Static"] = True, ["Transparent"] = True}]
+       72 GETIMPORT                        R11 K37 [UDim.new]
+       74 LOADN                            R12 0
+       75 LOADN                            R13 2
+       76 CALL                             R11 2 1
+       77 SETTABLEKS                       R11 R10 K26 ["CornerRadius"]
+       79 GETTABLEKS                       R12 R0 K39 ["initialDistance"]
+       81 ORK                              R11 R12 K38 [4.12]
+       82 SETTABLEKS                       R11 R10 K27 ["InitialDistance"]
+       84 SETTABLEKS                       R1 R10 K24 ["Material"]
+       86 GETUPVAL                         R11 4
+       87 GETTABLEKS                       R11 R11 K40 ["CubeCornerOn"]
+       89 SETTABLEKS                       R11 R10 K28 ["MaterialPreviewGeometryType"]
+       91 SETTABLEKS                       R2 R10 K29 ["OverrideColor"]
+       93 SETTABLEKS                       R3 R10 K30 ["OverrideTransparency"]
+       95 GETIMPORT                        R11 K42 [UDim2.fromScale]
+       97 LOADN                            R12 1
+       98 LOADN                            R13 1
+       99 CALL                             R11 2 1
+      100 SETTABLEKS                       R11 R10 K10 ["Size"]
+      102 CALL                             R8 2 1
+      103 SETTABLEKS                       R8 R7 K24 ["Material"]
+      105 CALL                             R4 3 -1
+      106 RETURN                           R4 -1
 
 PROTO_2:
         0 GETUPVAL                         R1 0
@@ -130,62 +129,75 @@ PROTO_3:
        44 GETUPVAL                         R6 1
        45 GETTABLEKS                       R6 R6 K11 ["createElement"]
        47 GETUPVAL                         R7 3
-       48 DUPTABLE                         R8 K24 [{"backgroundStyle", "cursor", "LayoutOrder", "Size", "onActivated", "onSecondaryActivated", "onStateChanged", "selection", "stateLayer", "stroke", "tag", "testId"}]
+       48 DUPTABLE                         R8 K25 [{"backgroundStyle", "cursor", "LayoutOrder", "Size", "isDisabled", "onActivated", "onSecondaryActivated", "onStateChanged", "selection", "stateLayer", "stroke", "tag", "testId"}]
        49 GETTABLEKS                       R9 R0 K12 ["backgroundStyle"]
        51 SETTABLEKS                       R9 R8 K12 ["backgroundStyle"]
-       53 DUPTABLE                         R9 K28 [{"radius", "offset", "borderWidth"}]
-       54 GETIMPORT                        R10 K31 [UDim.new]
+       53 DUPTABLE                         R9 K29 [{"radius", "offset", "borderWidth"}]
+       54 GETIMPORT                        R10 K32 [UDim.new]
        56 LOADN                            R11 0
-       57 GETTABLEKS                       R12 R1 K32 ["Radius"]
-       59 GETTABLEKS                       R12 R12 K33 ["Small"]
+       57 GETTABLEKS                       R12 R1 K33 ["Radius"]
+       59 GETTABLEKS                       R12 R12 K34 ["Small"]
        61 CALL                             R10 2 1
-       62 SETTABLEKS                       R10 R9 K25 ["radius"]
+       62 SETTABLEKS                       R10 R9 K26 ["radius"]
        64 GETTABLEKS                       R11 R1 K7 ["Stroke"]
-       66 GETTABLEKS                       R11 R11 K34 ["Thick"]
+       66 GETTABLEKS                       R11 R11 K35 ["Thick"]
        68 MINUS                            R10 R11
-       69 SETTABLEKS                       R10 R9 K26 ["offset"]
+       69 SETTABLEKS                       R10 R9 K27 ["offset"]
        71 GETTABLEKS                       R10 R1 K7 ["Stroke"]
-       73 GETTABLEKS                       R10 R10 K34 ["Thick"]
-       75 SETTABLEKS                       R10 R9 K27 ["borderWidth"]
+       73 GETTABLEKS                       R10 R10 K35 ["Thick"]
+       75 SETTABLEKS                       R10 R9 K28 ["borderWidth"]
        77 SETTABLEKS                       R9 R8 K13 ["cursor"]
-       79 GETTABLEKS                       R9 R0 K35 ["layoutOrder"]
+       79 GETTABLEKS                       R9 R0 K36 ["layoutOrder"]
        81 SETTABLEKS                       R9 R8 K14 ["LayoutOrder"]
        83 GETTABLEKS                       R9 R0 K15 ["Size"]
        85 SETTABLEKS                       R9 R8 K15 ["Size"]
-       87 GETTABLEKS                       R9 R0 K16 ["onActivated"]
-       89 SETTABLEKS                       R9 R8 K16 ["onActivated"]
-       91 GETTABLEKS                       R9 R0 K17 ["onSecondaryActivated"]
-       93 SETTABLEKS                       R9 R8 K17 ["onSecondaryActivated"]
-       95 SETTABLEKS                       R5 R8 K18 ["onStateChanged"]
-       97 DUPTABLE                         R9 K38 [{["Selectable"] = True}]
-       98 SETTABLEKS                       R9 R8 K19 ["selection"]
-      100 DUPTABLE                         R9 K40 [{"affordance"}]
-      101 GETUPVAL                         R10 0
-      102 GETTABLEKS                       R10 R10 K41 ["Enums"]
-      104 GETTABLEKS                       R10 R10 K42 ["StateLayerAffordance"]
-      106 GETTABLEKS                       R10 R10 K6 ["Background"]
-      108 SETTABLEKS                       R10 R9 K39 ["affordance"]
-      110 SETTABLEKS                       R9 R8 K20 ["stateLayer"]
-      112 DUPTABLE                         R9 K45 [{"Color", "Transparency", "Thickness"}]
-      113 GETTABLEKS                       R10 R4 K46 ["Color3"]
-      115 SETTABLEKS                       R10 R9 K4 ["Color"]
-      117 GETTABLEKS                       R10 R4 K43 ["Transparency"]
-      119 SETTABLEKS                       R10 R9 K43 ["Transparency"]
-      121 GETTABLEKS                       R10 R1 K7 ["Stroke"]
-      123 GETTABLEKS                       R10 R10 K47 ["Standard"]
-      125 SETTABLEKS                       R10 R9 K44 ["Thickness"]
-      127 SETTABLEKS                       R9 R8 K21 ["stroke"]
-      129 GETTABLEKS                       R9 R0 K22 ["tag"]
-      131 SETTABLEKS                       R9 R8 K22 ["tag"]
-      133 LOADK                            R9 K48 ["terrain-material-tile-%*"]
-      134 GETTABLEKS                       R11 R0 K49 ["entry"]
-      136 GETTABLEKS                       R11 R11 K50 ["slotIndex"]
-      138 NAMECALL                         R9 R9 K51 ["format"]
-      140 CALL                             R9 2 1
-      141 SETTABLEKS                       R9 R8 K23 ["testId"]
-      143 GETTABLEKS                       R9 R0 K52 ["children"]
-      145 CALL                             R6 3 -1
-      146 RETURN                           R6 -1
+       87 GETTABLEKS                       R9 R0 K16 ["isDisabled"]
+       89 SETTABLEKS                       R9 R8 K16 ["isDisabled"]
+       91 GETTABLEKS                       R10 R0 K16 ["isDisabled"]
+       93 JUMPIFNOT                        R10 ; [+2]
+       94 LOADNIL                          R9
+       95 JUMP                             ; [+2]
+       96 GETTABLEKS                       R9 R0 K17 ["onActivated"]
+       98 SETTABLEKS                       R9 R8 K17 ["onActivated"]
+      100 GETTABLEKS                       R10 R0 K16 ["isDisabled"]
+      102 JUMPIFNOT                        R10 ; [+2]
+      103 LOADNIL                          R9
+      104 JUMP                             ; [+2]
+      105 GETTABLEKS                       R9 R0 K18 ["onSecondaryActivated"]
+      107 SETTABLEKS                       R9 R8 K18 ["onSecondaryActivated"]
+      109 SETTABLEKS                       R5 R8 K19 ["onStateChanged"]
+      111 DUPTABLE                         R9 K38 [{"Selectable"}]
+      112 GETTABLEKS                       R11 R0 K16 ["isDisabled"]
+      114 NOT                              R10 R11
+      115 SETTABLEKS                       R10 R9 K37 ["Selectable"]
+      117 SETTABLEKS                       R9 R8 K20 ["selection"]
+      119 DUPTABLE                         R9 K40 [{"affordance"}]
+      120 GETUPVAL                         R10 0
+      121 GETTABLEKS                       R10 R10 K41 ["Enums"]
+      123 GETTABLEKS                       R10 R10 K42 ["StateLayerAffordance"]
+      125 GETTABLEKS                       R10 R10 K6 ["Background"]
+      127 SETTABLEKS                       R10 R9 K39 ["affordance"]
+      129 SETTABLEKS                       R9 R8 K21 ["stateLayer"]
+      131 DUPTABLE                         R9 K45 [{"Color", "Transparency", "Thickness"}]
+      132 GETTABLEKS                       R10 R4 K46 ["Color3"]
+      134 SETTABLEKS                       R10 R9 K4 ["Color"]
+      136 GETTABLEKS                       R10 R4 K43 ["Transparency"]
+      138 SETTABLEKS                       R10 R9 K43 ["Transparency"]
+      140 GETTABLEKS                       R10 R1 K7 ["Stroke"]
+      142 GETTABLEKS                       R10 R10 K47 ["Standard"]
+      144 SETTABLEKS                       R10 R9 K44 ["Thickness"]
+      146 SETTABLEKS                       R9 R8 K22 ["stroke"]
+      148 GETTABLEKS                       R9 R0 K23 ["tag"]
+      150 SETTABLEKS                       R9 R8 K23 ["tag"]
+      152 LOADK                            R9 K48 ["terrain-material-tile-%*"]
+      153 GETTABLEKS                       R11 R0 K49 ["entry"]
+      155 GETTABLEKS                       R11 R11 K50 ["slotIndex"]
+      157 NAMECALL                         R9 R9 K51 ["format"]
+      159 CALL                             R9 2 1
+      160 SETTABLEKS                       R9 R8 K24 ["testId"]
+      162 GETTABLEKS                       R9 R0 K52 ["children"]
+      164 CALL                             R6 3 -1
+      165 RETURN                           R6 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -217,18 +229,19 @@ MAIN:
        45 GETTABLEKS                       R7 R7 K15 ["ControlState"]
        47 GETTABLEKS                       R8 R1 K16 ["View"]
        49 DUPCLOSURE                       R9 K17 [PROTO_0]
-       50 DUPCLOSURE                       R10 K18 [PROTO_1]
-       51 CAPTURE                          VAL R9
-       52 CAPTURE                          VAL R3
-       53 CAPTURE                          VAL R8
-       54 CAPTURE                          VAL R5
-       55 CAPTURE                          VAL R6
-       56 DUPCLOSURE                       R11 K19 [PROTO_3]
-       57 CAPTURE                          VAL R1
-       58 CAPTURE                          VAL R3
-       59 CAPTURE                          VAL R7
-       60 CAPTURE                          VAL R8
-       61 DUPTABLE                         R12 K22 [{"Container", "Preview"}]
-       62 SETTABLEKS                       R11 R12 K20 ["Container"]
-       64 SETTABLEKS                       R10 R12 K21 ["Preview"]
-       66 RETURN                           R12 1
+       50 CAPTURE                          VAL R4
+       51 DUPCLOSURE                       R10 K18 [PROTO_1]
+       52 CAPTURE                          VAL R4
+       53 CAPTURE                          VAL R3
+       54 CAPTURE                          VAL R8
+       55 CAPTURE                          VAL R5
+       56 CAPTURE                          VAL R6
+       57 DUPCLOSURE                       R11 K19 [PROTO_3]
+       58 CAPTURE                          VAL R1
+       59 CAPTURE                          VAL R3
+       60 CAPTURE                          VAL R7
+       61 CAPTURE                          VAL R8
+       62 DUPTABLE                         R12 K22 [{"Container", "Preview"}]
+       63 SETTABLEKS                       R11 R12 K20 ["Container"]
+       65 SETTABLEKS                       R10 R12 K21 ["Preview"]
+       67 RETURN                           R12 1

@@ -228,7 +228,21 @@ PROTO_3:
        66 LOADB                            R6 1
        67 MOVE                             R7 R1
        68 CALL                             R5 2 0
-       69 RETURN                           R0 0
+       69 GETUPVAL                         R5 5
+       70 CALL                             R5 0 1
+       71 JUMPIFNOT                        R5 ; [+14]
+       72 GETUPVAL                         R5 6
+       73 GETTABLEKS                       R5 R5 K17 ["getExistingAvatarPreviewFolder"]
+       75 CALL                             R5 0 1
+       76 JUMPIFNOTEQ                      R5 R0 ; [+9]
+       78 GETUPVAL                         R5 7
+       79 LOADB                            R6 1
+       80 GETUPVAL                         R8 8
+       81 GETTABLEKS                       R8 R8 K18 ["getCurrentSettingsPage"]
+       83 CALL                             R8 0 1
+       84 OR                               R7 R8 R1
+       85 CALL                             R5 2 0
+       86 RETURN                           R0 0
 
 MAIN:
         0 PREPVARARGS                      0
@@ -253,56 +267,77 @@ MAIN:
        31 GETIMPORT                        R4 K9 [require]
        33 GETTABLEKS                       R5 R0 K10 ["Src"]
        35 GETTABLEKS                       R5 R5 K11 ["Util"]
-       37 GETTABLEKS                       R5 R5 K16 ["BridgingFiles"]
-       39 GETTABLEKS                       R5 R5 K17 ["AssetDmFiles"]
-       41 GETTABLEKS                       R5 R5 K18 ["assetDmUtils"]
-       43 CALL                             R4 1 1
-       44 GETIMPORT                        R5 K9 [require]
-       46 GETTABLEKS                       R6 R0 K10 ["Src"]
-       48 GETTABLEKS                       R6 R6 K19 ["Flags"]
-       50 GETTABLEKS                       R6 R6 K20 ["getFFlagImprovePreviewPositioning"]
+       37 GETTABLEKS                       R5 R5 K12 ["AvatarPreview"]
+       39 GETTABLEKS                       R5 R5 K16 ["applyAvatarRulesUtil"]
+       41 CALL                             R4 1 1
+       42 GETIMPORT                        R5 K9 [require]
+       44 GETTABLEKS                       R6 R0 K10 ["Src"]
+       46 GETTABLEKS                       R6 R6 K11 ["Util"]
+       48 GETTABLEKS                       R6 R6 K12 ["AvatarPreview"]
+       50 GETTABLEKS                       R6 R6 K17 ["applyRemovalHighlights"]
        52 CALL                             R5 1 1
        53 GETIMPORT                        R6 K9 [require]
        55 GETTABLEKS                       R7 R0 K10 ["Src"]
        57 GETTABLEKS                       R7 R7 K11 ["Util"]
-       59 GETTABLEKS                       R7 R7 K12 ["AvatarPreview"]
-       61 GETTABLEKS                       R7 R7 K21 ["placeAvatars"]
-       63 CALL                             R6 1 1
-       64 GETIMPORT                        R7 K9 [require]
-       66 GETTABLEKS                       R8 R0 K10 ["Src"]
-       68 GETTABLEKS                       R8 R8 K11 ["Util"]
-       70 GETTABLEKS                       R8 R8 K12 ["AvatarPreview"]
-       72 GETTABLEKS                       R8 R8 K22 ["previewFolderUtils"]
+       59 GETTABLEKS                       R7 R7 K18 ["BridgingFiles"]
+       61 GETTABLEKS                       R7 R7 K19 ["AssetDmFiles"]
+       63 GETTABLEKS                       R7 R7 K20 ["assetDmUtils"]
+       65 CALL                             R6 1 1
+       66 GETIMPORT                        R7 K9 [require]
+       68 GETTABLEKS                       R8 R0 K10 ["Src"]
+       70 GETTABLEKS                       R8 R8 K21 ["Flags"]
+       72 GETTABLEKS                       R8 R8 K22 ["getFFlagAvatarSettingsPreviewRemovalHighlight"]
        74 CALL                             R7 1 1
        75 GETIMPORT                        R8 K9 [require]
        77 GETTABLEKS                       R9 R0 K10 ["Src"]
-       79 GETTABLEKS                       R9 R9 K11 ["Util"]
-       81 GETTABLEKS                       R9 R9 K12 ["AvatarPreview"]
-       83 GETTABLEKS                       R9 R9 K23 ["showBounds"]
-       85 CALL                             R8 1 1
-       86 GETIMPORT                        R9 K9 [require]
-       88 GETTABLEKS                       R10 R0 K10 ["Src"]
-       90 GETTABLEKS                       R10 R10 K11 ["Util"]
-       92 GETTABLEKS                       R10 R10 K24 ["AvatarSettingsProviderTypes"]
+       79 GETTABLEKS                       R9 R9 K21 ["Flags"]
+       81 GETTABLEKS                       R9 R9 K23 ["getFFlagImprovePreviewPositioning"]
+       83 CALL                             R8 1 1
+       84 GETIMPORT                        R9 K9 [require]
+       86 GETTABLEKS                       R10 R0 K10 ["Src"]
+       88 GETTABLEKS                       R10 R10 K11 ["Util"]
+       90 GETTABLEKS                       R10 R10 K12 ["AvatarPreview"]
+       92 GETTABLEKS                       R10 R10 K24 ["placeAvatars"]
        94 CALL                             R9 1 1
-       95 NEWTABLE                         R10 2 0
-       97 DUPCLOSURE                       R11 K25 [PROTO_0]
-       98 CAPTURE                          VAL R7
-       99 SETTABLEKS                       R11 R10 K26 ["addHumanoidsToPreviewFolder"]
-      101 DUPCLOSURE                       R11 K27 [PROTO_1]
-      102 CAPTURE                          VAL R2
-      103 CAPTURE                          VAL R1
-      104 DUPCLOSURE                       R12 K28 [PROTO_2]
-      105 CAPTURE                          VAL R4
-      106 CAPTURE                          VAL R3
-      107 CAPTURE                          VAL R11
-      108 CAPTURE                          VAL R2
-      109 CAPTURE                          VAL R10
-      110 DUPCLOSURE                       R13 K29 [PROTO_3]
-      111 CAPTURE                          VAL R12
-      112 CAPTURE                          VAL R5
-      113 CAPTURE                          VAL R6
-      114 CAPTURE                          VAL R4
-      115 CAPTURE                          VAL R8
-      116 SETTABLEKS                       R13 R10 K30 ["insertToFolder"]
-      118 RETURN                           R10 1
+       95 GETIMPORT                        R10 K9 [require]
+       97 GETTABLEKS                       R11 R0 K10 ["Src"]
+       99 GETTABLEKS                       R11 R11 K11 ["Util"]
+      101 GETTABLEKS                       R11 R11 K12 ["AvatarPreview"]
+      103 GETTABLEKS                       R11 R11 K25 ["previewFolderUtils"]
+      105 CALL                             R10 1 1
+      106 GETIMPORT                        R11 K9 [require]
+      108 GETTABLEKS                       R12 R0 K10 ["Src"]
+      110 GETTABLEKS                       R12 R12 K11 ["Util"]
+      112 GETTABLEKS                       R12 R12 K12 ["AvatarPreview"]
+      114 GETTABLEKS                       R12 R12 K26 ["showBounds"]
+      116 CALL                             R11 1 1
+      117 GETIMPORT                        R12 K9 [require]
+      119 GETTABLEKS                       R13 R0 K10 ["Src"]
+      121 GETTABLEKS                       R13 R13 K11 ["Util"]
+      123 GETTABLEKS                       R13 R13 K27 ["AvatarSettingsProviderTypes"]
+      125 CALL                             R12 1 1
+      126 NEWTABLE                         R13 2 0
+      128 DUPCLOSURE                       R14 K28 [PROTO_0]
+      129 CAPTURE                          VAL R10
+      130 SETTABLEKS                       R14 R13 K29 ["addHumanoidsToPreviewFolder"]
+      132 DUPCLOSURE                       R14 K30 [PROTO_1]
+      133 CAPTURE                          VAL R2
+      134 CAPTURE                          VAL R1
+      135 DUPCLOSURE                       R15 K31 [PROTO_2]
+      136 CAPTURE                          VAL R6
+      137 CAPTURE                          VAL R3
+      138 CAPTURE                          VAL R14
+      139 CAPTURE                          VAL R2
+      140 CAPTURE                          VAL R13
+      141 DUPCLOSURE                       R16 K32 [PROTO_3]
+      142 CAPTURE                          VAL R15
+      143 CAPTURE                          VAL R8
+      144 CAPTURE                          VAL R9
+      145 CAPTURE                          VAL R6
+      146 CAPTURE                          VAL R11
+      147 CAPTURE                          VAL R7
+      148 CAPTURE                          VAL R10
+      149 CAPTURE                          VAL R5
+      150 CAPTURE                          VAL R4
+      151 SETTABLEKS                       R16 R13 K33 ["insertToFolder"]
+      153 RETURN                           R13 1

@@ -30,64 +30,61 @@ PROTO_1:
        11 GETIMPORT                        R4 K3 [table.insert]
        13 CALL                             R4 2 0
        14 GETUPVAL                         R4 1
-       15 GETTABLEKS                       R4 R4 K4 ["FFlagAssistantSystemSkillsStateReminder"]
-       17 JUMPIFNOT                        R4 ; [+10]
-       18 GETUPVAL                         R4 2
-       19 CALL                             R4 0 1
-       20 JUMPIFNOT                        R4 ; [+7]
-       21 FASTCALL2                        TABLE_INSERT R1 R4 ; [+5]
-       23 MOVE                             R6 R1
-       24 MOVE                             R7 R4
-       25 GETIMPORT                        R5 K3 [table.insert]
-       27 CALL                             R5 2 0
-       28 GETUPVAL                         R7 3
-       29 GETTABLEKS                       R7 R7 K5 ["getFocusedDataModelType"]
-       31 CALL                             R7 0 1
-       32 LOADK                            R8 K6 [""]
-       33 GETUPVAL                         R9 3
-       34 GETTABLEKS                       R9 R9 K7 ["getStudioPlayState"]
-       36 CALL                             R9 0 1
-       37 JUMPIFNOT                        R9 ; [+2]
-       38 LOADK                            R8 K8 ["- Current Studio Mode: Play\n- Available DataModels: Client, Server\n"]
-       39 JUMP                             ; [+1]
-       40 LOADK                            R8 K9 ["- Current Studio Mode: Edit\n- Available DataModels: Edit\n"]
-       41 LOADK                            R9 K10 ["%*- Focused DataModel in the viewport: %*"]
-       42 MOVE                             R11 R8
-       43 MOVE                             R12 R7
-       44 NAMECALL                         R9 R9 K11 ["format"]
-       46 CALL                             R9 3 1
-       47 MOVE                             R8 R9
-       48 MOVE                             R6 R8
-       49 FASTCALL2                        TABLE_INSERT R1 R6 ; [+4]
-       51 MOVE                             R5 R1
-       52 GETIMPORT                        R4 K3 [table.insert]
-       54 CALL                             R4 2 0
-       55 GETUPVAL                         R4 4
-       56 CALL                             R4 0 1
-       57 JUMPIFNOT                        R4 ; [+7]
-       58 FASTCALL2                        TABLE_INSERT R1 R4 ; [+5]
-       60 MOVE                             R6 R1
-       61 MOVE                             R7 R4
-       62 GETIMPORT                        R5 K3 [table.insert]
-       64 CALL                             R5 2 0
-       65 GETUPVAL                         R5 5
-       66 MOVE                             R6 R2
-       67 CALL                             R5 1 3
-       68 FORGPREP                         R5
-       69 FASTCALL2                        TABLE_INSERT R1 R9 ; [+5]
-       71 MOVE                             R11 R1
-       72 MOVE                             R12 R9
-       73 GETIMPORT                        R10 K3 [table.insert]
-       75 CALL                             R10 2 0
-       76 FORGLOOP                         R5 2 ; [-8]
-       78 GETUPVAL                         R5 1
-       79 GETTABLEKS                       R5 R5 K12 ["FFlagDebugLogAssistantUI"]
-       81 JUMPIFNOT                        R5 ; [+5]
-       82 GETIMPORT                        R5 K14 [print]
-       84 LOADK                            R6 K15 ["[StudioLLMSystemReminder] Collected system reminders"]
-       85 MOVE                             R7 R1
-       86 CALL                             R5 2 0
-       87 RETURN                           R1 1
+       15 CALL                             R4 0 1
+       16 JUMPIFNOT                        R4 ; [+7]
+       17 FASTCALL2                        TABLE_INSERT R1 R4 ; [+5]
+       19 MOVE                             R6 R1
+       20 MOVE                             R7 R4
+       21 GETIMPORT                        R5 K3 [table.insert]
+       23 CALL                             R5 2 0
+       24 GETUPVAL                         R8 2
+       25 GETTABLEKS                       R8 R8 K4 ["getFocusedDataModelType"]
+       27 CALL                             R8 0 1
+       28 LOADK                            R9 K5 [""]
+       29 GETUPVAL                         R10 2
+       30 GETTABLEKS                       R10 R10 K6 ["getStudioPlayState"]
+       32 CALL                             R10 0 1
+       33 JUMPIFNOT                        R10 ; [+2]
+       34 LOADK                            R9 K7 ["- Current Studio Mode: Play\n- Available DataModels: Client, Server\n"]
+       35 JUMP                             ; [+1]
+       36 LOADK                            R9 K8 ["- Current Studio Mode: Edit\n- Available DataModels: Edit\n"]
+       37 LOADK                            R10 K9 ["%*- Focused DataModel in the viewport: %*"]
+       38 MOVE                             R12 R9
+       39 MOVE                             R13 R8
+       40 NAMECALL                         R10 R10 K10 ["format"]
+       42 CALL                             R10 3 1
+       43 MOVE                             R9 R10
+       44 MOVE                             R7 R9
+       45 FASTCALL2                        TABLE_INSERT R1 R7 ; [+4]
+       47 MOVE                             R6 R1
+       48 GETIMPORT                        R5 K3 [table.insert]
+       50 CALL                             R5 2 0
+       51 GETUPVAL                         R5 3
+       52 CALL                             R5 0 1
+       53 JUMPIFNOT                        R5 ; [+7]
+       54 FASTCALL2                        TABLE_INSERT R1 R5 ; [+5]
+       56 MOVE                             R7 R1
+       57 MOVE                             R8 R5
+       58 GETIMPORT                        R6 K3 [table.insert]
+       60 CALL                             R6 2 0
+       61 GETUPVAL                         R6 4
+       62 MOVE                             R7 R2
+       63 CALL                             R6 1 3
+       64 FORGPREP                         R6
+       65 FASTCALL2                        TABLE_INSERT R1 R10 ; [+5]
+       67 MOVE                             R12 R1
+       68 MOVE                             R13 R10
+       69 GETIMPORT                        R11 K3 [table.insert]
+       71 CALL                             R11 2 0
+       72 FORGLOOP                         R6 2 ; [-8]
+       74 GETUPVAL                         R6 5
+       75 GETTABLEKS                       R6 R6 K11 ["FFlagDebugLogAssistantUI"]
+       77 JUMPIFNOT                        R6 ; [+5]
+       78 GETIMPORT                        R6 K13 [print]
+       80 LOADK                            R7 K14 ["[StudioLLMSystemReminder] Collected system reminders"]
+       81 MOVE                             R8 R1
+       82 CALL                             R6 2 0
+       83 RETURN                           R1 1
 
 PROTO_2:
         0 GETUPVAL                         R0 0
@@ -104,11 +101,11 @@ PROTO_2:
        11 GETTABLEKS                       R5 R5 K0 ["useCallback"]
        13 NEWCLOSURE                       R6 P0
        14 CAPTURE                          VAL R2
-       15 CAPTURE                          UPVAL U6
-       16 CAPTURE                          VAL R4
-       17 CAPTURE                          UPVAL U7
-       18 CAPTURE                          VAL R3
-       19 CAPTURE                          VAL R1
+       15 CAPTURE                          VAL R4
+       16 CAPTURE                          UPVAL U6
+       17 CAPTURE                          VAL R3
+       18 CAPTURE                          VAL R1
+       19 CAPTURE                          UPVAL U7
        20 NEWTABLE                         R7 0 5
        22 MOVE                             R8 R0
        23 MOVE                             R9 R1
@@ -170,8 +167,8 @@ MAIN:
        81 CAPTURE                          VAL R7
        82 CAPTURE                          VAL R8
        83 CAPTURE                          VAL R2
-       84 CAPTURE                          VAL R4
-       85 CAPTURE                          VAL R3
+       84 CAPTURE                          VAL R3
+       85 CAPTURE                          VAL R4
        86 DUPTABLE                         R12 K25 [{"useGetSystemReminders", "getStudioStateString"}]
        87 SETTABLEKS                       R11 R12 K23 ["useGetSystemReminders"]
        89 SETTABLEKS                       R10 R12 K24 ["getStudioStateString"]

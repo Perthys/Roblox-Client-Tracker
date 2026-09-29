@@ -34,34 +34,21 @@ PROTO_1:
        16 RETURN                           R2 1
 
 PROTO_2:
-        0 GETTABLEKS                       R1 R0 K0 ["baseMaterial"]
-        2 GETIMPORT                        R2 K4 [Enum.Material.Air]
-        4 JUMPIFNOTEQ                      R1 R2 ; [+11]
-        6 GETIMPORT                        R1 K6 [Enum.Material.Glass]
-        8 GETIMPORT                        R2 K9 [Color3.fromRGB]
-       10 LOADN                            R3 255
-       11 LOADN                            R4 255
-       12 LOADN                            R5 255
-       13 CALL                             R2 3 1
-       14 LOADK                            R3 K10 [0.5]
-       15 RETURN                           R1 3
-       16 GETTABLEKS                       R1 R0 K0 ["baseMaterial"]
-       18 GETIMPORT                        R2 K12 [Enum.Material.Water]
-       20 JUMPIFNOTEQ                      R1 R2 ; [+11]
-       22 GETIMPORT                        R1 K14 [Enum.Material.Glacier]
-       24 GETIMPORT                        R2 K9 [Color3.fromRGB]
-       26 LOADN                            R3 33
-       27 LOADN                            R4 84
-       28 LOADN                            R5 185
-       29 CALL                             R2 3 1
-       30 LOADK                            R3 K10 [0.5]
-       31 RETURN                           R1 3
-       32 GETTABLEKS                       R1 R0 K15 ["resolvedVariant"]
-       34 JUMPIF                           R1 ; [+2]
-       35 GETTABLEKS                       R1 R0 K0 ["baseMaterial"]
-       37 GETTABLEKS                       R2 R0 K16 ["color"]
-       39 LOADNIL                          R3
-       40 RETURN                           R1 3
+        0 GETUPVAL                         R1 0
+        1 GETTABLEKS                       R1 R1 K0 ["getMaterialPreviewOverride"]
+        3 GETTABLEKS                       R2 R0 K1 ["baseMaterial"]
+        5 CALL                             R1 1 1
+        6 JUMPIFNOT                        R1 ; [+7]
+        7 GETTABLEKS                       R2 R1 K2 ["material"]
+        9 GETTABLEKS                       R3 R1 K3 ["color"]
+       11 GETTABLEKS                       R4 R1 K4 ["transparency"]
+       13 RETURN                           R2 3
+       14 GETTABLEKS                       R2 R0 K5 ["resolvedVariant"]
+       16 JUMPIF                           R2 ; [+2]
+       17 GETTABLEKS                       R2 R0 K1 ["baseMaterial"]
+       19 GETTABLEKS                       R3 R0 K3 ["color"]
+       21 LOADNIL                          R4
+       22 RETURN                           R2 3
 
 PROTO_3:
         0 GETUPVAL                         R0 0
@@ -223,187 +210,198 @@ PROTO_6:
       147 LOADNIL                          R12
       148 LOADNIL                          R13
       149 LOADNIL                          R14
-      150 JUMPIFNOT                        R11 ; [+6]
-      151 GETUPVAL                         R15 7
-      152 MOVE                             R16 R11
-      153 CALL                             R15 1 3
-      154 MOVE                             R12 R15
-      155 MOVE                             R13 R16
-      156 MOVE                             R14 R17
-      157 GETUPVAL                         R15 0
-      158 GETTABLEKS                       R15 R15 K29 ["createElement"]
-      160 GETUPVAL                         R16 8
-      161 DUPTABLE                         R17 K44 [{["backgroundStyle"], ["cursor"], ["isDisabled"], ["onActivated"], ["padding"], ["ref"], ["selection"], ["stateLayer"], ["stroke"], ["Size"], ["tag"] = "row align-y-center gap-xsmall radius-small clip", ["testId"] = "terrain-material-picker"}]
-      162 GETTABLEKS                       R18 R3 K45 ["Color"]
-      164 GETTABLEKS                       R18 R18 K46 ["Shift"]
-      166 GETTABLEKS                       R18 R18 K47 ["Shift_200"]
-      168 SETTABLEKS                       R18 R17 K30 ["backgroundStyle"]
-      170 DUPTABLE                         R18 K51 [{"radius", "offset", "borderWidth"}]
-      171 GETIMPORT                        R19 K54 [UDim.new]
-      173 LOADN                            R20 0
-      174 GETTABLEKS                       R21 R3 K55 ["Radius"]
-      176 GETTABLEKS                       R21 R21 K56 ["Small"]
-      178 CALL                             R19 2 1
-      179 SETTABLEKS                       R19 R18 K48 ["radius"]
-      181 GETTABLEKS                       R20 R3 K57 ["Stroke"]
-      183 GETTABLEKS                       R20 R20 K58 ["Thick"]
-      185 MINUS                            R19 R20
-      186 SETTABLEKS                       R19 R18 K49 ["offset"]
-      188 GETTABLEKS                       R19 R3 K57 ["Stroke"]
-      190 GETTABLEKS                       R19 R19 K58 ["Thick"]
-      192 SETTABLEKS                       R19 R18 K50 ["borderWidth"]
-      194 SETTABLEKS                       R18 R17 K31 ["cursor"]
-      196 GETTABLEKS                       R18 R0 K59 ["Disabled"]
-      198 SETTABLEKS                       R18 R17 K32 ["isDisabled"]
-      200 GETTABLEKS                       R19 R0 K59 ["Disabled"]
-      202 JUMPIFNOT                        R19 ; [+2]
-      203 LOADNIL                          R18
-      204 JUMP                             ; [+1]
-      205 MOVE                             R18 R8
-      206 SETTABLEKS                       R18 R17 K33 ["onActivated"]
-      208 DUPTABLE                         R18 K62 [{"left", "right"}]
-      209 GETIMPORT                        R19 K54 [UDim.new]
-      211 LOADN                            R20 0
-      212 GETTABLEKS                       R21 R3 K39 ["Size"]
-      214 GETTABLEKS                       R21 R21 K63 ["Size_150"]
-      216 CALL                             R19 2 1
-      217 SETTABLEKS                       R19 R18 K60 ["left"]
-      219 GETIMPORT                        R19 K54 [UDim.new]
-      221 LOADN                            R20 0
-      222 GETTABLEKS                       R21 R3 K39 ["Size"]
-      224 GETTABLEKS                       R21 R21 K63 ["Size_150"]
-      226 CALL                             R19 2 1
-      227 SETTABLEKS                       R19 R18 K61 ["right"]
-      229 SETTABLEKS                       R18 R17 K34 ["padding"]
-      231 SETTABLEKS                       R7 R17 K35 ["ref"]
-      233 DUPTABLE                         R18 K65 [{"Selectable"}]
-      234 GETTABLEKS                       R20 R0 K59 ["Disabled"]
-      236 NOT                              R19 R20
-      237 SETTABLEKS                       R19 R18 K64 ["Selectable"]
-      239 SETTABLEKS                       R18 R17 K36 ["selection"]
-      241 DUPTABLE                         R18 K67 [{"affordance"}]
-      242 GETUPVAL                         R19 3
-      243 GETTABLEKS                       R19 R19 K68 ["Enums"]
-      245 GETTABLEKS                       R19 R19 K69 ["StateLayerAffordance"]
-      247 GETTABLEKS                       R19 R19 K70 ["Background"]
-      249 SETTABLEKS                       R19 R18 K66 ["affordance"]
-      251 SETTABLEKS                       R18 R17 K37 ["stateLayer"]
-      253 DUPTABLE                         R18 K73 [{"Color", "Transparency", "Thickness"}]
-      254 GETTABLEKS                       R19 R3 K45 ["Color"]
-      256 GETTABLEKS                       R19 R19 K57 ["Stroke"]
-      258 GETTABLEKS                       R19 R19 K74 ["Emphasis"]
-      260 GETTABLEKS                       R19 R19 K75 ["Color3"]
-      262 SETTABLEKS                       R19 R18 K45 ["Color"]
-      264 GETTABLEKS                       R19 R3 K45 ["Color"]
-      266 GETTABLEKS                       R19 R19 K57 ["Stroke"]
-      268 GETTABLEKS                       R19 R19 K74 ["Emphasis"]
-      270 GETTABLEKS                       R19 R19 K71 ["Transparency"]
-      272 SETTABLEKS                       R19 R18 K71 ["Transparency"]
-      274 GETTABLEKS                       R19 R3 K57 ["Stroke"]
-      276 GETTABLEKS                       R19 R19 K76 ["Standard"]
-      278 SETTABLEKS                       R19 R18 K72 ["Thickness"]
-      280 SETTABLEKS                       R18 R17 K38 ["stroke"]
-      282 GETIMPORT                        R18 K78 [UDim2.new]
-      284 LOADN                            R19 1
-      285 LOADN                            R20 0
-      286 LOADN                            R21 0
-      287 GETTABLEKS                       R22 R3 K39 ["Size"]
-      289 GETTABLEKS                       R22 R22 K79 ["Size_600"]
-      291 CALL                             R18 4 1
-      292 SETTABLEKS                       R18 R17 K39 ["Size"]
-      294 DUPTABLE                         R18 K83 [{"Preview", "Label", "Chevron"}]
-      295 JUMPIFNOT                        R11 ; [+55]
-      296 GETUPVAL                         R19 0
-      297 GETTABLEKS                       R19 R19 K29 ["createElement"]
-      299 GETUPVAL                         R20 8
-      300 DUPTABLE                         R21 K87 [{["LayoutOrder"], ["Size"], ["tag"] = "radius-xsmall clip", ["testId"] = "terrain-material-picker-preview"}]
-      301 MOVE                             R22 R5
-      302 CALL                             R22 0 1
-      303 SETTABLEKS                       R22 R21 K84 ["LayoutOrder"]
-      305 GETIMPORT                        R22 K89 [UDim2.fromOffset]
-      307 LOADN                            R23 18
-      308 LOADN                            R24 18
-      309 CALL                             R22 2 1
-      310 SETTABLEKS                       R22 R21 K39 ["Size"]
-      312 DUPTABLE                         R22 K90 [{"Material"}]
-      313 GETUPVAL                         R23 0
-      314 GETTABLEKS                       R23 R23 K29 ["createElement"]
-      316 GETUPVAL                         R24 9
-      317 DUPTABLE                         R25 K100 [{["CornerRadius"], ["InitialDistance"] = 4.12, ["Material"], ["MaterialPreviewGeometryType"], ["OverrideColor"], ["OverrideTransparency"], ["Size"], ["Static"] = True, ["Transparent"] = True}]
-      318 GETIMPORT                        R26 K54 [UDim.new]
-      320 LOADN                            R27 0
-      321 GETTABLEKS                       R28 R3 K55 ["Radius"]
-      323 GETTABLEKS                       R28 R28 K101 ["XSmall"]
-      325 CALL                             R26 2 1
-      326 SETTABLEKS                       R26 R25 K91 ["CornerRadius"]
-      328 SETTABLEKS                       R12 R25 K20 ["Material"]
-      330 GETUPVAL                         R26 10
-      331 GETTABLEKS                       R26 R26 K102 ["CubeCornerOn"]
-      333 SETTABLEKS                       R26 R25 K94 ["MaterialPreviewGeometryType"]
-      335 SETTABLEKS                       R13 R25 K95 ["OverrideColor"]
-      337 SETTABLEKS                       R14 R25 K96 ["OverrideTransparency"]
-      339 GETIMPORT                        R26 K104 [UDim2.fromScale]
-      341 LOADN                            R27 1
-      342 LOADN                            R28 1
-      343 CALL                             R26 2 1
-      344 SETTABLEKS                       R26 R25 K39 ["Size"]
-      346 CALL                             R23 2 1
-      347 SETTABLEKS                       R23 R22 K20 ["Material"]
-      349 CALL                             R19 3 1
-      350 JUMP                             ; [+1]
-      351 LOADNIL                          R19
-      352 SETTABLEKS                       R19 R18 K80 ["Preview"]
-      354 GETUPVAL                         R19 0
-      355 GETTABLEKS                       R19 R19 K29 ["createElement"]
-      357 GETUPVAL                         R20 11
-      358 DUPTABLE                         R21 K109 [{["LayoutOrder"], ["Text"], ["TextTruncate"], ["TextXAlignment"], ["tag"], ["testId"] = "terrain-material-picker-label"}]
-      359 MOVE                             R22 R5
-      360 CALL                             R22 0 1
-      361 SETTABLEKS                       R22 R21 K84 ["LayoutOrder"]
-      363 JUMPIFNOT                        R11 ; [+3]
-      364 GETTABLEKS                       R22 R11 K110 ["displayName"]
-      366 JUMP                             ; [+1]
-      367 LOADK                            R22 K111 [""]
-      368 SETTABLEKS                       R22 R21 K105 ["Text"]
-      370 GETIMPORT                        R22 K113 [Enum.TextTruncate.AtEnd]
-      372 SETTABLEKS                       R22 R21 K106 ["TextTruncate"]
-      374 GETIMPORT                        R22 K115 [Enum.TextXAlignment.Left]
-      376 SETTABLEKS                       R22 R21 K107 ["TextXAlignment"]
-      378 NEWTABLE                         R22 4 0
-      380 LOADB                            R23 1
-      381 SETTABLEKS                       R23 R22 K116 ["grow size-0-full text-body-small text-align-x-left text-truncate-end"]
-      383 JUMPIFNOTEQKNIL                  R11 ; [+2]
-      385 LOADB                            R23 0 +1
-      386 LOADB                            R23 1
-      387 SETTABLEKS                       R23 R22 K117 ["content-emphasis"]
-      389 JUMPIFEQKNIL                     R11 ; [+2]
-      391 LOADB                            R23 0 +1
-      392 LOADB                            R23 1
-      393 SETTABLEKS                       R23 R22 K118 ["content-muted"]
-      395 SETTABLEKS                       R22 R21 K40 ["tag"]
-      397 CALL                             R19 2 1
-      398 SETTABLEKS                       R19 R18 K81 ["Label"]
-      400 GETUPVAL                         R19 0
-      401 GETTABLEKS                       R19 R19 K29 ["createElement"]
-      403 GETUPVAL                         R20 12
-      404 DUPTABLE                         R21 K122 [{["LayoutOrder"], ["name"], ["size"], ["testId"] = "terrain-material-picker-chevron"}]
-      405 MOVE                             R22 R5
-      406 CALL                             R22 0 1
-      407 SETTABLEKS                       R22 R21 K84 ["LayoutOrder"]
-      409 GETUPVAL                         R22 3
-      410 GETTABLEKS                       R22 R22 K68 ["Enums"]
-      412 GETTABLEKS                       R22 R22 K123 ["IconName"]
-      414 GETTABLEKS                       R22 R22 K124 ["ChevronLargeDown"]
-      416 SETTABLEKS                       R22 R21 K119 ["name"]
-      418 GETUPVAL                         R22 3
-      419 GETTABLEKS                       R22 R22 K68 ["Enums"]
-      421 GETTABLEKS                       R22 R22 K125 ["IconSize"]
-      423 GETTABLEKS                       R22 R22 K101 ["XSmall"]
-      425 SETTABLEKS                       R22 R21 K120 ["size"]
-      427 CALL                             R19 2 1
-      428 SETTABLEKS                       R19 R18 K82 ["Chevron"]
-      430 CALL                             R15 3 -1
-      431 RETURN                           R15 -1
+      150 JUMPIFNOT                        R11 ; [+25]
+      151 GETUPVAL                         R18 7
+      152 GETTABLEKS                       R18 R18 K29 ["getMaterialPreviewOverride"]
+      154 GETTABLEKS                       R19 R11 K18 ["baseMaterial"]
+      156 CALL                             R18 1 1
+      157 JUMPIFNOT                        R18 ; [+7]
+      158 GETTABLEKS                       R15 R18 K30 ["material"]
+      160 GETTABLEKS                       R16 R18 K31 ["color"]
+      162 GETTABLEKS                       R17 R18 K32 ["transparency"]
+      164 JUMP                             ; [+8]
+      165 GETTABLEKS                       R15 R11 K33 ["resolvedVariant"]
+      167 JUMPIF                           R15 ; [+2]
+      168 GETTABLEKS                       R15 R11 K18 ["baseMaterial"]
+      170 GETTABLEKS                       R16 R11 K31 ["color"]
+      172 LOADNIL                          R17
+      173 MOVE                             R12 R15
+      174 MOVE                             R13 R16
+      175 MOVE                             R14 R17
+      176 GETUPVAL                         R15 0
+      177 GETTABLEKS                       R15 R15 K34 ["createElement"]
+      179 GETUPVAL                         R16 8
+      180 DUPTABLE                         R17 K49 [{["backgroundStyle"], ["cursor"], ["isDisabled"], ["onActivated"], ["padding"], ["ref"], ["selection"], ["stateLayer"], ["stroke"], ["Size"], ["tag"] = "row align-y-center gap-xsmall radius-small clip", ["testId"] = "terrain-material-picker"}]
+      181 GETTABLEKS                       R18 R3 K50 ["Color"]
+      183 GETTABLEKS                       R18 R18 K51 ["Shift"]
+      185 GETTABLEKS                       R18 R18 K52 ["Shift_200"]
+      187 SETTABLEKS                       R18 R17 K35 ["backgroundStyle"]
+      189 DUPTABLE                         R18 K56 [{"radius", "offset", "borderWidth"}]
+      190 GETIMPORT                        R19 K59 [UDim.new]
+      192 LOADN                            R20 0
+      193 GETTABLEKS                       R21 R3 K60 ["Radius"]
+      195 GETTABLEKS                       R21 R21 K61 ["Small"]
+      197 CALL                             R19 2 1
+      198 SETTABLEKS                       R19 R18 K53 ["radius"]
+      200 GETTABLEKS                       R20 R3 K62 ["Stroke"]
+      202 GETTABLEKS                       R20 R20 K63 ["Thick"]
+      204 MINUS                            R19 R20
+      205 SETTABLEKS                       R19 R18 K54 ["offset"]
+      207 GETTABLEKS                       R19 R3 K62 ["Stroke"]
+      209 GETTABLEKS                       R19 R19 K63 ["Thick"]
+      211 SETTABLEKS                       R19 R18 K55 ["borderWidth"]
+      213 SETTABLEKS                       R18 R17 K36 ["cursor"]
+      215 GETTABLEKS                       R18 R0 K64 ["Disabled"]
+      217 SETTABLEKS                       R18 R17 K37 ["isDisabled"]
+      219 GETTABLEKS                       R19 R0 K64 ["Disabled"]
+      221 JUMPIFNOT                        R19 ; [+2]
+      222 LOADNIL                          R18
+      223 JUMP                             ; [+1]
+      224 MOVE                             R18 R8
+      225 SETTABLEKS                       R18 R17 K38 ["onActivated"]
+      227 DUPTABLE                         R18 K67 [{"left", "right"}]
+      228 GETIMPORT                        R19 K59 [UDim.new]
+      230 LOADN                            R20 0
+      231 GETTABLEKS                       R21 R3 K44 ["Size"]
+      233 GETTABLEKS                       R21 R21 K68 ["Size_150"]
+      235 CALL                             R19 2 1
+      236 SETTABLEKS                       R19 R18 K65 ["left"]
+      238 GETIMPORT                        R19 K59 [UDim.new]
+      240 LOADN                            R20 0
+      241 GETTABLEKS                       R21 R3 K44 ["Size"]
+      243 GETTABLEKS                       R21 R21 K68 ["Size_150"]
+      245 CALL                             R19 2 1
+      246 SETTABLEKS                       R19 R18 K66 ["right"]
+      248 SETTABLEKS                       R18 R17 K39 ["padding"]
+      250 SETTABLEKS                       R7 R17 K40 ["ref"]
+      252 DUPTABLE                         R18 K70 [{"Selectable"}]
+      253 GETTABLEKS                       R20 R0 K64 ["Disabled"]
+      255 NOT                              R19 R20
+      256 SETTABLEKS                       R19 R18 K69 ["Selectable"]
+      258 SETTABLEKS                       R18 R17 K41 ["selection"]
+      260 DUPTABLE                         R18 K72 [{"affordance"}]
+      261 GETUPVAL                         R19 3
+      262 GETTABLEKS                       R19 R19 K73 ["Enums"]
+      264 GETTABLEKS                       R19 R19 K74 ["StateLayerAffordance"]
+      266 GETTABLEKS                       R19 R19 K75 ["Background"]
+      268 SETTABLEKS                       R19 R18 K71 ["affordance"]
+      270 SETTABLEKS                       R18 R17 K42 ["stateLayer"]
+      272 DUPTABLE                         R18 K78 [{"Color", "Transparency", "Thickness"}]
+      273 GETTABLEKS                       R19 R3 K50 ["Color"]
+      275 GETTABLEKS                       R19 R19 K62 ["Stroke"]
+      277 GETTABLEKS                       R19 R19 K79 ["Emphasis"]
+      279 GETTABLEKS                       R19 R19 K80 ["Color3"]
+      281 SETTABLEKS                       R19 R18 K50 ["Color"]
+      283 GETTABLEKS                       R19 R3 K50 ["Color"]
+      285 GETTABLEKS                       R19 R19 K62 ["Stroke"]
+      287 GETTABLEKS                       R19 R19 K79 ["Emphasis"]
+      289 GETTABLEKS                       R19 R19 K76 ["Transparency"]
+      291 SETTABLEKS                       R19 R18 K76 ["Transparency"]
+      293 GETTABLEKS                       R19 R3 K62 ["Stroke"]
+      295 GETTABLEKS                       R19 R19 K81 ["Standard"]
+      297 SETTABLEKS                       R19 R18 K77 ["Thickness"]
+      299 SETTABLEKS                       R18 R17 K43 ["stroke"]
+      301 GETIMPORT                        R18 K83 [UDim2.new]
+      303 LOADN                            R19 1
+      304 LOADN                            R20 0
+      305 LOADN                            R21 0
+      306 GETTABLEKS                       R22 R3 K44 ["Size"]
+      308 GETTABLEKS                       R22 R22 K84 ["Size_600"]
+      310 CALL                             R18 4 1
+      311 SETTABLEKS                       R18 R17 K44 ["Size"]
+      313 DUPTABLE                         R18 K88 [{"Preview", "Label", "Chevron"}]
+      314 JUMPIFNOT                        R11 ; [+55]
+      315 GETUPVAL                         R19 0
+      316 GETTABLEKS                       R19 R19 K34 ["createElement"]
+      318 GETUPVAL                         R20 8
+      319 DUPTABLE                         R21 K92 [{["LayoutOrder"], ["Size"], ["tag"] = "radius-xsmall clip", ["testId"] = "terrain-material-picker-preview"}]
+      320 MOVE                             R22 R5
+      321 CALL                             R22 0 1
+      322 SETTABLEKS                       R22 R21 K89 ["LayoutOrder"]
+      324 GETIMPORT                        R22 K94 [UDim2.fromOffset]
+      326 LOADN                            R23 18
+      327 LOADN                            R24 18
+      328 CALL                             R22 2 1
+      329 SETTABLEKS                       R22 R21 K44 ["Size"]
+      331 DUPTABLE                         R22 K95 [{"Material"}]
+      332 GETUPVAL                         R23 0
+      333 GETTABLEKS                       R23 R23 K34 ["createElement"]
+      335 GETUPVAL                         R24 9
+      336 DUPTABLE                         R25 K105 [{["CornerRadius"], ["InitialDistance"] = 4.12, ["Material"], ["MaterialPreviewGeometryType"], ["OverrideColor"], ["OverrideTransparency"], ["Size"], ["Static"] = True, ["Transparent"] = True}]
+      337 GETIMPORT                        R26 K59 [UDim.new]
+      339 LOADN                            R27 0
+      340 GETTABLEKS                       R28 R3 K60 ["Radius"]
+      342 GETTABLEKS                       R28 R28 K106 ["XSmall"]
+      344 CALL                             R26 2 1
+      345 SETTABLEKS                       R26 R25 K96 ["CornerRadius"]
+      347 SETTABLEKS                       R12 R25 K20 ["Material"]
+      349 GETUPVAL                         R26 10
+      350 GETTABLEKS                       R26 R26 K107 ["CubeCornerOn"]
+      352 SETTABLEKS                       R26 R25 K99 ["MaterialPreviewGeometryType"]
+      354 SETTABLEKS                       R13 R25 K100 ["OverrideColor"]
+      356 SETTABLEKS                       R14 R25 K101 ["OverrideTransparency"]
+      358 GETIMPORT                        R26 K109 [UDim2.fromScale]
+      360 LOADN                            R27 1
+      361 LOADN                            R28 1
+      362 CALL                             R26 2 1
+      363 SETTABLEKS                       R26 R25 K44 ["Size"]
+      365 CALL                             R23 2 1
+      366 SETTABLEKS                       R23 R22 K20 ["Material"]
+      368 CALL                             R19 3 1
+      369 JUMP                             ; [+1]
+      370 LOADNIL                          R19
+      371 SETTABLEKS                       R19 R18 K85 ["Preview"]
+      373 GETUPVAL                         R19 0
+      374 GETTABLEKS                       R19 R19 K34 ["createElement"]
+      376 GETUPVAL                         R20 11
+      377 DUPTABLE                         R21 K114 [{["LayoutOrder"], ["Text"], ["TextTruncate"], ["TextXAlignment"], ["tag"], ["testId"] = "terrain-material-picker-label"}]
+      378 MOVE                             R22 R5
+      379 CALL                             R22 0 1
+      380 SETTABLEKS                       R22 R21 K89 ["LayoutOrder"]
+      382 JUMPIFNOT                        R11 ; [+3]
+      383 GETTABLEKS                       R22 R11 K115 ["displayName"]
+      385 JUMP                             ; [+1]
+      386 LOADK                            R22 K116 [""]
+      387 SETTABLEKS                       R22 R21 K110 ["Text"]
+      389 GETIMPORT                        R22 K118 [Enum.TextTruncate.AtEnd]
+      391 SETTABLEKS                       R22 R21 K111 ["TextTruncate"]
+      393 GETIMPORT                        R22 K120 [Enum.TextXAlignment.Left]
+      395 SETTABLEKS                       R22 R21 K112 ["TextXAlignment"]
+      397 NEWTABLE                         R22 4 0
+      399 LOADB                            R23 1
+      400 SETTABLEKS                       R23 R22 K121 ["grow size-0-full text-body-small text-align-x-left text-truncate-end"]
+      402 JUMPIFNOTEQKNIL                  R11 ; [+2]
+      404 LOADB                            R23 0 +1
+      405 LOADB                            R23 1
+      406 SETTABLEKS                       R23 R22 K122 ["content-emphasis"]
+      408 JUMPIFEQKNIL                     R11 ; [+2]
+      410 LOADB                            R23 0 +1
+      411 LOADB                            R23 1
+      412 SETTABLEKS                       R23 R22 K123 ["content-muted"]
+      414 SETTABLEKS                       R22 R21 K45 ["tag"]
+      416 CALL                             R19 2 1
+      417 SETTABLEKS                       R19 R18 K86 ["Label"]
+      419 GETUPVAL                         R19 0
+      420 GETTABLEKS                       R19 R19 K34 ["createElement"]
+      422 GETUPVAL                         R20 12
+      423 DUPTABLE                         R21 K127 [{["LayoutOrder"], ["name"], ["size"], ["testId"] = "terrain-material-picker-chevron"}]
+      424 MOVE                             R22 R5
+      425 CALL                             R22 0 1
+      426 SETTABLEKS                       R22 R21 K89 ["LayoutOrder"]
+      428 GETUPVAL                         R22 3
+      429 GETTABLEKS                       R22 R22 K73 ["Enums"]
+      431 GETTABLEKS                       R22 R22 K128 ["IconName"]
+      433 GETTABLEKS                       R22 R22 K129 ["ChevronLargeDown"]
+      435 SETTABLEKS                       R22 R21 K124 ["name"]
+      437 GETUPVAL                         R22 3
+      438 GETTABLEKS                       R22 R22 K73 ["Enums"]
+      440 GETTABLEKS                       R22 R22 K130 ["IconSize"]
+      442 GETTABLEKS                       R22 R22 K106 ["XSmall"]
+      444 SETTABLEKS                       R22 R21 K125 ["size"]
+      446 CALL                             R19 2 1
+      447 SETTABLEKS                       R19 R18 K87 ["Chevron"]
+      449 CALL                             R15 3 -1
+      450 RETURN                           R15 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -436,38 +434,43 @@ MAIN:
        46 GETTABLEKS                       R7 R7 K12 ["StudioFoundation"]
        48 CALL                             R6 1 1
        49 GETIMPORT                        R7 K5 [require]
-       51 GETTABLEKS                       R8 R0 K13 ["Src"]
-       53 GETTABLEKS                       R8 R8 K14 ["Contexts"]
-       55 GETTABLEKS                       R8 R8 K15 ["TerrainMaterialCatalogContext"]
-       57 CALL                             R7 1 1
-       58 GETTABLEKS                       R8 R2 K16 ["ContextServices"]
-       60 GETTABLEKS                       R9 R6 K17 ["Util"]
-       62 GETTABLEKS                       R9 R9 K18 ["StudioUri"]
-       64 GETTABLEKS                       R10 R6 K19 ["Hooks"]
-       66 GETTABLEKS                       R10 R10 K20 ["useWidgetRef"]
-       68 GETTABLEKS                       R11 R1 K21 ["Icon"]
-       70 GETTABLEKS                       R12 R3 K22 ["Components"]
-       72 GETTABLEKS                       R12 R12 K23 ["MaterialPreview"]
-       74 GETTABLEKS                       R13 R3 K24 ["Enums"]
-       76 GETTABLEKS                       R13 R13 K25 ["MaterialPreviewGeometryType"]
-       78 GETTABLEKS                       R14 R1 K26 ["Text"]
-       80 GETTABLEKS                       R15 R1 K27 ["View"]
-       82 GETTABLEKS                       R16 R5 K28 ["createNextOrder"]
-       84 DUPCLOSURE                       R17 K29 [PROTO_0]
-       85 DUPCLOSURE                       R18 K30 [PROTO_1]
-       86 DUPCLOSURE                       R19 K31 [PROTO_2]
-       87 DUPCLOSURE                       R20 K32 [PROTO_6]
-       88 CAPTURE                          VAL R4
-       89 CAPTURE                          VAL R7
-       90 CAPTURE                          VAL R8
-       91 CAPTURE                          VAL R1
-       92 CAPTURE                          VAL R16
-       93 CAPTURE                          VAL R9
-       94 CAPTURE                          VAL R10
-       95 CAPTURE                          VAL R19
-       96 CAPTURE                          VAL R15
-       97 CAPTURE                          VAL R12
-       98 CAPTURE                          VAL R13
-       99 CAPTURE                          VAL R14
-      100 CAPTURE                          VAL R11
-      101 RETURN                           R20 1
+       51 GETTABLEKS                       R8 R0 K6 ["Packages"]
+       53 GETTABLEKS                       R8 R8 K13 ["TerrainPalette"]
+       55 CALL                             R7 1 1
+       56 GETIMPORT                        R8 K5 [require]
+       58 GETTABLEKS                       R9 R0 K14 ["Src"]
+       60 GETTABLEKS                       R9 R9 K15 ["Contexts"]
+       62 GETTABLEKS                       R9 R9 K16 ["TerrainMaterialCatalogContext"]
+       64 CALL                             R8 1 1
+       65 GETTABLEKS                       R9 R2 K17 ["ContextServices"]
+       67 GETTABLEKS                       R10 R6 K18 ["Util"]
+       69 GETTABLEKS                       R10 R10 K19 ["StudioUri"]
+       71 GETTABLEKS                       R11 R6 K20 ["Hooks"]
+       73 GETTABLEKS                       R11 R11 K21 ["useWidgetRef"]
+       75 GETTABLEKS                       R12 R1 K22 ["Icon"]
+       77 GETTABLEKS                       R13 R3 K23 ["Components"]
+       79 GETTABLEKS                       R13 R13 K24 ["MaterialPreview"]
+       81 GETTABLEKS                       R14 R3 K25 ["Enums"]
+       83 GETTABLEKS                       R14 R14 K26 ["MaterialPreviewGeometryType"]
+       85 GETTABLEKS                       R15 R1 K27 ["Text"]
+       87 GETTABLEKS                       R16 R1 K28 ["View"]
+       89 GETTABLEKS                       R17 R5 K29 ["createNextOrder"]
+       91 DUPCLOSURE                       R18 K30 [PROTO_0]
+       92 DUPCLOSURE                       R19 K31 [PROTO_1]
+       93 DUPCLOSURE                       R20 K32 [PROTO_2]
+       94 CAPTURE                          VAL R7
+       95 DUPCLOSURE                       R21 K33 [PROTO_6]
+       96 CAPTURE                          VAL R4
+       97 CAPTURE                          VAL R8
+       98 CAPTURE                          VAL R9
+       99 CAPTURE                          VAL R1
+      100 CAPTURE                          VAL R17
+      101 CAPTURE                          VAL R10
+      102 CAPTURE                          VAL R11
+      103 CAPTURE                          VAL R7
+      104 CAPTURE                          VAL R16
+      105 CAPTURE                          VAL R13
+      106 CAPTURE                          VAL R14
+      107 CAPTURE                          VAL R15
+      108 CAPTURE                          VAL R12
+      109 RETURN                           R21 1

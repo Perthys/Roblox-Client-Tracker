@@ -32,35 +32,21 @@ PROTO_1:
        13 NAMECALL                         R1 R1 K4 ["dispatch"]
        15 CALL                             R1 -1 0
        16 GETUPVAL                         R1 3
-       17 CALL                             R1 0 1
-       18 JUMPIFNOT                        R1 ; [+14]
-       19 GETUPVAL                         R1 4
-       20 GETTABLEKS                       R1 R1 K5 ["computeTranslatedErrorMessage"]
-       22 MOVE                             R2 R0
-       23 GETUPVAL                         R3 5
-       24 CALL                             R1 2 1
-       25 GETUPVAL                         R2 1
-       26 GETUPVAL                         R4 6
-       27 MOVE                             R5 R1
-       28 CALL                             R4 1 -1
-       29 NAMECALL                         R2 R2 K4 ["dispatch"]
-       31 CALL                             R2 -1 0
-       32 JUMP                             ; [+13]
-       33 MOVE                             R1 R0
-       34 JUMPIFEQKNIL                     R0 ; [+3]
-       36 JUMPIFNOTEQKS                    R0 K6 [""] ; [+2]
-       38 LOADK                            R1 K7 ["Upload failed with unknown error"]
-       39 GETUPVAL                         R2 1
-       40 GETUPVAL                         R4 6
-       41 MOVE                             R5 R1
-       42 CALL                             R4 1 -1
-       43 NAMECALL                         R2 R2 K4 ["dispatch"]
-       45 CALL                             R2 -1 0
-       46 GETUPVAL                         R1 7
-       47 GETTABLEKS                       R1 R1 K8 ["incrementUploadAssetFailure"]
-       49 GETUPVAL                         R2 8
-       50 CALL                             R1 1 0
-       51 RETURN                           R0 0
+       17 GETTABLEKS                       R1 R1 K5 ["computeTranslatedErrorMessage"]
+       19 MOVE                             R2 R0
+       20 GETUPVAL                         R3 4
+       21 CALL                             R1 2 1
+       22 GETUPVAL                         R2 1
+       23 GETUPVAL                         R4 5
+       24 MOVE                             R5 R1
+       25 CALL                             R4 1 -1
+       26 NAMECALL                         R2 R2 K4 ["dispatch"]
+       28 CALL                             R2 -1 0
+       29 GETUPVAL                         R2 6
+       30 GETTABLEKS                       R2 R2 K6 ["incrementUploadAssetFailure"]
+       32 GETUPVAL                         R3 7
+       33 CALL                             R2 1 0
+       34 RETURN                           R0 0
 
 PROTO_2:
         0 GETUPVAL                         R2 0
@@ -279,7 +265,7 @@ PROTO_4:
        44 GETUPVAL                         R6 1
        45 GETTABLEKS                       R6 R6 K14 ["assetTypeEnum"]
        47 GETIMPORT                        R7 K17 [Enum.AssetType.Model]
-       49 JUMPIFNOTEQ                      R6 R7 ; [+31]
+       49 JUMPIFNOTEQ                      R6 R7 ; [+22]
        51 DUPTABLE                         R6 K28 [{["AdditionalParameters"], ["AssetType"], ["AssetName"], ["AssetId"] = 0, ["ContentType"] = "model/x-rbxm", ["CreatorId"], ["CreatorType"], ["Description"], ["Token"] = ""}]
        52 DUPTABLE                         R7 K31 [{["PublishAsPackage"] = False}]
        53 SETTABLEKS                       R7 R6 K18 ["AdditionalParameters"]
@@ -289,32 +275,24 @@ PROTO_4:
        60 SETTABLEKS                       R0 R6 K24 ["CreatorId"]
        62 SETTABLEKS                       R1 R6 K25 ["CreatorType"]
        64 SETTABLEKS                       R3 R6 K26 ["Description"]
-       66 GETUPVAL                         R7 3
-       67 CALL                             R7 0 1
-       68 JUMPIFNOT                        R7 ; [+6]
-       69 GETUPVAL                         R9 4
-       70 MOVE                             R10 R6
-       71 NAMECALL                         R7 R5 K32 ["CreateAssetOrAssetVersionAndPollAssetWithTelemetryAsyncWithAddParamErrorJson"]
-       73 CALL                             R7 3 -1
-       74 RETURN                           R7 -1
-       75 GETUPVAL                         R9 4
-       76 MOVE                             R10 R6
-       77 NAMECALL                         R7 R5 K33 ["CreateAssetOrAssetVersionAndPollAssetWithTelemetryAsyncWithAddParam"]
-       79 CALL                             R7 3 -1
-       80 RETURN                           R7 -1
-       81 GETUPVAL                         R8 4
-       82 MOVE                             R9 R1
-       83 MOVE                             R10 R0
-       84 GETUPVAL                         R11 2
-       85 LOADN                            R12 0
-       86 MOVE                             R13 R4
-       87 MOVE                             R14 R3
-       88 LOADK                            R15 K9 [""]
-       89 LOADK                            R16 K23 ["model/x-rbxm"]
-       90 LOADN                            R17 0
-       91 NAMECALL                         R6 R5 K34 ["CreateAssetOrAssetVersionAndPollAssetWithTelemetryAsync"]
-       93 CALL                             R6 11 -1
-       94 RETURN                           R6 -1
+       66 GETUPVAL                         R9 3
+       67 MOVE                             R10 R6
+       68 NAMECALL                         R7 R5 K32 ["CreateAssetOrAssetVersionAndPollAssetWithTelemetryAsyncWithAddParamErrorJson"]
+       70 CALL                             R7 3 -1
+       71 RETURN                           R7 -1
+       72 GETUPVAL                         R8 3
+       73 MOVE                             R9 R1
+       74 MOVE                             R10 R0
+       75 GETUPVAL                         R11 2
+       76 LOADN                            R12 0
+       77 MOVE                             R13 R4
+       78 MOVE                             R14 R3
+       79 LOADK                            R15 K9 [""]
+       80 LOADK                            R16 K23 ["model/x-rbxm"]
+       81 LOADN                            R17 0
+       82 NAMECALL                         R6 R5 K33 ["CreateAssetOrAssetVersionAndPollAssetWithTelemetryAsync"]
+       84 CALL                             R6 11 -1
+       85 RETURN                           R6 -1
 
 PROTO_5:
         0 GETIMPORT                        R1 K1 [pcall]
@@ -322,19 +300,18 @@ PROTO_5:
         3 CAPTURE                          UPVAL U0
         4 CAPTURE                          UPVAL U1
         5 CAPTURE                          UPVAL U2
-        6 CAPTURE                          UPVAL U3
-        7 CAPTURE                          VAL R0
-        8 CALL                             R1 1 2
-        9 JUMPIFNOT                        R1 ; [+5]
-       10 GETUPVAL                         R3 4
-       11 MOVE                             R4 R2
-       12 LOADK                            R5 K2 [""]
-       13 CALL                             R3 2 0
-       14 RETURN                           R0 0
-       15 GETUPVAL                         R3 5
-       16 MOVE                             R4 R2
-       17 CALL                             R3 1 0
-       18 RETURN                           R0 0
+        6 CAPTURE                          VAL R0
+        7 CALL                             R1 1 2
+        8 JUMPIFNOT                        R1 ; [+5]
+        9 GETUPVAL                         R3 3
+       10 MOVE                             R4 R2
+       11 LOADK                            R5 K2 [""]
+       12 CALL                             R3 2 0
+       13 RETURN                           R0 0
+       14 GETUPVAL                         R3 4
+       15 MOVE                             R4 R2
+       16 CALL                             R3 1 0
+       17 RETURN                           R0 0
 
 PROTO_6:
         0 GETUPVAL                         R4 0
@@ -410,53 +387,51 @@ PROTO_6:
        98 CAPTURE                          UPVAL U9
        99 CAPTURE                          UPVAL U10
       100 CAPTURE                          UPVAL U11
-      101 CAPTURE                          UPVAL U12
-      102 CAPTURE                          VAL R2
-      103 NEWCLOSURE                       R9 P1
-      104 CAPTURE                          VAL R4
-      105 CAPTURE                          REF R5
-      106 CAPTURE                          UPVAL U2
-      107 CAPTURE                          UPVAL U13
-      108 CAPTURE                          UPVAL U6
-      109 CAPTURE                          VAL R0
-      110 CAPTURE                          UPVAL U7
+      101 CAPTURE                          VAL R2
+      102 NEWCLOSURE                       R9 P1
+      103 CAPTURE                          VAL R4
+      104 CAPTURE                          REF R5
+      105 CAPTURE                          UPVAL U2
+      106 CAPTURE                          UPVAL U12
+      107 CAPTURE                          UPVAL U6
+      108 CAPTURE                          VAL R0
+      109 CAPTURE                          UPVAL U7
+      110 CAPTURE                          UPVAL U10
       111 CAPTURE                          UPVAL U11
-      112 CAPTURE                          UPVAL U12
-      113 CAPTURE                          VAL R2
-      114 CAPTURE                          REF R3
+      112 CAPTURE                          VAL R2
+      113 CAPTURE                          REF R3
+      114 CAPTURE                          UPVAL U13
       115 CAPTURE                          UPVAL U14
-      116 CAPTURE                          UPVAL U15
-      117 CAPTURE                          UPVAL U9
+      116 CAPTURE                          UPVAL U8
+      117 CAPTURE                          UPVAL U15
       118 CAPTURE                          UPVAL U16
       119 CAPTURE                          UPVAL U17
       120 CAPTURE                          UPVAL U18
-      121 CAPTURE                          UPVAL U19
-      122 CAPTURE                          UPVAL U0
-      123 CAPTURE                          UPVAL U1
-      124 NEWCLOSURE                       R10 P2
-      125 CAPTURE                          UPVAL U6
-      126 CAPTURE                          VAL R0
-      127 CAPTURE                          UPVAL U0
-      128 CAPTURE                          UPVAL U1
-      129 CAPTURE                          UPVAL U11
-      130 CAPTURE                          UPVAL U7
-      131 GETUPVAL                         R11 20
-      132 GETUPVAL                         R12 2
-      133 GETTABLEKS                       R12 R12 K23 ["instances"]
-      135 GETTABLEKS                       R13 R1 K24 ["StudioAssetService"]
-      137 CALL                             R11 2 1
-      138 NEWCLOSURE                       R13 P3
-      139 CAPTURE                          UPVAL U21
-      140 CAPTURE                          UPVAL U2
-      141 CAPTURE                          VAL R2
-      142 CAPTURE                          UPVAL U8
-      143 CAPTURE                          VAL R9
-      144 CAPTURE                          VAL R8
-      145 MOVE                             R14 R10
-      146 NAMECALL                         R11 R11 K25 ["andThen"]
-      148 CALL                             R11 3 0
-      149 CLOSEUPVALS                      R3
-      150 RETURN                           R0 0
+      121 CAPTURE                          UPVAL U0
+      122 CAPTURE                          UPVAL U1
+      123 NEWCLOSURE                       R10 P2
+      124 CAPTURE                          UPVAL U6
+      125 CAPTURE                          VAL R0
+      126 CAPTURE                          UPVAL U0
+      127 CAPTURE                          UPVAL U1
+      128 CAPTURE                          UPVAL U10
+      129 CAPTURE                          UPVAL U7
+      130 GETUPVAL                         R11 19
+      131 GETUPVAL                         R12 2
+      132 GETTABLEKS                       R12 R12 K23 ["instances"]
+      134 GETTABLEKS                       R13 R1 K24 ["StudioAssetService"]
+      136 CALL                             R11 2 1
+      137 NEWCLOSURE                       R13 P3
+      138 CAPTURE                          UPVAL U20
+      139 CAPTURE                          UPVAL U2
+      140 CAPTURE                          VAL R2
+      141 CAPTURE                          VAL R9
+      142 CAPTURE                          VAL R8
+      143 MOVE                             R14 R10
+      144 NAMECALL                         R11 R11 K25 ["andThen"]
+      146 CALL                             R11 3 0
+      147 CLOSEUPVALS                      R3
+      148 RETURN                           R0 0
 
 PROTO_7:
         0 NEWCLOSURE                       R2 P0
@@ -469,8 +444,8 @@ PROTO_7:
         7 CAPTURE                          UPVAL U5
         8 CAPTURE                          UPVAL U6
         9 CAPTURE                          UPVAL U7
-       10 CAPTURE                          UPVAL U8
-       11 CAPTURE                          VAL R1
+       10 CAPTURE                          VAL R1
+       11 CAPTURE                          UPVAL U8
        12 CAPTURE                          UPVAL U9
        13 CAPTURE                          UPVAL U10
        14 CAPTURE                          UPVAL U11
@@ -481,8 +456,7 @@ PROTO_7:
        19 CAPTURE                          UPVAL U16
        20 CAPTURE                          UPVAL U17
        21 CAPTURE                          UPVAL U18
-       22 CAPTURE                          UPVAL U19
-       23 RETURN                           R2 1
+       22 RETURN                           R2 1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -568,43 +542,33 @@ MAIN:
       138 CALL                             R21 2 1
       139 GETIMPORT                        R22 K6 [require]
       141 GETTABLEKS                       R23 R1 K35 ["SharedFlags"]
-      143 GETTABLEKS                       R23 R23 K36 ["getFFlagToolboxTranslateUploadError"]
+      143 GETTABLEKS                       R23 R23 K36 ["getFFlagToolboxModelCreationWarningWindow"]
       145 CALL                             R22 1 1
       146 GETIMPORT                        R23 K6 [require]
-      148 GETTABLEKS                       R24 R1 K35 ["SharedFlags"]
-      150 GETTABLEKS                       R24 R24 K37 ["getFFlagToolboxModelCreationWarningWindow"]
-      152 CALL                             R23 1 1
-      153 GETIMPORT                        R24 K6 [require]
-      155 GETTABLEKS                       R25 R1 K38 ["reportUploadedAssetId"]
-      157 CALL                             R24 1 1
-      158 MOVE                             R26 R22
-      159 CALL                             R26 0 1
-      160 JUMPIFNOT                        R26 ; [+6]
-      161 GETIMPORT                        R25 K6 [require]
-      163 GETTABLEKS                       R26 R1 K39 ["AssetUploadUtil"]
-      165 CALL                             R25 1 1
-      166 JUMP                             ; [+1]
-      167 LOADNIL                          R25
-      168 DUPCLOSURE                       R26 K40 [PROTO_0]
-      169 DUPCLOSURE                       R27 K41 [PROTO_7]
-      170 CAPTURE                          VAL R11
-      171 CAPTURE                          VAL R4
-      172 CAPTURE                          VAL R20
-      173 CAPTURE                          VAL R21
-      174 CAPTURE                          VAL R2
-      175 CAPTURE                          VAL R3
-      176 CAPTURE                          VAL R12
-      177 CAPTURE                          VAL R22
-      178 CAPTURE                          VAL R25
-      179 CAPTURE                          VAL R10
-      180 CAPTURE                          VAL R5
-      181 CAPTURE                          VAL R6
-      182 CAPTURE                          VAL R13
-      183 CAPTURE                          VAL R23
-      184 CAPTURE                          VAL R15
-      185 CAPTURE                          VAL R24
-      186 CAPTURE                          VAL R19
-      187 CAPTURE                          VAL R16
-      188 CAPTURE                          VAL R7
-      189 CAPTURE                          VAL R8
-      190 RETURN                           R27 1
+      148 GETTABLEKS                       R24 R1 K37 ["reportUploadedAssetId"]
+      150 CALL                             R23 1 1
+      151 GETIMPORT                        R24 K6 [require]
+      153 GETTABLEKS                       R25 R1 K38 ["AssetUploadUtil"]
+      155 CALL                             R24 1 1
+      156 DUPCLOSURE                       R25 K39 [PROTO_0]
+      157 DUPCLOSURE                       R26 K40 [PROTO_7]
+      158 CAPTURE                          VAL R11
+      159 CAPTURE                          VAL R4
+      160 CAPTURE                          VAL R20
+      161 CAPTURE                          VAL R21
+      162 CAPTURE                          VAL R2
+      163 CAPTURE                          VAL R3
+      164 CAPTURE                          VAL R12
+      165 CAPTURE                          VAL R24
+      166 CAPTURE                          VAL R10
+      167 CAPTURE                          VAL R5
+      168 CAPTURE                          VAL R6
+      169 CAPTURE                          VAL R13
+      170 CAPTURE                          VAL R22
+      171 CAPTURE                          VAL R15
+      172 CAPTURE                          VAL R23
+      173 CAPTURE                          VAL R19
+      174 CAPTURE                          VAL R16
+      175 CAPTURE                          VAL R7
+      176 CAPTURE                          VAL R8
+      177 RETURN                           R26 1

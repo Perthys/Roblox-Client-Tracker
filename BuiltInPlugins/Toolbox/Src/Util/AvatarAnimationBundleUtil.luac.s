@@ -89,22 +89,14 @@ MAIN:
         3 LOADK                            R2 K2 ["Toolbox"]
         4 NAMECALL                         R0 R0 K3 ["FindFirstAncestor"]
         6 CALL                             R0 2 1
-        7 GETIMPORT                        R1 K5 [require]
-        9 GETTABLEKS                       R2 R0 K6 ["Src"]
-       11 GETTABLEKS                       R2 R2 K7 ["Flags"]
-       13 GETTABLEKS                       R2 R2 K8 ["getFFlagToolboxAnimationRemoveModelWrapper"]
-       15 CALL                             R1 1 1
-       16 NEWTABLE                         R2 4 0
-       18 DUPCLOSURE                       R3 K9 [PROTO_0]
-       19 SETTABLEKS                       R3 R2 K10 ["getBundlePartFolderNameVariants"]
-       21 DUPCLOSURE                       R3 K11 [PROTO_1]
-       22 SETTABLEKS                       R3 R2 K12 ["bundlePartContainerHasR15Anim"]
-       24 DUPCLOSURE                       R3 K13 [PROTO_2]
-       25 CAPTURE                          VAL R2
-       26 SETTABLEKS                       R3 R2 K14 ["resolveBundlePartContainer"]
-       28 MOVE                             R3 R1
-       29 CALL                             R3 0 1
-       30 JUMPIFNOT                        R3 ; [+3]
-       31 DUPCLOSURE                       R3 K15 [PROTO_3]
-       32 SETTABLEKS                       R3 R2 K16 ["transformBundleForUpload"]
-       34 RETURN                           R2 1
+        7 NEWTABLE                         R1 4 0
+        9 DUPCLOSURE                       R2 K4 [PROTO_0]
+       10 SETTABLEKS                       R2 R1 K5 ["getBundlePartFolderNameVariants"]
+       12 DUPCLOSURE                       R2 K6 [PROTO_1]
+       13 SETTABLEKS                       R2 R1 K7 ["bundlePartContainerHasR15Anim"]
+       15 DUPCLOSURE                       R2 K8 [PROTO_2]
+       16 CAPTURE                          VAL R1
+       17 SETTABLEKS                       R2 R1 K9 ["resolveBundlePartContainer"]
+       19 DUPCLOSURE                       R2 K10 [PROTO_3]
+       20 SETTABLEKS                       R2 R1 K11 ["transformBundleForUpload"]
+       22 RETURN                           R1 1

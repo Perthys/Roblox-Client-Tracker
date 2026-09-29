@@ -48,7 +48,7 @@ PROTO_2:
        24 MOVE                             R11 R0
        25 MOVE                             R12 R9
        26 CALL                             R10 2 1
-       27 JUMPIFEQKNIL                     R10 ; [+36]
+       27 JUMPIFEQKNIL                     R10 ; [+30]
        29 GETUPVAL                         R12 1
        30 GETTABLEKS                       R12 R12 K5 ["UGC_AVATAR_ANIMATIONS_PART_NAMES_TO_ASSET_TYPE"]
        32 GETTABLE                         R11 R12 R8
@@ -57,27 +57,22 @@ PROTO_2:
        36 MOVE                             R13 R11
        37 MOVE                             R14 R3
        38 CALL                             R12 2 1
-       39 JUMPIFNOT                        R12 ; [+24]
-       40 MOVE                             R12 R10
-       41 GETUPVAL                         R13 3
-       42 CALL                             R13 0 1
-       43 JUMPIFNOT                        R13 ; [+7]
-       44 LOADK                            R15 K7 ["R15Anim"]
-       45 NAMECALL                         R13 R10 K8 ["FindFirstChild"]
-       47 CALL                             R13 2 1
-       48 JUMPIFEQKNIL                     R13 ; [+2]
-       50 MOVE                             R12 R13
-       51 GETTABLE                         R13 R4 R11
-       52 JUMPIFNOTEQKNIL                  R13 ; [+4]
-       54 NEWTABLE                         R13 0 0
-       56 SETTABLE                         R13 R4 R11
-       57 FASTCALL2                        TABLE_INSERT R13 R12 ; [+5]
-       59 MOVE                             R15 R13
-       60 MOVE                             R16 R12
-       61 GETIMPORT                        R14 K11 [table.insert]
-       63 CALL                             R14 2 0
-       64 FORGLOOP                         R5 2 ; [-44]
-       66 RETURN                           R4 1
+       39 JUMPIFNOT                        R12 ; [+18]
+       40 LOADK                            R15 K7 ["R15Anim"]
+       41 NAMECALL                         R13 R10 K8 ["FindFirstChild"]
+       43 CALL                             R13 2 1
+       44 OR                               R12 R13 R10
+       45 GETTABLE                         R13 R4 R11
+       46 JUMPIFNOTEQKNIL                  R13 ; [+4]
+       48 NEWTABLE                         R13 0 0
+       50 SETTABLE                         R13 R4 R11
+       51 FASTCALL2                        TABLE_INSERT R13 R12 ; [+5]
+       53 MOVE                             R15 R13
+       54 MOVE                             R16 R12
+       55 GETIMPORT                        R14 K11 [table.insert]
+       57 CALL                             R14 2 0
+       58 FORGLOOP                         R5 2 ; [-38]
+       60 RETURN                           R4 1
 
 PROTO_3:
         0 JUMPIFNOT                        R0 ; [+2]
@@ -325,28 +320,22 @@ MAIN:
        23 GETIMPORT                        R4 K6 [require]
        25 GETTABLEKS                       R5 R1 K9 ["AvatarAnimationBundleUtil"]
        27 CALL                             R4 1 1
-       28 GETIMPORT                        R5 K6 [require]
-       30 GETTABLEKS                       R6 R0 K3 ["Src"]
-       32 GETTABLEKS                       R6 R6 K10 ["Flags"]
-       34 GETTABLEKS                       R6 R6 K11 ["getFFlagToolboxAnimationRemoveModelWrapper"]
-       36 CALL                             R5 1 1
-       37 NEWTABLE                         R6 4 0
-       39 DUPCLOSURE                       R7 K12 [PROTO_0]
-       40 DUPCLOSURE                       R8 K13 [PROTO_1]
-       41 DUPCLOSURE                       R9 K14 [PROTO_2]
-       42 CAPTURE                          VAL R3
+       28 NEWTABLE                         R5 4 0
+       30 DUPCLOSURE                       R6 K10 [PROTO_0]
+       31 DUPCLOSURE                       R7 K11 [PROTO_1]
+       32 DUPCLOSURE                       R8 K12 [PROTO_2]
+       33 CAPTURE                          VAL R3
+       34 CAPTURE                          VAL R2
+       35 CAPTURE                          VAL R4
+       36 SETTABLEKS                       R8 R5 K13 ["createAvatarAnimationsPartFolders"]
+       38 DUPCLOSURE                       R8 K14 [PROTO_3]
+       39 CAPTURE                          VAL R2
+       40 SETTABLEKS                       R8 R5 K15 ["getSubAnimationInfo"]
+       42 DUPCLOSURE                       R8 K16 [PROTO_4]
        43 CAPTURE                          VAL R2
-       44 CAPTURE                          VAL R4
-       45 CAPTURE                          VAL R5
-       46 SETTABLEKS                       R9 R6 K15 ["createAvatarAnimationsPartFolders"]
-       48 DUPCLOSURE                       R9 K16 [PROTO_3]
-       49 CAPTURE                          VAL R2
-       50 SETTABLEKS                       R9 R6 K17 ["getSubAnimationInfo"]
-       52 DUPCLOSURE                       R9 K18 [PROTO_4]
-       53 CAPTURE                          VAL R2
-       54 DUPCLOSURE                       R10 K19 [PROTO_5]
-       55 CAPTURE                          VAL R9
-       56 SETTABLEKS                       R10 R6 K20 ["createAnimationInstanceInWorkspace"]
-       58 DUPCLOSURE                       R10 K21 [PROTO_6]
-       59 SETTABLEKS                       R10 R6 K22 ["createEmoteAnimationInstanceInWorkspace"]
-       61 RETURN                           R6 1
+       44 DUPCLOSURE                       R9 K17 [PROTO_5]
+       45 CAPTURE                          VAL R8
+       46 SETTABLEKS                       R9 R5 K18 ["createAnimationInstanceInWorkspace"]
+       48 DUPCLOSURE                       R9 K19 [PROTO_6]
+       49 SETTABLEKS                       R9 R5 K20 ["createEmoteAnimationInstanceInWorkspace"]
+       51 RETURN                           R5 1

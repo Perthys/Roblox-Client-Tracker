@@ -7,30 +7,36 @@ PROTO_0:
         7 RETURN                           R0 0
 
 PROTO_1:
-        0 GETUPVAL                         R1 0
-        1 GETTABLEKS                       R1 R1 K0 ["useState"]
-        3 LOADN                            R2 1
-        4 CALL                             R1 1 2
-        5 GETUPVAL                         R3 1
-        6 NAMECALL                         R3 R3 K1 ["use"]
-        8 CALL                             R3 1 1
-        9 NAMECALL                         R3 R3 K2 ["get"]
-       11 CALL                             R3 1 1
-       12 DUPTABLE                         R4 K8 [{["default"] = False, ["currentGameId"], ["setCurrentGameId"], ["requestSaveToRoblox"]}]
-       13 SETTABLEKS                       R1 R4 K5 ["currentGameId"]
-       15 SETTABLEKS                       R2 R4 K6 ["setCurrentGameId"]
-       17 NEWCLOSURE                       R5 P0
-       18 CAPTURE                          VAL R3
-       19 CAPTURE                          UPVAL U2
-       20 SETTABLEKS                       R5 R4 K7 ["requestSaveToRoblox"]
-       22 GETUPVAL                         R5 3
-       23 GETUPVAL                         R6 4
-       24 GETTABLEKS                       R6 R6 K9 ["Provider"]
-       26 DUPTABLE                         R7 K11 [{"value"}]
-       27 SETTABLEKS                       R4 R7 K10 ["value"]
-       29 GETTABLEKS                       R8 R0 K12 ["children"]
-       31 CALL                             R5 3 -1
-       32 RETURN                           R5 -1
+        0 GETTABLEKS                       R2 R0 K0 ["initialGameIdUnknown"]
+        2 JUMPIFNOT                        R2 ; [+2]
+        3 LOADNIL                          R1
+        4 JUMP                             ; [+3]
+        5 GETTABLEKS                       R2 R0 K2 ["initialGameId"]
+        7 ORK                              R1 R2 K1 [1]
+        8 GETUPVAL                         R2 0
+        9 GETTABLEKS                       R2 R2 K3 ["useState"]
+       11 MOVE                             R3 R1
+       12 CALL                             R2 1 2
+       13 GETUPVAL                         R4 1
+       14 NAMECALL                         R4 R4 K4 ["use"]
+       16 CALL                             R4 1 1
+       17 NAMECALL                         R4 R4 K5 ["get"]
+       19 CALL                             R4 1 1
+       20 DUPTABLE                         R5 K11 [{["default"] = False, ["currentGameId"], ["setCurrentGameId"], ["requestSaveToRoblox"]}]
+       21 SETTABLEKS                       R2 R5 K8 ["currentGameId"]
+       23 SETTABLEKS                       R3 R5 K9 ["setCurrentGameId"]
+       25 NEWCLOSURE                       R6 P0
+       26 CAPTURE                          VAL R4
+       27 CAPTURE                          UPVAL U2
+       28 SETTABLEKS                       R6 R5 K10 ["requestSaveToRoblox"]
+       30 GETUPVAL                         R6 3
+       31 GETUPVAL                         R7 4
+       32 GETTABLEKS                       R7 R7 K12 ["Provider"]
+       34 DUPTABLE                         R8 K14 [{"value"}]
+       35 SETTABLEKS                       R5 R8 K13 ["value"]
+       37 GETTABLEKS                       R9 R0 K15 ["children"]
+       39 CALL                             R6 3 -1
+       40 RETURN                           R6 -1
 
 MAIN:
         0 PREPVARARGS                      0

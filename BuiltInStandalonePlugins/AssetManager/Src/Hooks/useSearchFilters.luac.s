@@ -9,72 +9,79 @@ PROTO_0:
        10 GETUPVAL                         R6 0
        11 GETTABLEKS                       R6 R6 K1 ["AssetType"]
        13 GETTABLEKS                       R6 R6 K2 ["Folder"]
-       15 JUMPIFEQ                         R5 R6 ; [+94]
-       17 DUPTABLE                         R8 K7 [{"Key", "Text", "Tooltip", "Disabled"}]
-       18 SETTABLEKS                       R5 R8 K3 ["Key"]
-       20 GETUPVAL                         R9 1
-       21 LOADK                            R11 K1 ["AssetType"]
-       22 MOVE                             R12 R5
-       23 NAMECALL                         R9 R9 K8 ["getText"]
-       25 CALL                             R9 3 1
-       26 SETTABLEKS                       R9 R8 K4 ["Text"]
-       28 GETUPVAL                         R10 0
-       29 GETTABLEKS                       R10 R10 K1 ["AssetType"]
-       31 GETTABLEKS                       R10 R10 K9 ["Place"]
-       33 JUMPIFNOTEQ                      R5 R10 ; [+13]
-       35 GETUPVAL                         R10 2
-       36 GETTABLEKS                       R10 R10 K10 ["Id"]
-       38 JUMPIFNOTEQKN                    R10 K11 [0] ; [+8]
-       40 GETUPVAL                         R9 1
-       41 LOADK                            R11 K5 ["Tooltip"]
-       42 LOADK                            R12 K12 ["NoPlacesExperienceNotPublished"]
-       43 NAMECALL                         R9 R9 K8 ["getText"]
-       45 CALL                             R9 3 1
-       46 JUMP                             ; [+29]
-       47 GETUPVAL                         R10 0
-       48 GETTABLEKS                       R10 R10 K1 ["AssetType"]
-       50 GETTABLEKS                       R10 R10 K9 ["Place"]
-       52 JUMPIFNOTEQ                      R5 R10 ; [+22]
-       54 GETUPVAL                         R10 3
-       55 GETUPVAL                         R11 0
-       56 GETTABLEKS                       R11 R11 K13 ["ScopeType"]
-       58 GETTABLEKS                       R11 R11 K14 ["Universe"]
-       60 JUMPIFEQ                         R10 R11 ; [+14]
-       62 GETUPVAL                         R9 1
-       63 LOADK                            R11 K5 ["Tooltip"]
-       64 LOADK                            R12 K15 ["NoPlacesWrongScope"]
-       65 DUPTABLE                         R13 K17 [{"experienceName"}]
-       66 GETUPVAL                         R14 2
-       67 GETTABLEKS                       R14 R14 K18 ["Name"]
-       69 SETTABLEKS                       R14 R13 K16 ["experienceName"]
-       71 NAMECALL                         R9 R9 K8 ["getText"]
-       73 CALL                             R9 4 1
-       74 JUMP                             ; [+1]
-       75 LOADNIL                          R9
-       76 SETTABLEKS                       R9 R8 K5 ["Tooltip"]
-       78 LOADB                            R9 0
-       79 GETUPVAL                         R10 0
-       80 GETTABLEKS                       R10 R10 K1 ["AssetType"]
-       82 GETTABLEKS                       R10 R10 K9 ["Place"]
-       84 JUMPIFNOTEQ                      R5 R10 ; [+17]
-       86 LOADB                            R9 1
-       87 GETUPVAL                         R10 3
-       88 GETUPVAL                         R11 0
-       89 GETTABLEKS                       R11 R11 K13 ["ScopeType"]
-       91 GETTABLEKS                       R11 R11 K14 ["Universe"]
-       93 JUMPIFNOTEQ                      R10 R11 ; [+8]
-       95 GETUPVAL                         R10 2
-       96 GETTABLEKS                       R10 R10 K10 ["Id"]
-       98 JUMPIFEQKN                       R10 K11 [0] ; [+2]
-      100 LOADB                            R9 0 +1
-      101 LOADB                            R9 1
-      102 SETTABLEKS                       R9 R8 K6 ["Disabled"]
-      104 FASTCALL2                        TABLE_INSERT R0 R8 ; [+4]
-      106 MOVE                             R7 R0
-      107 GETIMPORT                        R6 K21 [table.insert]
-      109 CALL                             R6 2 0
-      110 FORGLOOP                         R1 2 ; [-101]
-      112 RETURN                           R0 1
+       15 JUMPIFEQ                         R5 R6 ; [+104]
+       17 GETUPVAL                         R6 0
+       18 GETTABLEKS                       R6 R6 K1 ["AssetType"]
+       20 GETTABLEKS                       R6 R6 K3 ["TextDocument"]
+       22 JUMPIFNOTEQ                      R5 R6 ; [+4]
+       24 GETUPVAL                         R6 1
+       25 CALL                             R6 0 1
+       26 JUMPIFNOT                        R6 ; [+93]
+       27 DUPTABLE                         R8 K8 [{"Key", "Text", "Tooltip", "Disabled"}]
+       28 SETTABLEKS                       R5 R8 K4 ["Key"]
+       30 GETUPVAL                         R9 2
+       31 LOADK                            R11 K1 ["AssetType"]
+       32 MOVE                             R12 R5
+       33 NAMECALL                         R9 R9 K9 ["getText"]
+       35 CALL                             R9 3 1
+       36 SETTABLEKS                       R9 R8 K5 ["Text"]
+       38 GETUPVAL                         R10 0
+       39 GETTABLEKS                       R10 R10 K1 ["AssetType"]
+       41 GETTABLEKS                       R10 R10 K10 ["Place"]
+       43 JUMPIFNOTEQ                      R5 R10 ; [+13]
+       45 GETUPVAL                         R10 3
+       46 GETTABLEKS                       R10 R10 K11 ["Id"]
+       48 JUMPIFNOTEQKN                    R10 K12 [0] ; [+8]
+       50 GETUPVAL                         R9 2
+       51 LOADK                            R11 K6 ["Tooltip"]
+       52 LOADK                            R12 K13 ["NoPlacesExperienceNotPublished"]
+       53 NAMECALL                         R9 R9 K9 ["getText"]
+       55 CALL                             R9 3 1
+       56 JUMP                             ; [+29]
+       57 GETUPVAL                         R10 0
+       58 GETTABLEKS                       R10 R10 K1 ["AssetType"]
+       60 GETTABLEKS                       R10 R10 K10 ["Place"]
+       62 JUMPIFNOTEQ                      R5 R10 ; [+22]
+       64 GETUPVAL                         R10 4
+       65 GETUPVAL                         R11 0
+       66 GETTABLEKS                       R11 R11 K14 ["ScopeType"]
+       68 GETTABLEKS                       R11 R11 K15 ["Universe"]
+       70 JUMPIFEQ                         R10 R11 ; [+14]
+       72 GETUPVAL                         R9 2
+       73 LOADK                            R11 K6 ["Tooltip"]
+       74 LOADK                            R12 K16 ["NoPlacesWrongScope"]
+       75 DUPTABLE                         R13 K18 [{"experienceName"}]
+       76 GETUPVAL                         R14 3
+       77 GETTABLEKS                       R14 R14 K19 ["Name"]
+       79 SETTABLEKS                       R14 R13 K17 ["experienceName"]
+       81 NAMECALL                         R9 R9 K9 ["getText"]
+       83 CALL                             R9 4 1
+       84 JUMP                             ; [+1]
+       85 LOADNIL                          R9
+       86 SETTABLEKS                       R9 R8 K6 ["Tooltip"]
+       88 LOADB                            R9 0
+       89 GETUPVAL                         R10 0
+       90 GETTABLEKS                       R10 R10 K1 ["AssetType"]
+       92 GETTABLEKS                       R10 R10 K10 ["Place"]
+       94 JUMPIFNOTEQ                      R5 R10 ; [+17]
+       96 LOADB                            R9 1
+       97 GETUPVAL                         R10 4
+       98 GETUPVAL                         R11 0
+       99 GETTABLEKS                       R11 R11 K14 ["ScopeType"]
+      101 GETTABLEKS                       R11 R11 K15 ["Universe"]
+      103 JUMPIFNOTEQ                      R10 R11 ; [+8]
+      105 GETUPVAL                         R10 3
+      106 GETTABLEKS                       R10 R10 K11 ["Id"]
+      108 JUMPIFEQKN                       R10 K12 [0] ; [+2]
+      110 LOADB                            R9 0 +1
+      111 LOADB                            R9 1
+      112 SETTABLEKS                       R9 R8 K7 ["Disabled"]
+      114 FASTCALL2                        TABLE_INSERT R0 R8 ; [+4]
+      116 MOVE                             R7 R0
+      117 GETIMPORT                        R6 K22 [table.insert]
+      119 CALL                             R6 2 0
+      120 FORGLOOP                         R1 2 ; [-111]
+      122 RETURN                           R0 1
 
 PROTO_1:
         0 GETUPVAL                         R0 0
@@ -112,17 +119,18 @@ PROTO_1:
        50 GETTABLEKS                       R6 R6 K10 ["useMemo"]
        52 NEWCLOSURE                       R7 P0
        53 CAPTURE                          UPVAL U4
-       54 CAPTURE                          VAL R0
-       55 CAPTURE                          VAL R2
-       56 CAPTURE                          VAL R5
-       57 NEWTABLE                         R8 0 2
-       59 MOVE                             R9 R5
-       60 MOVE                             R10 R2
-       61 SETLIST                          R8 R9 2 [1]
-       63 CALL                             R6 2 1
-       64 MOVE                             R7 R4
-       65 MOVE                             R8 R6
-       66 RETURN                           R7 2
+       54 CAPTURE                          UPVAL U6
+       55 CAPTURE                          VAL R0
+       56 CAPTURE                          VAL R2
+       57 CAPTURE                          VAL R5
+       58 NEWTABLE                         R8 0 2
+       60 MOVE                             R9 R5
+       61 MOVE                             R10 R2
+       62 SETLIST                          R8 R9 2 [1]
+       64 CALL                             R6 2 1
+       65 MOVE                             R7 R4
+       66 MOVE                             R8 R6
+       67 RETURN                           R7 2
 
 MAIN:
         0 PREPVARARGS                      0
@@ -151,19 +159,25 @@ MAIN:
        40 CALL                             R6 1 1
        41 GETIMPORT                        R7 K5 [require]
        43 GETTABLEKS                       R8 R0 K8 ["Src"]
-       45 GETTABLEKS                       R8 R8 K15 ["Hooks"]
-       47 GETTABLEKS                       R8 R8 K16 ["useGameInfo"]
+       45 GETTABLEKS                       R8 R8 K15 ["Flags"]
+       47 GETTABLEKS                       R8 R8 K16 ["getFFlagAmrEnableTextDocuments"]
        49 CALL                             R7 1 1
        50 GETIMPORT                        R8 K5 [require]
        52 GETTABLEKS                       R9 R0 K8 ["Src"]
-       54 GETTABLEKS                       R9 R9 K15 ["Hooks"]
-       56 GETTABLEKS                       R9 R9 K17 ["useSearchInfo"]
+       54 GETTABLEKS                       R9 R9 K17 ["Hooks"]
+       56 GETTABLEKS                       R9 R9 K18 ["useGameInfo"]
        58 CALL                             R8 1 1
-       59 DUPCLOSURE                       R9 K18 [PROTO_1]
-       60 CAPTURE                          VAL R5
-       61 CAPTURE                          VAL R6
-       62 CAPTURE                          VAL R7
-       63 CAPTURE                          VAL R8
-       64 CAPTURE                          VAL R2
-       65 CAPTURE                          VAL R1
-       66 RETURN                           R9 1
+       59 GETIMPORT                        R9 K5 [require]
+       61 GETTABLEKS                       R10 R0 K8 ["Src"]
+       63 GETTABLEKS                       R10 R10 K17 ["Hooks"]
+       65 GETTABLEKS                       R10 R10 K19 ["useSearchInfo"]
+       67 CALL                             R9 1 1
+       68 DUPCLOSURE                       R10 K20 [PROTO_1]
+       69 CAPTURE                          VAL R5
+       70 CAPTURE                          VAL R6
+       71 CAPTURE                          VAL R8
+       72 CAPTURE                          VAL R9
+       73 CAPTURE                          VAL R2
+       74 CAPTURE                          VAL R1
+       75 CAPTURE                          VAL R7
+       76 RETURN                           R10 1

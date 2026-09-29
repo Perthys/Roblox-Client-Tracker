@@ -7,6 +7,13 @@ PROTO_0:
         6 RETURN                           R2 1
 
 PROTO_1:
+        0 LOADK                            R1 K0 ["https://create.roblox.com/dashboard/creations/store/%*/configure"]
+        1 MOVE                             R3 R0
+        2 NAMECALL                         R1 R1 K1 ["format"]
+        4 CALL                             R1 2 1
+        5 RETURN                           R1 1
+
+PROTO_2:
         0 MOVE                             R3 R0
         1 LOADNIL                          R4
         2 LOADNIL                          R5
@@ -15,7 +22,7 @@ PROTO_1:
         5 GETUPVAL                         R9 0
         6 GETTABLEKS                       R9 R9 K0 ["AssetType"]
         8 GETTABLEKS                       R9 R9 K1 ["Folder"]
-       10 JUMPIFEQ                         R8 R9 ; [+57]
+       10 JUMPIFEQ                         R8 R9 ; [+75]
        12 GETTABLE                         R8 R1 R6
        13 GETUPVAL                         R9 0
        14 GETTABLEKS                       R9 R9 K0 ["AssetType"]
@@ -48,15 +55,28 @@ PROTO_1:
        56 MOVE                             R10 R12
        57 NAMECALL                         R8 R8 K13 ["openLink"]
        59 CALL                             R8 2 0
-       60 JUMP                             ; [+7]
-       61 GETUPVAL                         R8 2
-       62 GETUPVAL                         R10 3
-       63 MOVE                             R11 R7
-       64 CALL                             R10 1 -1
-       65 NAMECALL                         R8 R8 K14 ["OpenBrowserWindow"]
-       67 CALL                             R8 -1 0
-       68 FORGLOOP                         R3 2 ; [-65]
-       70 RETURN                           R0 0
+       60 JUMP                             ; [+25]
+       61 GETTABLE                         R8 R1 R6
+       62 GETUPVAL                         R9 0
+       63 GETTABLEKS                       R9 R9 K0 ["AssetType"]
+       65 GETTABLEKS                       R9 R9 K14 ["TextDocument"]
+       67 JUMPIFNOTEQ                      R8 R9 ; [+11]
+       69 GETUPVAL                         R8 1
+       70 LOADK                            R10 K15 ["https://create.roblox.com/dashboard/creations/store/%*/configure"]
+       71 MOVE                             R12 R7
+       72 NAMECALL                         R10 R10 K12 ["format"]
+       74 CALL                             R10 2 1
+       75 NAMECALL                         R8 R8 K13 ["openLink"]
+       77 CALL                             R8 2 0
+       78 JUMP                             ; [+7]
+       79 GETUPVAL                         R8 2
+       80 GETUPVAL                         R10 3
+       81 MOVE                             R11 R7
+       82 CALL                             R10 1 -1
+       83 NAMECALL                         R8 R8 K16 ["OpenBrowserWindow"]
+       85 CALL                             R8 -1 0
+       86 FORGLOOP                         R3 2 ; [-83]
+       88 RETURN                           R0 0
 
 MAIN:
         0 PREPVARARGS                      0
@@ -86,8 +106,9 @@ MAIN:
        39 CALL                             R5 1 1
        40 DUPCLOSURE                       R6 K14 [PROTO_0]
        41 DUPCLOSURE                       R7 K15 [PROTO_1]
-       42 CAPTURE                          VAL R1
-       43 CAPTURE                          VAL R5
-       44 CAPTURE                          VAL R4
-       45 CAPTURE                          VAL R2
-       46 RETURN                           R7 1
+       42 DUPCLOSURE                       R8 K16 [PROTO_2]
+       43 CAPTURE                          VAL R1
+       44 CAPTURE                          VAL R5
+       45 CAPTURE                          VAL R4
+       46 CAPTURE                          VAL R2
+       47 RETURN                           R8 1

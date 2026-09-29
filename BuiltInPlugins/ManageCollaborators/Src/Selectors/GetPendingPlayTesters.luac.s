@@ -83,36 +83,45 @@ PROTO_1:
       105 MOVE                             R15 R0
       106 MOVE                             R16 R12
       107 CALL                             R14 2 2
-      108 OR                               R16 R14 R15
+      108 LOADB                            R16 0
       109 GETUPVAL                         R17 0
       110 GETTABLEKS                       R17 R17 K13 ["PlayTestKey"]
-      112 JUMPIFNOTEQ                      R16 R17 ; [+16]
-      114 JUMPIFEQKNIL                     R15 ; [+14]
-      116 DUPTABLE                         R19 K11 [{"Name", "Id"}]
-      117 GETTABLEKS                       R20 R13 K9 ["Name"]
-      119 SETTABLEKS                       R20 R19 K9 ["Name"]
-      121 SETTABLEKS                       R12 R19 K10 ["Id"]
-      123 FASTCALL2                        TABLE_INSERT R4 R19 ; [+4]
-      125 MOVE                             R18 R4
-      126 GETIMPORT                        R17 K16 [table.insert]
-      128 CALL                             R17 2 0
-      129 FORGLOOP                         R9 2 ; [-26]
-      131 GETIMPORT                        R9 K18 [table.sort]
-      133 MOVE                             R10 R4
-      134 DUPCLOSURE                       R11 K19 [PROTO_0]
-      135 CALL                             R9 2 0
-      136 NEWTABLE                         R9 0 0
-      138 GETIMPORT                        R10 K21 [ipairs]
-      140 MOVE                             R11 R4
-      141 CALL                             R10 1 3
-      142 FORGPREP_INEXT                   R10
-      143 GETTABLEKS                       R17 R14 K10 ["Id"]
-      145 FASTCALL2                        TABLE_INSERT R9 R17 ; [+4]
-      147 MOVE                             R16 R9
-      148 GETIMPORT                        R15 K16 [table.insert]
-      150 CALL                             R15 2 0
-      151 FORGLOOP                         R10 2 [inext] ; [-9]
-      153 RETURN                           R9 1
+      112 JUMPIFNOTEQ                      R14 R17 ; [+5]
+      114 JUMPIFNOTEQKNIL                  R15 ; [+2]
+      116 LOADB                            R16 0 +1
+      117 LOADB                            R16 1
+      118 GETUPVAL                         R18 0
+      119 GETTABLEKS                       R18 R18 K13 ["PlayTestKey"]
+      121 JUMPIFEQ                         R15 R18 ; [+2]
+      123 LOADB                            R17 0 +1
+      124 LOADB                            R17 1
+      125 JUMPIF                           R16 ; [+1]
+      126 JUMPIFNOT                        R17 ; [+13]
+      127 DUPTABLE                         R20 K11 [{"Name", "Id"}]
+      128 GETTABLEKS                       R21 R13 K9 ["Name"]
+      130 SETTABLEKS                       R21 R20 K9 ["Name"]
+      132 SETTABLEKS                       R12 R20 K10 ["Id"]
+      134 FASTCALL2                        TABLE_INSERT R4 R20 ; [+4]
+      136 MOVE                             R19 R4
+      137 GETIMPORT                        R18 K16 [table.insert]
+      139 CALL                             R18 2 0
+      140 FORGLOOP                         R9 2 ; [-37]
+      142 GETIMPORT                        R9 K18 [table.sort]
+      144 MOVE                             R10 R4
+      145 DUPCLOSURE                       R11 K19 [PROTO_0]
+      146 CALL                             R9 2 0
+      147 NEWTABLE                         R9 0 0
+      149 GETIMPORT                        R10 K21 [ipairs]
+      151 MOVE                             R11 R4
+      152 CALL                             R10 1 3
+      153 FORGPREP_INEXT                   R10
+      154 GETTABLEKS                       R17 R14 K10 ["Id"]
+      156 FASTCALL2                        TABLE_INSERT R9 R17 ; [+4]
+      158 MOVE                             R16 R9
+      159 GETIMPORT                        R15 K16 [table.insert]
+      161 CALL                             R15 2 0
+      162 FORGLOOP                         R10 2 [inext] ; [-9]
+      164 RETURN                           R9 1
 
 MAIN:
         0 PREPVARARGS                      0

@@ -203,22 +203,26 @@ MAIN:
       144 LOADK                            R14 K42 ["Plugins"]
       145 SETTABLE                         R14 R12 R13
       146 GETTABLEKS                       R13 R6 K22 ["AssetType"]
-      148 GETTABLEKS                       R13 R13 K43 ["Video"]
-      150 LOADK                            R14 K44 ["Videos"]
+      148 GETTABLEKS                       R13 R13 K43 ["TextDocument"]
+      150 LOADK                            R14 K44 ["TextDocuments"]
       151 SETTABLE                         R14 R12 R13
       152 GETTABLEKS                       R13 R6 K22 ["AssetType"]
-      154 GETTABLEKS                       R13 R13 K45 ["Folder"]
-      156 LOADK                            R14 K46 ["Folders"]
+      154 GETTABLEKS                       R13 R13 K45 ["Video"]
+      156 LOADK                            R14 K46 ["Videos"]
       157 SETTABLE                         R14 R12 R13
-      158 DUPCLOSURE                       R13 K47 [PROTO_1]
-      159 CAPTURE                          VAL R5
-      160 CAPTURE                          VAL R11
-      161 CAPTURE                          VAL R10
-      162 CAPTURE                          VAL R9
-      163 CAPTURE                          VAL R6
-      164 CAPTURE                          VAL R12
-      165 CAPTURE                          VAL R8
-      166 CAPTURE                          VAL R7
-      167 CAPTURE                          VAL R1
-      168 CAPTURE                          VAL R2
-      169 RETURN                           R13 1
+      158 GETTABLEKS                       R13 R6 K22 ["AssetType"]
+      160 GETTABLEKS                       R13 R13 K47 ["Folder"]
+      162 LOADK                            R14 K48 ["Folders"]
+      163 SETTABLE                         R14 R12 R13
+      164 DUPCLOSURE                       R13 K49 [PROTO_1]
+      165 CAPTURE                          VAL R5
+      166 CAPTURE                          VAL R11
+      167 CAPTURE                          VAL R10
+      168 CAPTURE                          VAL R9
+      169 CAPTURE                          VAL R6
+      170 CAPTURE                          VAL R12
+      171 CAPTURE                          VAL R8
+      172 CAPTURE                          VAL R7
+      173 CAPTURE                          VAL R1
+      174 CAPTURE                          VAL R2
+      175 RETURN                           R13 1

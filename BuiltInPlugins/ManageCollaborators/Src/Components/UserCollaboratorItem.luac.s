@@ -1,77 +1,32 @@
 PROTO_0:
         0 GETTABLEKS                       R2 R0 K0 ["props"]
         2 GETTABLEKS                       R3 R2 K1 ["Localization"]
-        4 GETUPVAL                         R4 0
-        5 GETTABLEKS                       R4 R4 K2 ["fflagAddPlayTesterPermission"]
-        7 JUMPIFNOT                        R4 ; [+60]
-        8 GETTABLEKS                       R4 R2 K3 ["OwnerType"]
-       10 GETIMPORT                        R5 K7 [Enum.CreatorType.User]
-       12 JUMPIFNOTEQ                      R4 R5 ; [+55]
-       14 GETUPVAL                         R4 1
-       15 GETTABLEKS                       R4 R4 K8 ["PlayKey"]
-       17 JUMPIFEQ                         R1 R4 ; [+11]
-       19 GETUPVAL                         R4 1
-       20 GETTABLEKS                       R4 R4 K9 ["PlayTestKey"]
-       22 JUMPIFEQ                         R1 R4 ; [+6]
-       24 GETUPVAL                         R4 1
-       25 GETTABLEKS                       R4 R4 K10 ["EditKey"]
-       27 JUMPIFNOTEQ                      R1 R4 ; [+40]
-       29 GETUPVAL                         R5 2
-       30 GETTABLE                         R4 R5 R1
-       31 GETUPVAL                         R6 1
-       32 GETTABLEKS                       R6 R6 K10 ["EditKey"]
-       34 JUMPIFNOTEQ                      R1 R6 ; [+2]
-       36 LOADB                            R5 0 +1
-       37 LOADB                            R5 1
-       38 JUMPIFNOT                        R5 ; [+2]
-       39 LOADK                            R6 K11 ["AudiencePermissionLabels"]
-       40 JUMP                             ; [+1]
-       41 LOADK                            R6 K12 ["PermissionLabels"]
-       42 GETUPVAL                         R8 1
-       43 GETTABLEKS                       R8 R8 K9 ["PlayTestKey"]
-       45 JUMPIFNOTEQ                      R1 R8 ; [+3]
-       47 LOADK                            R7 K13 ["AudiencePermissionDescriptions"]
-       48 JUMP                             ; [+1]
-       49 LOADK                            R7 K14 ["PermissionDescriptions"]
-       50 DUPTABLE                         R8 K18 [{"Key", "Display", "Description"}]
-       51 SETTABLEKS                       R1 R8 K15 ["Key"]
-       53 MOVE                             R11 R6
-       54 MOVE                             R12 R4
-       55 NAMECALL                         R9 R3 K19 ["getText"]
-       57 CALL                             R9 3 1
-       58 SETTABLEKS                       R9 R8 K16 ["Display"]
-       60 MOVE                             R11 R7
-       61 MOVE                             R12 R4
-       62 NAMECALL                         R9 R3 K19 ["getText"]
-       64 CALL                             R9 3 1
-       65 SETTABLEKS                       R9 R8 K17 ["Description"]
-       67 RETURN                           R8 1
-       68 GETUPVAL                         R5 2
-       69 GETTABLE                         R4 R5 R1
-       70 JUMPIF                           R4 ; [+11]
-       71 DUPTABLE                         R4 K21 [{["Key"], ["Display"], ["Description"] = "Error: This permission is not recognized."}]
-       72 SETTABLEKS                       R1 R4 K15 ["Key"]
-       74 FASTCALL1                        TOSTRING R1 ; [+3]
-       75 MOVE                             R6 R1
-       76 GETIMPORT                        R5 K23 [tostring]
-       78 CALL                             R5 1 1
-       79 SETTABLEKS                       R5 R4 K16 ["Display"]
-       81 RETURN                           R4 1
-       82 DUPTABLE                         R4 K18 [{"Key", "Display", "Description"}]
-       83 SETTABLEKS                       R1 R4 K15 ["Key"]
-       85 LOADK                            R7 K12 ["PermissionLabels"]
-       86 GETUPVAL                         R9 2
-       87 GETTABLE                         R8 R9 R1
-       88 NAMECALL                         R5 R3 K19 ["getText"]
-       90 CALL                             R5 3 1
-       91 SETTABLEKS                       R5 R4 K16 ["Display"]
-       93 LOADK                            R7 K14 ["PermissionDescriptions"]
-       94 GETUPVAL                         R9 2
-       95 GETTABLE                         R8 R9 R1
-       96 NAMECALL                         R5 R3 K19 ["getText"]
-       98 CALL                             R5 3 1
-       99 SETTABLEKS                       R5 R4 K17 ["Description"]
-      101 RETURN                           R4 1
+        4 GETUPVAL                         R5 0
+        5 GETTABLE                         R4 R5 R1
+        6 JUMPIF                           R4 ; [+11]
+        7 DUPTABLE                         R4 K6 [{["Key"], ["Display"], ["Description"] = "Error: This permission is not recognized."}]
+        8 SETTABLEKS                       R1 R4 K2 ["Key"]
+       10 FASTCALL1                        TOSTRING R1 ; [+3]
+       11 MOVE                             R6 R1
+       12 GETIMPORT                        R5 K8 [tostring]
+       14 CALL                             R5 1 1
+       15 SETTABLEKS                       R5 R4 K3 ["Display"]
+       17 RETURN                           R4 1
+       18 DUPTABLE                         R4 K9 [{"Key", "Display", "Description"}]
+       19 SETTABLEKS                       R1 R4 K2 ["Key"]
+       21 LOADK                            R7 K10 ["PermissionLabels"]
+       22 GETUPVAL                         R9 0
+       23 GETTABLE                         R8 R9 R1
+       24 NAMECALL                         R5 R3 K11 ["getText"]
+       26 CALL                             R5 3 1
+       27 SETTABLEKS                       R5 R4 K3 ["Display"]
+       29 LOADK                            R7 K12 ["PermissionDescriptions"]
+       30 GETUPVAL                         R9 0
+       31 GETTABLE                         R8 R9 R1
+       32 NAMECALL                         R5 R3 K11 ["getText"]
+       34 CALL                             R5 3 1
+       35 SETTABLEKS                       R5 R4 K4 ["Description"]
+       37 RETURN                           R4 1
 
 PROTO_1:
         0 GETTABLEKS                       R1 R0 K0 ["props"]
@@ -101,31 +56,18 @@ PROTO_1:
        39 NAMECALL                         R7 R0 K6 ["DEPRECATED_getPermissionForKey"]
        41 CALL                             R7 2 -1
        42 SETLIST                          R6 R7 -1 [1]
-       44 GETUPVAL                         R7 1
-       45 GETTABLEKS                       R7 R7 K9 ["fflagAddPlayTesterPermission"]
-       47 JUMPIFNOT                        R7 ; [+15]
-       48 GETIMPORT                        R7 K13 [Enum.CreatorType.User]
-       50 JUMPIFNOTEQ                      R4 R7 ; [+12]
-       52 MOVE                             R8 R6
-       53 GETUPVAL                         R11 0
-       54 GETTABLEKS                       R11 R11 K14 ["PlayTestKey"]
-       56 NAMECALL                         R9 R0 K6 ["DEPRECATED_getPermissionForKey"]
-       58 CALL                             R9 2 -1
-       59 FASTCALL                         TABLE_INSERT ; [+2]
-       60 GETIMPORT                        R7 K17 [table.insert]
-       62 CALL                             R7 -1 0
-       63 GETIMPORT                        R7 K13 [Enum.CreatorType.User]
-       65 JUMPIFNOTEQ                      R4 R7 ; [+13]
-       67 JUMPIFNOT                        R3 ; [+11]
-       68 MOVE                             R8 R6
-       69 GETUPVAL                         R11 0
-       70 GETTABLEKS                       R11 R11 K18 ["EditKey"]
-       72 NAMECALL                         R9 R0 K6 ["DEPRECATED_getPermissionForKey"]
-       74 CALL                             R9 2 -1
-       75 FASTCALL                         TABLE_INSERT ; [+2]
-       76 GETIMPORT                        R7 K17 [table.insert]
-       78 CALL                             R7 -1 0
-       79 RETURN                           R6 1
+       44 GETIMPORT                        R7 K12 [Enum.CreatorType.User]
+       46 JUMPIFNOTEQ                      R4 R7 ; [+13]
+       48 JUMPIFNOT                        R3 ; [+11]
+       49 MOVE                             R8 R6
+       50 GETUPVAL                         R11 0
+       51 GETTABLEKS                       R11 R11 K13 ["EditKey"]
+       53 NAMECALL                         R9 R0 K6 ["DEPRECATED_getPermissionForKey"]
+       55 CALL                             R9 2 -1
+       56 FASTCALL                         TABLE_INSERT ; [+2]
+       57 GETIMPORT                        R7 K16 [table.insert]
+       59 CALL                             R7 -1 0
+       60 RETURN                           R6 1
 
 PROTO_2:
         0 GETTABLEKS                       R1 R0 K0 ["props"]
@@ -588,49 +530,46 @@ MAIN:
       210 LOADK                            R26 K54 ["Admin"]
       211 SETTABLE                         R26 R24 R25
       212 DUPCLOSURE                       R25 K55 [PROTO_0]
-      213 CAPTURE                          VAL R4
-      214 CAPTURE                          VAL R7
-      215 CAPTURE                          VAL R24
-      216 SETTABLEKS                       R25 R18 K56 ["DEPRECATED_getPermissionForKey"]
-      218 DUPCLOSURE                       R25 K57 [PROTO_1]
-      219 CAPTURE                          VAL R7
-      220 CAPTURE                          VAL R4
-      221 SETTABLEKS                       R25 R18 K58 ["getAvailablePermissions"]
-      223 DUPCLOSURE                       R25 K59 [PROTO_2]
-      224 CAPTURE                          VAL R7
-      225 SETTABLEKS                       R25 R18 K60 ["getCurrentPermission"]
-      227 DUPCLOSURE                       R25 K61 [PROTO_5]
-      228 CAPTURE                          VAL R4
-      229 CAPTURE                          VAL R0
-      230 CAPTURE                          VAL R22
-      231 CAPTURE                          VAL R23
-      232 CAPTURE                          VAL R2
-      233 CAPTURE                          VAL R9
-      234 CAPTURE                          VAL R8
-      235 CAPTURE                          VAL R21
-      236 SETTABLEKS                       R25 R18 K62 ["render"]
-      238 MOVE                             R25 R6
-      239 DUPTABLE                         R26 K64 [{"Localization"}]
-      240 GETTABLEKS                       R27 R5 K63 ["Localization"]
-      242 SETTABLEKS                       R27 R26 K63 ["Localization"]
-      244 CALL                             R25 1 1
-      245 MOVE                             R26 R18
-      246 CALL                             R25 1 1
-      247 MOVE                             R18 R25
-      248 GETTABLEKS                       R25 R3 K65 ["connect"]
-      250 DUPCLOSURE                       R26 K66 [PROTO_6]
-      251 CAPTURE                          VAL R10
-      252 CAPTURE                          VAL R11
-      253 CAPTURE                          VAL R12
-      254 CAPTURE                          VAL R13
-      255 DUPCLOSURE                       R27 K67 [PROTO_12]
-      256 CAPTURE                          VAL R14
-      257 CAPTURE                          VAL R15
-      258 CAPTURE                          VAL R16
-      259 CAPTURE                          VAL R17
-      260 CAPTURE                          VAL R19
-      261 CALL                             R25 2 1
-      262 MOVE                             R26 R18
-      263 CALL                             R25 1 1
-      264 MOVE                             R18 R25
-      265 RETURN                           R18 1
+      213 CAPTURE                          VAL R24
+      214 SETTABLEKS                       R25 R18 K56 ["DEPRECATED_getPermissionForKey"]
+      216 DUPCLOSURE                       R25 K57 [PROTO_1]
+      217 CAPTURE                          VAL R7
+      218 SETTABLEKS                       R25 R18 K58 ["getAvailablePermissions"]
+      220 DUPCLOSURE                       R25 K59 [PROTO_2]
+      221 CAPTURE                          VAL R7
+      222 SETTABLEKS                       R25 R18 K60 ["getCurrentPermission"]
+      224 DUPCLOSURE                       R25 K61 [PROTO_5]
+      225 CAPTURE                          VAL R4
+      226 CAPTURE                          VAL R0
+      227 CAPTURE                          VAL R22
+      228 CAPTURE                          VAL R23
+      229 CAPTURE                          VAL R2
+      230 CAPTURE                          VAL R9
+      231 CAPTURE                          VAL R8
+      232 CAPTURE                          VAL R21
+      233 SETTABLEKS                       R25 R18 K62 ["render"]
+      235 MOVE                             R25 R6
+      236 DUPTABLE                         R26 K64 [{"Localization"}]
+      237 GETTABLEKS                       R27 R5 K63 ["Localization"]
+      239 SETTABLEKS                       R27 R26 K63 ["Localization"]
+      241 CALL                             R25 1 1
+      242 MOVE                             R26 R18
+      243 CALL                             R25 1 1
+      244 MOVE                             R18 R25
+      245 GETTABLEKS                       R25 R3 K65 ["connect"]
+      247 DUPCLOSURE                       R26 K66 [PROTO_6]
+      248 CAPTURE                          VAL R10
+      249 CAPTURE                          VAL R11
+      250 CAPTURE                          VAL R12
+      251 CAPTURE                          VAL R13
+      252 DUPCLOSURE                       R27 K67 [PROTO_12]
+      253 CAPTURE                          VAL R14
+      254 CAPTURE                          VAL R15
+      255 CAPTURE                          VAL R16
+      256 CAPTURE                          VAL R17
+      257 CAPTURE                          VAL R19
+      258 CALL                             R25 2 1
+      259 MOVE                             R26 R18
+      260 CALL                             R25 1 1
+      261 MOVE                             R18 R25
+      262 RETURN                           R18 1

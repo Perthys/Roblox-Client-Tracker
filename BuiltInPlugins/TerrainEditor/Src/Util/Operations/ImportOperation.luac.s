@@ -96,19 +96,50 @@ PROTO_1:
       115 JUMP                             ; [+1]
       116 LOADK                            R12 K24 [""]
       117 GETUPVAL                         R13 6
-      118 MOVE                             R15 R9
-      119 MOVE                             R16 R10
-      120 MOVE                             R17 R12
-      121 GETUPVAL                         R19 5
-      122 GETTABLEKS                       R19 R19 K25 ["DefaultMaterial"]
-      124 GETTABLE                         R18 R1 R19
-      125 NAMECALL                         R13 R13 K26 ["ImportHeightmap"]
-      127 CALL                             R13 5 0
-      128 GETUPVAL                         R13 0
-      129 GETTABLEKS                       R13 R13 K19 ["State"]
-      131 LOADN                            R14 1
-      132 SETTABLEKS                       R14 R13 K20 ["Progress"]
-      134 RETURN                           R0 0
+      118 CALL                             R13 0 1
+      119 JUMPIFNOT                        R13 ; [+36]
+      120 GETUPVAL                         R14 5
+      121 GETTABLEKS                       R14 R14 K25 ["DefaultMaterialSlot"]
+      123 GETTABLE                         R13 R1 R14
+      124 FASTCALL1                        TYPEOF R13 ; [+3]
+      125 MOVE                             R15 R13
+      126 GETIMPORT                        R14 K27 [typeof]
+      128 CALL                             R14 1 1
+      129 JUMPIFNOTEQKS                    R14 K28 ["number"] ; [+10]
+      131 GETUPVAL                         R14 7
+      132 GETTABLEKS                       R14 R14 K29 ["isSlotValid"]
+      134 GETUPVAL                         R15 8
+      135 GETTABLEKS                       R15 R15 K30 ["Terrain"]
+      137 MOVE                             R16 R13
+      138 CALL                             R14 2 1
+      139 JUMPIF                           R14 ; [+7]
+      140 GETUPVAL                         R14 0
+      141 GETTABLEKS                       R14 R14 K19 ["State"]
+      143 LOADN                            R15 1
+      144 SETTABLEKS                       R15 R14 K20 ["Progress"]
+      146 RETURN                           R0 0
+      147 GETUPVAL                         R14 9
+      148 MOVE                             R16 R9
+      149 MOVE                             R17 R10
+      150 MOVE                             R18 R12
+      151 MOVE                             R19 R13
+      152 NAMECALL                         R14 R14 K31 ["ImportHeightmapWithMaterialSlotsAsync"]
+      154 CALL                             R14 5 0
+      155 JUMP                             ; [+11]
+      156 GETUPVAL                         R13 9
+      157 MOVE                             R15 R9
+      158 MOVE                             R16 R10
+      159 MOVE                             R17 R12
+      160 GETUPVAL                         R19 5
+      161 GETTABLEKS                       R19 R19 K32 ["DefaultMaterial"]
+      163 GETTABLE                         R18 R1 R19
+      164 NAMECALL                         R13 R13 K33 ["ImportHeightmap"]
+      166 CALL                             R13 5 0
+      167 GETUPVAL                         R13 0
+      168 GETTABLEKS                       R13 R13 K19 ["State"]
+      170 LOADN                            R14 1
+      171 SETTABLEKS                       R14 R13 K20 ["Progress"]
+      173 RETURN                           R0 0
 
 PROTO_2:
         0 GETUPVAL                         R2 0
@@ -129,28 +160,31 @@ PROTO_3:
         5 CAPTURE                          UPVAL U3
         6 CAPTURE                          UPVAL U4
         7 CAPTURE                          UPVAL U5
-        8 DUPTABLE                         R3 K4 [{[1] = 0, ["ProgressUpdateConnection"], ["StartTime"]}]
-        9 GETUPVAL                         R4 5
-       10 GETTABLEKS                       R4 R4 K5 ["ProgressUpdate"]
-       12 NEWCLOSURE                       R6 P1
-       13 CAPTURE                          VAL R1
-       14 CAPTURE                          VAL R0
-       15 NAMECALL                         R4 R4 K6 ["Connect"]
-       17 CALL                             R4 2 1
-       18 SETTABLEKS                       R4 R3 K2 ["ProgressUpdateConnection"]
-       20 GETIMPORT                        R4 K9 [os.clock]
-       22 CALL                             R4 0 1
-       23 SETTABLEKS                       R4 R3 K3 ["StartTime"]
-       25 SETTABLEKS                       R3 R0 K10 ["State"]
-       27 GETTABLEKS                       R3 R0 K11 ["Synchronous"]
-       29 JUMPIFNOT                        R3 ; [+3]
-       30 MOVE                             R3 R2
-       31 CALL                             R3 0 0
-       32 RETURN                           R0 0
-       33 GETIMPORT                        R3 K14 [task.spawn]
-       35 MOVE                             R4 R2
-       36 CALL                             R3 1 0
-       37 RETURN                           R0 0
+        8 CAPTURE                          UPVAL U6
+        9 CAPTURE                          UPVAL U7
+       10 CAPTURE                          UPVAL U8
+       11 DUPTABLE                         R3 K4 [{[1] = 0, ["ProgressUpdateConnection"], ["StartTime"]}]
+       12 GETUPVAL                         R4 8
+       13 GETTABLEKS                       R4 R4 K5 ["ProgressUpdate"]
+       15 NEWCLOSURE                       R6 P1
+       16 CAPTURE                          VAL R1
+       17 CAPTURE                          VAL R0
+       18 NAMECALL                         R4 R4 K6 ["Connect"]
+       20 CALL                             R4 2 1
+       21 SETTABLEKS                       R4 R3 K2 ["ProgressUpdateConnection"]
+       23 GETIMPORT                        R4 K9 [os.clock]
+       25 CALL                             R4 0 1
+       26 SETTABLEKS                       R4 R3 K3 ["StartTime"]
+       28 SETTABLEKS                       R3 R0 K10 ["State"]
+       30 GETTABLEKS                       R3 R0 K11 ["Synchronous"]
+       32 JUMPIFNOT                        R3 ; [+3]
+       33 MOVE                             R3 R2
+       34 CALL                             R3 0 0
+       35 RETURN                           R0 0
+       36 GETIMPORT                        R3 K14 [task.spawn]
+       38 MOVE                             R4 R2
+       39 CALL                             R3 1 0
+       40 RETURN                           R0 0
 
 PROTO_4:
         0 GETTABLEKS                       R2 R0 K0 ["State"]
@@ -228,39 +262,45 @@ PROTO_8:
        58 RETURN                           R0 0
 
 PROTO_9:
-        0 DUPCLOSURE                       R3 K0 [PROTO_3]
-        1 CAPTURE                          UPVAL U0
-        2 CAPTURE                          UPVAL U1
-        3 CAPTURE                          UPVAL U2
-        4 CAPTURE                          UPVAL U3
-        5 CAPTURE                          UPVAL U4
-        6 CAPTURE                          UPVAL U5
-        7 DUPCLOSURE                       R4 K1 [PROTO_4]
-        8 DUPCLOSURE                       R5 K2 [PROTO_5]
-        9 CAPTURE                          UPVAL U5
-       10 DUPCLOSURE                       R6 K3 [PROTO_6]
-       11 CAPTURE                          UPVAL U5
-       12 DUPCLOSURE                       R7 K4 [PROTO_7]
-       13 CAPTURE                          UPVAL U5
-       14 NEWCLOSURE                       R8 P5
-       15 CAPTURE                          UPVAL U0
-       16 CAPTURE                          UPVAL U1
-       17 CAPTURE                          UPVAL U6
-       18 CAPTURE                          UPVAL U7
-       19 CAPTURE                          VAL R2
-       20 GETUPVAL                         R9 8
-       21 GETTABLEKS                       R9 R9 K5 ["new"]
-       23 DUPTABLE                         R10 K17 [{["AllowPause"] = True, ["AllowCancel"] = True, ["Description"], ["Name"], ["OnCancel"], ["OnFinish"], ["OnPause"], ["OnResume"], ["OnStart"], ["OnStep"]}]
-       24 SETTABLEKS                       R1 R10 K9 ["Description"]
-       26 SETTABLEKS                       R0 R10 K10 ["Name"]
-       28 SETTABLEKS                       R5 R10 K11 ["OnCancel"]
-       30 SETTABLEKS                       R8 R10 K12 ["OnFinish"]
-       32 SETTABLEKS                       R6 R10 K13 ["OnPause"]
-       34 SETTABLEKS                       R7 R10 K14 ["OnResume"]
-       36 SETTABLEKS                       R3 R10 K15 ["OnStart"]
-       38 SETTABLEKS                       R4 R10 K16 ["OnStep"]
-       40 CALL                             R9 1 -1
-       41 RETURN                           R9 -1
+        0 MOVE                             R4 R3
+        1 JUMPIF                           R4 ; [+1]
+        2 GETUPVAL                         R4 0
+        3 NEWCLOSURE                       R5 P0
+        4 CAPTURE                          UPVAL U1
+        5 CAPTURE                          UPVAL U2
+        6 CAPTURE                          UPVAL U3
+        7 CAPTURE                          UPVAL U4
+        8 CAPTURE                          UPVAL U5
+        9 CAPTURE                          UPVAL U6
+       10 CAPTURE                          UPVAL U7
+       11 CAPTURE                          VAL R2
+       12 CAPTURE                          VAL R4
+       13 DUPCLOSURE                       R6 K0 [PROTO_4]
+       14 NEWCLOSURE                       R7 P2
+       15 CAPTURE                          VAL R4
+       16 NEWCLOSURE                       R8 P3
+       17 CAPTURE                          VAL R4
+       18 NEWCLOSURE                       R9 P4
+       19 CAPTURE                          VAL R4
+       20 NEWCLOSURE                       R10 P5
+       21 CAPTURE                          UPVAL U1
+       22 CAPTURE                          UPVAL U2
+       23 CAPTURE                          UPVAL U8
+       24 CAPTURE                          UPVAL U9
+       25 CAPTURE                          VAL R2
+       26 GETUPVAL                         R11 10
+       27 GETTABLEKS                       R11 R11 K1 ["new"]
+       29 DUPTABLE                         R12 K13 [{["AllowPause"] = True, ["AllowCancel"] = True, ["Description"], ["Name"], ["OnCancel"], ["OnFinish"], ["OnPause"], ["OnResume"], ["OnStart"], ["OnStep"]}]
+       30 SETTABLEKS                       R1 R12 K5 ["Description"]
+       32 SETTABLEKS                       R0 R12 K6 ["Name"]
+       34 SETTABLEKS                       R7 R12 K7 ["OnCancel"]
+       36 SETTABLEKS                       R10 R12 K8 ["OnFinish"]
+       38 SETTABLEKS                       R8 R12 K9 ["OnPause"]
+       40 SETTABLEKS                       R9 R12 K10 ["OnResume"]
+       42 SETTABLEKS                       R5 R12 K11 ["OnStart"]
+       44 SETTABLEKS                       R6 R12 K12 ["OnStep"]
+       46 CALL                             R11 1 -1
+       47 RETURN                           R11 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -300,15 +340,25 @@ MAIN:
        59 GETIMPORT                        R12 K5 [require]
        61 GETTABLEKS                       R13 R10 K23 ["ConvertTransformToRegion"]
        63 CALL                             R12 1 1
-       64 DUPCLOSURE                       R13 K24 [PROTO_0]
-       65 DUPCLOSURE                       R14 K25 [PROTO_9]
-       66 CAPTURE                          VAL R4
-       67 CAPTURE                          VAL R6
-       68 CAPTURE                          VAL R12
-       69 CAPTURE                          VAL R9
-       70 CAPTURE                          VAL R5
-       71 CAPTURE                          VAL R2
-       72 CAPTURE                          VAL R8
-       73 CAPTURE                          VAL R11
-       74 CAPTURE                          VAL R1
-       75 RETURN                           R14 1
+       64 GETIMPORT                        R13 K5 [require]
+       66 GETTABLEKS                       R14 R10 K24 ["TerrainVoxelChannels"]
+       68 CALL                             R13 1 1
+       69 GETIMPORT                        R14 K5 [require]
+       71 GETTABLEKS                       R15 R0 K6 ["Src"]
+       73 GETTABLEKS                       R15 R15 K25 ["Flags"]
+       75 GETTABLEKS                       R15 R15 K26 ["getFFlagEnableTerrainPalette"]
+       77 CALL                             R14 1 1
+       78 DUPCLOSURE                       R15 K27 [PROTO_0]
+       79 DUPCLOSURE                       R16 K28 [PROTO_9]
+       80 CAPTURE                          VAL R2
+       81 CAPTURE                          VAL R4
+       82 CAPTURE                          VAL R6
+       83 CAPTURE                          VAL R12
+       84 CAPTURE                          VAL R9
+       85 CAPTURE                          VAL R5
+       86 CAPTURE                          VAL R14
+       87 CAPTURE                          VAL R13
+       88 CAPTURE                          VAL R8
+       89 CAPTURE                          VAL R11
+       90 CAPTURE                          VAL R1
+       91 RETURN                           R16 1

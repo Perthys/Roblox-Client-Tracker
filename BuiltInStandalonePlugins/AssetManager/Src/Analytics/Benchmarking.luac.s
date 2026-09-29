@@ -36,46 +36,47 @@ PROTO_3:
         0 MULK                             R3 R1 K0 [1000]
         1 GETUPVAL                         R4 0
         2 CALL                             R4 0 1
-        3 JUMPIFNOT                        R4 ; [+20]
+        3 JUMPIFNOT                        R4 ; [+21]
         4 GETUPVAL                         R4 1
-        5 JUMPIFNOT                        R4 ; [+9]
+        5 JUMPIFNOT                        R4 ; [+10]
         6 GETIMPORT                        R4 K2 [print]
-        8 LOADK                            R5 K3 ["[SKIPPED DUE TO LOCAL BUILD] AssetManager Stat: %*"]
+        8 LOADK                            R5 K3 ["[SKIPPED DUE TO LOCAL BUILD] AssetManager Stat: %*, durationMs: %*"]
         9 MOVE                             R7 R0
-       10 NAMECALL                         R5 R5 K4 ["format"]
-       12 CALL                             R5 2 1
-       13 CALL                             R4 1 0
-       14 JUMP                             ; [+9]
-       15 GETIMPORT                        R4 K2 [print]
-       17 LOADK                            R5 K5 ["Sending AssetManager Stat, Event: %*, durationMs: %*"]
-       18 MOVE                             R7 R0
-       19 MOVE                             R8 R3
-       20 NAMECALL                         R5 R5 K4 ["format"]
-       22 CALL                             R5 3 1
-       23 CALL                             R4 1 0
-       24 GETUPVAL                         R4 1
-       25 JUMPIF                           R4 ; [+27]
-       26 GETUPVAL                         R4 2
-       27 GETTABLEKS                       R4 R4 K6 ["join"]
-       29 GETUPVAL                         R5 3
-       30 GETTABLEKS                       R5 R5 K7 ["ASSETMANAGER_STAT_CONFIG"]
-       32 DUPTABLE                         R6 K9 [{"eventName"}]
-       33 LOADK                            R7 K10 ["%*%*"]
-       34 GETUPVAL                         R9 3
-       35 GETTABLEKS                       R9 R9 K11 ["ASSETMANAGER_STAT_PREFIX"]
-       37 MOVE                             R10 R0
-       38 NAMECALL                         R7 R7 K4 ["format"]
-       40 CALL                             R7 3 1
-       41 SETTABLEKS                       R7 R6 K8 ["eventName"]
-       43 CALL                             R4 2 1
-       44 GETUPVAL                         R5 4
-       45 MOVE                             R7 R4
-       46 DUPTABLE                         R8 K13 [{"customFields"}]
-       47 SETTABLEKS                       R2 R8 K12 ["customFields"]
-       49 MOVE                             R9 R3
-       50 NAMECALL                         R5 R5 K14 ["LogStat"]
-       52 CALL                             R5 4 0
-       53 RETURN                           R0 0
+       10 MOVE                             R8 R3
+       11 NAMECALL                         R5 R5 K4 ["format"]
+       13 CALL                             R5 3 1
+       14 CALL                             R4 1 0
+       15 JUMP                             ; [+9]
+       16 GETIMPORT                        R4 K2 [print]
+       18 LOADK                            R5 K5 ["Sending AssetManager Stat, Event: %*, durationMs: %*"]
+       19 MOVE                             R7 R0
+       20 MOVE                             R8 R3
+       21 NAMECALL                         R5 R5 K4 ["format"]
+       23 CALL                             R5 3 1
+       24 CALL                             R4 1 0
+       25 GETUPVAL                         R4 1
+       26 JUMPIF                           R4 ; [+27]
+       27 GETUPVAL                         R4 2
+       28 GETTABLEKS                       R4 R4 K6 ["join"]
+       30 GETUPVAL                         R5 3
+       31 GETTABLEKS                       R5 R5 K7 ["ASSETMANAGER_STAT_CONFIG"]
+       33 DUPTABLE                         R6 K9 [{"eventName"}]
+       34 LOADK                            R7 K10 ["%*%*"]
+       35 GETUPVAL                         R9 3
+       36 GETTABLEKS                       R9 R9 K11 ["ASSETMANAGER_STAT_PREFIX"]
+       38 MOVE                             R10 R0
+       39 NAMECALL                         R7 R7 K4 ["format"]
+       41 CALL                             R7 3 1
+       42 SETTABLEKS                       R7 R6 K8 ["eventName"]
+       44 CALL                             R4 2 1
+       45 GETUPVAL                         R5 4
+       46 MOVE                             R7 R4
+       47 DUPTABLE                         R8 K13 [{"customFields"}]
+       48 SETTABLEKS                       R2 R8 K12 ["customFields"]
+       50 MOVE                             R9 R3
+       51 NAMECALL                         R5 R5 K14 ["LogStat"]
+       53 CALL                             R5 4 0
+       54 RETURN                           R0 0
 
 PROTO_4:
         0 GETUPVAL                         R4 0

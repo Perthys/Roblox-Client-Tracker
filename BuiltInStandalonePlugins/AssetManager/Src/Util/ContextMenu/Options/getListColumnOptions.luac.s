@@ -98,32 +98,36 @@ MAIN:
        44 LOADB                            R6 1
        45 SETTABLE                         R6 R4 R5
        46 GETTABLEKS                       R5 R1 K12 ["AssetInfoField"]
-       48 GETTABLEKS                       R5 R5 K15 ["IsPackage"]
+       48 GETTABLEKS                       R5 R5 K15 ["DraftStatus"]
        50 LOADB                            R6 1
        51 SETTABLE                         R6 R4 R5
        52 GETTABLEKS                       R5 R1 K12 ["AssetInfoField"]
-       54 GETTABLEKS                       R5 R5 K16 ["Archived"]
+       54 GETTABLEKS                       R5 R5 K16 ["IsPackage"]
        56 LOADB                            R6 1
        57 SETTABLE                         R6 R4 R5
        58 GETTABLEKS                       R5 R1 K12 ["AssetInfoField"]
-       60 GETTABLEKS                       R5 R5 K17 ["Path"]
+       60 GETTABLEKS                       R5 R5 K17 ["Archived"]
        62 LOADB                            R6 1
        63 SETTABLE                         R6 R4 R5
        64 GETTABLEKS                       R5 R1 K12 ["AssetInfoField"]
-       66 GETTABLEKS                       R5 R5 K18 ["SearchRank"]
+       66 GETTABLEKS                       R5 R5 K18 ["Path"]
        68 LOADB                            R6 1
        69 SETTABLE                         R6 R4 R5
-       70 MOVE                             R5 R3
-       71 CALL                             R5 0 1
-       72 JUMPIF                           R5 ; [+6]
-       73 GETTABLEKS                       R5 R1 K12 ["AssetInfoField"]
-       75 GETTABLEKS                       R5 R5 K19 ["VersionNumber"]
-       77 LOADB                            R6 1
-       78 SETTABLE                         R6 R4 R5
-       79 DUPCLOSURE                       R5 K20 [PROTO_0]
-       80 CAPTURE                          VAL R4
-       81 DUPCLOSURE                       R6 K21 [PROTO_4]
-       82 CAPTURE                          VAL R1
-       83 CAPTURE                          VAL R4
-       84 CAPTURE                          VAL R2
-       85 RETURN                           R6 1
+       70 GETTABLEKS                       R5 R1 K12 ["AssetInfoField"]
+       72 GETTABLEKS                       R5 R5 K19 ["SearchRank"]
+       74 LOADB                            R6 1
+       75 SETTABLE                         R6 R4 R5
+       76 MOVE                             R5 R3
+       77 CALL                             R5 0 1
+       78 JUMPIF                           R5 ; [+6]
+       79 GETTABLEKS                       R5 R1 K12 ["AssetInfoField"]
+       81 GETTABLEKS                       R5 R5 K20 ["VersionNumber"]
+       83 LOADB                            R6 1
+       84 SETTABLE                         R6 R4 R5
+       85 DUPCLOSURE                       R5 K21 [PROTO_0]
+       86 CAPTURE                          VAL R4
+       87 DUPCLOSURE                       R6 K22 [PROTO_4]
+       88 CAPTURE                          VAL R1
+       89 CAPTURE                          VAL R4
+       90 CAPTURE                          VAL R2
+       91 RETURN                           R6 1

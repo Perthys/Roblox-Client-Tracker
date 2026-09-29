@@ -65,7 +65,14 @@ PROTO_4:
         1 MOVE                             R3 R0
         2 MOVE                             R4 R1
         3 CALL                             R2 2 0
-        4 RETURN                           R0 0
+        4 GETUPVAL                         R2 1
+        5 CALL                             R2 0 1
+        6 JUMPIFNOT                        R2 ; [+4]
+        7 GETUPVAL                         R2 2
+        8 MOVE                             R3 R0
+        9 MOVE                             R4 R1
+       10 CALL                             R2 2 0
+       11 RETURN                           R0 0
 
 PROTO_5:
         0 GETUPVAL                         R3 0
@@ -94,13 +101,15 @@ PROTO_5:
        30 GETTABLEKS                       R6 R6 K4 ["showBoundingBoxes"]
        32 DUPCLOSURE                       R7 K5 [PROTO_4]
        33 CAPTURE                          UPVAL U4
-       34 NAMECALL                         R4 R0 K1 ["OnInvoke"]
-       36 CALL                             R4 3 1
-       37 CALL                             R3 1 0
-       38 GETUPVAL                         R3 5
-       39 MOVE                             R4 R0
-       40 CALL                             R3 1 0
-       41 RETURN                           R0 0
+       34 CAPTURE                          UPVAL U5
+       35 CAPTURE                          UPVAL U6
+       36 NAMECALL                         R4 R0 K1 ["OnInvoke"]
+       38 CALL                             R4 3 1
+       39 CALL                             R3 1 0
+       40 GETUPVAL                         R3 7
+       41 MOVE                             R4 R0
+       42 CALL                             R3 1 0
+       43 RETURN                           R0 0
 
 MAIN:
         0 PREPVARARGS                      0
@@ -124,42 +133,55 @@ MAIN:
        31 GETTABLEKS                       R4 R0 K6 ["Src"]
        33 GETTABLEKS                       R4 R4 K7 ["Util"]
        35 GETTABLEKS                       R4 R4 K12 ["AvatarPreview"]
-       37 GETTABLEKS                       R4 R4 K13 ["insertDefaultAvatarPreviews"]
+       37 GETTABLEKS                       R4 R4 K13 ["applyRemovalHighlights"]
        39 CALL                             R3 1 1
        40 GETIMPORT                        R4 K5 [require]
        42 GETTABLEKS                       R5 R0 K6 ["Src"]
-       44 GETTABLEKS                       R5 R5 K7 ["Util"]
-       46 GETTABLEKS                       R5 R5 K14 ["InvokeKeys"]
+       44 GETTABLEKS                       R5 R5 K14 ["Flags"]
+       46 GETTABLEKS                       R5 R5 K15 ["getFFlagAvatarSettingsPreviewRemovalHighlight"]
        48 CALL                             R4 1 1
        49 GETIMPORT                        R5 K5 [require]
        51 GETTABLEKS                       R6 R0 K6 ["Src"]
        53 GETTABLEKS                       R6 R6 K7 ["Util"]
-       55 GETTABLEKS                       R6 R6 K9 ["BridgingFiles"]
-       57 GETTABLEKS                       R6 R6 K10 ["AssetDmFiles"]
-       59 GETTABLEKS                       R6 R6 K15 ["onCurrentSettingPageChanged"]
-       61 CALL                             R5 1 1
-       62 GETIMPORT                        R6 K5 [require]
-       64 GETTABLEKS                       R7 R0 K6 ["Src"]
-       66 GETTABLEKS                       R7 R7 K7 ["Util"]
-       68 GETTABLEKS                       R7 R7 K12 ["AvatarPreview"]
-       70 GETTABLEKS                       R7 R7 K16 ["previewFolderUtils"]
-       72 CALL                             R6 1 1
-       73 GETIMPORT                        R7 K5 [require]
-       75 GETTABLEKS                       R8 R0 K6 ["Src"]
-       77 GETTABLEKS                       R8 R8 K7 ["Util"]
-       79 GETTABLEKS                       R8 R8 K12 ["AvatarPreview"]
-       81 GETTABLEKS                       R8 R8 K17 ["showBounds"]
-       83 CALL                             R7 1 1
-       84 DUPCLOSURE                       R8 K18 [PROTO_2]
-       85 CAPTURE                          VAL R4
-       86 CAPTURE                          VAL R6
-       87 CAPTURE                          VAL R3
-       88 CAPTURE                          VAL R2
-       89 DUPCLOSURE                       R9 K19 [PROTO_5]
-       90 CAPTURE                          VAL R4
-       91 CAPTURE                          VAL R5
-       92 CAPTURE                          VAL R2
-       93 CAPTURE                          VAL R6
-       94 CAPTURE                          VAL R7
-       95 CAPTURE                          VAL R8
-       96 RETURN                           R9 1
+       55 GETTABLEKS                       R6 R6 K12 ["AvatarPreview"]
+       57 GETTABLEKS                       R6 R6 K16 ["insertDefaultAvatarPreviews"]
+       59 CALL                             R5 1 1
+       60 GETIMPORT                        R6 K5 [require]
+       62 GETTABLEKS                       R7 R0 K6 ["Src"]
+       64 GETTABLEKS                       R7 R7 K7 ["Util"]
+       66 GETTABLEKS                       R7 R7 K17 ["InvokeKeys"]
+       68 CALL                             R6 1 1
+       69 GETIMPORT                        R7 K5 [require]
+       71 GETTABLEKS                       R8 R0 K6 ["Src"]
+       73 GETTABLEKS                       R8 R8 K7 ["Util"]
+       75 GETTABLEKS                       R8 R8 K9 ["BridgingFiles"]
+       77 GETTABLEKS                       R8 R8 K10 ["AssetDmFiles"]
+       79 GETTABLEKS                       R8 R8 K18 ["onCurrentSettingPageChanged"]
+       81 CALL                             R7 1 1
+       82 GETIMPORT                        R8 K5 [require]
+       84 GETTABLEKS                       R9 R0 K6 ["Src"]
+       86 GETTABLEKS                       R9 R9 K7 ["Util"]
+       88 GETTABLEKS                       R9 R9 K12 ["AvatarPreview"]
+       90 GETTABLEKS                       R9 R9 K19 ["previewFolderUtils"]
+       92 CALL                             R8 1 1
+       93 GETIMPORT                        R9 K5 [require]
+       95 GETTABLEKS                       R10 R0 K6 ["Src"]
+       97 GETTABLEKS                       R10 R10 K7 ["Util"]
+       99 GETTABLEKS                       R10 R10 K12 ["AvatarPreview"]
+      101 GETTABLEKS                       R10 R10 K20 ["showBounds"]
+      103 CALL                             R9 1 1
+      104 DUPCLOSURE                       R10 K21 [PROTO_2]
+      105 CAPTURE                          VAL R6
+      106 CAPTURE                          VAL R8
+      107 CAPTURE                          VAL R5
+      108 CAPTURE                          VAL R2
+      109 DUPCLOSURE                       R11 K22 [PROTO_5]
+      110 CAPTURE                          VAL R6
+      111 CAPTURE                          VAL R7
+      112 CAPTURE                          VAL R2
+      113 CAPTURE                          VAL R8
+      114 CAPTURE                          VAL R9
+      115 CAPTURE                          VAL R4
+      116 CAPTURE                          VAL R3
+      117 CAPTURE                          VAL R10
+      118 RETURN                           R11 1

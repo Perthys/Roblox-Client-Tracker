@@ -31,29 +31,31 @@ PROTO_2:
         5 NEWCLOSURE                       R3 P1
         6 CAPTURE                          VAL R0
         7 CALL                             R2 1 1
-        8 DUPTABLE                         R3 K5 [{"entry", "isSelected", "layoutOrder", "onActivated", "onSecondaryActivated"}]
+        8 DUPTABLE                         R3 K6 [{"entry", "isDisabled", "isSelected", "layoutOrder", "onActivated", "onSecondaryActivated"}]
         9 GETTABLEKS                       R4 R0 K0 ["entry"]
        11 SETTABLEKS                       R4 R3 K0 ["entry"]
-       13 GETTABLEKS                       R4 R0 K1 ["isSelected"]
-       15 SETTABLEKS                       R4 R3 K1 ["isSelected"]
-       17 GETTABLEKS                       R4 R0 K2 ["layoutOrder"]
-       19 SETTABLEKS                       R4 R3 K2 ["layoutOrder"]
-       21 SETTABLEKS                       R1 R3 K3 ["onActivated"]
-       23 SETTABLEKS                       R2 R3 K4 ["onSecondaryActivated"]
-       25 GETTABLEKS                       R5 R0 K6 ["viewType"]
-       27 JUMPIFNOTEQKS                    R5 K7 ["grid"] ; [+8]
-       29 GETUPVAL                         R4 1
-       30 GETTABLEKS                       R4 R4 K8 ["createElement"]
-       32 GETUPVAL                         R5 2
-       33 MOVE                             R6 R3
-       34 CALL                             R4 2 1
-       35 RETURN                           R4 1
-       36 GETUPVAL                         R4 1
-       37 GETTABLEKS                       R4 R4 K8 ["createElement"]
-       39 GETUPVAL                         R5 3
-       40 MOVE                             R6 R3
-       41 CALL                             R4 2 1
-       42 RETURN                           R4 1
+       13 GETTABLEKS                       R4 R0 K1 ["isDisabled"]
+       15 SETTABLEKS                       R4 R3 K1 ["isDisabled"]
+       17 GETTABLEKS                       R4 R0 K2 ["isSelected"]
+       19 SETTABLEKS                       R4 R3 K2 ["isSelected"]
+       21 GETTABLEKS                       R4 R0 K3 ["layoutOrder"]
+       23 SETTABLEKS                       R4 R3 K3 ["layoutOrder"]
+       25 SETTABLEKS                       R1 R3 K4 ["onActivated"]
+       27 SETTABLEKS                       R2 R3 K5 ["onSecondaryActivated"]
+       29 GETTABLEKS                       R5 R0 K7 ["viewType"]
+       31 JUMPIFNOTEQKS                    R5 K8 ["grid"] ; [+8]
+       33 GETUPVAL                         R4 1
+       34 GETTABLEKS                       R4 R4 K9 ["createElement"]
+       36 GETUPVAL                         R5 2
+       37 MOVE                             R6 R3
+       38 CALL                             R4 2 1
+       39 RETURN                           R4 1
+       40 GETUPVAL                         R4 1
+       41 GETTABLEKS                       R4 R4 K9 ["createElement"]
+       43 GETUPVAL                         R5 3
+       44 MOVE                             R6 R3
+       45 CALL                             R4 2 1
+       46 RETURN                           R4 1
 
 MAIN:
         0 PREPVARARGS                      0

@@ -48,22 +48,15 @@ MAIN:
        83 GETTABLEKS                       R10 R10 K8 ["Reducers"]
        85 GETTABLEKS                       R10 R10 K16 ["EditAsset"]
        87 CALL                             R9 1 1
-       88 GETIMPORT                        R10 K4 [require]
-       90 GETTABLEKS                       R11 R0 K17 ["Pages"]
-       92 GETTABLEKS                       R11 R11 K18 ["AvatarPage"]
-       94 GETTABLEKS                       R11 R11 K8 ["Reducers"]
-       96 GETTABLEKS                       R11 R11 K19 ["MorpherEditorRoot"]
-       98 CALL                             R10 1 1
-       99 GETTABLEKS                       R11 R1 K20 ["combineReducers"]
-      101 DUPTABLE                         R12 K22 [{"Settings", "Status", "MorpherEditorRoot", "PageLoadState", "PageSaveState", "Metadata", "GameOwnerMetadata", "EditAsset", "ComponentLoadState"}]
-      102 SETTABLEKS                       R6 R12 K13 ["Settings"]
-      104 SETTABLEKS                       R7 R12 K14 ["Status"]
-      106 SETTABLEKS                       R10 R12 K19 ["MorpherEditorRoot"]
-      108 SETTABLEKS                       R4 R12 K11 ["PageLoadState"]
-      110 SETTABLEKS                       R5 R12 K12 ["PageSaveState"]
-      112 SETTABLEKS                       R2 R12 K21 ["Metadata"]
-      114 SETTABLEKS                       R3 R12 K10 ["GameOwnerMetadata"]
-      116 SETTABLEKS                       R9 R12 K16 ["EditAsset"]
-      118 SETTABLEKS                       R8 R12 K15 ["ComponentLoadState"]
-      120 CALL                             R11 1 -1
-      121 RETURN                           R11 -1
+       88 GETTABLEKS                       R10 R1 K17 ["combineReducers"]
+       90 DUPTABLE                         R11 K19 [{"Settings", "Status", "PageLoadState", "PageSaveState", "Metadata", "GameOwnerMetadata", "EditAsset", "ComponentLoadState"}]
+       91 SETTABLEKS                       R6 R11 K13 ["Settings"]
+       93 SETTABLEKS                       R7 R11 K14 ["Status"]
+       95 SETTABLEKS                       R4 R11 K11 ["PageLoadState"]
+       97 SETTABLEKS                       R5 R11 K12 ["PageSaveState"]
+       99 SETTABLEKS                       R2 R11 K18 ["Metadata"]
+      101 SETTABLEKS                       R3 R11 K10 ["GameOwnerMetadata"]
+      103 SETTABLEKS                       R9 R11 K16 ["EditAsset"]
+      105 SETTABLEKS                       R8 R11 K15 ["ComponentLoadState"]
+      107 CALL                             R10 1 -1
+      108 RETURN                           R10 -1

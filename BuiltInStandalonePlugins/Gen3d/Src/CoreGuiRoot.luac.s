@@ -127,42 +127,49 @@ PROTO_4:
       107 GETUPVAL                         R15 12
       108 DUPTABLE                         R16 K21 [{"onStyleSheetChange", "plugin"}]
       109 SETTABLEKS                       R7 R16 K19 ["onStyleSheetChange"]
-      111 SETTABLEKS                       R1 R16 K20 ["plugin"]
-      113 DUPTABLE                         R17 K23 [{"LocalizationProvider"}]
-      114 GETUPVAL                         R18 1
-      115 GETTABLEKS                       R18 R18 K14 ["createElement"]
-      117 GETUPVAL                         R19 13
-      118 GETTABLEKS                       R19 R19 K24 ["Provider"]
-      120 DUPTABLE                         R20 K26 [{"localization"}]
-      121 GETUPVAL                         R21 14
-      122 SETTABLEKS                       R21 R20 K25 ["localization"]
-      124 DUPTABLE                         R21 K28 [{"ViewModelProvider"}]
-      125 GETUPVAL                         R22 1
-      126 GETTABLEKS                       R22 R22 K14 ["createElement"]
-      128 GETUPVAL                         R23 15
-      129 GETTABLEKS                       R23 R23 K24 ["Provider"]
-      131 DUPTABLE                         R24 K30 [{"value"}]
-      132 GETTABLEKS                       R25 R5 K29 ["value"]
-      134 SETTABLEKS                       R25 R24 K29 ["value"]
-      136 DUPTABLE                         R25 K32 [{"ToggleProvider"}]
-      137 GETUPVAL                         R26 1
-      138 GETTABLEKS                       R26 R26 K14 ["createElement"]
-      140 GETUPVAL                         R27 16
-      141 GETTABLEKS                       R27 R27 K24 ["Provider"]
-      143 DUPTABLE                         R28 K30 [{"value"}]
-      144 SETTABLEKS                       R9 R28 K29 ["value"]
-      146 DUPTABLE                         R29 K34 [{"Popover"}]
-      147 SETTABLEKS                       R10 R29 K33 ["Popover"]
-      149 CALL                             R26 3 1
-      150 SETTABLEKS                       R26 R25 K31 ["ToggleProvider"]
-      152 CALL                             R22 3 1
-      153 SETTABLEKS                       R22 R21 K27 ["ViewModelProvider"]
-      155 CALL                             R18 3 1
-      156 SETTABLEKS                       R18 R17 K22 ["LocalizationProvider"]
-      158 CALL                             R14 3 1
-      159 SETTABLEKS                       R14 R13 K17 ["FoundationProvider"]
-      161 CALL                             R11 2 -1
-      162 RETURN                           R11 -1
+      111 GETUPVAL                         R18 13
+      112 GETTABLEKS                       R18 R18 K22 ["getFFlagGen3dSkipFoundationPanelPrewarm"]
+      114 CALL                             R18 0 1
+      115 JUMPIFNOT                        R18 ; [+2]
+      116 LOADNIL                          R17
+      117 JUMP                             ; [+1]
+      118 MOVE                             R17 R1
+      119 SETTABLEKS                       R17 R16 K20 ["plugin"]
+      121 DUPTABLE                         R17 K24 [{"LocalizationProvider"}]
+      122 GETUPVAL                         R18 1
+      123 GETTABLEKS                       R18 R18 K14 ["createElement"]
+      125 GETUPVAL                         R19 14
+      126 GETTABLEKS                       R19 R19 K25 ["Provider"]
+      128 DUPTABLE                         R20 K27 [{"localization"}]
+      129 GETUPVAL                         R21 15
+      130 SETTABLEKS                       R21 R20 K26 ["localization"]
+      132 DUPTABLE                         R21 K29 [{"ViewModelProvider"}]
+      133 GETUPVAL                         R22 1
+      134 GETTABLEKS                       R22 R22 K14 ["createElement"]
+      136 GETUPVAL                         R23 16
+      137 GETTABLEKS                       R23 R23 K25 ["Provider"]
+      139 DUPTABLE                         R24 K31 [{"value"}]
+      140 GETTABLEKS                       R25 R5 K30 ["value"]
+      142 SETTABLEKS                       R25 R24 K30 ["value"]
+      144 DUPTABLE                         R25 K33 [{"ToggleProvider"}]
+      145 GETUPVAL                         R26 1
+      146 GETTABLEKS                       R26 R26 K14 ["createElement"]
+      148 GETUPVAL                         R27 17
+      149 GETTABLEKS                       R27 R27 K25 ["Provider"]
+      151 DUPTABLE                         R28 K31 [{"value"}]
+      152 SETTABLEKS                       R9 R28 K30 ["value"]
+      154 DUPTABLE                         R29 K35 [{"Popover"}]
+      155 SETTABLEKS                       R10 R29 K34 ["Popover"]
+      157 CALL                             R26 3 1
+      158 SETTABLEKS                       R26 R25 K32 ["ToggleProvider"]
+      160 CALL                             R22 3 1
+      161 SETTABLEKS                       R22 R21 K28 ["ViewModelProvider"]
+      163 CALL                             R18 3 1
+      164 SETTABLEKS                       R18 R17 K23 ["LocalizationProvider"]
+      166 CALL                             R14 3 1
+      167 SETTABLEKS                       R14 R13 K17 ["FoundationProvider"]
+      169 CALL                             R11 2 -1
+      170 RETURN                           R11 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -226,34 +233,40 @@ MAIN:
       106 GETTABLEKS                       R19 R19 K31 ["CoreGuiComponents"]
       108 GETTABLEKS                       R19 R19 K32 ["GenerationPopover"]
       110 CALL                             R18 1 1
-      111 GETTABLEKS                       R19 R6 K13 ["Localization"]
-      113 GETTABLEKS                       R19 R19 K33 ["new"]
-      115 DUPTABLE                         R20 K37 [{["stringResourceTable"], ["translationResourceTable"], ["pluginName"] = "Gen3d"}]
-      116 SETTABLEKS                       R12 R20 K34 ["stringResourceTable"]
-      118 SETTABLEKS                       R13 R20 K35 ["translationResourceTable"]
-      120 CALL                             R19 1 1
-      121 GETTABLEKS                       R20 R5 K13 ["Localization"]
-      123 GETTABLEKS                       R20 R20 K33 ["new"]
-      125 DUPTABLE                         R21 K37 [{["stringResourceTable"], ["translationResourceTable"], ["pluginName"] = "Gen3d"}]
-      126 SETTABLEKS                       R12 R21 K34 ["stringResourceTable"]
-      128 SETTABLEKS                       R13 R21 K35 ["translationResourceTable"]
-      130 CALL                             R20 1 1
-      131 DUPCLOSURE                       R21 K38 [PROTO_4]
-      132 CAPTURE                          VAL R17
-      133 CAPTURE                          VAL R1
-      134 CAPTURE                          VAL R3
-      135 CAPTURE                          VAL R11
-      136 CAPTURE                          VAL R16
-      137 CAPTURE                          VAL R18
-      138 CAPTURE                          VAL R6
-      139 CAPTURE                          VAL R7
-      140 CAPTURE                          VAL R8
-      141 CAPTURE                          VAL R9
-      142 CAPTURE                          VAL R19
-      143 CAPTURE                          VAL R10
-      144 CAPTURE                          VAL R4
-      145 CAPTURE                          VAL R5
-      146 CAPTURE                          VAL R20
-      147 CAPTURE                          VAL R14
-      148 CAPTURE                          VAL R15
-      149 RETURN                           R21 1
+      111 GETIMPORT                        R19 K5 [require]
+      113 GETTABLEKS                       R20 R0 K33 ["Bin"]
+      115 GETTABLEKS                       R20 R20 K34 ["Common"]
+      117 GETTABLEKS                       R20 R20 K35 ["defineLuaFlags"]
+      119 CALL                             R19 1 1
+      120 GETTABLEKS                       R20 R6 K13 ["Localization"]
+      122 GETTABLEKS                       R20 R20 K36 ["new"]
+      124 DUPTABLE                         R21 K40 [{["stringResourceTable"], ["translationResourceTable"], ["pluginName"] = "Gen3d"}]
+      125 SETTABLEKS                       R12 R21 K37 ["stringResourceTable"]
+      127 SETTABLEKS                       R13 R21 K38 ["translationResourceTable"]
+      129 CALL                             R20 1 1
+      130 GETTABLEKS                       R21 R5 K13 ["Localization"]
+      132 GETTABLEKS                       R21 R21 K36 ["new"]
+      134 DUPTABLE                         R22 K40 [{["stringResourceTable"], ["translationResourceTable"], ["pluginName"] = "Gen3d"}]
+      135 SETTABLEKS                       R12 R22 K37 ["stringResourceTable"]
+      137 SETTABLEKS                       R13 R22 K38 ["translationResourceTable"]
+      139 CALL                             R21 1 1
+      140 DUPCLOSURE                       R22 K41 [PROTO_4]
+      141 CAPTURE                          VAL R17
+      142 CAPTURE                          VAL R1
+      143 CAPTURE                          VAL R3
+      144 CAPTURE                          VAL R11
+      145 CAPTURE                          VAL R16
+      146 CAPTURE                          VAL R18
+      147 CAPTURE                          VAL R6
+      148 CAPTURE                          VAL R7
+      149 CAPTURE                          VAL R8
+      150 CAPTURE                          VAL R9
+      151 CAPTURE                          VAL R20
+      152 CAPTURE                          VAL R10
+      153 CAPTURE                          VAL R4
+      154 CAPTURE                          VAL R19
+      155 CAPTURE                          VAL R5
+      156 CAPTURE                          VAL R21
+      157 CAPTURE                          VAL R14
+      158 CAPTURE                          VAL R15
+      159 RETURN                           R22 1

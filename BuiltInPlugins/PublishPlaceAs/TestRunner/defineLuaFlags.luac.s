@@ -26,9 +26,19 @@ MAIN:
        33 NAMECALL                         R0 R0 K6 ["DefineFastFlag"]
        35 CALL                             R0 3 0
        36 GETIMPORT                        R0 K1 [game]
-       38 LOADK                            R2 K11 ["StudioPublishEligibilityBannerLink"]
-       39 LOADK                            R3 K12 ["https://create.roblox.com/settings/eligibility/public-publish"]
-       40 NAMECALL                         R0 R0 K4 ["DefineFastString"]
+       38 LOADK                            R2 K11 ["StudioUnifiedPublishActionIxpEnabled"]
+       39 LOADB                            R3 0
+       40 NAMECALL                         R0 R0 K6 ["DefineFastFlag"]
        42 CALL                             R0 3 0
-       43 LOADNIL                          R0
-       44 RETURN                           R0 1
+       43 GETIMPORT                        R0 K1 [game]
+       45 LOADK                            R2 K12 ["StudioUnifiedPublishActionIxpLayer"]
+       46 LOADK                            R3 K13 [""]
+       47 NAMECALL                         R0 R0 K4 ["DefineFastString"]
+       49 CALL                             R0 3 0
+       50 GETIMPORT                        R0 K1 [game]
+       52 LOADK                            R2 K14 ["StudioPublishEligibilityBannerLink"]
+       53 LOADK                            R3 K15 ["https://create.roblox.com/settings/eligibility/public-publish"]
+       54 NAMECALL                         R0 R0 K4 ["DefineFastString"]
+       56 CALL                             R0 3 0
+       57 LOADNIL                          R0
+       58 RETURN                           R0 1

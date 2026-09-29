@@ -3442,108 +3442,105 @@ PROTO_184:
       398 DUPCLOSURE                       R13 K98 [PROTO_159]
       399 CAPTURE                          UPVAL U22
       400 SETTABLEKS                       R13 R2 K99 ["getUserId"]
-      402 GETUPVAL                         R13 3
-      403 GETTABLEKS                       R13 R13 K100 ["FFlagAssistantAssetSearchInsertTool"]
-      405 JUMPIFNOT                        R13 ; [+32]
-      406 NAMECALL                         R13 R1 K50 ["IsHost"]
-      408 CALL                             R13 1 1
-      409 JUMPIFNOT                        R13 ; [+20]
-      410 LOADK                            R15 K101 ["GameId"]
-      411 GETIMPORT                        R16 K36 [game]
-      413 GETTABLEKS                       R16 R16 K101 ["GameId"]
-      415 NAMECALL                         R13 R0 K102 ["SetItem"]
-      417 CALL                             R13 3 0
-      418 GETIMPORT                        R13 K36 [game]
-      420 LOADK                            R15 K101 ["GameId"]
-      421 NAMECALL                         R13 R13 K103 ["GetPropertyChangedSignal"]
-      423 CALL                             R13 2 1
-      424 NEWCLOSURE                       R15 P37
-      425 CAPTURE                          VAL R0
-      426 NAMECALL                         R13 R13 K104 ["Connect"]
-      428 CALL                             R13 2 0
-      429 JUMP                             ; [+8]
-      430 NAMECALL                         R13 R1 K44 ["IsGuest"]
-      432 CALL                             R13 1 1
-      433 JUMPIFNOT                        R13 ; [+4]
-      434 NEWCLOSURE                       R13 P38
-      435 CAPTURE                          VAL R0
-      436 SETTABLEKS                       R13 R2 K105 ["getGameId"]
-      438 DUPCLOSURE                       R13 K106 [PROTO_163]
-      439 CAPTURE                          UPVAL U30
-      440 SETTABLEKS                       R13 R2 K107 ["startStopPlayAsync"]
-      442 DUPCLOSURE                       R13 K108 [PROTO_165]
-      443 CAPTURE                          UPVAL U31
-      444 SETTABLEKS                       R13 R2 K109 ["subscribeOutput"]
-      446 DUPCLOSURE                       R13 K110 [PROTO_166]
-      447 CAPTURE                          UPVAL U32
-      448 SETTABLEKS                       R13 R2 K111 ["subscribeGameLoaded"]
-      450 DUPCLOSURE                       R13 K112 [PROTO_167]
-      451 CAPTURE                          UPVAL U33
-      452 SETTABLEKS                       R13 R2 K113 ["subscribeGameStopped"]
-      454 DUPCLOSURE                       R13 K114 [PROTO_168]
+      402 NAMECALL                         R13 R1 K50 ["IsHost"]
+      404 CALL                             R13 1 1
+      405 JUMPIFNOT                        R13 ; [+20]
+      406 LOADK                            R15 K100 ["GameId"]
+      407 GETIMPORT                        R16 K36 [game]
+      409 GETTABLEKS                       R16 R16 K100 ["GameId"]
+      411 NAMECALL                         R13 R0 K101 ["SetItem"]
+      413 CALL                             R13 3 0
+      414 GETIMPORT                        R13 K36 [game]
+      416 LOADK                            R15 K100 ["GameId"]
+      417 NAMECALL                         R13 R13 K102 ["GetPropertyChangedSignal"]
+      419 CALL                             R13 2 1
+      420 NEWCLOSURE                       R15 P37
+      421 CAPTURE                          VAL R0
+      422 NAMECALL                         R13 R13 K103 ["Connect"]
+      424 CALL                             R13 2 0
+      425 JUMP                             ; [+8]
+      426 NAMECALL                         R13 R1 K44 ["IsGuest"]
+      428 CALL                             R13 1 1
+      429 JUMPIFNOT                        R13 ; [+4]
+      430 NEWCLOSURE                       R13 P38
+      431 CAPTURE                          VAL R0
+      432 SETTABLEKS                       R13 R2 K104 ["getGameId"]
+      434 DUPCLOSURE                       R13 K105 [PROTO_163]
+      435 CAPTURE                          UPVAL U30
+      436 SETTABLEKS                       R13 R2 K106 ["startStopPlayAsync"]
+      438 DUPCLOSURE                       R13 K107 [PROTO_165]
+      439 CAPTURE                          UPVAL U31
+      440 SETTABLEKS                       R13 R2 K108 ["subscribeOutput"]
+      442 DUPCLOSURE                       R13 K109 [PROTO_166]
+      443 CAPTURE                          UPVAL U32
+      444 SETTABLEKS                       R13 R2 K110 ["subscribeGameLoaded"]
+      446 DUPCLOSURE                       R13 K111 [PROTO_167]
+      447 CAPTURE                          UPVAL U33
+      448 SETTABLEKS                       R13 R2 K112 ["subscribeGameStopped"]
+      450 DUPCLOSURE                       R13 K113 [PROTO_168]
+      451 CAPTURE                          UPVAL U34
+      452 SETTABLEKS                       R13 R2 K114 ["getStudioPlayState"]
+      454 DUPCLOSURE                       R13 K115 [PROTO_169]
       455 CAPTURE                          UPVAL U34
-      456 SETTABLEKS                       R13 R2 K115 ["getStudioPlayState"]
-      458 DUPCLOSURE                       R13 K116 [PROTO_169]
+      456 SETTABLEKS                       R13 R2 K116 ["getFocusedDataModelType"]
+      458 DUPCLOSURE                       R13 K117 [PROTO_170]
       459 CAPTURE                          UPVAL U34
-      460 SETTABLEKS                       R13 R2 K117 ["getFocusedDataModelType"]
-      462 DUPCLOSURE                       R13 K118 [PROTO_170]
-      463 CAPTURE                          UPVAL U34
-      464 SETTABLEKS                       R13 R2 K119 ["isEditDataModelAvailable"]
-      466 GETUPVAL                         R13 3
-      467 GETTABLEKS                       R13 R13 K120 ["FFlagAssistantRestoreMostRecentThread"]
-      469 JUMPIFNOT                        R13 ; [+4]
-      470 DUPCLOSURE                       R13 K121 [PROTO_171]
-      471 CAPTURE                          UPVAL U34
-      472 SETTABLEKS                       R13 R2 K122 ["subscribeEditDataModelAvailabilityChanged"]
-      474 GETUPVAL                         R13 35
-      475 MOVE                             R14 R0
-      476 MOVE                             R15 R1
-      477 MOVE                             R16 R2
-      478 CALL                             R13 3 0
-      479 GETIMPORT                        R13 K14 [pcall]
-      481 NEWCLOSURE                       R14 P47
-      482 CAPTURE                          VAL R0
-      483 CALL                             R13 1 2
-      484 JUMPIFNOT                        R13 ; [+3]
-      485 JUMPIFNOT                        R14 ; [+2]
-      486 SETTABLEKS                       R14 R2 K123 ["assetAccessController"]
-      488 GETUPVAL                         R15 3
-      489 GETTABLEKS                       R15 R15 K124 ["FFlagAssistantInsertAssetSandboxScripts"]
-      491 JUMPIFNOT                        R15 ; [+8]
-      492 GETIMPORT                        R15 K14 [pcall]
-      494 NEWCLOSURE                       R16 P48
-      495 CAPTURE                          VAL R0
-      496 CALL                             R15 1 2
-      497 JUMPIFNOT                        R16 ; [+2]
-      498 SETTABLEKS                       R16 R2 K125 ["capabilitiesHandler"]
-      500 DUPCLOSURE                       R15 K126 [PROTO_174]
+      460 SETTABLEKS                       R13 R2 K118 ["isEditDataModelAvailable"]
+      462 GETUPVAL                         R13 3
+      463 GETTABLEKS                       R13 R13 K119 ["FFlagAssistantRestoreMostRecentThread"]
+      465 JUMPIFNOT                        R13 ; [+4]
+      466 DUPCLOSURE                       R13 K120 [PROTO_171]
+      467 CAPTURE                          UPVAL U34
+      468 SETTABLEKS                       R13 R2 K121 ["subscribeEditDataModelAvailabilityChanged"]
+      470 GETUPVAL                         R13 35
+      471 MOVE                             R14 R0
+      472 MOVE                             R15 R1
+      473 MOVE                             R16 R2
+      474 CALL                             R13 3 0
+      475 GETIMPORT                        R13 K14 [pcall]
+      477 NEWCLOSURE                       R14 P47
+      478 CAPTURE                          VAL R0
+      479 CALL                             R13 1 2
+      480 JUMPIFNOT                        R13 ; [+3]
+      481 JUMPIFNOT                        R14 ; [+2]
+      482 SETTABLEKS                       R14 R2 K122 ["assetAccessController"]
+      484 GETUPVAL                         R15 3
+      485 GETTABLEKS                       R15 R15 K123 ["FFlagAssistantInsertAssetSandboxScripts"]
+      487 JUMPIFNOT                        R15 ; [+8]
+      488 GETIMPORT                        R15 K14 [pcall]
+      490 NEWCLOSURE                       R16 P48
+      491 CAPTURE                          VAL R0
+      492 CALL                             R15 1 2
+      493 JUMPIFNOT                        R16 ; [+2]
+      494 SETTABLEKS                       R16 R2 K124 ["capabilitiesHandler"]
+      496 DUPCLOSURE                       R15 K125 [PROTO_174]
+      497 CAPTURE                          UPVAL U36
+      498 SETTABLEKS                       R15 R2 K126 ["startMultiPlayerTest"]
+      500 DUPCLOSURE                       R15 K127 [PROTO_175]
       501 CAPTURE                          UPVAL U36
-      502 SETTABLEKS                       R15 R2 K127 ["startMultiPlayerTest"]
-      504 DUPCLOSURE                       R15 K128 [PROTO_175]
+      502 SETTABLEKS                       R15 R2 K128 ["stopMultiPlayerTest"]
+      504 DUPCLOSURE                       R15 K129 [PROTO_176]
       505 CAPTURE                          UPVAL U36
-      506 SETTABLEKS                       R15 R2 K129 ["stopMultiPlayerTest"]
-      508 DUPCLOSURE                       R15 K130 [PROTO_176]
+      506 SETTABLEKS                       R15 R2 K130 ["isInMultiPlayerTest"]
+      508 DUPCLOSURE                       R15 K131 [PROTO_178]
       509 CAPTURE                          UPVAL U36
-      510 SETTABLEKS                       R15 R2 K131 ["isInMultiPlayerTest"]
-      512 DUPCLOSURE                       R15 K132 [PROTO_178]
+      510 SETTABLEKS                       R15 R2 K132 ["subscribeStopMultiPlayerTestStateChanged"]
+      512 DUPCLOSURE                       R15 K133 [PROTO_179]
       513 CAPTURE                          UPVAL U36
-      514 SETTABLEKS                       R15 R2 K133 ["subscribeStopMultiPlayerTestStateChanged"]
-      516 DUPCLOSURE                       R15 K134 [PROTO_179]
+      514 SETTABLEKS                       R15 R2 K134 ["createMultiPlayersServer"]
+      516 DUPCLOSURE                       R15 K135 [PROTO_180]
       517 CAPTURE                          UPVAL U36
-      518 SETTABLEKS                       R15 R2 K135 ["createMultiPlayersServer"]
-      520 DUPCLOSURE                       R15 K136 [PROTO_180]
-      521 CAPTURE                          UPVAL U36
-      522 SETTABLEKS                       R15 R2 K137 ["createMultiPlayersClient"]
-      524 DUPCLOSURE                       R15 K138 [PROTO_181]
+      518 SETTABLEKS                       R15 R2 K136 ["createMultiPlayersClient"]
+      520 DUPCLOSURE                       R15 K137 [PROTO_181]
+      521 CAPTURE                          UPVAL U2
+      522 SETTABLEKS                       R15 R2 K138 ["getExperimentFeatureEnabled"]
+      524 DUPCLOSURE                       R15 K139 [PROTO_182]
       525 CAPTURE                          UPVAL U2
-      526 SETTABLEKS                       R15 R2 K139 ["getExperimentFeatureEnabled"]
-      528 DUPCLOSURE                       R15 K140 [PROTO_182]
-      529 CAPTURE                          UPVAL U2
-      530 SETTABLEKS                       R15 R2 K141 ["onceExperimentFeatureEnabled"]
-      532 DUPCLOSURE                       R15 K142 [PROTO_183]
-      533 CAPTURE                          UPVAL U37
-      534 SETTABLEKS                       R15 R2 K143 ["getStudioState"]
-      536 RETURN                           R2 1
+      526 SETTABLEKS                       R15 R2 K140 ["onceExperimentFeatureEnabled"]
+      528 DUPCLOSURE                       R15 K141 [PROTO_183]
+      529 CAPTURE                          UPVAL U37
+      530 SETTABLEKS                       R15 R2 K142 ["getStudioState"]
+      532 RETURN                           R2 1
 
 MAIN:
         0 PREPVARARGS                      0

@@ -29,7 +29,7 @@ PROTO_0:
 
 PROTO_1:
         0 GETUPVAL                         R0 0
-        1 JUMPIFNOT                        R0 ; [+36]
+        1 JUMPIFNOT                        R0 ; [+46]
         2 GETUPVAL                         R0 1
         3 JUMPIFNOT                        R0 ; [+5]
         4 GETUPVAL                         R0 1
@@ -37,32 +37,40 @@ PROTO_1:
         6 GETUPVAL                         R3 2
         7 GETTABLE                         R1 R2 R3
         8 CALL                             R0 1 0
-        9 GETUPVAL                         R0 3
-       10 JUMPIF                           R0 ; [+4]
-       11 GETUPVAL                         R0 4
-       12 GETTABLEKS                       R0 R0 K0 ["applyAvatarRulesWithDebounce"]
-       14 CALL                             R0 0 0
-       15 GETUPVAL                         R0 5
-       16 CALL                             R0 0 1
-       17 JUMPIFNOT                        R0 ; [+5]
-       18 GETUPVAL                         R0 6
-       19 GETTABLEKS                       R0 R0 K1 ["markChanged"]
-       21 GETUPVAL                         R1 7
-       22 CALL                             R0 1 0
-       23 GETUPVAL                         R0 8
-       24 JUMPIFNOT                        R0 ; [+3]
-       25 LOADB                            R0 0
-       26 SETUPVAL                         R0 8
-       27 RETURN                           R0 0
-       28 GETUPVAL                         R0 7
-       29 GETUPVAL                         R2 9
-       30 GETTABLEKS                       R2 R2 K2 ["fromAssetDm"]
-       32 GETUPVAL                         R4 0
-       33 GETUPVAL                         R5 2
-       34 GETTABLE                         R3 R4 R5
-       35 NAMECALL                         R0 R0 K3 ["Invoke"]
-       37 CALL                             R0 3 0
-       38 RETURN                           R0 0
+        9 GETUPVAL                         R2 3
+       10 FASTCALL1                        TYPE R2 ; [+2]
+       11 GETIMPORT                        R1 K1 [type]
+       13 CALL                             R1 1 1
+       14 JUMPIFNOTEQKS                    R1 K2 ["function"] ; [+4]
+       16 GETUPVAL                         R0 3
+       17 CALL                             R0 0 1
+       18 JUMP                             ; [+1]
+       19 GETUPVAL                         R0 3
+       20 JUMPIF                           R0 ; [+4]
+       21 GETUPVAL                         R1 4
+       22 GETTABLEKS                       R1 R1 K3 ["applyAvatarRulesWithDebounce"]
+       24 CALL                             R1 0 0
+       25 GETUPVAL                         R1 5
+       26 CALL                             R1 0 1
+       27 JUMPIFNOT                        R1 ; [+5]
+       28 GETUPVAL                         R1 6
+       29 GETTABLEKS                       R1 R1 K4 ["markChanged"]
+       31 GETUPVAL                         R2 7
+       32 CALL                             R1 1 0
+       33 GETUPVAL                         R1 8
+       34 JUMPIFNOT                        R1 ; [+3]
+       35 LOADB                            R1 0
+       36 SETUPVAL                         R1 8
+       37 RETURN                           R0 0
+       38 GETUPVAL                         R1 7
+       39 GETUPVAL                         R3 9
+       40 GETTABLEKS                       R3 R3 K5 ["fromAssetDm"]
+       42 GETUPVAL                         R5 0
+       43 GETUPVAL                         R6 2
+       44 GETTABLE                         R4 R5 R6
+       45 NAMECALL                         R1 R1 K6 ["Invoke"]
+       47 CALL                             R1 3 0
+       48 RETURN                           R0 0
 
 PROTO_2:
         0 LOADB                            R6 0

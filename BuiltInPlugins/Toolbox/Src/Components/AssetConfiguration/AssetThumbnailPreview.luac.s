@@ -42,16 +42,13 @@ PROTO_1:
        33 LOADN                            R9 1
        34 SETTABLEKS                       R9 R8 K11 ["Transparency"]
        36 FORGLOOP                         R4 2 ; [-13]
-       38 GETUPVAL                         R4 1
-       39 CALL                             R4 0 1
-       40 JUMPIFNOT                        R4 ; [+9]
-       41 LOADK                            R6 K12 ["Humanoid"]
-       42 NAMECALL                         R4 R2 K13 ["FindFirstChildOfClass"]
-       44 CALL                             R4 2 1
-       45 JUMPIFNOT                        R4 ; [+4]
-       46 GETIMPORT                        R5 K17 [Enum.HumanoidDisplayDistanceType.None]
-       48 SETTABLEKS                       R5 R4 K18 ["DisplayDistanceType"]
-       50 RETURN                           R2 2
+       38 LOADK                            R6 K12 ["Humanoid"]
+       39 NAMECALL                         R4 R2 K13 ["FindFirstChildOfClass"]
+       41 CALL                             R4 2 1
+       42 JUMPIFNOT                        R4 ; [+4]
+       43 GETIMPORT                        R5 K17 [Enum.HumanoidDisplayDistanceType.None]
+       45 SETTABLEKS                       R5 R4 K18 ["DisplayDistanceType"]
+       47 RETURN                           R2 2
 
 PROTO_2:
         0 GETUPVAL                         R0 0
@@ -983,129 +980,123 @@ MAIN:
       104 GETIMPORT                        R21 K5 [require]
       106 GETTABLEKS                       R22 R0 K11 ["Src"]
       108 GETTABLEKS                       R22 R22 K29 ["Flags"]
-      110 GETTABLEKS                       R22 R22 K31 ["getFFlagFixPreloadedDynamicHeadNametag"]
+      110 GETTABLEKS                       R22 R22 K31 ["getFFlagFixMakeupHeadPreloadLeak"]
       112 CALL                             R21 1 1
       113 GETIMPORT                        R22 K5 [require]
-      115 GETTABLEKS                       R23 R0 K11 ["Src"]
-      117 GETTABLEKS                       R23 R23 K29 ["Flags"]
-      119 GETTABLEKS                       R23 R23 K32 ["getFFlagFixMakeupHeadPreloadLeak"]
-      121 CALL                             R22 1 1
-      122 GETIMPORT                        R23 K5 [require]
-      124 GETTABLEKS                       R24 R7 K33 ["AvatarAnimationStudioToolboxTextures"]
-      126 CALL                             R23 1 1
-      127 GETIMPORT                        R24 K36 [Color3.fromHex]
-      129 LOADK                            R25 K37 ["#A3A2A5"]
-      130 CALL                             R24 1 1
-      131 GETIMPORT                        R25 K5 [require]
-      133 GETTABLEKS                       R26 R7 K38 ["AssetThumbnailPreviewUtil"]
+      115 GETTABLEKS                       R23 R7 K32 ["AvatarAnimationStudioToolboxTextures"]
+      117 CALL                             R22 1 1
+      118 GETIMPORT                        R23 K35 [Color3.fromHex]
+      120 LOADK                            R24 K36 ["#A3A2A5"]
+      121 CALL                             R23 1 1
+      122 GETIMPORT                        R24 K5 [require]
+      124 GETTABLEKS                       R25 R7 K37 ["AssetThumbnailPreviewUtil"]
+      126 CALL                             R24 1 1
+      127 GETIMPORT                        R25 K5 [require]
+      129 GETTABLEKS                       R26 R0 K11 ["Src"]
+      131 GETTABLEKS                       R26 R26 K38 ["Components"]
+      133 GETTABLEKS                       R26 R26 K39 ["ImageWithDefault"]
       135 CALL                             R25 1 1
-      136 GETIMPORT                        R26 K5 [require]
-      138 GETTABLEKS                       R27 R0 K11 ["Src"]
-      140 GETTABLEKS                       R27 R27 K39 ["Components"]
-      142 GETTABLEKS                       R27 R27 K40 ["ImageWithDefault"]
-      144 CALL                             R26 1 1
-      145 LOADB                            R27 0
-      146 LOADN                            R28 0
-      147 DUPCLOSURE                       R29 K41 [PROTO_1]
-      148 CAPTURE                          VAL R13
-      149 CAPTURE                          VAL R21
-      150 NEWCLOSURE                       R30 P1
-      151 CAPTURE                          VAL R20
-      152 CAPTURE                          VAL R14
-      153 CAPTURE                          REF R27
-      154 CAPTURE                          REF R28
-      155 CAPTURE                          VAL R29
-      156 CAPTURE                          VAL R22
-      157 NEWCLOSURE                       R31 P2
-      158 CAPTURE                          VAL R22
-      159 CAPTURE                          VAL R14
-      160 CAPTURE                          REF R28
-      161 CAPTURE                          REF R27
-      162 DUPCLOSURE                       R32 K42 [PROTO_5]
-      163 DUPCLOSURE                       R33 K43 [PROTO_6]
-      164 DUPCLOSURE                       R34 K44 [PROTO_7]
-      165 NEWTABLE                         R35 8 0
-      167 GETIMPORT                        R36 K48 [Enum.AssetType.EyebrowAccessory]
-      169 LOADK                            R37 K49 ["Eyebrow"]
-      170 SETTABLE                         R37 R35 R36
-      171 GETIMPORT                        R36 K51 [Enum.AssetType.EyelashAccessory]
-      173 LOADK                            R37 K52 ["Eyelash"]
-      174 SETTABLE                         R37 R35 R36
-      175 GETIMPORT                        R36 K54 [Enum.AssetType.EyeMakeup]
-      177 LOADK                            R37 K55 ["Eyes"]
-      178 SETTABLE                         R37 R35 R36
-      179 GETIMPORT                        R36 K57 [Enum.AssetType.FaceMakeup]
-      181 LOADK                            R37 K58 ["Face"]
-      182 SETTABLE                         R37 R35 R36
-      183 GETIMPORT                        R36 K60 [Enum.AssetType.LipMakeup]
-      185 LOADK                            R37 K61 ["Lips"]
-      186 SETTABLE                         R37 R35 R36
-      187 DUPCLOSURE                       R36 K62 [PROTO_10]
-      188 CAPTURE                          VAL R35
-      189 CAPTURE                          VAL R12
-      190 DUPCLOSURE                       R37 K63 [PROTO_11]
-      191 CAPTURE                          VAL R36
-      192 CAPTURE                          VAL R29
-      193 CAPTURE                          VAL R9
-      194 CAPTURE                          VAL R24
-      195 GETTABLEKS                       R38 R3 K64 ["PureComponent"]
-      197 LOADK                            R40 K65 ["AssetThumbnailPreview"]
-      198 NAMECALL                         R38 R38 K66 ["extend"]
-      200 CALL                             R38 2 1
-      201 DUPCLOSURE                       R39 K67 [PROTO_12]
-      202 CAPTURE                          VAL R3
-      203 SETTABLEKS                       R39 R38 K68 ["init"]
-      205 DUPCLOSURE                       R39 K69 [PROTO_13]
-      206 CAPTURE                          VAL R30
-      207 SETTABLEKS                       R39 R38 K70 ["didMount"]
-      209 DUPCLOSURE                       R39 K71 [PROTO_14]
-      210 CAPTURE                          VAL R31
-      211 SETTABLEKS                       R39 R38 K72 ["willUnmount"]
-      213 DUPCLOSURE                       R39 K73 [PROTO_15]
+      136 LOADB                            R26 0
+      137 LOADN                            R27 0
+      138 DUPCLOSURE                       R28 K40 [PROTO_1]
+      139 CAPTURE                          VAL R13
+      140 NEWCLOSURE                       R29 P1
+      141 CAPTURE                          VAL R20
+      142 CAPTURE                          VAL R14
+      143 CAPTURE                          REF R26
+      144 CAPTURE                          REF R27
+      145 CAPTURE                          VAL R28
+      146 CAPTURE                          VAL R21
+      147 NEWCLOSURE                       R30 P2
+      148 CAPTURE                          VAL R21
+      149 CAPTURE                          VAL R14
+      150 CAPTURE                          REF R27
+      151 CAPTURE                          REF R26
+      152 DUPCLOSURE                       R31 K41 [PROTO_5]
+      153 DUPCLOSURE                       R32 K42 [PROTO_6]
+      154 DUPCLOSURE                       R33 K43 [PROTO_7]
+      155 NEWTABLE                         R34 8 0
+      157 GETIMPORT                        R35 K47 [Enum.AssetType.EyebrowAccessory]
+      159 LOADK                            R36 K48 ["Eyebrow"]
+      160 SETTABLE                         R36 R34 R35
+      161 GETIMPORT                        R35 K50 [Enum.AssetType.EyelashAccessory]
+      163 LOADK                            R36 K51 ["Eyelash"]
+      164 SETTABLE                         R36 R34 R35
+      165 GETIMPORT                        R35 K53 [Enum.AssetType.EyeMakeup]
+      167 LOADK                            R36 K54 ["Eyes"]
+      168 SETTABLE                         R36 R34 R35
+      169 GETIMPORT                        R35 K56 [Enum.AssetType.FaceMakeup]
+      171 LOADK                            R36 K57 ["Face"]
+      172 SETTABLE                         R36 R34 R35
+      173 GETIMPORT                        R35 K59 [Enum.AssetType.LipMakeup]
+      175 LOADK                            R36 K60 ["Lips"]
+      176 SETTABLE                         R36 R34 R35
+      177 DUPCLOSURE                       R35 K61 [PROTO_10]
+      178 CAPTURE                          VAL R34
+      179 CAPTURE                          VAL R12
+      180 DUPCLOSURE                       R36 K62 [PROTO_11]
+      181 CAPTURE                          VAL R35
+      182 CAPTURE                          VAL R28
+      183 CAPTURE                          VAL R9
+      184 CAPTURE                          VAL R23
+      185 GETTABLEKS                       R37 R3 K63 ["PureComponent"]
+      187 LOADK                            R39 K64 ["AssetThumbnailPreview"]
+      188 NAMECALL                         R37 R37 K65 ["extend"]
+      190 CALL                             R37 2 1
+      191 DUPCLOSURE                       R38 K66 [PROTO_12]
+      192 CAPTURE                          VAL R3
+      193 SETTABLEKS                       R38 R37 K67 ["init"]
+      195 DUPCLOSURE                       R38 K68 [PROTO_13]
+      196 CAPTURE                          VAL R29
+      197 SETTABLEKS                       R38 R37 K69 ["didMount"]
+      199 DUPCLOSURE                       R38 K70 [PROTO_14]
+      200 CAPTURE                          VAL R30
+      201 SETTABLEKS                       R38 R37 K71 ["willUnmount"]
+      203 DUPCLOSURE                       R38 K72 [PROTO_15]
+      204 CAPTURE                          VAL R23
+      205 SETTABLEKS                       R38 R37 K73 ["didUpdate"]
+      207 DUPCLOSURE                       R38 K74 [PROTO_18]
+      208 CAPTURE                          VAL R9
+      209 CAPTURE                          VAL R10
+      210 CAPTURE                          VAL R36
+      211 CAPTURE                          VAL R20
+      212 CAPTURE                          VAL R33
+      213 CAPTURE                          VAL R31
       214 CAPTURE                          VAL R24
-      215 SETTABLEKS                       R39 R38 K74 ["didUpdate"]
-      217 DUPCLOSURE                       R39 K75 [PROTO_18]
-      218 CAPTURE                          VAL R9
-      219 CAPTURE                          VAL R10
-      220 CAPTURE                          VAL R37
-      221 CAPTURE                          VAL R20
-      222 CAPTURE                          VAL R34
-      223 CAPTURE                          VAL R32
-      224 CAPTURE                          VAL R25
-      225 CAPTURE                          VAL R33
-      226 SETTABLEKS                       R39 R38 K76 ["setView"]
-      228 DUPCLOSURE                       R39 K77 [PROTO_19]
-      229 SETTABLEKS                       R39 R38 K78 ["getName"]
-      231 DUPCLOSURE                       R39 K79 [PROTO_20]
-      232 CAPTURE                          VAL R19
-      233 SETTABLEKS                       R39 R38 K80 ["shouldShowInstances"]
-      235 DUPCLOSURE                       R39 K81 [PROTO_21]
-      236 CAPTURE                          VAL R9
-      237 CAPTURE                          VAL R23
-      238 CAPTURE                          VAL R3
-      239 CAPTURE                          VAL R26
-      240 CAPTURE                          VAL R18
-      241 CAPTURE                          VAL R2
-      242 CAPTURE                          VAL R6
-      243 CAPTURE                          VAL R8
-      244 SETTABLEKS                       R39 R38 K82 ["render"]
-      246 DUPCLOSURE                       R39 K83 [PROTO_22]
-      247 MOVE                             R40 R16
-      248 DUPTABLE                         R41 K86 [{"Localization", "Stylizer", "Plugin"}]
-      249 GETTABLEKS                       R42 R15 K84 ["Localization"]
-      251 SETTABLEKS                       R42 R41 K84 ["Localization"]
-      253 GETTABLEKS                       R42 R15 K25 ["Stylizer"]
-      255 SETTABLEKS                       R42 R41 K25 ["Stylizer"]
-      257 GETTABLEKS                       R42 R15 K85 ["Plugin"]
-      259 SETTABLEKS                       R42 R41 K85 ["Plugin"]
-      261 CALL                             R40 1 1
-      262 MOVE                             R41 R38
-      263 CALL                             R40 1 1
-      264 MOVE                             R38 R40
-      265 GETTABLEKS                       R40 R4 K87 ["connect"]
-      267 MOVE                             R41 R39
-      268 CALL                             R40 1 1
-      269 MOVE                             R41 R38
-      270 CALL                             R40 1 -1
-      271 CLOSEUPVALS                      R27
-      272 RETURN                           R40 -1
+      215 CAPTURE                          VAL R32
+      216 SETTABLEKS                       R38 R37 K75 ["setView"]
+      218 DUPCLOSURE                       R38 K76 [PROTO_19]
+      219 SETTABLEKS                       R38 R37 K77 ["getName"]
+      221 DUPCLOSURE                       R38 K78 [PROTO_20]
+      222 CAPTURE                          VAL R19
+      223 SETTABLEKS                       R38 R37 K79 ["shouldShowInstances"]
+      225 DUPCLOSURE                       R38 K80 [PROTO_21]
+      226 CAPTURE                          VAL R9
+      227 CAPTURE                          VAL R22
+      228 CAPTURE                          VAL R3
+      229 CAPTURE                          VAL R25
+      230 CAPTURE                          VAL R18
+      231 CAPTURE                          VAL R2
+      232 CAPTURE                          VAL R6
+      233 CAPTURE                          VAL R8
+      234 SETTABLEKS                       R38 R37 K81 ["render"]
+      236 DUPCLOSURE                       R38 K82 [PROTO_22]
+      237 MOVE                             R39 R16
+      238 DUPTABLE                         R40 K85 [{"Localization", "Stylizer", "Plugin"}]
+      239 GETTABLEKS                       R41 R15 K83 ["Localization"]
+      241 SETTABLEKS                       R41 R40 K83 ["Localization"]
+      243 GETTABLEKS                       R41 R15 K25 ["Stylizer"]
+      245 SETTABLEKS                       R41 R40 K25 ["Stylizer"]
+      247 GETTABLEKS                       R41 R15 K84 ["Plugin"]
+      249 SETTABLEKS                       R41 R40 K84 ["Plugin"]
+      251 CALL                             R39 1 1
+      252 MOVE                             R40 R37
+      253 CALL                             R39 1 1
+      254 MOVE                             R37 R39
+      255 GETTABLEKS                       R39 R4 K86 ["connect"]
+      257 MOVE                             R40 R38
+      258 CALL                             R39 1 1
+      259 MOVE                             R40 R37
+      260 CALL                             R39 1 -1
+      261 CLOSEUPVALS                      R26
+      262 RETURN                           R39 -1

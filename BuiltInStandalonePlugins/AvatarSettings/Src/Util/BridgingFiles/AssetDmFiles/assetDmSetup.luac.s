@@ -31,18 +31,17 @@ PROTO_2:
         6 GETTABLEKS                       R3 R3 K3 ["GameId"]
         8 NAMECALL                         R0 R0 K4 ["Invoke"]
        10 CALL                             R0 3 0
-       11 GETIMPORT                        R0 K2 [game]
-       13 GETTABLEKS                       R0 R0 K3 ["GameId"]
-       15 JUMPIFEQKN                       R0 K5 [0] ; [+11]
-       17 GETUPVAL                         R0 2
-       18 JUMPIFNOT                        R0 ; [+8]
-       19 GETUPVAL                         R0 2
-       20 GETTABLEKS                       R0 R0 K6 ["Connected"]
-       22 JUMPIFNOT                        R0 ; [+4]
-       23 GETUPVAL                         R0 2
-       24 NAMECALL                         R0 R0 K7 ["Disconnect"]
-       26 CALL                             R0 1 0
-       27 RETURN                           R0 0
+       11 GETUPVAL                         R0 2
+       12 CALL                             R0 0 1
+       13 JUMPIFNOT                        R0 ; [+11]
+       14 GETUPVAL                         R0 0
+       15 GETUPVAL                         R2 3
+       16 GETTABLEKS                       R2 R2 K5 ["gameId"]
+       18 GETIMPORT                        R3 K2 [game]
+       20 GETTABLEKS                       R3 R3 K3 ["GameId"]
+       22 NAMECALL                         R0 R0 K6 ["SetItem"]
+       24 CALL                             R0 3 0
+       25 RETURN                           R0 0
 
 PROTO_3:
         0 GETUPVAL                         R0 0
@@ -52,16 +51,57 @@ PROTO_3:
         6 GETTABLEKS                       R3 R3 K3 ["GameId"]
         8 NAMECALL                         R0 R0 K4 ["Invoke"]
        10 CALL                             R0 3 0
-       11 RETURN                           R0 0
+       11 GETUPVAL                         R0 2
+       12 CALL                             R0 0 1
+       13 JUMPIFNOT                        R0 ; [+11]
+       14 GETUPVAL                         R0 0
+       15 GETUPVAL                         R2 3
+       16 GETTABLEKS                       R2 R2 K5 ["gameId"]
+       18 GETIMPORT                        R3 K2 [game]
+       20 GETTABLEKS                       R3 R3 K3 ["GameId"]
+       22 NAMECALL                         R0 R0 K6 ["SetItem"]
+       24 CALL                             R0 3 0
+       25 GETIMPORT                        R0 K2 [game]
+       27 GETTABLEKS                       R0 R0 K3 ["GameId"]
+       29 JUMPIFEQKN                       R0 K7 [0] ; [+11]
+       31 GETUPVAL                         R0 4
+       32 JUMPIFNOT                        R0 ; [+8]
+       33 GETUPVAL                         R0 4
+       34 GETTABLEKS                       R0 R0 K8 ["Connected"]
+       36 JUMPIFNOT                        R0 ; [+4]
+       37 GETUPVAL                         R0 4
+       38 NAMECALL                         R0 R0 K9 ["Disconnect"]
+       40 CALL                             R0 1 0
+       41 RETURN                           R0 0
 
 PROTO_4:
+        0 GETUPVAL                         R0 0
+        1 GETUPVAL                         R2 1
+        2 GETTABLEKS                       R2 R2 K0 ["gameIdChanged"]
+        4 GETIMPORT                        R3 K2 [game]
+        6 GETTABLEKS                       R3 R3 K3 ["GameId"]
+        8 NAMECALL                         R0 R0 K4 ["Invoke"]
+       10 CALL                             R0 3 0
+       11 GETUPVAL                         R0 2
+       12 CALL                             R0 0 1
+       13 JUMPIFNOT                        R0 ; [+11]
+       14 GETUPVAL                         R0 0
+       15 GETUPVAL                         R2 3
+       16 GETTABLEKS                       R2 R2 K5 ["gameId"]
+       18 GETIMPORT                        R3 K2 [game]
+       20 GETTABLEKS                       R3 R3 K3 ["GameId"]
+       22 NAMECALL                         R0 R0 K6 ["SetItem"]
+       24 CALL                             R0 3 0
+       25 RETURN                           R0 0
+
+PROTO_5:
         0 GETUPVAL                         R0 0
         1 GETTABLEKS                       R0 R0 K0 ["showSaveOrPublishPlaceToRoblox"]
         3 GETUPVAL                         R1 1
         4 CALL                             R0 1 0
         5 RETURN                           R0 0
 
-PROTO_5:
+PROTO_6:
         0 GETUPVAL                         R0 0
         1 GETUPVAL                         R2 1
         2 GETTABLEKS                       R2 R2 K0 ["deactivePreviewOnDescendantAdded"]
@@ -75,7 +115,7 @@ PROTO_5:
        15 CALL                             R0 2 0
        16 RETURN                           R0 0
 
-PROTO_6:
+PROTO_7:
         0 GETUPVAL                         R0 0
         1 GETTABLEKS                       R0 R0 K0 ["clearConnections"]
         3 CALL                             R0 0 0
@@ -145,7 +185,7 @@ PROTO_6:
        78 LOADNIL                          R1
        79 RETURN                           R1 1
 
-PROTO_7:
+PROTO_8:
         0 GETUPVAL                         R0 0
         1 GETTABLEKS                       R0 R0 K0 ["onPublishSettings"]
         3 CALL                             R0 0 1
@@ -168,13 +208,13 @@ PROTO_7:
        24 CALL                             R1 2 0
        25 RETURN                           R0 0
 
-PROTO_8:
+PROTO_9:
         0 GETUPVAL                         R0 0
         1 GETTABLEKS                       R0 R0 K0 ["onDiscardSettings"]
         3 CALL                             R0 0 0
         4 RETURN                           R0 0
 
-PROTO_9:
+PROTO_10:
         0 GETUPVAL                         R0 0
         1 GETUPVAL                         R2 1
         2 GETTABLEKS                       R2 R2 K0 ["onInitializationStarted"]
@@ -238,7 +278,7 @@ PROTO_9:
        71 GETUPVAL                         R0 0
        72 GETUPVAL                         R2 1
        73 GETTABLEKS                       R2 R2 K10 ["discardSettings"]
-       75 DUPCLOSURE                       R3 K11 [PROTO_8]
+       75 DUPCLOSURE                       R3 K11 [PROTO_9]
        76 CAPTURE                          UPVAL U8
        77 NAMECALL                         R0 R0 K7 ["OnInvoke"]
        79 CALL                             R0 3 0
@@ -256,95 +296,113 @@ PROTO_9:
        94 CALL                             R0 2 0
        95 RETURN                           R0 0
 
-PROTO_10:
+PROTO_11:
         0 GETUPVAL                         R1 0
         1 GETTABLEKS                       R1 R1 K0 ["registerPluginStyles"]
         3 MOVE                             R2 R0
         4 CALL                             R1 1 0
-        5 GETUPVAL                         R3 1
-        6 GETTABLEKS                       R3 R3 K1 ["gameIdChanged"]
-        8 GETIMPORT                        R4 K3 [game]
-       10 GETTABLEKS                       R4 R4 K4 ["GameId"]
-       12 NAMECALL                         R1 R0 K5 ["Invoke"]
-       14 CALL                             R1 3 0
-       15 GETIMPORT                        R1 K3 [game]
-       17 GETTABLEKS                       R1 R1 K4 ["GameId"]
-       19 JUMPIFNOTEQKN                    R1 K6 [0] ; [+17]
-       21 LOADNIL                          R1
-       22 GETIMPORT                        R2 K3 [game]
-       24 LOADK                            R4 K4 ["GameId"]
-       25 NAMECALL                         R2 R2 K7 ["GetPropertyChangedSignal"]
-       27 CALL                             R2 2 1
-       28 NEWCLOSURE                       R4 P0
-       29 CAPTURE                          VAL R0
-       30 CAPTURE                          UPVAL U1
-       31 CAPTURE                          REF R1
-       32 NAMECALL                         R2 R2 K8 ["Connect"]
-       34 CALL                             R2 2 1
-       35 MOVE                             R1 R2
-       36 CLOSEUPVALS                      R1
-       37 GETUPVAL                         R3 1
-       38 GETTABLEKS                       R3 R3 K9 ["requestLatestGameId"]
-       40 NEWCLOSURE                       R4 P1
-       41 CAPTURE                          VAL R0
-       42 CAPTURE                          UPVAL U1
-       43 NAMECALL                         R1 R0 K10 ["OnInvoke"]
-       45 CALL                             R1 3 0
-       46 GETUPVAL                         R3 1
-       47 GETTABLEKS                       R3 R3 K11 ["requestSaveToRoblox"]
-       49 NEWCLOSURE                       R4 P2
-       50 CAPTURE                          UPVAL U2
-       51 CAPTURE                          VAL R0
-       52 NAMECALL                         R1 R0 K10 ["OnInvoke"]
-       54 CALL                             R1 3 0
-       55 GETUPVAL                         R3 1
-       56 GETTABLEKS                       R3 R3 K12 ["CreateAvatarRules"]
-       58 GETTABLEKS                       R3 R3 K13 ["fromPlugin"]
-       60 NEWCLOSURE                       R4 P3
-       61 CAPTURE                          UPVAL U3
-       62 CAPTURE                          UPVAL U4
-       63 CAPTURE                          UPVAL U5
-       64 CAPTURE                          VAL R0
-       65 CAPTURE                          UPVAL U1
-       66 CAPTURE                          UPVAL U6
-       67 CAPTURE                          UPVAL U7
-       68 CAPTURE                          UPVAL U8
-       69 CAPTURE                          UPVAL U9
-       70 CAPTURE                          UPVAL U10
-       71 CAPTURE                          UPVAL U11
-       72 CAPTURE                          UPVAL U12
-       73 CAPTURE                          UPVAL U13
-       74 CAPTURE                          UPVAL U14
-       75 CAPTURE                          UPVAL U15
-       76 NAMECALL                         R1 R0 K10 ["OnInvoke"]
-       78 CALL                             R1 3 0
-       79 GETUPVAL                         R3 1
-       80 GETTABLEKS                       R3 R3 K12 ["CreateAvatarRules"]
-       82 GETTABLEKS                       R3 R3 K14 ["fromAssetDm"]
-       84 NAMECALL                         R1 R0 K5 ["Invoke"]
-       86 CALL                             R1 2 0
-       87 GETUPVAL                         R3 1
-       88 GETTABLEKS                       R3 R3 K15 ["onInitialization"]
-       90 GETTABLEKS                       R3 R3 K13 ["fromPlugin"]
-       92 NEWCLOSURE                       R4 P4
-       93 CAPTURE                          VAL R0
-       94 CAPTURE                          UPVAL U1
-       95 CAPTURE                          UPVAL U16
-       96 CAPTURE                          UPVAL U17
-       97 CAPTURE                          UPVAL U18
-       98 CAPTURE                          UPVAL U19
-       99 CAPTURE                          UPVAL U20
-      100 CAPTURE                          UPVAL U21
-      101 CAPTURE                          UPVAL U2
-      102 CAPTURE                          UPVAL U22
-      103 NAMECALL                         R1 R0 K10 ["OnInvoke"]
-      105 CALL                             R1 3 0
-      106 GETUPVAL                         R3 1
-      107 GETTABLEKS                       R3 R3 K15 ["onInitialization"]
-      109 GETTABLEKS                       R3 R3 K14 ["fromAssetDm"]
-      111 NAMECALL                         R1 R0 K5 ["Invoke"]
-      113 CALL                             R1 2 0
-      114 RETURN                           R0 0
+        5 NEWCLOSURE                       R1 P0
+        6 CAPTURE                          VAL R0
+        7 CAPTURE                          UPVAL U1
+        8 CAPTURE                          UPVAL U2
+        9 CAPTURE                          UPVAL U3
+       10 GETUPVAL                         R4 1
+       11 GETTABLEKS                       R4 R4 K1 ["gameIdChanged"]
+       13 GETIMPORT                        R5 K3 [game]
+       15 GETTABLEKS                       R5 R5 K4 ["GameId"]
+       17 NAMECALL                         R2 R0 K5 ["Invoke"]
+       19 CALL                             R2 3 0
+       20 GETUPVAL                         R2 2
+       21 CALL                             R2 0 1
+       22 JUMPIFNOT                        R2 ; [+10]
+       23 GETUPVAL                         R4 3
+       24 GETTABLEKS                       R4 R4 K6 ["gameId"]
+       26 GETIMPORT                        R5 K3 [game]
+       28 GETTABLEKS                       R5 R5 K4 ["GameId"]
+       30 NAMECALL                         R2 R0 K7 ["SetItem"]
+       32 CALL                             R2 3 0
+       33 GETIMPORT                        R2 K3 [game]
+       35 GETTABLEKS                       R2 R2 K4 ["GameId"]
+       37 JUMPIFNOTEQKN                    R2 K8 [0] ; [+19]
+       39 LOADNIL                          R2
+       40 GETIMPORT                        R3 K3 [game]
+       42 LOADK                            R5 K4 ["GameId"]
+       43 NAMECALL                         R3 R3 K9 ["GetPropertyChangedSignal"]
+       45 CALL                             R3 2 1
+       46 NEWCLOSURE                       R5 P1
+       47 CAPTURE                          VAL R0
+       48 CAPTURE                          UPVAL U1
+       49 CAPTURE                          UPVAL U2
+       50 CAPTURE                          UPVAL U3
+       51 CAPTURE                          REF R2
+       52 NAMECALL                         R3 R3 K10 ["Connect"]
+       54 CALL                             R3 2 1
+       55 MOVE                             R2 R3
+       56 CLOSEUPVALS                      R2
+       57 GETUPVAL                         R4 1
+       58 GETTABLEKS                       R4 R4 K11 ["requestLatestGameId"]
+       60 NEWCLOSURE                       R5 P2
+       61 CAPTURE                          VAL R0
+       62 CAPTURE                          UPVAL U1
+       63 CAPTURE                          UPVAL U2
+       64 CAPTURE                          UPVAL U3
+       65 NAMECALL                         R2 R0 K12 ["OnInvoke"]
+       67 CALL                             R2 3 0
+       68 GETUPVAL                         R4 1
+       69 GETTABLEKS                       R4 R4 K13 ["requestSaveToRoblox"]
+       71 NEWCLOSURE                       R5 P3
+       72 CAPTURE                          UPVAL U4
+       73 CAPTURE                          VAL R0
+       74 NAMECALL                         R2 R0 K12 ["OnInvoke"]
+       76 CALL                             R2 3 0
+       77 GETUPVAL                         R4 1
+       78 GETTABLEKS                       R4 R4 K14 ["CreateAvatarRules"]
+       80 GETTABLEKS                       R4 R4 K15 ["fromPlugin"]
+       82 NEWCLOSURE                       R5 P4
+       83 CAPTURE                          UPVAL U5
+       84 CAPTURE                          UPVAL U6
+       85 CAPTURE                          UPVAL U7
+       86 CAPTURE                          VAL R0
+       87 CAPTURE                          UPVAL U1
+       88 CAPTURE                          UPVAL U8
+       89 CAPTURE                          UPVAL U9
+       90 CAPTURE                          UPVAL U10
+       91 CAPTURE                          UPVAL U11
+       92 CAPTURE                          UPVAL U12
+       93 CAPTURE                          UPVAL U13
+       94 CAPTURE                          UPVAL U14
+       95 CAPTURE                          UPVAL U15
+       96 CAPTURE                          UPVAL U16
+       97 CAPTURE                          UPVAL U17
+       98 NAMECALL                         R2 R0 K12 ["OnInvoke"]
+      100 CALL                             R2 3 0
+      101 GETUPVAL                         R4 1
+      102 GETTABLEKS                       R4 R4 K14 ["CreateAvatarRules"]
+      104 GETTABLEKS                       R4 R4 K16 ["fromAssetDm"]
+      106 NAMECALL                         R2 R0 K5 ["Invoke"]
+      108 CALL                             R2 2 0
+      109 GETUPVAL                         R4 1
+      110 GETTABLEKS                       R4 R4 K17 ["onInitialization"]
+      112 GETTABLEKS                       R4 R4 K15 ["fromPlugin"]
+      114 NEWCLOSURE                       R5 P5
+      115 CAPTURE                          VAL R0
+      116 CAPTURE                          UPVAL U1
+      117 CAPTURE                          UPVAL U18
+      118 CAPTURE                          UPVAL U19
+      119 CAPTURE                          UPVAL U20
+      120 CAPTURE                          UPVAL U21
+      121 CAPTURE                          UPVAL U22
+      122 CAPTURE                          UPVAL U23
+      123 CAPTURE                          UPVAL U4
+      124 CAPTURE                          UPVAL U24
+      125 NAMECALL                         R2 R0 K12 ["OnInvoke"]
+      127 CALL                             R2 3 0
+      128 GETUPVAL                         R4 1
+      129 GETTABLEKS                       R4 R4 K17 ["onInitialization"]
+      131 GETTABLEKS                       R4 R4 K16 ["fromAssetDm"]
+      133 NAMECALL                         R2 R0 K5 ["Invoke"]
+      135 CALL                             R2 2 0
+      136 RETURN                           R0 0
 
 MAIN:
         0 PREPVARARGS                      0
@@ -465,55 +523,67 @@ MAIN:
       209 CALL                             R17 1 1
       210 GETIMPORT                        R18 K9 [require]
       212 GETTABLEKS                       R19 R0 K10 ["Src"]
-      214 GETTABLEKS                       R19 R19 K11 ["Util"]
-      216 GETTABLEKS                       R19 R19 K12 ["BridgingFiles"]
-      218 GETTABLEKS                       R19 R19 K13 ["AssetDmFiles"]
-      220 GETTABLEKS                       R19 R19 K30 ["getPropertiesTable"]
-      222 CALL                             R18 1 1
-      223 GETIMPORT                        R19 K9 [require]
-      225 GETTABLEKS                       R20 R0 K10 ["Src"]
-      227 GETTABLEKS                       R20 R20 K11 ["Util"]
-      229 GETTABLEKS                       R20 R20 K31 ["InvokeKeys"]
+      214 GETTABLEKS                       R19 R19 K30 ["Flags"]
+      216 GETTABLEKS                       R19 R19 K31 ["getFFlagAvatarSettingsEditUnsavedPlace"]
+      218 CALL                             R18 1 1
+      219 GETIMPORT                        R19 K9 [require]
+      221 GETTABLEKS                       R20 R0 K10 ["Src"]
+      223 GETTABLEKS                       R20 R20 K11 ["Util"]
+      225 GETTABLEKS                       R20 R20 K12 ["BridgingFiles"]
+      227 GETTABLEKS                       R20 R20 K13 ["AssetDmFiles"]
+      229 GETTABLEKS                       R20 R20 K32 ["getPropertiesTable"]
       231 CALL                             R19 1 1
       232 GETIMPORT                        R20 K9 [require]
       234 GETTABLEKS                       R21 R0 K10 ["Src"]
-      236 GETTABLEKS                       R21 R21 K32 ["Flags"]
-      238 GETTABLEKS                       R21 R21 K33 ["getEngineFeatureAvatarSettingsPlaceAvatarRules"]
+      236 GETTABLEKS                       R21 R21 K11 ["Util"]
+      238 GETTABLEKS                       R21 R21 K33 ["InvokeKeys"]
       240 CALL                             R20 1 1
       241 GETIMPORT                        R21 K9 [require]
       243 GETTABLEKS                       R22 R0 K10 ["Src"]
-      245 GETTABLEKS                       R22 R22 K32 ["Flags"]
-      247 GETTABLEKS                       R22 R22 K34 ["getFFlagPluginInvokeGuard"]
+      245 GETTABLEKS                       R22 R22 K11 ["Util"]
+      247 GETTABLEKS                       R22 R22 K34 ["PluginItemKeys"]
       249 CALL                             R21 1 1
-      250 LOADB                            R22 0
-      251 LOADB                            R23 0
-      252 NEWCLOSURE                       R24 P0
-      253 CAPTURE                          REF R23
-      254 CAPTURE                          VAL R19
-      255 CAPTURE                          VAL R7
-      256 NEWCLOSURE                       R25 P1
-      257 CAPTURE                          VAL R5
-      258 CAPTURE                          VAL R19
-      259 CAPTURE                          VAL R4
-      260 CAPTURE                          VAL R3
-      261 CAPTURE                          VAL R8
-      262 CAPTURE                          VAL R1
-      263 CAPTURE                          VAL R18
-      264 CAPTURE                          VAL R12
-      265 CAPTURE                          VAL R13
-      266 CAPTURE                          VAL R15
-      267 CAPTURE                          VAL R9
-      268 CAPTURE                          VAL R11
-      269 CAPTURE                          VAL R10
-      270 CAPTURE                          VAL R14
-      271 CAPTURE                          VAL R16
-      272 CAPTURE                          VAL R17
-      273 CAPTURE                          VAL R6
-      274 CAPTURE                          VAL R20
-      275 CAPTURE                          VAL R7
-      276 CAPTURE                          REF R23
-      277 CAPTURE                          VAL R21
-      278 CAPTURE                          REF R22
-      279 CAPTURE                          VAL R2
-      280 CLOSEUPVALS                      R22
-      281 RETURN                           R25 1
+      250 GETIMPORT                        R22 K9 [require]
+      252 GETTABLEKS                       R23 R0 K10 ["Src"]
+      254 GETTABLEKS                       R23 R23 K30 ["Flags"]
+      256 GETTABLEKS                       R23 R23 K35 ["getEngineFeatureAvatarSettingsPlaceAvatarRules"]
+      258 CALL                             R22 1 1
+      259 GETIMPORT                        R23 K9 [require]
+      261 GETTABLEKS                       R24 R0 K10 ["Src"]
+      263 GETTABLEKS                       R24 R24 K30 ["Flags"]
+      265 GETTABLEKS                       R24 R24 K36 ["getFFlagPluginInvokeGuard"]
+      267 CALL                             R23 1 1
+      268 LOADB                            R24 0
+      269 LOADB                            R25 0
+      270 NEWCLOSURE                       R26 P0
+      271 CAPTURE                          REF R25
+      272 CAPTURE                          VAL R20
+      273 CAPTURE                          VAL R7
+      274 NEWCLOSURE                       R27 P1
+      275 CAPTURE                          VAL R5
+      276 CAPTURE                          VAL R20
+      277 CAPTURE                          VAL R18
+      278 CAPTURE                          VAL R21
+      279 CAPTURE                          VAL R4
+      280 CAPTURE                          VAL R3
+      281 CAPTURE                          VAL R8
+      282 CAPTURE                          VAL R1
+      283 CAPTURE                          VAL R19
+      284 CAPTURE                          VAL R12
+      285 CAPTURE                          VAL R13
+      286 CAPTURE                          VAL R15
+      287 CAPTURE                          VAL R9
+      288 CAPTURE                          VAL R11
+      289 CAPTURE                          VAL R10
+      290 CAPTURE                          VAL R14
+      291 CAPTURE                          VAL R16
+      292 CAPTURE                          VAL R17
+      293 CAPTURE                          VAL R6
+      294 CAPTURE                          VAL R22
+      295 CAPTURE                          VAL R7
+      296 CAPTURE                          REF R25
+      297 CAPTURE                          VAL R23
+      298 CAPTURE                          REF R24
+      299 CAPTURE                          VAL R2
+      300 CLOSEUPVALS                      R24
+      301 RETURN                           R27 1

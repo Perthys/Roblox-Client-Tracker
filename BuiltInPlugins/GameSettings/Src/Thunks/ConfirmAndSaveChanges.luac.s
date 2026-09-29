@@ -68,113 +68,85 @@ PROTO_6:
         0 NAMECALL                         R1 R0 K0 ["getState"]
         2 CALL                             R1 1 1
         3 GETUPVAL                         R2 0
-        4 DUPTABLE                         R3 K3 [{"isActive", "universeAvatarType"}]
-        5 DUPTABLE                         R4 K8 [{"Title", "Header", "Description", "Buttons"}]
-        6 LOADK                            R7 K9 ["General"]
-        7 LOADK                            R8 K10 ["PrivateDialogHeader"]
-        8 NAMECALL                         R5 R2 K11 ["getText"]
+        4 DUPTABLE                         R3 K2 [{"isActive"}]
+        5 DUPTABLE                         R4 K7 [{"Title", "Header", "Description", "Buttons"}]
+        6 LOADK                            R7 K8 ["General"]
+        7 LOADK                            R8 K9 ["PrivateDialogHeader"]
+        8 NAMECALL                         R5 R2 K10 ["getText"]
        10 CALL                             R5 3 1
-       11 SETTABLEKS                       R5 R4 K4 ["Title"]
-       13 LOADK                            R7 K9 ["General"]
-       14 LOADK                            R8 K12 ["PrivateDialogPrompt"]
-       15 NAMECALL                         R5 R2 K11 ["getText"]
+       11 SETTABLEKS                       R5 R4 K3 ["Title"]
+       13 LOADK                            R7 K8 ["General"]
+       14 LOADK                            R8 K11 ["PrivateDialogPrompt"]
+       15 NAMECALL                         R5 R2 K10 ["getText"]
        17 CALL                             R5 3 1
-       18 SETTABLEKS                       R5 R4 K5 ["Header"]
-       20 LOADK                            R7 K9 ["General"]
-       21 LOADK                            R8 K13 ["PrivateDialogBody"]
-       22 NAMECALL                         R5 R2 K11 ["getText"]
+       18 SETTABLEKS                       R5 R4 K4 ["Header"]
+       20 LOADK                            R7 K8 ["General"]
+       21 LOADK                            R8 K12 ["PrivateDialogBody"]
+       22 NAMECALL                         R5 R2 K10 ["getText"]
        24 CALL                             R5 3 1
-       25 SETTABLEKS                       R5 R4 K6 ["Description"]
+       25 SETTABLEKS                       R5 R4 K5 ["Description"]
        27 NEWTABLE                         R5 0 2
-       29 LOADK                            R8 K9 ["General"]
-       30 LOADK                            R9 K14 ["ButtonCancel"]
-       31 NAMECALL                         R6 R2 K11 ["getText"]
+       29 LOADK                            R8 K8 ["General"]
+       30 LOADK                            R9 K13 ["ButtonCancel"]
+       31 NAMECALL                         R6 R2 K10 ["getText"]
        33 CALL                             R6 3 1
-       34 LOADK                            R9 K9 ["General"]
-       35 LOADK                            R10 K15 ["ButtonSave"]
-       36 NAMECALL                         R7 R2 K11 ["getText"]
+       34 LOADK                            R9 K8 ["General"]
+       35 LOADK                            R10 K14 ["ButtonSave"]
+       36 NAMECALL                         R7 R2 K10 ["getText"]
        38 CALL                             R7 3 -1
        39 SETLIST                          R5 R6 -1 [1]
-       41 SETTABLEKS                       R5 R4 K7 ["Buttons"]
+       41 SETTABLEKS                       R5 R4 K6 ["Buttons"]
        43 SETTABLEKS                       R4 R3 K1 ["isActive"]
-       45 DUPTABLE                         R4 K8 [{"Title", "Header", "Description", "Buttons"}]
-       46 LOADK                            R7 K9 ["General"]
-       47 LOADK                            R8 K16 ["AvatarDialogHeader"]
-       48 NAMECALL                         R5 R2 K11 ["getText"]
-       50 CALL                             R5 3 1
-       51 SETTABLEKS                       R5 R4 K4 ["Title"]
-       53 LOADK                            R7 K9 ["General"]
-       54 LOADK                            R8 K17 ["AvatarDialogPrompt"]
-       55 NAMECALL                         R5 R2 K11 ["getText"]
+       45 DUPTABLE                         R4 K16 [{"Size", "Title", "Header", "Buttons"}]
+       46 GETIMPORT                        R5 K19 [Vector2.new]
+       48 LOADN                            R6 343
+       49 LOADN                            R7 145
+       50 CALL                             R5 2 1
+       51 SETTABLEKS                       R5 R4 K15 ["Size"]
+       53 LOADK                            R7 K8 ["General"]
+       54 LOADK                            R8 K20 ["ErrorsOnSaveHeader"]
+       55 NAMECALL                         R5 R2 K10 ["getText"]
        57 CALL                             R5 3 1
-       58 SETTABLEKS                       R5 R4 K5 ["Header"]
-       60 LOADK                            R7 K9 ["General"]
-       61 LOADK                            R8 K18 ["AvatarDialogBody"]
-       62 NAMECALL                         R5 R2 K11 ["getText"]
-       64 CALL                             R5 3 1
-       65 SETTABLEKS                       R5 R4 K6 ["Description"]
-       67 NEWTABLE                         R5 0 2
-       69 LOADK                            R8 K9 ["General"]
-       70 LOADK                            R9 K19 ["ReplyNo"]
-       71 NAMECALL                         R6 R2 K11 ["getText"]
-       73 CALL                             R6 3 1
-       74 LOADK                            R9 K9 ["General"]
-       75 LOADK                            R10 K20 ["ReplyYes"]
-       76 NAMECALL                         R7 R2 K11 ["getText"]
-       78 CALL                             R7 3 -1
-       79 SETLIST                          R5 R6 -1 [1]
-       81 SETTABLEKS                       R5 R4 K7 ["Buttons"]
-       83 SETTABLEKS                       R4 R3 K2 ["universeAvatarType"]
-       85 DUPTABLE                         R4 K22 [{"Size", "Title", "Header", "Buttons"}]
-       86 GETIMPORT                        R5 K25 [Vector2.new]
-       88 LOADN                            R6 343
-       89 LOADN                            R7 145
-       90 CALL                             R5 2 1
-       91 SETTABLEKS                       R5 R4 K21 ["Size"]
-       93 LOADK                            R7 K9 ["General"]
-       94 LOADK                            R8 K26 ["ErrorsOnSaveHeader"]
-       95 NAMECALL                         R5 R2 K11 ["getText"]
-       97 CALL                             R5 3 1
-       98 SETTABLEKS                       R5 R4 K4 ["Title"]
-      100 GETUPVAL                         R6 1
-      101 JUMPIFNOT                        R6 ; [+6]
-      102 LOADK                            R7 K9 ["General"]
-      103 LOADK                            R8 K27 ["ErrorsOnSaveBodyExp"]
-      104 NAMECALL                         R5 R2 K11 ["getText"]
-      106 CALL                             R5 3 1
-      107 JUMP                             ; [+5]
-      108 LOADK                            R7 K9 ["General"]
-      109 LOADK                            R8 K28 ["ErrorsOnSaveBody"]
-      110 NAMECALL                         R5 R2 K11 ["getText"]
-      112 CALL                             R5 3 1
-      113 SETTABLEKS                       R5 R4 K5 ["Header"]
-      115 NEWTABLE                         R5 0 1
-      117 LOADK                            R8 K9 ["General"]
-      118 LOADK                            R9 K29 ["ReplyOK"]
-      119 NAMECALL                         R6 R2 K11 ["getText"]
-      121 CALL                             R6 3 -1
-      122 SETLIST                          R5 R6 -1 [1]
-      124 SETTABLEKS                       R5 R4 K7 ["Buttons"]
-      126 GETUPVAL                         R5 2
-      127 GETTABLEKS                       R5 R5 K24 ["new"]
-      129 NEWCLOSURE                       R6 P0
-      130 CAPTURE                          VAL R1
-      131 CAPTURE                          UPVAL U3
-      132 CAPTURE                          UPVAL U4
-      133 CAPTURE                          VAL R3
-      134 CALL                             R5 1 1
-      135 NEWCLOSURE                       R7 P1
-      136 CAPTURE                          VAL R0
-      137 CAPTURE                          UPVAL U5
-      138 CAPTURE                          UPVAL U3
-      139 CAPTURE                          UPVAL U6
-      140 CAPTURE                          VAL R4
-      141 NAMECALL                         R5 R5 K30 ["andThen"]
-      143 CALL                             R5 2 1
-      144 DUPCLOSURE                       R7 K31 [PROTO_5]
-      145 NAMECALL                         R5 R5 K30 ["andThen"]
-      147 CALL                             R5 2 -1
-      148 RETURN                           R5 -1
+       58 SETTABLEKS                       R5 R4 K3 ["Title"]
+       60 GETUPVAL                         R6 1
+       61 JUMPIFNOT                        R6 ; [+6]
+       62 LOADK                            R7 K8 ["General"]
+       63 LOADK                            R8 K21 ["ErrorsOnSaveBodyExp"]
+       64 NAMECALL                         R5 R2 K10 ["getText"]
+       66 CALL                             R5 3 1
+       67 JUMP                             ; [+5]
+       68 LOADK                            R7 K8 ["General"]
+       69 LOADK                            R8 K22 ["ErrorsOnSaveBody"]
+       70 NAMECALL                         R5 R2 K10 ["getText"]
+       72 CALL                             R5 3 1
+       73 SETTABLEKS                       R5 R4 K4 ["Header"]
+       75 NEWTABLE                         R5 0 1
+       77 LOADK                            R8 K8 ["General"]
+       78 LOADK                            R9 K23 ["ReplyOK"]
+       79 NAMECALL                         R6 R2 K10 ["getText"]
+       81 CALL                             R6 3 -1
+       82 SETLIST                          R5 R6 -1 [1]
+       84 SETTABLEKS                       R5 R4 K6 ["Buttons"]
+       86 GETUPVAL                         R5 2
+       87 GETTABLEKS                       R5 R5 K18 ["new"]
+       89 NEWCLOSURE                       R6 P0
+       90 CAPTURE                          VAL R1
+       91 CAPTURE                          UPVAL U3
+       92 CAPTURE                          UPVAL U4
+       93 CAPTURE                          VAL R3
+       94 CALL                             R5 1 1
+       95 NEWCLOSURE                       R7 P1
+       96 CAPTURE                          VAL R0
+       97 CAPTURE                          UPVAL U5
+       98 CAPTURE                          UPVAL U3
+       99 CAPTURE                          UPVAL U6
+      100 CAPTURE                          VAL R4
+      101 NAMECALL                         R5 R5 K24 ["andThen"]
+      103 CALL                             R5 2 1
+      104 DUPCLOSURE                       R7 K25 [PROTO_5]
+      105 NAMECALL                         R5 R5 K24 ["andThen"]
+      107 CALL                             R5 2 -1
+      108 RETURN                           R5 -1
 
 PROTO_7:
         0 NEWCLOSURE                       R2 P0

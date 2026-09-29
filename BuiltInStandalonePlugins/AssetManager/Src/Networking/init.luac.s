@@ -463,6 +463,13 @@ PROTO_36:
         5 CALL                             R2 1 -1
         6 RETURN                           R2 -1
 
+PROTO_37:
+        0 GETTABLEKS                       R2 R0 K0 ["_impl"]
+        2 GETTABLEKS                       R2 R2 K1 ["fetchAssetTechnicalDetailsAsync"]
+        4 MOVE                             R3 R1
+        5 CALL                             R2 1 -1
+        6 RETURN                           R2 -1
+
 MAIN:
         0 PREPVARARGS                      0
         1 GETIMPORT                        R0 K1 [script]
@@ -580,4 +587,6 @@ MAIN:
       174 SETTABLEKS                       R14 R13 K79 ["getItemParentsAsync"]
       176 DUPCLOSURE                       R14 K80 [PROTO_36]
       177 SETTABLEKS                       R14 R13 K81 ["moveItemsAsync"]
-      179 RETURN                           R13 1
+      179 DUPCLOSURE                       R14 K82 [PROTO_37]
+      180 SETTABLEKS                       R14 R13 K83 ["fetchAssetTechnicalDetailsAsync"]
+      182 RETURN                           R13 1

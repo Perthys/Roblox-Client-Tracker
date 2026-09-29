@@ -63,7 +63,7 @@ PROTO_5:
         0 GETUPVAL                         R0 0
         1 GETUPVAL                         R2 1
         2 GETTABLEKS                       R2 R2 K0 ["SearchTerm"]
-        4 NAMECALL                         R0 R0 K1 ["setSearchTerm"]
+        4 NAMECALL                         R0 R0 K1 ["setPendingSearchTerm"]
         6 CALL                             R0 2 0
         7 GETUPVAL                         R0 0
         8 GETUPVAL                         R2 1
@@ -169,7 +169,7 @@ PROTO_7:
 PROTO_8:
         0 GETUPVAL                         R0 0
         1 LOADK                            R2 K0 [""]
-        2 NAMECALL                         R0 R0 K1 ["setSearchTerm"]
+        2 NAMECALL                         R0 R0 K1 ["setPendingSearchTerm"]
         4 CALL                             R0 2 0
         5 RETURN                           R0 0
 
@@ -185,7 +185,7 @@ PROTO_9:
 PROTO_10:
         0 GETUPVAL                         R1 0
         1 MOVE                             R3 R0
-        2 NAMECALL                         R1 R1 K0 ["setSearchTerm"]
+        2 NAMECALL                         R1 R1 K0 ["setPendingSearchTerm"]
         4 CALL                             R1 2 0
         5 RETURN                           R0 0
 
@@ -255,7 +255,7 @@ PROTO_12:
        67 GETTABLEKS                       R17 R17 K30 ["IconName"]
        69 GETTABLEKS                       R17 R17 K31 ["MagnifyingGlass"]
        71 SETTABLEKS                       R17 R16 K17 ["leadingIcon"]
-       73 GETTABLEKS                       R19 R1 K32 ["SearchTerm"]
+       73 GETTABLEKS                       R19 R1 K32 ["PendingSearchTerm"]
        75 LENGTH                           R18 R19
        76 LOADN                            R19 0
        77 JUMPIFNOTLT                      R19 R18 ; [+16]
@@ -276,7 +276,7 @@ PROTO_12:
        99 NAMECALL                         R17 R3 K39 ["getText"]
       101 CALL                             R17 3 1
       102 SETTABLEKS                       R17 R16 K19 ["placeholder"]
-      104 GETTABLEKS                       R17 R1 K32 ["SearchTerm"]
+      104 GETTABLEKS                       R17 R1 K32 ["PendingSearchTerm"]
       106 SETTABLEKS                       R17 R16 K20 ["text"]
       108 GETUPVAL                         R17 5
       109 GETTABLEKS                       R17 R17 K29 ["Enums"]

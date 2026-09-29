@@ -241,7 +241,7 @@ MAIN:
       334 NAMECALL                         R0 R0 K5 ["DefineFastFlag"]
       336 CALL                             R0 3 0
       337 GETIMPORT                        R0 K1 [game]
-      339 LOADK                            R2 K55 ["AddPlayTesterPermission"]
+      339 LOADK                            R2 K55 ["AddPlayTesterPermission2"]
       340 LOADB                            R3 0
       341 NAMECALL                         R0 R0 K5 ["DefineFastFlag"]
       343 CALL                             R0 3 0
@@ -392,7 +392,7 @@ MAIN:
       566 CALL                             R1 2 1
       567 SETTABLEKS                       R1 R0 K77 ["fflagReverseGroupRoleOrder"]
       569 GETIMPORT                        R1 K1 [game]
-      571 LOADK                            R3 K55 ["AddPlayTesterPermission"]
+      571 LOADK                            R3 K55 ["AddPlayTesterPermission2"]
       572 NAMECALL                         R1 R1 K81 ["GetFastFlag"]
       574 CALL                             R1 2 1
       575 SETTABLEKS                       R1 R0 K78 ["fflagAddPlayTesterPermission"]

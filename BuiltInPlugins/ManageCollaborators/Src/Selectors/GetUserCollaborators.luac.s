@@ -61,51 +61,54 @@ PROTO_1:
        69 MOVE                             R18 R0
        70 MOVE                             R19 R10
        71 CALL                             R17 2 1
-       72 JUMPIF                           R17 ; [+17]
-       73 JUMPIFEQKNIL                     R13 ; [+16]
-       75 JUMPIFEQKNIL                     R1 ; [+3]
-       77 JUMPIFNOTEQ                      R14 R1 ; [+12]
-       79 DUPTABLE                         R19 K9 [{"Name", "Id"}]
-       80 SETTABLEKS                       R16 R19 K7 ["Name"]
-       82 SETTABLEKS                       R10 R19 K8 ["Id"]
-       84 FASTCALL2                        TABLE_INSERT R6 R19 ; [+4]
-       86 MOVE                             R18 R6
-       87 GETIMPORT                        R17 K12 [table.insert]
-       89 CALL                             R17 2 0
-       90 FORGLOOP                         R7 1 ; [-37]
-       92 GETIMPORT                        R7 K14 [table.sort]
-       94 MOVE                             R8 R6
-       95 DUPCLOSURE                       R9 K15 [PROTO_0]
-       96 CALL                             R7 2 0
-       97 NEWTABLE                         R7 0 0
-       99 NEWTABLE                         R8 0 0
-      101 GETIMPORT                        R9 K17 [ipairs]
-      103 MOVE                             R10 R6
-      104 CALL                             R9 1 3
-      105 FORGPREP_INEXT                   R9
-      106 GETTABLEKS                       R15 R13 K8 ["Id"]
-      108 GETTABLE                         R14 R4 R15
-      109 JUMPIF                           R14 ; [+8]
-      110 GETTABLEKS                       R16 R13 K8 ["Id"]
-      112 FASTCALL2                        TABLE_INSERT R7 R16 ; [+4]
-      114 MOVE                             R15 R7
-      115 GETIMPORT                        R14 K12 [table.insert]
-      117 CALL                             R14 2 0
-      118 FORGLOOP                         R9 2 [inext] ; [-13]
-      120 GETIMPORT                        R9 K17 [ipairs]
-      122 MOVE                             R10 R6
-      123 CALL                             R9 1 3
-      124 FORGPREP_INEXT                   R9
-      125 GETTABLEKS                       R15 R13 K8 ["Id"]
-      127 GETTABLE                         R14 R4 R15
-      128 JUMPIFNOT                        R14 ; [+8]
-      129 GETTABLEKS                       R16 R13 K8 ["Id"]
-      131 FASTCALL2                        TABLE_INSERT R8 R16 ; [+4]
-      133 MOVE                             R15 R8
-      134 GETIMPORT                        R14 K12 [table.insert]
-      136 CALL                             R14 2 0
-      137 FORGLOOP                         R9 2 [inext] ; [-13]
-      139 RETURN                           R7 2
+       72 JUMPIF                           R17 ; [+22]
+       73 JUMPIFEQKNIL                     R13 ; [+21]
+       75 GETUPVAL                         R17 0
+       76 GETTABLEKS                       R17 R17 K7 ["PlayTestKey"]
+       78 JUMPIFEQ                         R13 R17 ; [+16]
+       80 JUMPIFEQKNIL                     R1 ; [+3]
+       82 JUMPIFNOTEQ                      R14 R1 ; [+12]
+       84 DUPTABLE                         R19 K10 [{"Name", "Id"}]
+       85 SETTABLEKS                       R16 R19 K8 ["Name"]
+       87 SETTABLEKS                       R10 R19 K9 ["Id"]
+       89 FASTCALL2                        TABLE_INSERT R6 R19 ; [+4]
+       91 MOVE                             R18 R6
+       92 GETIMPORT                        R17 K13 [table.insert]
+       94 CALL                             R17 2 0
+       95 FORGLOOP                         R7 1 ; [-42]
+       97 GETIMPORT                        R7 K15 [table.sort]
+       99 MOVE                             R8 R6
+      100 DUPCLOSURE                       R9 K16 [PROTO_0]
+      101 CALL                             R7 2 0
+      102 NEWTABLE                         R7 0 0
+      104 NEWTABLE                         R8 0 0
+      106 GETIMPORT                        R9 K18 [ipairs]
+      108 MOVE                             R10 R6
+      109 CALL                             R9 1 3
+      110 FORGPREP_INEXT                   R9
+      111 GETTABLEKS                       R15 R13 K9 ["Id"]
+      113 GETTABLE                         R14 R4 R15
+      114 JUMPIF                           R14 ; [+8]
+      115 GETTABLEKS                       R16 R13 K9 ["Id"]
+      117 FASTCALL2                        TABLE_INSERT R7 R16 ; [+4]
+      119 MOVE                             R15 R7
+      120 GETIMPORT                        R14 K13 [table.insert]
+      122 CALL                             R14 2 0
+      123 FORGLOOP                         R9 2 [inext] ; [-13]
+      125 GETIMPORT                        R9 K18 [ipairs]
+      127 MOVE                             R10 R6
+      128 CALL                             R9 1 3
+      129 FORGPREP_INEXT                   R9
+      130 GETTABLEKS                       R15 R13 K9 ["Id"]
+      132 GETTABLE                         R14 R4 R15
+      133 JUMPIFNOT                        R14 ; [+8]
+      134 GETTABLEKS                       R16 R13 K9 ["Id"]
+      136 FASTCALL2                        TABLE_INSERT R8 R16 ; [+4]
+      138 MOVE                             R15 R8
+      139 GETIMPORT                        R14 K13 [table.insert]
+      141 CALL                             R14 2 0
+      142 FORGLOOP                         R9 2 [inext] ; [-13]
+      144 RETURN                           R7 2
 
 MAIN:
         0 PREPVARARGS                      0

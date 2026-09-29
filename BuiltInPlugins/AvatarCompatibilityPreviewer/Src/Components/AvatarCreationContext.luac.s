@@ -18,21 +18,34 @@ PROTO_1:
 
 PROTO_2:
         0 GETUPVAL                         R1 0
-        1 GETTABLEKS                       R2 R0 K0 ["Progress"]
-        3 GETTABLEKS                       R3 R0 K1 ["PreviewModel"]
-        5 CALL                             R1 2 0
-        6 RETURN                           R0 0
+        1 JUMPIFNOTEQKNIL                  R1 ; [+12]
+        3 GETTABLEKS                       R1 R0 K0 ["JobId"]
+        5 JUMPIFEQKNIL                     R1 ; [+8]
+        7 GETTABLEKS                       R1 R0 K0 ["JobId"]
+        9 JUMPIFEQKS                       R1 K1 [""] ; [+4]
+       11 GETTABLEKS                       R1 R0 K0 ["JobId"]
+       13 SETUPVAL                         R1 0
+       14 GETUPVAL                         R1 1
+       15 GETTABLEKS                       R2 R0 K2 ["Progress"]
+       17 GETTABLEKS                       R3 R0 K3 ["PreviewModel"]
+       19 CALL                             R1 2 0
+       20 RETURN                           R0 0
 
 PROTO_3:
-        0 NEWCLOSURE                       R2 P0
-        1 CAPTURE                          VAL R1
-        2 GETUPVAL                         R3 0
-        3 DUPTABLE                         R5 K1 [{"PreviewId"}]
-        4 SETTABLEKS                       R0 R5 K0 ["PreviewId"]
-        6 MOVE                             R6 R2
-        7 NAMECALL                         R3 R3 K2 ["GenerateAvatarAsync"]
-        9 CALL                             R3 3 -1
-       10 RETURN                           R3 -1
+        0 LOADNIL                          R2
+        1 NEWCLOSURE                       R3 P0
+        2 CAPTURE                          REF R2
+        3 CAPTURE                          VAL R1
+        4 GETUPVAL                         R4 0
+        5 DUPTABLE                         R6 K1 [{"PreviewId"}]
+        6 SETTABLEKS                       R0 R6 K0 ["PreviewId"]
+        8 MOVE                             R7 R3
+        9 NAMECALL                         R4 R4 K2 ["GenerateAvatarAsync"]
+       11 CALL                             R4 3 1
+       12 MOVE                             R5 R4
+       13 MOVE                             R6 R2
+       14 CLOSEUPVALS                      R2
+       15 RETURN                           R5 2
 
 PROTO_4:
         0 GETUPVAL                         R1 0

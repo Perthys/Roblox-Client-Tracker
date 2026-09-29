@@ -271,77 +271,61 @@ MAIN:
        43 GETIMPORT                        R5 K4 [require]
        45 GETTABLEKS                       R6 R0 K11 ["Src"]
        47 GETTABLEKS                       R6 R6 K9 ["Util"]
-       49 GETTABLEKS                       R6 R6 K13 ["AssetOverrides"]
+       49 GETTABLEKS                       R6 R6 K13 ["Float"]
        51 CALL                             R5 1 1
-       52 GETIMPORT                        R6 K4 [require]
-       54 GETTABLEKS                       R7 R0 K11 ["Src"]
-       56 GETTABLEKS                       R7 R7 K9 ["Util"]
-       58 GETTABLEKS                       R7 R7 K14 ["Float"]
-       60 CALL                             R6 1 1
-       61 GETIMPORT                        R7 K4 [require]
-       63 GETTABLEKS                       R8 R0 K11 ["Src"]
-       65 GETTABLEKS                       R8 R8 K9 ["Util"]
-       67 GETTABLEKS                       R8 R8 K15 ["Scales"]
-       69 CALL                             R7 1 1
-       70 DUPTABLE                         R8 K24 [{"universeAvatarAssetOverrides", "universeAvatarMinScales", "universeAvatarMaxScales", "OptInLocations", "thumbnails", "workspaceGravity", "workspaceJumpHeight", "workspaceJumpPower"}]
-       71 GETTABLEKS                       R9 R5 K25 ["isEqual"]
-       73 SETTABLEKS                       R9 R8 K16 ["universeAvatarAssetOverrides"]
-       75 GETTABLEKS                       R9 R7 K25 ["isEqual"]
-       77 SETTABLEKS                       R9 R8 K17 ["universeAvatarMinScales"]
-       79 GETTABLEKS                       R9 R7 K25 ["isEqual"]
-       81 SETTABLEKS                       R9 R8 K18 ["universeAvatarMaxScales"]
-       83 SETTABLEKS                       R3 R8 K19 ["OptInLocations"]
-       85 SETTABLEKS                       R3 R8 K20 ["thumbnails"]
-       87 GETTABLEKS                       R9 R6 K26 ["createIsEqualWithTolerance"]
-       89 LOADK                            R10 K27 [0.001]
-       90 CALL                             R9 1 1
-       91 SETTABLEKS                       R9 R8 K21 ["workspaceGravity"]
-       93 GETTABLEKS                       R9 R6 K26 ["createIsEqualWithTolerance"]
-       95 LOADK                            R10 K27 [0.001]
-       96 CALL                             R9 1 1
-       97 SETTABLEKS                       R9 R8 K22 ["workspaceJumpHeight"]
-       99 GETTABLEKS                       R9 R6 K26 ["createIsEqualWithTolerance"]
-      101 LOADK                            R10 K27 [0.001]
-      102 CALL                             R9 1 1
-      103 SETTABLEKS                       R9 R8 K23 ["workspaceJumpPower"]
-      105 DUPCLOSURE                       R9 K28 [PROTO_0]
-      106 CAPTURE                          VAL R4
-      107 DUPCLOSURE                       R10 K29 [PROTO_1]
-      108 GETTABLEKS                       R11 R2 K30 ["createReducer"]
-      110 MOVE                             R12 R10
-      111 CALL                             R12 0 1
-      112 DUPTABLE                         R13 K41 [{"ResetStore", "AddChange", "AddErrors", "DiscardError", "DiscardChanges", "DiscardErrors", "SetCurrentSettings", "AppendSettings", "AddWarning", "DiscardWarning"}]
-      113 DUPCLOSURE                       R14 K42 [PROTO_2]
-      114 CAPTURE                          VAL R10
-      115 SETTABLEKS                       R14 R13 K31 ["ResetStore"]
-      117 DUPCLOSURE                       R14 K43 [PROTO_4]
-      118 CAPTURE                          VAL R9
-      119 CAPTURE                          VAL R8
-      120 CAPTURE                          VAL R1
-      121 SETTABLEKS                       R14 R13 K32 ["AddChange"]
-      123 DUPCLOSURE                       R14 K44 [PROTO_5]
-      124 CAPTURE                          VAL R1
-      125 SETTABLEKS                       R14 R13 K33 ["AddErrors"]
-      127 DUPCLOSURE                       R14 K45 [PROTO_6]
-      128 CAPTURE                          VAL R1
-      129 SETTABLEKS                       R14 R13 K34 ["DiscardError"]
-      131 DUPCLOSURE                       R14 K46 [PROTO_7]
-      132 CAPTURE                          VAL R1
-      133 SETTABLEKS                       R14 R13 K35 ["DiscardChanges"]
-      135 DUPCLOSURE                       R14 K47 [PROTO_8]
-      136 CAPTURE                          VAL R1
-      137 SETTABLEKS                       R14 R13 K36 ["DiscardErrors"]
-      139 DUPCLOSURE                       R14 K48 [PROTO_9]
-      140 CAPTURE                          VAL R1
-      141 SETTABLEKS                       R14 R13 K37 ["SetCurrentSettings"]
-      143 DUPCLOSURE                       R14 K49 [PROTO_10]
-      144 CAPTURE                          VAL R1
-      145 SETTABLEKS                       R14 R13 K38 ["AppendSettings"]
-      147 DUPCLOSURE                       R14 K50 [PROTO_11]
-      148 CAPTURE                          VAL R1
-      149 SETTABLEKS                       R14 R13 K39 ["AddWarning"]
-      151 DUPCLOSURE                       R14 K51 [PROTO_12]
-      152 CAPTURE                          VAL R1
-      153 SETTABLEKS                       R14 R13 K40 ["DiscardWarning"]
-      155 CALL                             R11 2 -1
-      156 RETURN                           R11 -1
+       52 DUPTABLE                         R6 K19 [{"OptInLocations", "thumbnails", "workspaceGravity", "workspaceJumpHeight", "workspaceJumpPower"}]
+       53 SETTABLEKS                       R3 R6 K14 ["OptInLocations"]
+       55 SETTABLEKS                       R3 R6 K15 ["thumbnails"]
+       57 GETTABLEKS                       R7 R5 K20 ["createIsEqualWithTolerance"]
+       59 LOADK                            R8 K21 [0.001]
+       60 CALL                             R7 1 1
+       61 SETTABLEKS                       R7 R6 K16 ["workspaceGravity"]
+       63 GETTABLEKS                       R7 R5 K20 ["createIsEqualWithTolerance"]
+       65 LOADK                            R8 K21 [0.001]
+       66 CALL                             R7 1 1
+       67 SETTABLEKS                       R7 R6 K17 ["workspaceJumpHeight"]
+       69 GETTABLEKS                       R7 R5 K20 ["createIsEqualWithTolerance"]
+       71 LOADK                            R8 K21 [0.001]
+       72 CALL                             R7 1 1
+       73 SETTABLEKS                       R7 R6 K18 ["workspaceJumpPower"]
+       75 DUPCLOSURE                       R7 K22 [PROTO_0]
+       76 CAPTURE                          VAL R4
+       77 DUPCLOSURE                       R8 K23 [PROTO_1]
+       78 GETTABLEKS                       R9 R2 K24 ["createReducer"]
+       80 MOVE                             R10 R8
+       81 CALL                             R10 0 1
+       82 DUPTABLE                         R11 K35 [{"ResetStore", "AddChange", "AddErrors", "DiscardError", "DiscardChanges", "DiscardErrors", "SetCurrentSettings", "AppendSettings", "AddWarning", "DiscardWarning"}]
+       83 DUPCLOSURE                       R12 K36 [PROTO_2]
+       84 CAPTURE                          VAL R8
+       85 SETTABLEKS                       R12 R11 K25 ["ResetStore"]
+       87 DUPCLOSURE                       R12 K37 [PROTO_4]
+       88 CAPTURE                          VAL R7
+       89 CAPTURE                          VAL R6
+       90 CAPTURE                          VAL R1
+       91 SETTABLEKS                       R12 R11 K26 ["AddChange"]
+       93 DUPCLOSURE                       R12 K38 [PROTO_5]
+       94 CAPTURE                          VAL R1
+       95 SETTABLEKS                       R12 R11 K27 ["AddErrors"]
+       97 DUPCLOSURE                       R12 K39 [PROTO_6]
+       98 CAPTURE                          VAL R1
+       99 SETTABLEKS                       R12 R11 K28 ["DiscardError"]
+      101 DUPCLOSURE                       R12 K40 [PROTO_7]
+      102 CAPTURE                          VAL R1
+      103 SETTABLEKS                       R12 R11 K29 ["DiscardChanges"]
+      105 DUPCLOSURE                       R12 K41 [PROTO_8]
+      106 CAPTURE                          VAL R1
+      107 SETTABLEKS                       R12 R11 K30 ["DiscardErrors"]
+      109 DUPCLOSURE                       R12 K42 [PROTO_9]
+      110 CAPTURE                          VAL R1
+      111 SETTABLEKS                       R12 R11 K31 ["SetCurrentSettings"]
+      113 DUPCLOSURE                       R12 K43 [PROTO_10]
+      114 CAPTURE                          VAL R1
+      115 SETTABLEKS                       R12 R11 K32 ["AppendSettings"]
+      117 DUPCLOSURE                       R12 K44 [PROTO_11]
+      118 CAPTURE                          VAL R1
+      119 SETTABLEKS                       R12 R11 K33 ["AddWarning"]
+      121 DUPCLOSURE                       R12 K45 [PROTO_12]
+      122 CAPTURE                          VAL R1
+      123 SETTABLEKS                       R12 R11 K34 ["DiscardWarning"]
+      125 CALL                             R9 2 -1
+      126 RETURN                           R9 -1

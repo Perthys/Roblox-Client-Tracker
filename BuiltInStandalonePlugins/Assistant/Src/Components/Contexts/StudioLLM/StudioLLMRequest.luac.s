@@ -97,158 +97,158 @@ PROTO_5:
        42 SETTABLEKS                       R5 R4 K8 ["tools"]
        44 GETUPVAL                         R6 2
        45 CALL                             R6 0 1
-       46 JUMPIFNOT                        R6 ; [+6]
-       47 GETUPVAL                         R6 1
-       48 GETTABLEKS                       R6 R6 K17 ["FFlagAssistantCreditMeteringLocalBackend"]
-       50 JUMPIFNOT                        R6 ; [+2]
-       51 LOADB                            R5 1
-       52 JUMP                             ; [+1]
-       53 LOADNIL                          R5
-       54 DUPTABLE                         R6 K27 [{["threadId"], ["messageId"], ["requestId"], ["conversation"], ["firstMessage"], ["useAgenticMode"], ["isDebugMode"] = True, ["assistantMode"], ["newQuotaChecking"]}]
-       55 GETTABLEKS                       R7 R0 K18 ["threadId"]
-       57 SETTABLEKS                       R7 R6 K18 ["threadId"]
-       59 GETTABLEKS                       R7 R0 K28 ["messageGuid"]
-       61 SETTABLEKS                       R7 R6 K19 ["messageId"]
-       63 SETTABLEKS                       R1 R6 K20 ["requestId"]
-       65 SETTABLEKS                       R4 R6 K21 ["conversation"]
-       67 GETTABLEKS                       R7 R0 K29 ["isFirstMessage"]
-       69 SETTABLEKS                       R7 R6 K22 ["firstMessage"]
-       71 GETTABLEKS                       R7 R0 K30 ["isAgenticMode"]
-       73 SETTABLEKS                       R7 R6 K23 ["useAgenticMode"]
-       75 GETTABLEKS                       R7 R0 K25 ["assistantMode"]
-       77 SETTABLEKS                       R7 R6 K25 ["assistantMode"]
-       79 SETTABLEKS                       R5 R6 K26 ["newQuotaChecking"]
-       81 GETUPVAL                         R7 1
-       82 GETTABLEKS                       R7 R7 K31 ["FFlagAssistantUseNewOpenAPIClients"]
-       84 JUMPIFNOT                        R7 ; [+120]
-       85 GETTABLEKS                       R8 R0 K0 ["isSubagent"]
-       87 JUMPIFEQKB                       R8 TRUE ; [+2]
-       89 LOADB                            R7 0 +1
-       90 LOADB                            R7 1
-       91 JUMPIFNOT                        R7 ; [+4]
-       92 GETUPVAL                         R8 1
-       93 GETTABLEKS                       R8 R8 K32 ["FStringSubagentURLOverride"]
-       95 JUMP                             ; [+3]
-       96 GETUPVAL                         R8 1
-       97 GETTABLEKS                       R8 R8 K33 ["FStringMCPAssistantURLOverride"]
-       99 GETUPVAL                         R9 0
-      100 MOVE                             R10 R8
-      101 GETTABLEKS                       R11 R0 K34 ["conversationUrl"]
-      103 CALL                             R9 2 1
-      104 JUMPIFNOT                        R9 ; [+38]
-      105 JUMPIFEQKS                       R9 K35 [""] ; [+37]
-      107 NEWTABLE                         R10 1 0
-      109 LOADK                            R11 K36 ["application/json"]
-      110 SETTABLEKS                       R11 R10 K37 ["Content-Type"]
-      112 JUMPIFEQKS                       R8 K35 [""] ; [+15]
-      114 GETUPVAL                         R11 3
-      115 GETTABLEKS                       R11 R11 K38 ["get"]
-      117 CALL                             R11 0 1
-      118 GETTABLEKS                       R11 R11 K39 ["getUserId"]
-      120 CALL                             R11 0 1
-      121 FASTCALL1                        TOSTRING R11 ; [+3]
-      122 MOVE                             R13 R11
-      123 GETIMPORT                        R12 K41 [tostring]
-      125 CALL                             R12 1 1
-      126 SETTABLEKS                       R12 R10 K42 ["robloxctx-authenticated-userid"]
-      128 GETUPVAL                         R11 4
-      129 GETTABLEKS                       R11 R11 K43 ["Json"]
-      131 GETTABLEKS                       R11 R11 K44 ["encode"]
-      133 MOVE                             R12 R6
-      134 CALL                             R11 1 1
-      135 GETUPVAL                         R12 5
-      136 MOVE                             R14 R9
-      137 MOVE                             R15 R11
-      138 MOVE                             R16 R10
-      139 NAMECALL                         R12 R12 K45 ["post"]
-      141 CALL                             R12 4 -1
-      142 RETURN                           R12 -1
-      143 DUPTABLE                         R10 K46 [{["threadId"], ["requestId"], ["messageId"], ["conversation"], ["firstMessage"], ["useAgenticMode"], ["isDebugMode"] = True, ["assistantMode"], ["newQuotaChecking"]}]
-      144 GETTABLEKS                       R11 R0 K18 ["threadId"]
-      146 SETTABLEKS                       R11 R10 K18 ["threadId"]
-      148 SETTABLEKS                       R1 R10 K20 ["requestId"]
-      150 GETTABLEKS                       R11 R0 K28 ["messageGuid"]
-      152 SETTABLEKS                       R11 R10 K19 ["messageId"]
-      154 DUPTABLE                         R11 K48 [{"system", "llmConfig", "messages", "tools"}]
-      155 GETTABLEKS                       R12 R0 K5 ["system"]
-      157 SETTABLEKS                       R12 R11 K5 ["system"]
-      159 DUPTABLE                         R12 K54 [{["model"], ["thinkingMode"], ["parallelToolCalls"] = True, ["maxTokens"], ["temperature"] = }]
-      160 SETTABLEKS                       R2 R12 K10 ["model"]
-      162 SETTABLEKS                       R3 R12 K49 ["thinkingMode"]
-      164 GETUPVAL                         R13 1
-      165 GETTABLEKS                       R13 R13 K16 ["FIntConvAIAssistantMaxTokens"]
-      167 SETTABLEKS                       R13 R12 K51 ["maxTokens"]
-      169 SETTABLEKS                       R12 R11 K47 ["llmConfig"]
-      171 GETTABLEKS                       R12 R0 K7 ["messages"]
-      173 SETTABLEKS                       R12 R11 K7 ["messages"]
-      175 GETTABLEKS                       R12 R0 K8 ["tools"]
-      177 SETTABLEKS                       R12 R11 K8 ["tools"]
-      179 SETTABLEKS                       R11 R10 K21 ["conversation"]
-      181 GETTABLEKS                       R11 R0 K29 ["isFirstMessage"]
-      183 SETTABLEKS                       R11 R10 K22 ["firstMessage"]
-      185 GETTABLEKS                       R11 R0 K30 ["isAgenticMode"]
-      187 SETTABLEKS                       R11 R10 K23 ["useAgenticMode"]
-      189 GETTABLEKS                       R11 R0 K25 ["assistantMode"]
-      191 SETTABLEKS                       R11 R10 K25 ["assistantMode"]
-      193 SETTABLEKS                       R5 R10 K26 ["newQuotaChecking"]
-      195 GETUPVAL                         R11 6
-      196 GETTABLEKS                       R11 R11 K55 ["new"]
-      198 NEWCLOSURE                       R12 P0
-      199 CAPTURE                          UPVAL U7
-      200 CAPTURE                          VAL R10
-      201 CAPTURE                          VAL R7
-      202 CAPTURE                          UPVAL U8
-      203 CALL                             R11 1 -1
-      204 RETURN                           R11 -1
-      205 GETTABLEKS                       R8 R0 K0 ["isSubagent"]
-      207 JUMPIFEQKB                       R8 TRUE ; [+2]
-      209 LOADB                            R7 0 +1
-      210 LOADB                            R7 1
-      211 JUMPIFNOT                        R7 ; [+4]
-      212 GETUPVAL                         R8 1
-      213 GETTABLEKS                       R8 R8 K32 ["FStringSubagentURLOverride"]
-      215 JUMP                             ; [+3]
-      216 GETUPVAL                         R8 1
-      217 GETTABLEKS                       R8 R8 K33 ["FStringMCPAssistantURLOverride"]
-      219 GETTABLEKS                       R10 R0 K34 ["conversationUrl"]
-      221 JUMPIFNOT                        R10 ; [+4]
-      222 JUMPIFEQKS                       R10 K35 [""] ; [+3]
-      224 MOVE                             R9 R10
-      225 JUMP                             ; [+4]
-      226 JUMPIFNOT                        R7 ; [+2]
-      227 GETUPVAL                         R9 9
-      228 JUMP                             ; [+1]
-      229 GETUPVAL                         R9 10
-      230 GETUPVAL                         R10 0
-      231 MOVE                             R11 R8
-      232 MOVE                             R12 R9
-      233 CALL                             R10 2 1
-      234 NEWTABLE                         R11 1 0
-      236 LOADK                            R12 K36 ["application/json"]
-      237 SETTABLEKS                       R12 R11 K37 ["Content-Type"]
-      239 JUMPIFEQKS                       R8 K35 [""] ; [+15]
-      241 GETUPVAL                         R12 3
-      242 GETTABLEKS                       R12 R12 K38 ["get"]
-      244 CALL                             R12 0 1
-      245 GETTABLEKS                       R12 R12 K39 ["getUserId"]
-      247 CALL                             R12 0 1
-      248 FASTCALL1                        TOSTRING R12 ; [+3]
-      249 MOVE                             R14 R12
-      250 GETIMPORT                        R13 K41 [tostring]
-      252 CALL                             R13 1 1
-      253 SETTABLEKS                       R13 R11 K42 ["robloxctx-authenticated-userid"]
-      255 GETUPVAL                         R12 4
-      256 GETTABLEKS                       R12 R12 K43 ["Json"]
-      258 GETTABLEKS                       R12 R12 K44 ["encode"]
-      260 MOVE                             R13 R6
-      261 CALL                             R12 1 1
-      262 GETUPVAL                         R13 5
-      263 MOVE                             R15 R10
-      264 MOVE                             R16 R12
-      265 MOVE                             R17 R11
-      266 NAMECALL                         R13 R13 K45 ["post"]
-      268 CALL                             R13 4 -1
-      269 RETURN                           R13 -1
+       46 JUMPIFNOT                        R6 ; [+5]
+       47 GETUPVAL                         R6 3
+       48 CALL                             R6 0 1
+       49 JUMPIFNOT                        R6 ; [+2]
+       50 LOADB                            R5 1
+       51 JUMP                             ; [+1]
+       52 LOADNIL                          R5
+       53 DUPTABLE                         R6 K26 [{["threadId"], ["messageId"], ["requestId"], ["conversation"], ["firstMessage"], ["useAgenticMode"], ["isDebugMode"] = True, ["assistantMode"], ["newQuotaChecking"]}]
+       54 GETTABLEKS                       R7 R0 K17 ["threadId"]
+       56 SETTABLEKS                       R7 R6 K17 ["threadId"]
+       58 GETTABLEKS                       R7 R0 K27 ["messageGuid"]
+       60 SETTABLEKS                       R7 R6 K18 ["messageId"]
+       62 SETTABLEKS                       R1 R6 K19 ["requestId"]
+       64 SETTABLEKS                       R4 R6 K20 ["conversation"]
+       66 GETTABLEKS                       R7 R0 K28 ["isFirstMessage"]
+       68 SETTABLEKS                       R7 R6 K21 ["firstMessage"]
+       70 GETTABLEKS                       R7 R0 K29 ["isAgenticMode"]
+       72 SETTABLEKS                       R7 R6 K22 ["useAgenticMode"]
+       74 GETTABLEKS                       R7 R0 K24 ["assistantMode"]
+       76 SETTABLEKS                       R7 R6 K24 ["assistantMode"]
+       78 SETTABLEKS                       R5 R6 K25 ["newQuotaChecking"]
+       80 GETUPVAL                         R7 1
+       81 GETTABLEKS                       R7 R7 K30 ["FFlagAssistantUseNewOpenAPIClients"]
+       83 JUMPIFNOT                        R7 ; [+120]
+       84 GETTABLEKS                       R8 R0 K0 ["isSubagent"]
+       86 JUMPIFEQKB                       R8 TRUE ; [+2]
+       88 LOADB                            R7 0 +1
+       89 LOADB                            R7 1
+       90 JUMPIFNOT                        R7 ; [+4]
+       91 GETUPVAL                         R8 1
+       92 GETTABLEKS                       R8 R8 K31 ["FStringSubagentURLOverride"]
+       94 JUMP                             ; [+3]
+       95 GETUPVAL                         R8 1
+       96 GETTABLEKS                       R8 R8 K32 ["FStringMCPAssistantURLOverride"]
+       98 GETUPVAL                         R9 0
+       99 MOVE                             R10 R8
+      100 GETTABLEKS                       R11 R0 K33 ["conversationUrl"]
+      102 CALL                             R9 2 1
+      103 JUMPIFNOT                        R9 ; [+38]
+      104 JUMPIFEQKS                       R9 K34 [""] ; [+37]
+      106 NEWTABLE                         R10 1 0
+      108 LOADK                            R11 K35 ["application/json"]
+      109 SETTABLEKS                       R11 R10 K36 ["Content-Type"]
+      111 JUMPIFEQKS                       R8 K34 [""] ; [+15]
+      113 GETUPVAL                         R11 4
+      114 GETTABLEKS                       R11 R11 K37 ["get"]
+      116 CALL                             R11 0 1
+      117 GETTABLEKS                       R11 R11 K38 ["getUserId"]
+      119 CALL                             R11 0 1
+      120 FASTCALL1                        TOSTRING R11 ; [+3]
+      121 MOVE                             R13 R11
+      122 GETIMPORT                        R12 K40 [tostring]
+      124 CALL                             R12 1 1
+      125 SETTABLEKS                       R12 R10 K41 ["robloxctx-authenticated-userid"]
+      127 GETUPVAL                         R11 5
+      128 GETTABLEKS                       R11 R11 K42 ["Json"]
+      130 GETTABLEKS                       R11 R11 K43 ["encode"]
+      132 MOVE                             R12 R6
+      133 CALL                             R11 1 1
+      134 GETUPVAL                         R12 6
+      135 MOVE                             R14 R9
+      136 MOVE                             R15 R11
+      137 MOVE                             R16 R10
+      138 NAMECALL                         R12 R12 K44 ["post"]
+      140 CALL                             R12 4 -1
+      141 RETURN                           R12 -1
+      142 DUPTABLE                         R10 K45 [{["threadId"], ["requestId"], ["messageId"], ["conversation"], ["firstMessage"], ["useAgenticMode"], ["isDebugMode"] = True, ["assistantMode"], ["newQuotaChecking"]}]
+      143 GETTABLEKS                       R11 R0 K17 ["threadId"]
+      145 SETTABLEKS                       R11 R10 K17 ["threadId"]
+      147 SETTABLEKS                       R1 R10 K19 ["requestId"]
+      149 GETTABLEKS                       R11 R0 K27 ["messageGuid"]
+      151 SETTABLEKS                       R11 R10 K18 ["messageId"]
+      153 DUPTABLE                         R11 K47 [{"system", "llmConfig", "messages", "tools"}]
+      154 GETTABLEKS                       R12 R0 K5 ["system"]
+      156 SETTABLEKS                       R12 R11 K5 ["system"]
+      158 DUPTABLE                         R12 K53 [{["model"], ["thinkingMode"], ["parallelToolCalls"] = True, ["maxTokens"], ["temperature"] = }]
+      159 SETTABLEKS                       R2 R12 K10 ["model"]
+      161 SETTABLEKS                       R3 R12 K48 ["thinkingMode"]
+      163 GETUPVAL                         R13 1
+      164 GETTABLEKS                       R13 R13 K16 ["FIntConvAIAssistantMaxTokens"]
+      166 SETTABLEKS                       R13 R12 K50 ["maxTokens"]
+      168 SETTABLEKS                       R12 R11 K46 ["llmConfig"]
+      170 GETTABLEKS                       R12 R0 K7 ["messages"]
+      172 SETTABLEKS                       R12 R11 K7 ["messages"]
+      174 GETTABLEKS                       R12 R0 K8 ["tools"]
+      176 SETTABLEKS                       R12 R11 K8 ["tools"]
+      178 SETTABLEKS                       R11 R10 K20 ["conversation"]
+      180 GETTABLEKS                       R11 R0 K28 ["isFirstMessage"]
+      182 SETTABLEKS                       R11 R10 K21 ["firstMessage"]
+      184 GETTABLEKS                       R11 R0 K29 ["isAgenticMode"]
+      186 SETTABLEKS                       R11 R10 K22 ["useAgenticMode"]
+      188 GETTABLEKS                       R11 R0 K24 ["assistantMode"]
+      190 SETTABLEKS                       R11 R10 K24 ["assistantMode"]
+      192 SETTABLEKS                       R5 R10 K25 ["newQuotaChecking"]
+      194 GETUPVAL                         R11 7
+      195 GETTABLEKS                       R11 R11 K54 ["new"]
+      197 NEWCLOSURE                       R12 P0
+      198 CAPTURE                          UPVAL U8
+      199 CAPTURE                          VAL R10
+      200 CAPTURE                          VAL R7
+      201 CAPTURE                          UPVAL U9
+      202 CALL                             R11 1 -1
+      203 RETURN                           R11 -1
+      204 GETTABLEKS                       R8 R0 K0 ["isSubagent"]
+      206 JUMPIFEQKB                       R8 TRUE ; [+2]
+      208 LOADB                            R7 0 +1
+      209 LOADB                            R7 1
+      210 JUMPIFNOT                        R7 ; [+4]
+      211 GETUPVAL                         R8 1
+      212 GETTABLEKS                       R8 R8 K31 ["FStringSubagentURLOverride"]
+      214 JUMP                             ; [+3]
+      215 GETUPVAL                         R8 1
+      216 GETTABLEKS                       R8 R8 K32 ["FStringMCPAssistantURLOverride"]
+      218 GETTABLEKS                       R10 R0 K33 ["conversationUrl"]
+      220 JUMPIFNOT                        R10 ; [+4]
+      221 JUMPIFEQKS                       R10 K34 [""] ; [+3]
+      223 MOVE                             R9 R10
+      224 JUMP                             ; [+4]
+      225 JUMPIFNOT                        R7 ; [+2]
+      226 GETUPVAL                         R9 10
+      227 JUMP                             ; [+1]
+      228 GETUPVAL                         R9 11
+      229 GETUPVAL                         R10 0
+      230 MOVE                             R11 R8
+      231 MOVE                             R12 R9
+      232 CALL                             R10 2 1
+      233 NEWTABLE                         R11 1 0
+      235 LOADK                            R12 K35 ["application/json"]
+      236 SETTABLEKS                       R12 R11 K36 ["Content-Type"]
+      238 JUMPIFEQKS                       R8 K34 [""] ; [+15]
+      240 GETUPVAL                         R12 4
+      241 GETTABLEKS                       R12 R12 K37 ["get"]
+      243 CALL                             R12 0 1
+      244 GETTABLEKS                       R12 R12 K38 ["getUserId"]
+      246 CALL                             R12 0 1
+      247 FASTCALL1                        TOSTRING R12 ; [+3]
+      248 MOVE                             R14 R12
+      249 GETIMPORT                        R13 K40 [tostring]
+      251 CALL                             R13 1 1
+      252 SETTABLEKS                       R13 R11 K41 ["robloxctx-authenticated-userid"]
+      254 GETUPVAL                         R12 5
+      255 GETTABLEKS                       R12 R12 K42 ["Json"]
+      257 GETTABLEKS                       R12 R12 K43 ["encode"]
+      259 MOVE                             R13 R6
+      260 CALL                             R12 1 1
+      261 GETUPVAL                         R13 6
+      262 MOVE                             R15 R10
+      263 MOVE                             R16 R12
+      264 MOVE                             R17 R11
+      265 NAMECALL                         R13 R13 K44 ["post"]
+      267 CALL                             R13 4 -1
+      268 RETURN                           R13 -1
 
 PROTO_6:
         0 LOADNIL                          R2
@@ -607,74 +607,78 @@ MAIN:
        95 CALL                             R12 1 1
        96 GETTABLEKS                       R13 R2 K24 ["FlagUtils"]
        98 GETTABLEKS                       R13 R13 K25 ["getIsCreditMeteringEnabled"]
-      100 GETTABLEKS                       R14 R2 K26 ["Utils"]
-      102 GETTABLEKS                       R14 R14 K27 ["ServerStreamIdStore"]
-      104 GETTABLEKS                       R15 R2 K26 ["Utils"]
-      106 GETTABLEKS                       R15 R15 K28 ["StreamEventUtils"]
-      108 GETTABLEKS                       R16 R3 K29 ["Http"]
-      110 GETTABLEKS                       R16 R16 K30 ["Networking"]
-      112 GETTABLEKS                       R17 R16 K31 ["new"]
-      114 DUPTABLE                         R18 K35 [{["isInternal"] = True, ["loggingLevel"]}]
-      115 GETTABLEKS                       R20 R12 K36 ["FFlagDebugLogAssistantUI"]
-      117 JUMPIFNOT                        R20 ; [+2]
-      118 LOADN                            R19 4
-      119 JUMP                             ; [+1]
-      120 LOADN                            R19 0
-      121 SETTABLEKS                       R19 R18 K34 ["loggingLevel"]
-      123 CALL                             R17 1 1
-      124 GETTABLEKS                       R18 R2 K37 ["Guest"]
-      126 GETTABLEKS                       R18 R18 K38 ["Environment"]
-      128 GETTABLEKS                       R19 R3 K29 ["Http"]
-      130 GETTABLEKS                       R19 R19 K39 ["HttpResponse"]
-      132 GETTABLEKS                       R20 R3 K40 ["Url"]
-      134 GETTABLEKS                       R21 R20 K31 ["new"]
-      136 LOADNIL                          R22
-      137 CALL                             R21 1 1
-      138 LOADK                            R22 K41 ["%*/studio-assistant/v1/conversation"]
-      139 GETTABLEKS                       R24 R21 K42 ["APIS_URL"]
-      141 NAMECALL                         R22 R22 K43 ["format"]
-      143 CALL                             R22 2 1
-      144 LOADK                            R23 K44 ["%*/studio-assistant/v1/subagent-conversation"]
-      145 GETTABLEKS                       R25 R21 K42 ["APIS_URL"]
-      147 NAMECALL                         R23 R23 K43 ["format"]
+      100 GETTABLEKS                       R14 R2 K24 ["FlagUtils"]
+      102 GETTABLEKS                       R14 R14 K26 ["getIsCreditMeteringLocalBackend"]
+      104 GETTABLEKS                       R14 R14 K27 ["get"]
+      106 GETTABLEKS                       R15 R2 K28 ["Utils"]
+      108 GETTABLEKS                       R15 R15 K29 ["ServerStreamIdStore"]
+      110 GETTABLEKS                       R16 R2 K28 ["Utils"]
+      112 GETTABLEKS                       R16 R16 K30 ["StreamEventUtils"]
+      114 GETTABLEKS                       R17 R3 K31 ["Http"]
+      116 GETTABLEKS                       R17 R17 K32 ["Networking"]
+      118 GETTABLEKS                       R18 R17 K33 ["new"]
+      120 DUPTABLE                         R19 K37 [{["isInternal"] = True, ["loggingLevel"]}]
+      121 GETTABLEKS                       R21 R12 K38 ["FFlagDebugLogAssistantUI"]
+      123 JUMPIFNOT                        R21 ; [+2]
+      124 LOADN                            R20 4
+      125 JUMP                             ; [+1]
+      126 LOADN                            R20 0
+      127 SETTABLEKS                       R20 R19 K36 ["loggingLevel"]
+      129 CALL                             R18 1 1
+      130 GETTABLEKS                       R19 R2 K39 ["Guest"]
+      132 GETTABLEKS                       R19 R19 K40 ["Environment"]
+      134 GETTABLEKS                       R20 R3 K31 ["Http"]
+      136 GETTABLEKS                       R20 R20 K41 ["HttpResponse"]
+      138 GETTABLEKS                       R21 R3 K42 ["Url"]
+      140 GETTABLEKS                       R22 R21 K33 ["new"]
+      142 LOADNIL                          R23
+      143 CALL                             R22 1 1
+      144 LOADK                            R23 K43 ["%*/studio-assistant/v1/conversation"]
+      145 GETTABLEKS                       R25 R22 K44 ["APIS_URL"]
+      147 NAMECALL                         R23 R23 K45 ["format"]
       149 CALL                             R23 2 1
-      150 DUPCLOSURE                       R24 K45 [PROTO_0]
-      151 CAPTURE                          VAL R23
-      152 CAPTURE                          VAL R22
-      153 DUPCLOSURE                       R25 K46 [PROTO_3]
-      154 CAPTURE                          VAL R9
-      155 CAPTURE                          VAL R7
-      156 DUPCLOSURE                       R26 K47 [PROTO_5]
-      157 CAPTURE                          VAL R11
-      158 CAPTURE                          VAL R12
-      159 CAPTURE                          VAL R13
-      160 CAPTURE                          VAL R18
-      161 CAPTURE                          VAL R5
-      162 CAPTURE                          VAL R17
-      163 CAPTURE                          VAL R8
-      164 CAPTURE                          VAL R25
-      165 CAPTURE                          VAL R9
-      166 CAPTURE                          VAL R23
-      167 CAPTURE                          VAL R22
-      168 DUPTABLE                         R27 K54 [{["QUOTA_EXCEEDED"] = "quota_exceeded", ["TOO_MANY_REQUESTS"] = "too_many_request", ["REQUEST_FAILED"] = "request_failed"}]
-      169 DUPCLOSURE                       R28 K55 [PROTO_6]
-      170 CAPTURE                          VAL R12
-      171 DUPCLOSURE                       R29 K56 [PROTO_14]
-      172 CAPTURE                          VAL R18
-      173 CAPTURE                          VAL R15
-      174 CAPTURE                          VAL R5
-      175 CAPTURE                          VAL R6
-      176 CAPTURE                          VAL R1
-      177 CAPTURE                          VAL R14
-      178 CAPTURE                          VAL R26
-      179 CAPTURE                          VAL R12
-      180 CAPTURE                          VAL R23
-      181 CAPTURE                          VAL R22
-      182 CAPTURE                          VAL R21
-      183 CAPTURE                          VAL R11
-      184 CAPTURE                          VAL R28
-      185 DUPCLOSURE                       R30 K57 [PROTO_15]
-      186 CAPTURE                          VAL R29
-      187 DUPTABLE                         R31 K59 [{"createRequestHandler"}]
-      188 SETTABLEKS                       R30 R31 K58 ["createRequestHandler"]
-      190 RETURN                           R31 1
+      150 LOADK                            R24 K46 ["%*/studio-assistant/v1/subagent-conversation"]
+      151 GETTABLEKS                       R26 R22 K44 ["APIS_URL"]
+      153 NAMECALL                         R24 R24 K45 ["format"]
+      155 CALL                             R24 2 1
+      156 DUPCLOSURE                       R25 K47 [PROTO_0]
+      157 CAPTURE                          VAL R24
+      158 CAPTURE                          VAL R23
+      159 DUPCLOSURE                       R26 K48 [PROTO_3]
+      160 CAPTURE                          VAL R9
+      161 CAPTURE                          VAL R7
+      162 DUPCLOSURE                       R27 K49 [PROTO_5]
+      163 CAPTURE                          VAL R11
+      164 CAPTURE                          VAL R12
+      165 CAPTURE                          VAL R13
+      166 CAPTURE                          VAL R14
+      167 CAPTURE                          VAL R19
+      168 CAPTURE                          VAL R5
+      169 CAPTURE                          VAL R18
+      170 CAPTURE                          VAL R8
+      171 CAPTURE                          VAL R26
+      172 CAPTURE                          VAL R9
+      173 CAPTURE                          VAL R24
+      174 CAPTURE                          VAL R23
+      175 DUPTABLE                         R28 K56 [{["QUOTA_EXCEEDED"] = "quota_exceeded", ["TOO_MANY_REQUESTS"] = "too_many_request", ["REQUEST_FAILED"] = "request_failed"}]
+      176 DUPCLOSURE                       R29 K57 [PROTO_6]
+      177 CAPTURE                          VAL R12
+      178 DUPCLOSURE                       R30 K58 [PROTO_14]
+      179 CAPTURE                          VAL R19
+      180 CAPTURE                          VAL R16
+      181 CAPTURE                          VAL R5
+      182 CAPTURE                          VAL R6
+      183 CAPTURE                          VAL R1
+      184 CAPTURE                          VAL R15
+      185 CAPTURE                          VAL R27
+      186 CAPTURE                          VAL R12
+      187 CAPTURE                          VAL R24
+      188 CAPTURE                          VAL R23
+      189 CAPTURE                          VAL R22
+      190 CAPTURE                          VAL R11
+      191 CAPTURE                          VAL R29
+      192 DUPCLOSURE                       R31 K59 [PROTO_15]
+      193 CAPTURE                          VAL R30
+      194 DUPTABLE                         R32 K61 [{"createRequestHandler"}]
+      195 SETTABLEKS                       R31 R32 K60 ["createRequestHandler"]
+      197 RETURN                           R32 1

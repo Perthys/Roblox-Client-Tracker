@@ -30,68 +30,70 @@ PROTO_0:
        39 GETUPVAL                         R13 0
        40 GETTABLEKS                       R13 R13 K2 ["createElement"]
        42 GETUPVAL                         R14 4
-       43 DUPTABLE                         R15 K22 [{["icon"], ["onActivated"], ["size"], ["testId"] = "terrain-material-view-sort-button"}]
+       43 DUPTABLE                         R15 K23 [{["icon"], ["isDisabled"], ["onActivated"], ["size"], ["testId"] = "terrain-material-view-sort-button"}]
        44 GETUPVAL                         R16 5
-       45 GETTABLEKS                       R16 R16 K23 ["Enums"]
-       47 GETTABLEKS                       R16 R16 K24 ["IconName"]
-       49 GETTABLEKS                       R16 R16 K25 ["TwoSlidersVertical"]
+       45 GETTABLEKS                       R16 R16 K24 ["Enums"]
+       47 GETTABLEKS                       R16 R16 K25 ["IconName"]
+       49 GETTABLEKS                       R16 R16 K26 ["TwoSlidersVertical"]
        51 SETTABLEKS                       R16 R15 K18 ["icon"]
-       53 GETTABLEKS                       R16 R0 K26 ["onToggle"]
-       55 SETTABLEKS                       R16 R15 K19 ["onActivated"]
-       57 GETUPVAL                         R16 6
-       58 GETTABLEKS                       R16 R16 K27 ["XSmall"]
-       60 SETTABLEKS                       R16 R15 K20 ["size"]
-       62 CALL                             R13 2 -1
-       63 CALL                             R10 -1 1
-       64 SETTABLEKS                       R10 R9 K11 ["Tooltip"]
-       66 CALL                             R6 3 1
-       67 SETTABLEKS                       R6 R5 K8 ["Anchor"]
-       69 GETUPVAL                         R6 0
-       70 GETTABLEKS                       R6 R6 K2 ["createElement"]
-       72 GETUPVAL                         R7 5
-       73 GETTABLEKS                       R7 R7 K28 ["FoundationProvider"]
-       75 DUPTABLE                         R8 K32 [{"colorMode", "overlayGui", "preferences"}]
-       76 GETTABLEKS                       R9 R0 K29 ["colorMode"]
-       78 SETTABLEKS                       R9 R8 K29 ["colorMode"]
-       80 GETTABLEKS                       R9 R0 K30 ["overlayGui"]
-       82 SETTABLEKS                       R9 R8 K30 ["overlayGui"]
-       84 GETTABLEKS                       R9 R0 K31 ["preferences"]
-       86 SETTABLEKS                       R9 R8 K31 ["preferences"]
-       88 DUPTABLE                         R9 K34 [{"Content"}]
-       89 GETUPVAL                         R10 0
-       90 GETTABLEKS                       R10 R10 K2 ["createElement"]
-       92 GETUPVAL                         R11 2
-       93 GETTABLEKS                       R11 R11 K33 ["Content"]
-       95 DUPTABLE                         R12 K40 [{["align"], ["hasArrow"] = False, ["onPressedOutside"], ["side"]}]
-       96 GETUPVAL                         R13 7
-       97 GETTABLEKS                       R13 R13 K41 ["End"]
-       99 SETTABLEKS                       R13 R12 K35 ["align"]
-      101 GETTABLEKS                       R13 R0 K38 ["onPressedOutside"]
-      103 SETTABLEKS                       R13 R12 K38 ["onPressedOutside"]
-      105 GETUPVAL                         R13 8
-      106 GETTABLEKS                       R13 R13 K42 ["Bottom"]
-      108 SETTABLEKS                       R13 R12 K39 ["side"]
-      110 DUPTABLE                         R13 K44 [{"Menu"}]
-      111 GETUPVAL                         R14 0
-      112 GETTABLEKS                       R14 R14 K2 ["createElement"]
-      114 GETUPVAL                         R15 9
-      115 DUPTABLE                         R16 K49 [{"onSortTypeChanged", "onViewTypeChanged", "sortType", "viewType"}]
-      116 GETTABLEKS                       R17 R0 K45 ["onSortTypeChanged"]
-      118 SETTABLEKS                       R17 R16 K45 ["onSortTypeChanged"]
-      120 GETTABLEKS                       R17 R0 K46 ["onViewTypeChanged"]
-      122 SETTABLEKS                       R17 R16 K46 ["onViewTypeChanged"]
-      124 GETTABLEKS                       R17 R0 K47 ["sortType"]
-      126 SETTABLEKS                       R17 R16 K47 ["sortType"]
-      128 GETTABLEKS                       R17 R0 K48 ["viewType"]
-      130 SETTABLEKS                       R17 R16 K48 ["viewType"]
-      132 CALL                             R14 2 1
-      133 SETTABLEKS                       R14 R13 K43 ["Menu"]
-      135 CALL                             R10 3 1
-      136 SETTABLEKS                       R10 R9 K33 ["Content"]
-      138 CALL                             R6 3 1
-      139 SETTABLEKS                       R6 R5 K9 ["LocalContentProvider"]
-      141 CALL                             R2 3 -1
-      142 RETURN                           R2 -1
+       53 GETTABLEKS                       R16 R0 K19 ["isDisabled"]
+       55 SETTABLEKS                       R16 R15 K19 ["isDisabled"]
+       57 GETTABLEKS                       R16 R0 K27 ["onToggle"]
+       59 SETTABLEKS                       R16 R15 K20 ["onActivated"]
+       61 GETUPVAL                         R16 6
+       62 GETTABLEKS                       R16 R16 K28 ["XSmall"]
+       64 SETTABLEKS                       R16 R15 K21 ["size"]
+       66 CALL                             R13 2 -1
+       67 CALL                             R10 -1 1
+       68 SETTABLEKS                       R10 R9 K11 ["Tooltip"]
+       70 CALL                             R6 3 1
+       71 SETTABLEKS                       R6 R5 K8 ["Anchor"]
+       73 GETUPVAL                         R6 0
+       74 GETTABLEKS                       R6 R6 K2 ["createElement"]
+       76 GETUPVAL                         R7 5
+       77 GETTABLEKS                       R7 R7 K29 ["FoundationProvider"]
+       79 DUPTABLE                         R8 K33 [{"colorMode", "overlayGui", "preferences"}]
+       80 GETTABLEKS                       R9 R0 K30 ["colorMode"]
+       82 SETTABLEKS                       R9 R8 K30 ["colorMode"]
+       84 GETTABLEKS                       R9 R0 K31 ["overlayGui"]
+       86 SETTABLEKS                       R9 R8 K31 ["overlayGui"]
+       88 GETTABLEKS                       R9 R0 K32 ["preferences"]
+       90 SETTABLEKS                       R9 R8 K32 ["preferences"]
+       92 DUPTABLE                         R9 K35 [{"Content"}]
+       93 GETUPVAL                         R10 0
+       94 GETTABLEKS                       R10 R10 K2 ["createElement"]
+       96 GETUPVAL                         R11 2
+       97 GETTABLEKS                       R11 R11 K34 ["Content"]
+       99 DUPTABLE                         R12 K41 [{["align"], ["hasArrow"] = False, ["onPressedOutside"], ["side"]}]
+      100 GETUPVAL                         R13 7
+      101 GETTABLEKS                       R13 R13 K42 ["End"]
+      103 SETTABLEKS                       R13 R12 K36 ["align"]
+      105 GETTABLEKS                       R13 R0 K39 ["onPressedOutside"]
+      107 SETTABLEKS                       R13 R12 K39 ["onPressedOutside"]
+      109 GETUPVAL                         R13 8
+      110 GETTABLEKS                       R13 R13 K43 ["Bottom"]
+      112 SETTABLEKS                       R13 R12 K40 ["side"]
+      114 DUPTABLE                         R13 K45 [{"Menu"}]
+      115 GETUPVAL                         R14 0
+      116 GETTABLEKS                       R14 R14 K2 ["createElement"]
+      118 GETUPVAL                         R15 9
+      119 DUPTABLE                         R16 K50 [{"onSortTypeChanged", "onViewTypeChanged", "sortType", "viewType"}]
+      120 GETTABLEKS                       R17 R0 K46 ["onSortTypeChanged"]
+      122 SETTABLEKS                       R17 R16 K46 ["onSortTypeChanged"]
+      124 GETTABLEKS                       R17 R0 K47 ["onViewTypeChanged"]
+      126 SETTABLEKS                       R17 R16 K47 ["onViewTypeChanged"]
+      128 GETTABLEKS                       R17 R0 K48 ["sortType"]
+      130 SETTABLEKS                       R17 R16 K48 ["sortType"]
+      132 GETTABLEKS                       R17 R0 K49 ["viewType"]
+      134 SETTABLEKS                       R17 R16 K49 ["viewType"]
+      136 CALL                             R14 2 1
+      137 SETTABLEKS                       R14 R13 K44 ["Menu"]
+      139 CALL                             R10 3 1
+      140 SETTABLEKS                       R10 R9 K34 ["Content"]
+      142 CALL                             R6 3 1
+      143 SETTABLEKS                       R6 R5 K9 ["LocalContentProvider"]
+      145 CALL                             R2 3 -1
+      146 RETURN                           R2 -1
 
 MAIN:
         0 PREPVARARGS                      0

@@ -1161,459 +1161,414 @@ MAIN:
       383 GETIMPORT                        R68 K5 [require]
       385 GETTABLEKS                       R69 R0 K8 ["Src"]
       387 GETTABLEKS                       R69 R69 K76 ["Flags"]
-      389 GETTABLEKS                       R69 R69 K77 ["getFFlagCheckAvatarAssetPrivacy"]
+      389 GETTABLEKS                       R69 R69 K77 ["getFFlagFetchFullVersionHistoryWithVersionNotesV2"]
       391 CALL                             R68 1 1
       392 GETIMPORT                        R69 K5 [require]
       394 GETTABLEKS                       R70 R0 K8 ["Src"]
-      396 GETTABLEKS                       R70 R70 K76 ["Flags"]
-      398 GETTABLEKS                       R70 R70 K78 ["getFFlagFetchFullVersionHistoryWithVersionNotesV2"]
-      400 CALL                             R69 1 1
-      401 GETIMPORT                        R70 K5 [require]
-      403 GETTABLEKS                       R71 R0 K8 ["Src"]
-      405 GETTABLEKS                       R71 R71 K9 ["Util"]
-      407 GETTABLEKS                       R71 R71 K74 ["SharedFlags"]
-      409 GETTABLEKS                       R71 R71 K79 ["getFFlagToolboxModelCreationWarningWindow"]
-      411 CALL                             R70 1 1
-      412 GETTABLEKS                       R71 R3 K80 ["createReducer"]
-      414 NEWTABLE                         R72 128 0
-      416 NEWTABLE                         R73 0 0
-      418 SETTABLEKS                       R73 R72 K81 ["assetConfigData"]
-      420 NEWTABLE                         R73 0 0
-      422 SETTABLEKS                       R73 R72 K82 ["assetGroupData"]
-      424 NEWTABLE                         R73 0 0
-      426 SETTABLEKS                       R73 R72 K83 ["idToFiatProductMap"]
-      428 LOADNIL                          R73
-      429 SETTABLEKS                       R73 R72 K84 ["versionHistory"]
-      431 NEWTABLE                         R73 0 0
-      433 SETTABLEKS                       R73 R72 K85 ["packageDescriptions"]
-      435 LOADNIL                          R73
-      436 SETTABLEKS                       R73 R72 K86 ["versionHistoryWithDescriptions"]
-      438 NEWTABLE                         R73 0 0
-      440 SETTABLEKS                       R73 R72 K87 ["changed"]
-      442 LOADNIL                          R73
-      443 SETTABLEKS                       R73 R72 K88 ["assetId"]
-      445 LOADNIL                          R73
-      446 SETTABLEKS                       R73 R72 K89 ["thumbnailStatus"]
-      448 LOADNIL                          R73
-      449 SETTABLEKS                       R73 R72 K90 ["instances"]
-      451 LOADNIL                          R73
-      452 SETTABLEKS                       R73 R72 K91 ["sourceInstances"]
-      454 GETTABLEKS                       R73 R7 K92 ["FLOW_TYPE"]
-      456 GETTABLEKS                       R73 R73 K93 ["UPLOAD_FLOW"]
-      458 SETTABLEKS                       R73 R72 K94 ["screenFlowType"]
-      460 LOADNIL                          R73
-      461 SETTABLEKS                       R73 R72 K95 ["assetTypeEnum"]
-      463 LOADNIL                          R73
-      464 SETTABLEKS                       R73 R72 K96 ["assetSubType"]
-      466 LOADNIL                          R73
-      467 SETTABLEKS                       R73 R72 K97 ["assetTypeValidationSucceeded"]
-      469 LOADNIL                          R73
-      470 SETTABLEKS                       R73 R72 K98 ["currentScreen"]
-      472 NEWTABLE                         R73 0 0
-      474 SETTABLEKS                       R73 R72 K99 ["screenConfigs"]
-      476 NEWTABLE                         R73 0 0
-      478 SETTABLEKS                       R73 R72 K100 ["allowedAssetTypesForRelease"]
-      480 NEWTABLE                         R73 0 0
-      482 SETTABLEKS                       R73 R72 K101 ["allowedAssetTypesForUpload"]
-      484 NEWTABLE                         R73 0 0
-      486 SETTABLEKS                       R73 R72 K102 ["allowedBundleTypeSettings"]
-      488 LOADB                            R73 1
-      489 SETTABLEKS                       R73 R72 K103 ["canAffordUploadFee"]
-      491 LOADN                            R73 0
-      492 SETTABLEKS                       R73 R72 K104 ["uploadFee"]
-      494 LOADB                            R73 0
-      495 SETTABLEKS                       R73 R72 K105 ["hasPublishingPreferences"]
-      497 LOADB                            R73 0
-      498 SETTABLEKS                       R73 R72 K106 ["hasPublishingFeePreview"]
-      500 LOADN                            R73 0
-      501 SETTABLEKS                       R73 R72 K107 ["publishingFeePreview"]
-      503 NEWTABLE                         R73 0 0
-      505 SETTABLEKS                       R73 R72 K108 ["specialAttributes"]
-      507 LOADB                            R73 0
-      508 SETTABLEKS                       R73 R72 K109 ["hasMetadataPermission"]
-      510 LOADNIL                          R73
-      511 SETTABLEKS                       R73 R72 K110 ["currentTab"]
-      513 NEWTABLE                         R73 0 0
-      515 SETTABLEKS                       R73 R72 K111 ["resultsArray"]
-      517 NEWTABLE                         R73 0 0
-      519 SETTABLEKS                       R73 R72 K112 ["manageableGroups"]
-      521 NEWTABLE                         R73 0 0
-      523 SETTABLEKS                       R73 R72 K113 ["assetTypeAgents"]
-      525 LOADB                            R73 1
-      526 SETTABLEKS                       R73 R72 K114 ["isVerifiedCreator"]
-      528 LOADNIL                          R73
-      529 SETTABLEKS                       R73 R72 K115 ["networkError"]
-      531 LOADNIL                          R73
-      532 SETTABLEKS                       R73 R72 K116 ["networkErrorAction"]
-      534 LOADN                            R73 0
-      535 SETTABLEKS                       R73 R72 K117 ["progressPercentage"]
-      537 LOADNIL                          R73
-      538 SETTABLEKS                       R73 R72 K118 ["progressTitle"]
-      540 LOADNIL                          R73
-      541 SETTABLEKS                       R73 R72 K119 ["progressText"]
-      543 NEWTABLE                         R73 0 0
-      545 SETTABLEKS                       R73 R72 K120 ["networkTable"]
-      547 LOADB                            R73 0
-      548 SETTABLEKS                       R73 R72 K121 ["fetchedAll"]
-      550 LOADN                            R73 0
-      551 SETTABLEKS                       R73 R72 K122 ["loadingPage"]
-      553 LOADN                            R73 1
-      554 SETTABLEKS                       R73 R72 K123 ["currentPage"]
-      556 GETTABLEKS                       R73 R5 K124 ["createDefaultCursor"]
-      558 CALL                             R73 0 1
-      559 SETTABLEKS                       R73 R72 K125 ["overrideCursor"]
-      561 NEWTABLE                         R73 0 0
-      563 SETTABLEKS                       R73 R72 K126 ["groupMetadata"]
-      565 LOADNIL                          R73
-      566 SETTABLEKS                       R73 R72 K127 ["localUserFriends"]
-      568 LOADK                            R73 K128 [""]
-      569 SETTABLEKS                       R73 R72 K129 ["searchText"]
-      571 LOADB                            R73 0
-      572 SETTABLEKS                       R73 R72 K130 ["success"]
-      574 NEWTABLE                         R73 0 0
-      576 SETTABLEKS                       R73 R72 K131 ["collaborators"]
-      578 LOADB                            R73 0
-      579 SETTABLEKS                       R73 R72 K132 ["isPackageAsset"]
-      581 NEWTABLE                         R73 0 0
-      583 SETTABLEKS                       R73 R72 K133 ["packagePermissions"]
-      585 NEWTABLE                         R73 0 0
-      587 SETTABLEKS                       R73 R72 K134 ["descendantPermissions"]
-      589 LOADNIL                          R73
-      590 SETTABLEKS                       R73 R72 K135 ["iconFile"]
-      592 LOADNIL                          R73
-      593 SETTABLEKS                       R73 R72 K136 ["deleteLocal"]
-      595 LOADB                            R73 1
-      596 SETTABLEKS                       R73 R72 K137 ["animationSectionValid"]
-      598 NEWTABLE                         R73 0 0
-      600 SETTABLEKS                       R73 R72 K138 ["tagSuggestions"]
-      602 LOADN                            R73 0
-      603 SETTABLEKS                       R73 R72 K139 ["latestTagSuggestionTime"]
-      605 LOADK                            R73 K128 [""]
-      606 SETTABLEKS                       R73 R72 K140 ["latestTagSearchQuery"]
-      608 NEWTABLE                         R73 0 0
-      610 SETTABLEKS                       R73 R72 K141 ["publishingRequirements"]
-      612 MOVE                             R74 R67
-      613 CALL                             R74 0 1
-      614 JUMPIFNOT                        R74 ; [+3]
-      615 NEWTABLE                         R73 0 0
-      617 JUMP                             ; [+1]
-      618 LOADNIL                          R73
-      619 SETTABLEKS                       R73 R72 K142 ["sellerStatusData"]
-      621 LOADB                            R73 0
-      622 SETTABLEKS                       R73 R72 K143 ["groupBundlesUploadEnabledForUser"]
-      624 NEWTABLE                         R73 0 0
-      626 SETTABLEKS                       R73 R72 K144 ["allowedGroupsForUpload"]
-      628 MOVE                             R74 R68
-      629 CALL                             R74 0 1
-      630 JUMPIFNOT                        R74 ; [+3]
-      631 NEWTABLE                         R73 0 0
-      633 JUMP                             ; [+1]
-      634 LOADNIL                          R73
-      635 SETTABLEKS                       R73 R72 K145 ["privateAvatarAssetIds"]
-      637 MOVE                             R74 R68
-      638 CALL                             R74 0 1
-      639 JUMPIFNOT                        R74 ; [+2]
-      640 LOADB                            R73 0
-      641 JUMP                             ; [+1]
-      642 LOADNIL                          R73
-      643 SETTABLEKS                       R73 R72 K146 ["isAvatarItemDialogFlowEnabled"]
-      645 MOVE                             R74 R68
-      646 CALL                             R74 0 1
-      647 JUMPIFNOT                        R74 ; [+2]
-      648 LOADB                            R73 1
-      649 JUMP                             ; [+1]
-      650 LOADNIL                          R73
-      651 SETTABLEKS                       R73 R72 K147 ["avatarItemDialogButtonEnabled"]
-      653 MOVE                             R74 R68
-      654 CALL                             R74 0 1
-      655 JUMPIFNOT                        R74 ; [+3]
-      656 GETTABLEKS                       R73 R66 K148 ["Disabled"]
-      658 JUMP                             ; [+1]
-      659 LOADNIL                          R73
-      660 SETTABLEKS                       R73 R72 K149 ["avatarItemDialogType"]
-      662 LOADNIL                          R73
-      663 SETTABLEKS                       R73 R72 K150 ["nonBlockingDependencyIssues"]
-      665 NEWTABLE                         R73 64 0
-      667 GETTABLEKS                       R74 R39 K151 ["name"]
-      669 DUPCLOSURE                       R75 K152 [PROTO_0]
-      670 CAPTURE                          VAL R2
-      671 SETTABLE                         R75 R73 R74
-      672 GETTABLEKS                       R74 R9 K151 ["name"]
-      674 DUPCLOSURE                       R75 K153 [PROTO_1]
-      675 CAPTURE                          VAL R2
-      676 SETTABLE                         R75 R73 R74
-      677 GETTABLEKS                       R74 R10 K151 ["name"]
-      679 DUPCLOSURE                       R75 K154 [PROTO_2]
-      680 CAPTURE                          VAL R2
-      681 SETTABLE                         R75 R73 R74
-      682 GETTABLEKS                       R74 R11 K151 ["name"]
-      684 DUPCLOSURE                       R75 K155 [PROTO_3]
-      685 CAPTURE                          VAL R2
-      686 SETTABLE                         R75 R73 R74
-      687 GETTABLEKS                       R74 R16 K151 ["name"]
-      689 DUPCLOSURE                       R75 K156 [PROTO_4]
-      690 CAPTURE                          VAL R2
-      691 SETTABLE                         R75 R73 R74
-      692 GETTABLEKS                       R74 R64 K151 ["name"]
-      694 MOVE                             R76 R70
-      695 CALL                             R76 0 1
-      696 JUMPIFNOT                        R76 ; [+3]
-      697 DUPCLOSURE                       R75 K157 [PROTO_5]
-      698 CAPTURE                          VAL R2
-      699 JUMP                             ; [+1]
-      700 LOADNIL                          R75
-      701 SETTABLE                         R75 R73 R74
-      702 GETTABLEKS                       R74 R17 K151 ["name"]
-      704 DUPCLOSURE                       R75 K158 [PROTO_6]
-      705 CAPTURE                          VAL R2
-      706 SETTABLE                         R75 R73 R74
-      707 GETTABLEKS                       R74 R12 K151 ["name"]
-      709 DUPCLOSURE                       R75 K159 [PROTO_7]
-      710 CAPTURE                          VAL R2
-      711 SETTABLE                         R75 R73 R74
-      712 GETTABLEKS                       R74 R13 K151 ["name"]
-      714 DUPCLOSURE                       R75 K160 [PROTO_8]
-      715 CAPTURE                          VAL R2
-      716 SETTABLE                         R75 R73 R74
-      717 GETTABLEKS                       R74 R14 K151 ["name"]
-      719 DUPCLOSURE                       R75 K161 [PROTO_9]
-      720 CAPTURE                          VAL R69
-      721 CAPTURE                          VAL R2
-      722 SETTABLE                         R75 R73 R74
-      723 GETTABLEKS                       R74 R15 K151 ["name"]
-      725 DUPCLOSURE                       R75 K162 [PROTO_10]
-      726 CAPTURE                          VAL R2
-      727 SETTABLE                         R75 R73 R74
-      728 GETTABLEKS                       R74 R38 K151 ["name"]
-      730 DUPCLOSURE                       R75 K163 [PROTO_11]
-      731 CAPTURE                          VAL R2
-      732 SETTABLE                         R75 R73 R74
-      733 GETTABLEKS                       R74 R18 K151 ["name"]
-      735 DUPCLOSURE                       R75 K164 [PROTO_12]
-      736 CAPTURE                          VAL R2
-      737 SETTABLE                         R75 R73 R74
-      738 GETTABLEKS                       R74 R19 K151 ["name"]
-      740 DUPCLOSURE                       R75 K165 [PROTO_13]
-      741 CAPTURE                          VAL R2
-      742 SETTABLE                         R75 R73 R74
-      743 GETTABLEKS                       R74 R20 K151 ["name"]
-      745 DUPCLOSURE                       R75 K166 [PROTO_14]
-      746 CAPTURE                          VAL R2
-      747 SETTABLE                         R75 R73 R74
-      748 GETTABLEKS                       R74 R23 K151 ["name"]
-      750 DUPCLOSURE                       R75 K167 [PROTO_15]
-      751 CAPTURE                          VAL R2
-      752 SETTABLE                         R75 R73 R74
-      753 GETTABLEKS                       R74 R56 K151 ["name"]
-      755 DUPCLOSURE                       R75 K168 [PROTO_16]
-      756 CAPTURE                          VAL R2
-      757 SETTABLE                         R75 R73 R74
-      758 GETTABLEKS                       R74 R21 K151 ["name"]
-      760 DUPCLOSURE                       R75 K169 [PROTO_17]
-      761 CAPTURE                          VAL R2
-      762 SETTABLE                         R75 R73 R74
-      763 GETTABLEKS                       R74 R22 K151 ["name"]
-      765 DUPCLOSURE                       R75 K170 [PROTO_18]
-      766 CAPTURE                          VAL R2
-      767 SETTABLE                         R75 R73 R74
-      768 GETTABLEKS                       R74 R24 K151 ["name"]
-      770 DUPCLOSURE                       R75 K171 [PROTO_19]
-      771 CAPTURE                          VAL R2
-      772 SETTABLE                         R75 R73 R74
-      773 GETTABLEKS                       R74 R25 K151 ["name"]
-      775 DUPCLOSURE                       R75 K172 [PROTO_20]
-      776 CAPTURE                          VAL R2
-      777 SETTABLE                         R75 R73 R74
-      778 GETTABLEKS                       R74 R29 K151 ["name"]
-      780 DUPCLOSURE                       R75 K173 [PROTO_21]
-      781 CAPTURE                          VAL R2
-      782 SETTABLE                         R75 R73 R74
-      783 GETTABLEKS                       R74 R26 K151 ["name"]
-      785 DUPCLOSURE                       R75 K174 [PROTO_22]
-      786 CAPTURE                          VAL R2
-      787 SETTABLE                         R75 R73 R74
-      788 GETTABLEKS                       R74 R27 K151 ["name"]
-      790 DUPCLOSURE                       R75 K175 [PROTO_23]
-      791 CAPTURE                          VAL R2
-      792 SETTABLE                         R75 R73 R74
-      793 GETTABLEKS                       R74 R28 K151 ["name"]
-      795 DUPCLOSURE                       R75 K176 [PROTO_24]
-      796 CAPTURE                          VAL R2
-      797 SETTABLE                         R75 R73 R74
-      798 GETTABLEKS                       R74 R30 K151 ["name"]
-      800 DUPCLOSURE                       R75 K177 [PROTO_25]
-      801 CAPTURE                          VAL R2
-      802 SETTABLE                         R75 R73 R74
-      803 GETTABLEKS                       R74 R31 K151 ["name"]
-      805 DUPCLOSURE                       R75 K178 [PROTO_26]
+      396 GETTABLEKS                       R70 R70 K9 ["Util"]
+      398 GETTABLEKS                       R70 R70 K74 ["SharedFlags"]
+      400 GETTABLEKS                       R70 R70 K78 ["getFFlagToolboxModelCreationWarningWindow"]
+      402 CALL                             R69 1 1
+      403 GETTABLEKS                       R70 R3 K79 ["createReducer"]
+      405 NEWTABLE                         R71 128 0
+      407 NEWTABLE                         R72 0 0
+      409 SETTABLEKS                       R72 R71 K80 ["assetConfigData"]
+      411 NEWTABLE                         R72 0 0
+      413 SETTABLEKS                       R72 R71 K81 ["assetGroupData"]
+      415 NEWTABLE                         R72 0 0
+      417 SETTABLEKS                       R72 R71 K82 ["idToFiatProductMap"]
+      419 LOADNIL                          R72
+      420 SETTABLEKS                       R72 R71 K83 ["versionHistory"]
+      422 NEWTABLE                         R72 0 0
+      424 SETTABLEKS                       R72 R71 K84 ["packageDescriptions"]
+      426 LOADNIL                          R72
+      427 SETTABLEKS                       R72 R71 K85 ["versionHistoryWithDescriptions"]
+      429 NEWTABLE                         R72 0 0
+      431 SETTABLEKS                       R72 R71 K86 ["changed"]
+      433 LOADNIL                          R72
+      434 SETTABLEKS                       R72 R71 K87 ["assetId"]
+      436 LOADNIL                          R72
+      437 SETTABLEKS                       R72 R71 K88 ["thumbnailStatus"]
+      439 LOADNIL                          R72
+      440 SETTABLEKS                       R72 R71 K89 ["instances"]
+      442 LOADNIL                          R72
+      443 SETTABLEKS                       R72 R71 K90 ["sourceInstances"]
+      445 GETTABLEKS                       R72 R7 K91 ["FLOW_TYPE"]
+      447 GETTABLEKS                       R72 R72 K92 ["UPLOAD_FLOW"]
+      449 SETTABLEKS                       R72 R71 K93 ["screenFlowType"]
+      451 LOADNIL                          R72
+      452 SETTABLEKS                       R72 R71 K94 ["assetTypeEnum"]
+      454 LOADNIL                          R72
+      455 SETTABLEKS                       R72 R71 K95 ["assetSubType"]
+      457 LOADNIL                          R72
+      458 SETTABLEKS                       R72 R71 K96 ["assetTypeValidationSucceeded"]
+      460 LOADNIL                          R72
+      461 SETTABLEKS                       R72 R71 K97 ["currentScreen"]
+      463 NEWTABLE                         R72 0 0
+      465 SETTABLEKS                       R72 R71 K98 ["screenConfigs"]
+      467 NEWTABLE                         R72 0 0
+      469 SETTABLEKS                       R72 R71 K99 ["allowedAssetTypesForRelease"]
+      471 NEWTABLE                         R72 0 0
+      473 SETTABLEKS                       R72 R71 K100 ["allowedAssetTypesForUpload"]
+      475 NEWTABLE                         R72 0 0
+      477 SETTABLEKS                       R72 R71 K101 ["allowedBundleTypeSettings"]
+      479 LOADB                            R72 1
+      480 SETTABLEKS                       R72 R71 K102 ["canAffordUploadFee"]
+      482 LOADN                            R72 0
+      483 SETTABLEKS                       R72 R71 K103 ["uploadFee"]
+      485 LOADB                            R72 0
+      486 SETTABLEKS                       R72 R71 K104 ["hasPublishingPreferences"]
+      488 LOADB                            R72 0
+      489 SETTABLEKS                       R72 R71 K105 ["hasPublishingFeePreview"]
+      491 LOADN                            R72 0
+      492 SETTABLEKS                       R72 R71 K106 ["publishingFeePreview"]
+      494 NEWTABLE                         R72 0 0
+      496 SETTABLEKS                       R72 R71 K107 ["specialAttributes"]
+      498 LOADB                            R72 0
+      499 SETTABLEKS                       R72 R71 K108 ["hasMetadataPermission"]
+      501 LOADNIL                          R72
+      502 SETTABLEKS                       R72 R71 K109 ["currentTab"]
+      504 NEWTABLE                         R72 0 0
+      506 SETTABLEKS                       R72 R71 K110 ["resultsArray"]
+      508 NEWTABLE                         R72 0 0
+      510 SETTABLEKS                       R72 R71 K111 ["manageableGroups"]
+      512 NEWTABLE                         R72 0 0
+      514 SETTABLEKS                       R72 R71 K112 ["assetTypeAgents"]
+      516 LOADB                            R72 1
+      517 SETTABLEKS                       R72 R71 K113 ["isVerifiedCreator"]
+      519 LOADNIL                          R72
+      520 SETTABLEKS                       R72 R71 K114 ["networkError"]
+      522 LOADNIL                          R72
+      523 SETTABLEKS                       R72 R71 K115 ["networkErrorAction"]
+      525 LOADN                            R72 0
+      526 SETTABLEKS                       R72 R71 K116 ["progressPercentage"]
+      528 LOADNIL                          R72
+      529 SETTABLEKS                       R72 R71 K117 ["progressTitle"]
+      531 LOADNIL                          R72
+      532 SETTABLEKS                       R72 R71 K118 ["progressText"]
+      534 NEWTABLE                         R72 0 0
+      536 SETTABLEKS                       R72 R71 K119 ["networkTable"]
+      538 LOADB                            R72 0
+      539 SETTABLEKS                       R72 R71 K120 ["fetchedAll"]
+      541 LOADN                            R72 0
+      542 SETTABLEKS                       R72 R71 K121 ["loadingPage"]
+      544 LOADN                            R72 1
+      545 SETTABLEKS                       R72 R71 K122 ["currentPage"]
+      547 GETTABLEKS                       R72 R5 K123 ["createDefaultCursor"]
+      549 CALL                             R72 0 1
+      550 SETTABLEKS                       R72 R71 K124 ["overrideCursor"]
+      552 NEWTABLE                         R72 0 0
+      554 SETTABLEKS                       R72 R71 K125 ["groupMetadata"]
+      556 LOADNIL                          R72
+      557 SETTABLEKS                       R72 R71 K126 ["localUserFriends"]
+      559 LOADK                            R72 K127 [""]
+      560 SETTABLEKS                       R72 R71 K128 ["searchText"]
+      562 LOADB                            R72 0
+      563 SETTABLEKS                       R72 R71 K129 ["success"]
+      565 NEWTABLE                         R72 0 0
+      567 SETTABLEKS                       R72 R71 K130 ["collaborators"]
+      569 LOADB                            R72 0
+      570 SETTABLEKS                       R72 R71 K131 ["isPackageAsset"]
+      572 NEWTABLE                         R72 0 0
+      574 SETTABLEKS                       R72 R71 K132 ["packagePermissions"]
+      576 NEWTABLE                         R72 0 0
+      578 SETTABLEKS                       R72 R71 K133 ["descendantPermissions"]
+      580 LOADNIL                          R72
+      581 SETTABLEKS                       R72 R71 K134 ["iconFile"]
+      583 LOADNIL                          R72
+      584 SETTABLEKS                       R72 R71 K135 ["deleteLocal"]
+      586 LOADB                            R72 1
+      587 SETTABLEKS                       R72 R71 K136 ["animationSectionValid"]
+      589 NEWTABLE                         R72 0 0
+      591 SETTABLEKS                       R72 R71 K137 ["tagSuggestions"]
+      593 LOADN                            R72 0
+      594 SETTABLEKS                       R72 R71 K138 ["latestTagSuggestionTime"]
+      596 LOADK                            R72 K127 [""]
+      597 SETTABLEKS                       R72 R71 K139 ["latestTagSearchQuery"]
+      599 NEWTABLE                         R72 0 0
+      601 SETTABLEKS                       R72 R71 K140 ["publishingRequirements"]
+      603 MOVE                             R73 R67
+      604 CALL                             R73 0 1
+      605 JUMPIFNOT                        R73 ; [+3]
+      606 NEWTABLE                         R72 0 0
+      608 JUMP                             ; [+1]
+      609 LOADNIL                          R72
+      610 SETTABLEKS                       R72 R71 K141 ["sellerStatusData"]
+      612 LOADB                            R72 0
+      613 SETTABLEKS                       R72 R71 K142 ["groupBundlesUploadEnabledForUser"]
+      615 NEWTABLE                         R72 0 0
+      617 SETTABLEKS                       R72 R71 K143 ["allowedGroupsForUpload"]
+      619 NEWTABLE                         R72 0 0
+      621 SETTABLEKS                       R72 R71 K144 ["privateAvatarAssetIds"]
+      623 LOADB                            R72 0
+      624 SETTABLEKS                       R72 R71 K145 ["isAvatarItemDialogFlowEnabled"]
+      626 LOADB                            R72 1
+      627 SETTABLEKS                       R72 R71 K146 ["avatarItemDialogButtonEnabled"]
+      629 GETTABLEKS                       R72 R66 K147 ["Disabled"]
+      631 SETTABLEKS                       R72 R71 K148 ["avatarItemDialogType"]
+      633 LOADNIL                          R72
+      634 SETTABLEKS                       R72 R71 K149 ["nonBlockingDependencyIssues"]
+      636 NEWTABLE                         R72 64 0
+      638 GETTABLEKS                       R73 R39 K150 ["name"]
+      640 DUPCLOSURE                       R74 K151 [PROTO_0]
+      641 CAPTURE                          VAL R2
+      642 SETTABLE                         R74 R72 R73
+      643 GETTABLEKS                       R73 R9 K150 ["name"]
+      645 DUPCLOSURE                       R74 K152 [PROTO_1]
+      646 CAPTURE                          VAL R2
+      647 SETTABLE                         R74 R72 R73
+      648 GETTABLEKS                       R73 R10 K150 ["name"]
+      650 DUPCLOSURE                       R74 K153 [PROTO_2]
+      651 CAPTURE                          VAL R2
+      652 SETTABLE                         R74 R72 R73
+      653 GETTABLEKS                       R73 R11 K150 ["name"]
+      655 DUPCLOSURE                       R74 K154 [PROTO_3]
+      656 CAPTURE                          VAL R2
+      657 SETTABLE                         R74 R72 R73
+      658 GETTABLEKS                       R73 R16 K150 ["name"]
+      660 DUPCLOSURE                       R74 K155 [PROTO_4]
+      661 CAPTURE                          VAL R2
+      662 SETTABLE                         R74 R72 R73
+      663 GETTABLEKS                       R73 R64 K150 ["name"]
+      665 MOVE                             R75 R69
+      666 CALL                             R75 0 1
+      667 JUMPIFNOT                        R75 ; [+3]
+      668 DUPCLOSURE                       R74 K156 [PROTO_5]
+      669 CAPTURE                          VAL R2
+      670 JUMP                             ; [+1]
+      671 LOADNIL                          R74
+      672 SETTABLE                         R74 R72 R73
+      673 GETTABLEKS                       R73 R17 K150 ["name"]
+      675 DUPCLOSURE                       R74 K157 [PROTO_6]
+      676 CAPTURE                          VAL R2
+      677 SETTABLE                         R74 R72 R73
+      678 GETTABLEKS                       R73 R12 K150 ["name"]
+      680 DUPCLOSURE                       R74 K158 [PROTO_7]
+      681 CAPTURE                          VAL R2
+      682 SETTABLE                         R74 R72 R73
+      683 GETTABLEKS                       R73 R13 K150 ["name"]
+      685 DUPCLOSURE                       R74 K159 [PROTO_8]
+      686 CAPTURE                          VAL R2
+      687 SETTABLE                         R74 R72 R73
+      688 GETTABLEKS                       R73 R14 K150 ["name"]
+      690 DUPCLOSURE                       R74 K160 [PROTO_9]
+      691 CAPTURE                          VAL R68
+      692 CAPTURE                          VAL R2
+      693 SETTABLE                         R74 R72 R73
+      694 GETTABLEKS                       R73 R15 K150 ["name"]
+      696 DUPCLOSURE                       R74 K161 [PROTO_10]
+      697 CAPTURE                          VAL R2
+      698 SETTABLE                         R74 R72 R73
+      699 GETTABLEKS                       R73 R38 K150 ["name"]
+      701 DUPCLOSURE                       R74 K162 [PROTO_11]
+      702 CAPTURE                          VAL R2
+      703 SETTABLE                         R74 R72 R73
+      704 GETTABLEKS                       R73 R18 K150 ["name"]
+      706 DUPCLOSURE                       R74 K163 [PROTO_12]
+      707 CAPTURE                          VAL R2
+      708 SETTABLE                         R74 R72 R73
+      709 GETTABLEKS                       R73 R19 K150 ["name"]
+      711 DUPCLOSURE                       R74 K164 [PROTO_13]
+      712 CAPTURE                          VAL R2
+      713 SETTABLE                         R74 R72 R73
+      714 GETTABLEKS                       R73 R20 K150 ["name"]
+      716 DUPCLOSURE                       R74 K165 [PROTO_14]
+      717 CAPTURE                          VAL R2
+      718 SETTABLE                         R74 R72 R73
+      719 GETTABLEKS                       R73 R23 K150 ["name"]
+      721 DUPCLOSURE                       R74 K166 [PROTO_15]
+      722 CAPTURE                          VAL R2
+      723 SETTABLE                         R74 R72 R73
+      724 GETTABLEKS                       R73 R56 K150 ["name"]
+      726 DUPCLOSURE                       R74 K167 [PROTO_16]
+      727 CAPTURE                          VAL R2
+      728 SETTABLE                         R74 R72 R73
+      729 GETTABLEKS                       R73 R21 K150 ["name"]
+      731 DUPCLOSURE                       R74 K168 [PROTO_17]
+      732 CAPTURE                          VAL R2
+      733 SETTABLE                         R74 R72 R73
+      734 GETTABLEKS                       R73 R22 K150 ["name"]
+      736 DUPCLOSURE                       R74 K169 [PROTO_18]
+      737 CAPTURE                          VAL R2
+      738 SETTABLE                         R74 R72 R73
+      739 GETTABLEKS                       R73 R24 K150 ["name"]
+      741 DUPCLOSURE                       R74 K170 [PROTO_19]
+      742 CAPTURE                          VAL R2
+      743 SETTABLE                         R74 R72 R73
+      744 GETTABLEKS                       R73 R25 K150 ["name"]
+      746 DUPCLOSURE                       R74 K171 [PROTO_20]
+      747 CAPTURE                          VAL R2
+      748 SETTABLE                         R74 R72 R73
+      749 GETTABLEKS                       R73 R29 K150 ["name"]
+      751 DUPCLOSURE                       R74 K172 [PROTO_21]
+      752 CAPTURE                          VAL R2
+      753 SETTABLE                         R74 R72 R73
+      754 GETTABLEKS                       R73 R26 K150 ["name"]
+      756 DUPCLOSURE                       R74 K173 [PROTO_22]
+      757 CAPTURE                          VAL R2
+      758 SETTABLE                         R74 R72 R73
+      759 GETTABLEKS                       R73 R27 K150 ["name"]
+      761 DUPCLOSURE                       R74 K174 [PROTO_23]
+      762 CAPTURE                          VAL R2
+      763 SETTABLE                         R74 R72 R73
+      764 GETTABLEKS                       R73 R28 K150 ["name"]
+      766 DUPCLOSURE                       R74 K175 [PROTO_24]
+      767 CAPTURE                          VAL R2
+      768 SETTABLE                         R74 R72 R73
+      769 GETTABLEKS                       R73 R30 K150 ["name"]
+      771 DUPCLOSURE                       R74 K176 [PROTO_25]
+      772 CAPTURE                          VAL R2
+      773 SETTABLE                         R74 R72 R73
+      774 GETTABLEKS                       R73 R31 K150 ["name"]
+      776 DUPCLOSURE                       R74 K177 [PROTO_26]
+      777 CAPTURE                          VAL R2
+      778 SETTABLE                         R74 R72 R73
+      779 GETTABLEKS                       R73 R32 K150 ["name"]
+      781 DUPCLOSURE                       R74 K178 [PROTO_27]
+      782 CAPTURE                          VAL R2
+      783 SETTABLE                         R74 R72 R73
+      784 GETTABLEKS                       R73 R33 K150 ["name"]
+      786 DUPCLOSURE                       R74 K179 [PROTO_28]
+      787 CAPTURE                          VAL R2
+      788 SETTABLE                         R74 R72 R73
+      789 GETTABLEKS                       R73 R34 K150 ["name"]
+      791 DUPCLOSURE                       R74 K180 [PROTO_29]
+      792 CAPTURE                          VAL R2
+      793 SETTABLE                         R74 R72 R73
+      794 GETTABLEKS                       R73 R35 K181 ["LoadedLocalUserFriends"]
+      796 GETTABLEKS                       R73 R73 K150 ["name"]
+      798 DUPCLOSURE                       R74 K182 [PROTO_30]
+      799 CAPTURE                          VAL R2
+      800 SETTABLE                         R74 R72 R73
+      801 GETTABLEKS                       R73 R35 K183 ["LoadedLocalUserGroups"]
+      803 GETTABLEKS                       R73 R73 K150 ["name"]
+      805 DUPCLOSURE                       R74 K184 [PROTO_31]
       806 CAPTURE                          VAL R2
-      807 SETTABLE                         R75 R73 R74
-      808 GETTABLEKS                       R74 R32 K151 ["name"]
-      810 DUPCLOSURE                       R75 K179 [PROTO_27]
-      811 CAPTURE                          VAL R2
-      812 SETTABLE                         R75 R73 R74
-      813 GETTABLEKS                       R74 R33 K151 ["name"]
-      815 DUPCLOSURE                       R75 K180 [PROTO_28]
-      816 CAPTURE                          VAL R2
-      817 SETTABLE                         R75 R73 R74
-      818 GETTABLEKS                       R74 R34 K151 ["name"]
-      820 DUPCLOSURE                       R75 K181 [PROTO_29]
+      807 SETTABLE                         R74 R72 R73
+      808 GETTABLEKS                       R73 R35 K185 ["LoadingLocalUserFriends"]
+      810 GETTABLEKS                       R73 R73 K150 ["name"]
+      812 DUPCLOSURE                       R74 K186 [PROTO_32]
+      813 CAPTURE                          VAL R2
+      814 CAPTURE                          VAL R6
+      815 SETTABLE                         R74 R72 R73
+      816 GETTABLEKS                       R73 R35 K187 ["LoadingLocalUserGroups"]
+      818 GETTABLEKS                       R73 R73 K150 ["name"]
+      820 DUPCLOSURE                       R74 K188 [PROTO_33]
       821 CAPTURE                          VAL R2
-      822 SETTABLE                         R75 R73 R74
-      823 GETTABLEKS                       R74 R35 K182 ["LoadedLocalUserFriends"]
-      825 GETTABLEKS                       R74 R74 K151 ["name"]
-      827 DUPCLOSURE                       R75 K183 [PROTO_30]
-      828 CAPTURE                          VAL R2
-      829 SETTABLE                         R75 R73 R74
-      830 GETTABLEKS                       R74 R35 K184 ["LoadedLocalUserGroups"]
-      832 GETTABLEKS                       R74 R74 K151 ["name"]
-      834 DUPCLOSURE                       R75 K185 [PROTO_31]
-      835 CAPTURE                          VAL R2
-      836 SETTABLE                         R75 R73 R74
-      837 GETTABLEKS                       R74 R35 K186 ["LoadingLocalUserFriends"]
-      839 GETTABLEKS                       R74 R74 K151 ["name"]
-      841 DUPCLOSURE                       R75 K187 [PROTO_32]
-      842 CAPTURE                          VAL R2
-      843 CAPTURE                          VAL R6
-      844 SETTABLE                         R75 R73 R74
-      845 GETTABLEKS                       R74 R35 K188 ["LoadingLocalUserGroups"]
-      847 GETTABLEKS                       R74 R74 K151 ["name"]
-      849 DUPCLOSURE                       R75 K189 [PROTO_33]
-      850 CAPTURE                          VAL R2
-      851 CAPTURE                          VAL R6
-      852 SETTABLE                         R75 R73 R74
-      853 GETTABLEKS                       R74 R35 K190 ["SearchTextChanged"]
-      855 GETTABLEKS                       R74 R74 K151 ["name"]
-      857 DUPCLOSURE                       R75 K191 [PROTO_34]
-      858 CAPTURE                          VAL R2
-      859 SETTABLE                         R75 R73 R74
-      860 GETTABLEKS                       R74 R36 K151 ["name"]
-      862 DUPCLOSURE                       R75 K192 [PROTO_35]
-      863 CAPTURE                          VAL R2
-      864 SETTABLE                         R75 R73 R74
-      865 GETTABLEKS                       R74 R37 K151 ["name"]
-      867 DUPCLOSURE                       R75 K193 [PROTO_36]
-      868 CAPTURE                          VAL R2
-      869 SETTABLE                         R75 R73 R74
-      870 GETTABLEKS                       R74 R40 K151 ["name"]
-      872 DUPCLOSURE                       R75 K194 [PROTO_37]
-      873 CAPTURE                          VAL R2
-      874 SETTABLE                         R75 R73 R74
-      875 GETTABLEKS                       R74 R41 K151 ["name"]
-      877 DUPCLOSURE                       R75 K195 [PROTO_38]
-      878 CAPTURE                          VAL R2
-      879 SETTABLE                         R75 R73 R74
-      880 GETTABLEKS                       R74 R42 K151 ["name"]
-      882 DUPCLOSURE                       R75 K196 [PROTO_39]
-      883 CAPTURE                          VAL R2
-      884 SETTABLE                         R75 R73 R74
-      885 GETTABLEKS                       R74 R43 K151 ["name"]
-      887 DUPCLOSURE                       R75 K197 [PROTO_40]
-      888 CAPTURE                          VAL R2
-      889 SETTABLE                         R75 R73 R74
-      890 GETTABLEKS                       R74 R44 K151 ["name"]
-      892 DUPCLOSURE                       R75 K198 [PROTO_41]
-      893 CAPTURE                          VAL R2
-      894 SETTABLE                         R75 R73 R74
-      895 GETTABLEKS                       R74 R45 K151 ["name"]
-      897 DUPCLOSURE                       R75 K199 [PROTO_42]
-      898 CAPTURE                          VAL R2
-      899 SETTABLE                         R75 R73 R74
-      900 GETTABLEKS                       R74 R46 K151 ["name"]
-      902 DUPCLOSURE                       R75 K200 [PROTO_43]
-      903 CAPTURE                          VAL R2
-      904 SETTABLE                         R75 R73 R74
-      905 GETTABLEKS                       R74 R47 K151 ["name"]
-      907 DUPCLOSURE                       R75 K201 [PROTO_44]
-      908 CAPTURE                          VAL R2
-      909 SETTABLE                         R75 R73 R74
-      910 GETTABLEKS                       R74 R48 K151 ["name"]
-      912 DUPCLOSURE                       R75 K202 [PROTO_45]
-      913 CAPTURE                          VAL R2
-      914 SETTABLE                         R75 R73 R74
-      915 GETTABLEKS                       R74 R49 K151 ["name"]
-      917 DUPCLOSURE                       R75 K203 [PROTO_46]
-      918 CAPTURE                          VAL R2
-      919 SETTABLE                         R75 R73 R74
-      920 GETTABLEKS                       R74 R50 K151 ["name"]
-      922 DUPCLOSURE                       R75 K204 [PROTO_47]
-      923 CAPTURE                          VAL R2
-      924 SETTABLE                         R75 R73 R74
-      925 GETTABLEKS                       R74 R51 K151 ["name"]
-      927 DUPCLOSURE                       R75 K205 [PROTO_48]
-      928 CAPTURE                          VAL R2
-      929 SETTABLE                         R75 R73 R74
-      930 GETTABLEKS                       R74 R52 K151 ["name"]
-      932 DUPCLOSURE                       R75 K206 [PROTO_49]
-      933 CAPTURE                          VAL R2
-      934 SETTABLE                         R75 R73 R74
-      935 GETTABLEKS                       R74 R53 K151 ["name"]
-      937 DUPCLOSURE                       R75 K207 [PROTO_50]
-      938 CAPTURE                          VAL R2
-      939 SETTABLE                         R75 R73 R74
-      940 GETTABLEKS                       R74 R54 K151 ["name"]
-      942 DUPCLOSURE                       R75 K208 [PROTO_51]
-      943 CAPTURE                          VAL R2
-      944 SETTABLE                         R75 R73 R74
-      945 GETTABLEKS                       R74 R55 K151 ["name"]
-      947 DUPCLOSURE                       R75 K209 [PROTO_52]
-      948 CAPTURE                          VAL R2
-      949 SETTABLE                         R75 R73 R74
-      950 GETTABLEKS                       R74 R57 K151 ["name"]
-      952 DUPCLOSURE                       R75 K210 [PROTO_53]
-      953 CAPTURE                          VAL R2
-      954 SETTABLE                         R75 R73 R74
-      955 GETTABLEKS                       R74 R58 K151 ["name"]
-      957 MOVE                             R76 R67
-      958 CALL                             R76 0 1
-      959 JUMPIFNOT                        R76 ; [+3]
-      960 DUPCLOSURE                       R75 K211 [PROTO_54]
+      822 CAPTURE                          VAL R6
+      823 SETTABLE                         R74 R72 R73
+      824 GETTABLEKS                       R73 R35 K189 ["SearchTextChanged"]
+      826 GETTABLEKS                       R73 R73 K150 ["name"]
+      828 DUPCLOSURE                       R74 K190 [PROTO_34]
+      829 CAPTURE                          VAL R2
+      830 SETTABLE                         R74 R72 R73
+      831 GETTABLEKS                       R73 R36 K150 ["name"]
+      833 DUPCLOSURE                       R74 K191 [PROTO_35]
+      834 CAPTURE                          VAL R2
+      835 SETTABLE                         R74 R72 R73
+      836 GETTABLEKS                       R73 R37 K150 ["name"]
+      838 DUPCLOSURE                       R74 K192 [PROTO_36]
+      839 CAPTURE                          VAL R2
+      840 SETTABLE                         R74 R72 R73
+      841 GETTABLEKS                       R73 R40 K150 ["name"]
+      843 DUPCLOSURE                       R74 K193 [PROTO_37]
+      844 CAPTURE                          VAL R2
+      845 SETTABLE                         R74 R72 R73
+      846 GETTABLEKS                       R73 R41 K150 ["name"]
+      848 DUPCLOSURE                       R74 K194 [PROTO_38]
+      849 CAPTURE                          VAL R2
+      850 SETTABLE                         R74 R72 R73
+      851 GETTABLEKS                       R73 R42 K150 ["name"]
+      853 DUPCLOSURE                       R74 K195 [PROTO_39]
+      854 CAPTURE                          VAL R2
+      855 SETTABLE                         R74 R72 R73
+      856 GETTABLEKS                       R73 R43 K150 ["name"]
+      858 DUPCLOSURE                       R74 K196 [PROTO_40]
+      859 CAPTURE                          VAL R2
+      860 SETTABLE                         R74 R72 R73
+      861 GETTABLEKS                       R73 R44 K150 ["name"]
+      863 DUPCLOSURE                       R74 K197 [PROTO_41]
+      864 CAPTURE                          VAL R2
+      865 SETTABLE                         R74 R72 R73
+      866 GETTABLEKS                       R73 R45 K150 ["name"]
+      868 DUPCLOSURE                       R74 K198 [PROTO_42]
+      869 CAPTURE                          VAL R2
+      870 SETTABLE                         R74 R72 R73
+      871 GETTABLEKS                       R73 R46 K150 ["name"]
+      873 DUPCLOSURE                       R74 K199 [PROTO_43]
+      874 CAPTURE                          VAL R2
+      875 SETTABLE                         R74 R72 R73
+      876 GETTABLEKS                       R73 R47 K150 ["name"]
+      878 DUPCLOSURE                       R74 K200 [PROTO_44]
+      879 CAPTURE                          VAL R2
+      880 SETTABLE                         R74 R72 R73
+      881 GETTABLEKS                       R73 R48 K150 ["name"]
+      883 DUPCLOSURE                       R74 K201 [PROTO_45]
+      884 CAPTURE                          VAL R2
+      885 SETTABLE                         R74 R72 R73
+      886 GETTABLEKS                       R73 R49 K150 ["name"]
+      888 DUPCLOSURE                       R74 K202 [PROTO_46]
+      889 CAPTURE                          VAL R2
+      890 SETTABLE                         R74 R72 R73
+      891 GETTABLEKS                       R73 R50 K150 ["name"]
+      893 DUPCLOSURE                       R74 K203 [PROTO_47]
+      894 CAPTURE                          VAL R2
+      895 SETTABLE                         R74 R72 R73
+      896 GETTABLEKS                       R73 R51 K150 ["name"]
+      898 DUPCLOSURE                       R74 K204 [PROTO_48]
+      899 CAPTURE                          VAL R2
+      900 SETTABLE                         R74 R72 R73
+      901 GETTABLEKS                       R73 R52 K150 ["name"]
+      903 DUPCLOSURE                       R74 K205 [PROTO_49]
+      904 CAPTURE                          VAL R2
+      905 SETTABLE                         R74 R72 R73
+      906 GETTABLEKS                       R73 R53 K150 ["name"]
+      908 DUPCLOSURE                       R74 K206 [PROTO_50]
+      909 CAPTURE                          VAL R2
+      910 SETTABLE                         R74 R72 R73
+      911 GETTABLEKS                       R73 R54 K150 ["name"]
+      913 DUPCLOSURE                       R74 K207 [PROTO_51]
+      914 CAPTURE                          VAL R2
+      915 SETTABLE                         R74 R72 R73
+      916 GETTABLEKS                       R73 R55 K150 ["name"]
+      918 DUPCLOSURE                       R74 K208 [PROTO_52]
+      919 CAPTURE                          VAL R2
+      920 SETTABLE                         R74 R72 R73
+      921 GETTABLEKS                       R73 R57 K150 ["name"]
+      923 DUPCLOSURE                       R74 K209 [PROTO_53]
+      924 CAPTURE                          VAL R2
+      925 SETTABLE                         R74 R72 R73
+      926 GETTABLEKS                       R73 R58 K150 ["name"]
+      928 MOVE                             R75 R67
+      929 CALL                             R75 0 1
+      930 JUMPIFNOT                        R75 ; [+3]
+      931 DUPCLOSURE                       R74 K210 [PROTO_54]
+      932 CAPTURE                          VAL R2
+      933 JUMP                             ; [+1]
+      934 LOADNIL                          R74
+      935 SETTABLE                         R74 R72 R73
+      936 GETTABLEKS                       R73 R59 K150 ["name"]
+      938 DUPCLOSURE                       R74 K211 [PROTO_55]
+      939 CAPTURE                          VAL R2
+      940 SETTABLE                         R74 R72 R73
+      941 GETTABLEKS                       R73 R60 K150 ["name"]
+      943 DUPCLOSURE                       R74 K212 [PROTO_56]
+      944 CAPTURE                          VAL R2
+      945 SETTABLE                         R74 R72 R73
+      946 GETTABLEKS                       R73 R61 K150 ["name"]
+      948 DUPCLOSURE                       R74 K213 [PROTO_57]
+      949 CAPTURE                          VAL R66
+      950 CAPTURE                          VAL R2
+      951 SETTABLE                         R74 R72 R73
+      952 GETTABLEKS                       R73 R62 K150 ["name"]
+      954 DUPCLOSURE                       R74 K214 [PROTO_58]
+      955 CAPTURE                          VAL R2
+      956 CAPTURE                          VAL R66
+      957 SETTABLE                         R74 R72 R73
+      958 GETTABLEKS                       R73 R63 K150 ["name"]
+      960 DUPCLOSURE                       R74 K215 [PROTO_59]
       961 CAPTURE                          VAL R2
-      962 JUMP                             ; [+1]
-      963 LOADNIL                          R75
-      964 SETTABLE                         R75 R73 R74
-      965 GETTABLEKS                       R74 R59 K151 ["name"]
-      967 DUPCLOSURE                       R75 K212 [PROTO_55]
-      968 CAPTURE                          VAL R2
-      969 SETTABLE                         R75 R73 R74
-      970 GETTABLEKS                       R74 R60 K151 ["name"]
-      972 MOVE                             R76 R68
-      973 CALL                             R76 0 1
-      974 JUMPIFNOT                        R76 ; [+3]
-      975 DUPCLOSURE                       R75 K213 [PROTO_56]
-      976 CAPTURE                          VAL R2
-      977 JUMP                             ; [+1]
-      978 LOADNIL                          R75
-      979 SETTABLE                         R75 R73 R74
-      980 GETTABLEKS                       R74 R61 K151 ["name"]
-      982 MOVE                             R76 R68
-      983 CALL                             R76 0 1
-      984 JUMPIFNOT                        R76 ; [+4]
-      985 DUPCLOSURE                       R75 K214 [PROTO_57]
-      986 CAPTURE                          VAL R66
-      987 CAPTURE                          VAL R2
-      988 JUMP                             ; [+1]
-      989 LOADNIL                          R75
-      990 SETTABLE                         R75 R73 R74
-      991 GETTABLEKS                       R74 R62 K151 ["name"]
-      993 MOVE                             R76 R68
-      994 CALL                             R76 0 1
-      995 JUMPIFNOT                        R76 ; [+4]
-      996 DUPCLOSURE                       R75 K215 [PROTO_58]
-      997 CAPTURE                          VAL R2
-      998 CAPTURE                          VAL R66
-      999 JUMP                             ; [+1]
-     1000 LOADNIL                          R75
-     1001 SETTABLE                         R75 R73 R74
-     1002 GETTABLEKS                       R74 R63 K151 ["name"]
-     1004 MOVE                             R76 R68
-     1005 CALL                             R76 0 1
-     1006 JUMPIFNOT                        R76 ; [+4]
-     1007 DUPCLOSURE                       R75 K216 [PROTO_59]
-     1008 CAPTURE                          VAL R2
-     1009 CAPTURE                          VAL R66
-     1010 JUMP                             ; [+1]
-     1011 LOADNIL                          R75
-     1012 SETTABLE                         R75 R73 R74
-     1013 CALL                             R71 2 -1
-     1014 RETURN                           R71 -1
+      962 CAPTURE                          VAL R66
+      963 SETTABLE                         R74 R72 R73
+      964 CALL                             R70 2 -1
+      965 RETURN                           R70 -1

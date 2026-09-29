@@ -760,254 +760,257 @@ PROTO_13:
       258 LOADK                            R24 K51 ["X-RowS"]
       259 GETUPVAL                         R26 12
       260 CALL                             R26 0 1
-      261 JUMPIFNOT                        R26 ; [+2]
-      262 LOADK                            R25 K52 ["X-Top"]
-      263 JUMP                             ; [+1]
-      264 LOADK                            R25 K53 ["X-Middle"]
-      265 GETUPVAL                         R27 7
-      266 CALL                             R27 0 1
-      267 JUMPIFNOT                        R27 ; [+2]
-      268 LOADK                            R26 K10 ["X-DefaultSize"]
-      269 JUMP                             ; [+1]
-      270 LOADNIL                          R26
-      271 CALL                             R23 3 1
-      272 SETTABLE                         R23 R21 R22
-      273 GETIMPORT                        R22 K13 [UDim2.new]
-      275 CALL                             R22 0 1
-      276 SETTABLEKS                       R22 R21 K14 ["Size"]
-      278 GETIMPORT                        R22 K18 [Enum.AutomaticSize.XY]
-      280 SETTABLEKS                       R22 R21 K16 ["AutomaticSize"]
-      282 MOVE                             R22 R2
-      283 CALL                             R22 0 1
-      284 SETTABLEKS                       R22 R21 K23 ["LayoutOrder"]
-      286 DUPTABLE                         R22 K59 [{"UIPadding", "LowerRangeInput", "Hyphen", "UpperRangeInput", "Text"}]
-      287 JUMPIFNOT                        R3 ; [+2]
-      288 LOADNIL                          R23
-      289 JUMP                             ; [+11]
-      290 GETUPVAL                         R23 4
-      291 LOADK                            R24 K54 ["UIPadding"]
-      292 DUPTABLE                         R25 K61 [{"PaddingLeft"}]
-      293 GETIMPORT                        R26 K31 [UDim.new]
-      295 LOADN                            R27 0
-      296 LOADN                            R28 12
-      297 CALL                             R26 2 1
-      298 SETTABLEKS                       R26 R25 K60 ["PaddingLeft"]
-      300 CALL                             R23 2 1
-      301 SETTABLEKS                       R23 R22 K54 ["UIPadding"]
-      303 NOT                              R23 R4
-      304 JUMPIFNOT                        R23 ; [+59]
-      305 GETUPVAL                         R23 4
-      306 GETUPVAL                         R24 13
-      307 DUPTABLE                         R25 K65 [{"LayoutOrder", "Size", "AutomaticSize", "Text", "OnFocusLost", "OnEnter", "OnValidateText"}]
-      308 MOVE                             R26 R2
-      309 CALL                             R26 0 1
-      310 SETTABLEKS                       R26 R25 K23 ["LayoutOrder"]
-      312 GETIMPORT                        R26 K43 [UDim2.fromOffset]
-      314 LOADN                            R27 44
-      315 GETUPVAL                         R28 10
-      316 GETTABLEKS                       R28 R28 K44 ["STANDARD_HEIGHT"]
-      318 CALL                             R26 2 1
-      319 SETTABLEKS                       R26 R25 K14 ["Size"]
-      321 GETUPVAL                         R27 12
-      322 CALL                             R27 0 1
-      323 JUMPIFNOT                        R27 ; [+3]
-      324 GETIMPORT                        R26 K67 [Enum.AutomaticSize.Y]
-      326 JUMP                             ; [+1]
-      327 LOADNIL                          R26
-      328 SETTABLEKS                       R26 R25 K16 ["AutomaticSize"]
-      330 GETTABLEKS                       R28 R6 K36 ["Min"]
-      332 GETTABLEKS                       R29 R0 K49 ["roundToTenths"]
-      334 JUMPIFNOT                        R29 ; [+7]
-      335 MULK                             R30 R28 K68 [10]
-      336 FASTCALL1                        MATH_ROUND R30 ; [+2]
-      337 GETIMPORT                        R29 K70 [math.round]
-      339 CALL                             R29 1 1
-      340 DIVK                             R27 R29 K68 [10]
-      341 JUMP                             ; [+6]
-      342 FASTCALL1                        MATH_ROUND R28 ; [+3]
-      343 MOVE                             R30 R28
-      344 GETIMPORT                        R29 K70 [math.round]
-      346 CALL                             R29 1 1
-      347 MOVE                             R27 R29
-      348 FASTCALL1                        TOSTRING R27 ; [+2]
-      349 GETIMPORT                        R26 K72 [tostring]
-      351 CALL                             R26 1 1
-      352 SETTABLEKS                       R26 R25 K58 ["Text"]
-      354 SETTABLEKS                       R9 R25 K62 ["OnFocusLost"]
-      356 SETTABLEKS                       R9 R25 K63 ["OnEnter"]
-      358 NEWCLOSURE                       R26 P8
-      359 CAPTURE                          UPVAL U3
-      360 CAPTURE                          VAL R1
-      361 SETTABLEKS                       R26 R25 K64 ["OnValidateText"]
-      363 CALL                             R23 2 1
-      364 SETTABLEKS                       R23 R22 K55 ["LowerRangeInput"]
-      366 JUMPIFNOT                        R4 ; [+2]
-      367 LOADNIL                          R23
-      368 JUMP                             ; [+30]
-      369 GETUPVAL                         R23 4
-      370 LOADK                            R24 K73 ["TextLabel"]
-      371 NEWTABLE                         R25 8 0
-      373 GETUPVAL                         R26 2
-      374 GETTABLEKS                       R26 R26 K7 ["Tag"]
-      376 LOADK                            R27 K74 ["Component-TextLabel"]
-      377 SETTABLE                         R27 R25 R26
-      378 GETIMPORT                        R26 K43 [UDim2.fromOffset]
-      380 LOADN                            R27 7
-      381 GETUPVAL                         R28 10
-      382 GETTABLEKS                       R28 R28 K44 ["STANDARD_HEIGHT"]
-      384 CALL                             R26 2 1
-      385 SETTABLEKS                       R26 R25 K14 ["Size"]
-      387 LOADK                            R26 K75 ["-"]
-      388 SETTABLEKS                       R26 R25 K58 ["Text"]
-      390 MOVE                             R26 R2
-      391 CALL                             R26 0 1
-      392 SETTABLEKS                       R26 R25 K23 ["LayoutOrder"]
-      394 GETIMPORT                        R26 K77 [Enum.AutomaticSize.X]
-      396 SETTABLEKS                       R26 R25 K16 ["AutomaticSize"]
-      398 CALL                             R23 2 1
-      399 SETTABLEKS                       R23 R22 K56 ["Hyphen"]
-      401 GETUPVAL                         R23 4
-      402 GETUPVAL                         R24 13
-      403 DUPTABLE                         R25 K65 [{"LayoutOrder", "Size", "AutomaticSize", "Text", "OnFocusLost", "OnEnter", "OnValidateText"}]
-      404 MOVE                             R26 R2
-      405 CALL                             R26 0 1
-      406 SETTABLEKS                       R26 R25 K23 ["LayoutOrder"]
-      408 GETIMPORT                        R26 K43 [UDim2.fromOffset]
-      410 LOADN                            R27 44
-      411 GETUPVAL                         R28 10
-      412 GETTABLEKS                       R28 R28 K44 ["STANDARD_HEIGHT"]
-      414 CALL                             R26 2 1
-      415 SETTABLEKS                       R26 R25 K14 ["Size"]
-      417 GETUPVAL                         R27 12
-      418 CALL                             R27 0 1
-      419 JUMPIFNOT                        R27 ; [+3]
-      420 GETIMPORT                        R26 K67 [Enum.AutomaticSize.Y]
-      422 JUMP                             ; [+1]
-      423 LOADNIL                          R26
-      424 SETTABLEKS                       R26 R25 K16 ["AutomaticSize"]
-      426 GETTABLEKS                       R28 R6 K37 ["Max"]
-      428 GETTABLEKS                       R29 R0 K49 ["roundToTenths"]
-      430 JUMPIFNOT                        R29 ; [+7]
-      431 MULK                             R30 R28 K68 [10]
-      432 FASTCALL1                        MATH_ROUND R30 ; [+2]
-      433 GETIMPORT                        R29 K70 [math.round]
-      435 CALL                             R29 1 1
-      436 DIVK                             R27 R29 K68 [10]
-      437 JUMP                             ; [+6]
-      438 FASTCALL1                        MATH_ROUND R28 ; [+3]
-      439 MOVE                             R30 R28
-      440 GETIMPORT                        R29 K70 [math.round]
-      442 CALL                             R29 1 1
-      443 MOVE                             R27 R29
-      444 FASTCALL1                        TOSTRING R27 ; [+2]
-      445 GETIMPORT                        R26 K72 [tostring]
-      447 CALL                             R26 1 1
-      448 SETTABLEKS                       R26 R25 K58 ["Text"]
-      450 SETTABLEKS                       R10 R25 K62 ["OnFocusLost"]
-      452 SETTABLEKS                       R10 R25 K63 ["OnEnter"]
-      454 NEWCLOSURE                       R26 P9
-      455 CAPTURE                          UPVAL U3
-      456 CAPTURE                          VAL R1
-      457 SETTABLEKS                       R26 R25 K64 ["OnValidateText"]
-      459 CALL                             R23 2 1
-      460 SETTABLEKS                       R23 R22 K57 ["UpperRangeInput"]
-      462 GETUPVAL                         R23 4
-      463 LOADK                            R24 K73 ["TextLabel"]
-      464 NEWTABLE                         R25 8 0
-      466 GETUPVAL                         R26 2
-      467 GETTABLEKS                       R26 R26 K7 ["Tag"]
-      469 LOADK                            R27 K74 ["Component-TextLabel"]
-      470 SETTABLE                         R27 R25 R26
-      471 GETIMPORT                        R26 K43 [UDim2.fromOffset]
-      473 LOADN                            R27 0
-      474 LOADN                            R28 28
-      475 CALL                             R26 2 1
-      476 SETTABLEKS                       R26 R25 K14 ["Size"]
-      478 GETTABLEKS                       R26 R0 K78 ["inputFieldText"]
-      480 SETTABLEKS                       R26 R25 K58 ["Text"]
-      482 MOVE                             R26 R2
-      483 CALL                             R26 0 1
-      484 SETTABLEKS                       R26 R25 K23 ["LayoutOrder"]
-      486 GETIMPORT                        R26 K77 [Enum.AutomaticSize.X]
-      488 SETTABLEKS                       R26 R25 K16 ["AutomaticSize"]
-      490 CALL                             R23 2 1
-      491 SETTABLEKS                       R23 R22 K58 ["Text"]
-      493 CALL                             R19 3 1
-      494 SETTABLEKS                       R19 R18 K26 ["Input"]
-      496 DUPTABLE                         R19 K79 [{"UIPadding"}]
-      497 GETUPVAL                         R21 8
-      498 CALL                             R21 0 1
-      499 JUMPIF                           R21 ; [+12]
-      500 GETUPVAL                         R20 4
-      501 LOADK                            R21 K54 ["UIPadding"]
-      502 DUPTABLE                         R22 K61 [{"PaddingLeft"}]
-      503 GETIMPORT                        R23 K31 [UDim.new]
-      505 LOADN                            R24 0
-      506 LOADN                            R25 5
-      507 CALL                             R23 2 1
-      508 SETTABLEKS                       R23 R22 K60 ["PaddingLeft"]
-      510 CALL                             R20 2 1
-      511 JUMP                             ; [+1]
-      512 LOADNIL                          R20
-      513 SETTABLEKS                       R20 R19 K54 ["UIPadding"]
-      515 CALL                             R15 4 1
-      516 SETTABLEKS                       R15 R14 K19 ["SliderAndInput"]
-      518 GETUPVAL                         R16 8
-      519 CALL                             R16 0 1
-      520 JUMPIFNOT                        R16 ; [+41]
-      521 GETTABLEKS                       R16 R0 K1 ["toggleRangeProps"]
-      523 JUMPIFNOT                        R16 ; [+5]
+      261 JUMPIF                           R26 ; [+3]
+      262 GETUPVAL                         R26 13
+      263 CALL                             R26 0 1
+      264 JUMPIFNOT                        R26 ; [+2]
+      265 LOADK                            R25 K52 ["X-Top"]
+      266 JUMP                             ; [+1]
+      267 LOADK                            R25 K53 ["X-Middle"]
+      268 GETUPVAL                         R27 7
+      269 CALL                             R27 0 1
+      270 JUMPIFNOT                        R27 ; [+2]
+      271 LOADK                            R26 K10 ["X-DefaultSize"]
+      272 JUMP                             ; [+1]
+      273 LOADNIL                          R26
+      274 CALL                             R23 3 1
+      275 SETTABLE                         R23 R21 R22
+      276 GETIMPORT                        R22 K13 [UDim2.new]
+      278 CALL                             R22 0 1
+      279 SETTABLEKS                       R22 R21 K14 ["Size"]
+      281 GETIMPORT                        R22 K18 [Enum.AutomaticSize.XY]
+      283 SETTABLEKS                       R22 R21 K16 ["AutomaticSize"]
+      285 MOVE                             R22 R2
+      286 CALL                             R22 0 1
+      287 SETTABLEKS                       R22 R21 K23 ["LayoutOrder"]
+      289 DUPTABLE                         R22 K59 [{"UIPadding", "LowerRangeInput", "Hyphen", "UpperRangeInput", "Text"}]
+      290 JUMPIFNOT                        R3 ; [+2]
+      291 LOADNIL                          R23
+      292 JUMP                             ; [+11]
+      293 GETUPVAL                         R23 4
+      294 LOADK                            R24 K54 ["UIPadding"]
+      295 DUPTABLE                         R25 K61 [{"PaddingLeft"}]
+      296 GETIMPORT                        R26 K31 [UDim.new]
+      298 LOADN                            R27 0
+      299 LOADN                            R28 12
+      300 CALL                             R26 2 1
+      301 SETTABLEKS                       R26 R25 K60 ["PaddingLeft"]
+      303 CALL                             R23 2 1
+      304 SETTABLEKS                       R23 R22 K54 ["UIPadding"]
+      306 NOT                              R23 R4
+      307 JUMPIFNOT                        R23 ; [+59]
+      308 GETUPVAL                         R23 4
+      309 GETUPVAL                         R24 14
+      310 DUPTABLE                         R25 K65 [{"LayoutOrder", "Size", "AutomaticSize", "Text", "OnFocusLost", "OnEnter", "OnValidateText"}]
+      311 MOVE                             R26 R2
+      312 CALL                             R26 0 1
+      313 SETTABLEKS                       R26 R25 K23 ["LayoutOrder"]
+      315 GETIMPORT                        R26 K43 [UDim2.fromOffset]
+      317 LOADN                            R27 44
+      318 GETUPVAL                         R28 10
+      319 GETTABLEKS                       R28 R28 K44 ["STANDARD_HEIGHT"]
+      321 CALL                             R26 2 1
+      322 SETTABLEKS                       R26 R25 K14 ["Size"]
+      324 GETUPVAL                         R27 12
+      325 CALL                             R27 0 1
+      326 JUMPIFNOT                        R27 ; [+3]
+      327 GETIMPORT                        R26 K67 [Enum.AutomaticSize.Y]
+      329 JUMP                             ; [+1]
+      330 LOADNIL                          R26
+      331 SETTABLEKS                       R26 R25 K16 ["AutomaticSize"]
+      333 GETTABLEKS                       R28 R6 K36 ["Min"]
+      335 GETTABLEKS                       R29 R0 K49 ["roundToTenths"]
+      337 JUMPIFNOT                        R29 ; [+7]
+      338 MULK                             R30 R28 K68 [10]
+      339 FASTCALL1                        MATH_ROUND R30 ; [+2]
+      340 GETIMPORT                        R29 K70 [math.round]
+      342 CALL                             R29 1 1
+      343 DIVK                             R27 R29 K68 [10]
+      344 JUMP                             ; [+6]
+      345 FASTCALL1                        MATH_ROUND R28 ; [+3]
+      346 MOVE                             R30 R28
+      347 GETIMPORT                        R29 K70 [math.round]
+      349 CALL                             R29 1 1
+      350 MOVE                             R27 R29
+      351 FASTCALL1                        TOSTRING R27 ; [+2]
+      352 GETIMPORT                        R26 K72 [tostring]
+      354 CALL                             R26 1 1
+      355 SETTABLEKS                       R26 R25 K58 ["Text"]
+      357 SETTABLEKS                       R9 R25 K62 ["OnFocusLost"]
+      359 SETTABLEKS                       R9 R25 K63 ["OnEnter"]
+      361 NEWCLOSURE                       R26 P8
+      362 CAPTURE                          UPVAL U3
+      363 CAPTURE                          VAL R1
+      364 SETTABLEKS                       R26 R25 K64 ["OnValidateText"]
+      366 CALL                             R23 2 1
+      367 SETTABLEKS                       R23 R22 K55 ["LowerRangeInput"]
+      369 JUMPIFNOT                        R4 ; [+2]
+      370 LOADNIL                          R23
+      371 JUMP                             ; [+30]
+      372 GETUPVAL                         R23 4
+      373 LOADK                            R24 K73 ["TextLabel"]
+      374 NEWTABLE                         R25 8 0
+      376 GETUPVAL                         R26 2
+      377 GETTABLEKS                       R26 R26 K7 ["Tag"]
+      379 LOADK                            R27 K74 ["Component-TextLabel"]
+      380 SETTABLE                         R27 R25 R26
+      381 GETIMPORT                        R26 K43 [UDim2.fromOffset]
+      383 LOADN                            R27 7
+      384 GETUPVAL                         R28 10
+      385 GETTABLEKS                       R28 R28 K44 ["STANDARD_HEIGHT"]
+      387 CALL                             R26 2 1
+      388 SETTABLEKS                       R26 R25 K14 ["Size"]
+      390 LOADK                            R26 K75 ["-"]
+      391 SETTABLEKS                       R26 R25 K58 ["Text"]
+      393 MOVE                             R26 R2
+      394 CALL                             R26 0 1
+      395 SETTABLEKS                       R26 R25 K23 ["LayoutOrder"]
+      397 GETIMPORT                        R26 K77 [Enum.AutomaticSize.X]
+      399 SETTABLEKS                       R26 R25 K16 ["AutomaticSize"]
+      401 CALL                             R23 2 1
+      402 SETTABLEKS                       R23 R22 K56 ["Hyphen"]
+      404 GETUPVAL                         R23 4
+      405 GETUPVAL                         R24 14
+      406 DUPTABLE                         R25 K65 [{"LayoutOrder", "Size", "AutomaticSize", "Text", "OnFocusLost", "OnEnter", "OnValidateText"}]
+      407 MOVE                             R26 R2
+      408 CALL                             R26 0 1
+      409 SETTABLEKS                       R26 R25 K23 ["LayoutOrder"]
+      411 GETIMPORT                        R26 K43 [UDim2.fromOffset]
+      413 LOADN                            R27 44
+      414 GETUPVAL                         R28 10
+      415 GETTABLEKS                       R28 R28 K44 ["STANDARD_HEIGHT"]
+      417 CALL                             R26 2 1
+      418 SETTABLEKS                       R26 R25 K14 ["Size"]
+      420 GETUPVAL                         R27 12
+      421 CALL                             R27 0 1
+      422 JUMPIFNOT                        R27 ; [+3]
+      423 GETIMPORT                        R26 K67 [Enum.AutomaticSize.Y]
+      425 JUMP                             ; [+1]
+      426 LOADNIL                          R26
+      427 SETTABLEKS                       R26 R25 K16 ["AutomaticSize"]
+      429 GETTABLEKS                       R28 R6 K37 ["Max"]
+      431 GETTABLEKS                       R29 R0 K49 ["roundToTenths"]
+      433 JUMPIFNOT                        R29 ; [+7]
+      434 MULK                             R30 R28 K68 [10]
+      435 FASTCALL1                        MATH_ROUND R30 ; [+2]
+      436 GETIMPORT                        R29 K70 [math.round]
+      438 CALL                             R29 1 1
+      439 DIVK                             R27 R29 K68 [10]
+      440 JUMP                             ; [+6]
+      441 FASTCALL1                        MATH_ROUND R28 ; [+3]
+      442 MOVE                             R30 R28
+      443 GETIMPORT                        R29 K70 [math.round]
+      445 CALL                             R29 1 1
+      446 MOVE                             R27 R29
+      447 FASTCALL1                        TOSTRING R27 ; [+2]
+      448 GETIMPORT                        R26 K72 [tostring]
+      450 CALL                             R26 1 1
+      451 SETTABLEKS                       R26 R25 K58 ["Text"]
+      453 SETTABLEKS                       R10 R25 K62 ["OnFocusLost"]
+      455 SETTABLEKS                       R10 R25 K63 ["OnEnter"]
+      457 NEWCLOSURE                       R26 P9
+      458 CAPTURE                          UPVAL U3
+      459 CAPTURE                          VAL R1
+      460 SETTABLEKS                       R26 R25 K64 ["OnValidateText"]
+      462 CALL                             R23 2 1
+      463 SETTABLEKS                       R23 R22 K57 ["UpperRangeInput"]
+      465 GETUPVAL                         R23 4
+      466 LOADK                            R24 K73 ["TextLabel"]
+      467 NEWTABLE                         R25 8 0
+      469 GETUPVAL                         R26 2
+      470 GETTABLEKS                       R26 R26 K7 ["Tag"]
+      472 LOADK                            R27 K74 ["Component-TextLabel"]
+      473 SETTABLE                         R27 R25 R26
+      474 GETIMPORT                        R26 K43 [UDim2.fromOffset]
+      476 LOADN                            R27 0
+      477 LOADN                            R28 28
+      478 CALL                             R26 2 1
+      479 SETTABLEKS                       R26 R25 K14 ["Size"]
+      481 GETTABLEKS                       R26 R0 K78 ["inputFieldText"]
+      483 SETTABLEKS                       R26 R25 K58 ["Text"]
+      485 MOVE                             R26 R2
+      486 CALL                             R26 0 1
+      487 SETTABLEKS                       R26 R25 K23 ["LayoutOrder"]
+      489 GETIMPORT                        R26 K77 [Enum.AutomaticSize.X]
+      491 SETTABLEKS                       R26 R25 K16 ["AutomaticSize"]
+      493 CALL                             R23 2 1
+      494 SETTABLEKS                       R23 R22 K58 ["Text"]
+      496 CALL                             R19 3 1
+      497 SETTABLEKS                       R19 R18 K26 ["Input"]
+      499 DUPTABLE                         R19 K79 [{"UIPadding"}]
+      500 GETUPVAL                         R21 8
+      501 CALL                             R21 0 1
+      502 JUMPIF                           R21 ; [+12]
+      503 GETUPVAL                         R20 4
+      504 LOADK                            R21 K54 ["UIPadding"]
+      505 DUPTABLE                         R22 K61 [{"PaddingLeft"}]
+      506 GETIMPORT                        R23 K31 [UDim.new]
+      508 LOADN                            R24 0
+      509 LOADN                            R25 5
+      510 CALL                             R23 2 1
+      511 SETTABLEKS                       R23 R22 K60 ["PaddingLeft"]
+      513 CALL                             R20 2 1
+      514 JUMP                             ; [+1]
+      515 LOADNIL                          R20
+      516 SETTABLEKS                       R20 R19 K54 ["UIPadding"]
+      518 CALL                             R15 4 1
+      519 SETTABLEKS                       R15 R14 K19 ["SliderAndInput"]
+      521 GETUPVAL                         R16 8
+      522 CALL                             R16 0 1
+      523 JUMPIFNOT                        R16 ; [+41]
       524 GETTABLEKS                       R16 R0 K1 ["toggleRangeProps"]
-      526 GETTABLEKS                       R16 R16 K2 ["toggleValue"]
-      528 JUMPIFNOT                        R16 ; [+2]
-      529 LOADNIL                          R15
-      530 JUMP                             ; [+66]
-      531 GETUPVAL                         R15 4
-      532 GETUPVAL                         R16 11
-      533 DUPTABLE                         R17 K50 [{"LayoutOrder", "min", "numberRange", "setNumberRange", "toggleRangeProps", "round", "roundToTenths"}]
-      534 MOVE                             R18 R2
-      535 CALL                             R18 0 1
-      536 SETTABLEKS                       R18 R17 K23 ["LayoutOrder"]
-      538 GETTABLEKS                       R18 R0 K45 ["min"]
-      540 SETTABLEKS                       R18 R17 K45 ["min"]
-      542 GETTABLEKS                       R18 R0 K4 ["numberRange"]
-      544 SETTABLEKS                       R18 R17 K4 ["numberRange"]
-      546 GETTABLEKS                       R18 R0 K47 ["setNumberRange"]
-      548 SETTABLEKS                       R18 R17 K47 ["setNumberRange"]
-      550 GETTABLEKS                       R18 R0 K1 ["toggleRangeProps"]
-      552 SETTABLEKS                       R18 R17 K1 ["toggleRangeProps"]
-      554 SETTABLEKS                       R5 R17 K48 ["round"]
-      556 GETTABLEKS                       R18 R0 K49 ["roundToTenths"]
-      558 SETTABLEKS                       R18 R17 K49 ["roundToTenths"]
-      560 CALL                             R15 2 1
-      561 JUMP                             ; [+35]
-      562 GETTABLEKS                       R16 R0 K1 ["toggleRangeProps"]
-      564 JUMPIF                           R16 ; [+2]
-      565 LOADNIL                          R15
-      566 JUMP                             ; [+30]
-      567 GETUPVAL                         R15 4
-      568 GETUPVAL                         R16 14
-      569 NEWTABLE                         R17 8 0
-      571 GETUPVAL                         R18 2
-      572 GETTABLEKS                       R18 R18 K7 ["Tag"]
-      574 LOADK                            R19 K80 ["X-Fit X-Left X-Middle X-RowS IconOnly Compact"]
-      575 SETTABLE                         R19 R17 R18
-      576 MOVE                             R18 R2
-      577 CALL                             R18 0 1
-      578 SETTABLEKS                       R18 R17 K23 ["LayoutOrder"]
-      580 GETTABLEKS                       R18 R0 K1 ["toggleRangeProps"]
-      582 GETTABLEKS                       R18 R18 K2 ["toggleValue"]
-      584 SETTABLEKS                       R18 R17 K81 ["Checked"]
-      586 GETTABLEKS                       R18 R0 K1 ["toggleRangeProps"]
-      588 GETTABLEKS                       R18 R18 K82 ["toggleText"]
-      590 SETTABLEKS                       R18 R17 K58 ["Text"]
-      592 NEWCLOSURE                       R18 P10
-      593 CAPTURE                          VAL R0
-      594 SETTABLEKS                       R18 R17 K83 ["OnClick"]
-      596 CALL                             R15 2 1
-      597 SETTABLEKS                       R15 R14 K20 ["SetMinMaxToggle"]
-      599 CALL                             R11 3 -1
-      600 RETURN                           R11 -1
+      526 JUMPIFNOT                        R16 ; [+5]
+      527 GETTABLEKS                       R16 R0 K1 ["toggleRangeProps"]
+      529 GETTABLEKS                       R16 R16 K2 ["toggleValue"]
+      531 JUMPIFNOT                        R16 ; [+2]
+      532 LOADNIL                          R15
+      533 JUMP                             ; [+66]
+      534 GETUPVAL                         R15 4
+      535 GETUPVAL                         R16 11
+      536 DUPTABLE                         R17 K50 [{"LayoutOrder", "min", "numberRange", "setNumberRange", "toggleRangeProps", "round", "roundToTenths"}]
+      537 MOVE                             R18 R2
+      538 CALL                             R18 0 1
+      539 SETTABLEKS                       R18 R17 K23 ["LayoutOrder"]
+      541 GETTABLEKS                       R18 R0 K45 ["min"]
+      543 SETTABLEKS                       R18 R17 K45 ["min"]
+      545 GETTABLEKS                       R18 R0 K4 ["numberRange"]
+      547 SETTABLEKS                       R18 R17 K4 ["numberRange"]
+      549 GETTABLEKS                       R18 R0 K47 ["setNumberRange"]
+      551 SETTABLEKS                       R18 R17 K47 ["setNumberRange"]
+      553 GETTABLEKS                       R18 R0 K1 ["toggleRangeProps"]
+      555 SETTABLEKS                       R18 R17 K1 ["toggleRangeProps"]
+      557 SETTABLEKS                       R5 R17 K48 ["round"]
+      559 GETTABLEKS                       R18 R0 K49 ["roundToTenths"]
+      561 SETTABLEKS                       R18 R17 K49 ["roundToTenths"]
+      563 CALL                             R15 2 1
+      564 JUMP                             ; [+35]
+      565 GETTABLEKS                       R16 R0 K1 ["toggleRangeProps"]
+      567 JUMPIF                           R16 ; [+2]
+      568 LOADNIL                          R15
+      569 JUMP                             ; [+30]
+      570 GETUPVAL                         R15 4
+      571 GETUPVAL                         R16 15
+      572 NEWTABLE                         R17 8 0
+      574 GETUPVAL                         R18 2
+      575 GETTABLEKS                       R18 R18 K7 ["Tag"]
+      577 LOADK                            R19 K80 ["X-Fit X-Left X-Middle X-RowS IconOnly Compact"]
+      578 SETTABLE                         R19 R17 R18
+      579 MOVE                             R18 R2
+      580 CALL                             R18 0 1
+      581 SETTABLEKS                       R18 R17 K23 ["LayoutOrder"]
+      583 GETTABLEKS                       R18 R0 K1 ["toggleRangeProps"]
+      585 GETTABLEKS                       R18 R18 K2 ["toggleValue"]
+      587 SETTABLEKS                       R18 R17 K81 ["Checked"]
+      589 GETTABLEKS                       R18 R0 K1 ["toggleRangeProps"]
+      591 GETTABLEKS                       R18 R18 K82 ["toggleText"]
+      593 SETTABLEKS                       R18 R17 K58 ["Text"]
+      595 NEWCLOSURE                       R18 P10
+      596 CAPTURE                          VAL R0
+      597 SETTABLEKS                       R18 R17 K83 ["OnClick"]
+      599 CALL                             R15 2 1
+      600 SETTABLEKS                       R15 R14 K20 ["SetMinMaxToggle"]
+      602 CALL                             R11 3 -1
+      603 RETURN                           R11 -1
 
 MAIN:
         0 PREPVARARGS                      0
@@ -1025,62 +1028,72 @@ MAIN:
        20 GETTABLEKS                       R3 R3 K10 ["Framework"]
        22 CALL                             R2 1 1
        23 GETIMPORT                        R3 K5 [require]
-       25 GETTABLEKS                       R4 R0 K9 ["Packages"]
-       27 GETTABLEKS                       R4 R4 K11 ["React"]
-       29 CALL                             R3 1 1
-       30 GETIMPORT                        R4 K5 [require]
-       32 GETTABLEKS                       R5 R0 K9 ["Packages"]
-       34 GETTABLEKS                       R5 R5 K12 ["ReactUtils"]
-       36 CALL                             R4 1 1
-       37 GETIMPORT                        R5 K5 [require]
-       39 GETTABLEKS                       R6 R0 K6 ["Src"]
-       41 GETTABLEKS                       R6 R6 K13 ["Flags"]
-       43 GETTABLEKS                       R6 R6 K14 ["getFFlagAvatarSettingsSliderErrorLayout"]
+       25 GETTABLEKS                       R4 R0 K6 ["Src"]
+       27 GETTABLEKS                       R4 R4 K11 ["Components"]
+       29 GETTABLEKS                       R4 R4 K12 ["NumericTextInput"]
+       31 CALL                             R3 1 1
+       32 GETIMPORT                        R4 K5 [require]
+       34 GETTABLEKS                       R5 R0 K9 ["Packages"]
+       36 GETTABLEKS                       R5 R5 K13 ["React"]
+       38 CALL                             R4 1 1
+       39 GETIMPORT                        R5 K5 [require]
+       41 GETTABLEKS                       R6 R0 K9 ["Packages"]
+       43 GETTABLEKS                       R6 R6 K14 ["ReactUtils"]
        45 CALL                             R5 1 1
        46 GETIMPORT                        R6 K5 [require]
        48 GETTABLEKS                       R7 R0 K6 ["Src"]
-       50 GETTABLEKS                       R7 R7 K13 ["Flags"]
-       52 GETTABLEKS                       R7 R7 K15 ["getFFlagFeatureMigrateStylingV2"]
+       50 GETTABLEKS                       R7 R7 K15 ["Flags"]
+       52 GETTABLEKS                       R7 R7 K16 ["getFFlagAvatarSettingsRevertInvalidInput"]
        54 CALL                             R6 1 1
        55 GETIMPORT                        R7 K5 [require]
        57 GETTABLEKS                       R8 R0 K6 ["Src"]
-       59 GETTABLEKS                       R8 R8 K7 ["Util"]
-       61 GETTABLEKS                       R8 R8 K16 ["isValidNumberInput"]
+       59 GETTABLEKS                       R8 R8 K15 ["Flags"]
+       61 GETTABLEKS                       R8 R8 K17 ["getFFlagAvatarSettingsSliderErrorLayout"]
        63 CALL                             R7 1 1
        64 GETIMPORT                        R8 K5 [require]
        66 GETTABLEKS                       R9 R0 K6 ["Src"]
-       68 GETTABLEKS                       R9 R9 K13 ["Flags"]
-       70 GETTABLEKS                       R9 R9 K17 ["getFFlagAvatarSettingsReorderCustomScaleComponents"]
+       68 GETTABLEKS                       R9 R9 K15 ["Flags"]
+       70 GETTABLEKS                       R9 R9 K18 ["getFFlagFeatureMigrateStylingV2"]
        72 CALL                             R8 1 1
-       73 GETTABLEKS                       R9 R2 K18 ["ContextServices"]
-       75 GETTABLEKS                       R10 R9 K19 ["Localization"]
-       77 GETTABLEKS                       R11 R2 K20 ["UI"]
-       79 GETTABLEKS                       R12 R11 K21 ["Pane"]
-       81 GETTABLEKS                       R13 R11 K22 ["RangeSlider"]
-       83 GETTABLEKS                       R14 R11 K23 ["Checkbox"]
-       85 GETTABLEKS                       R15 R11 K24 ["TextInput"]
-       87 GETTABLEKS                       R16 R4 K25 ["createNextOrder"]
-       89 GETTABLEKS                       R17 R3 K26 ["createElement"]
-       91 GETTABLEKS                       R18 R2 K27 ["Styling"]
-       93 GETTABLEKS                       R18 R18 K28 ["joinTags"]
-       95 DUPCLOSURE                       R19 K29 [PROTO_1]
-       96 CAPTURE                          VAL R17
-       97 CAPTURE                          VAL R14
-       98 CAPTURE                          VAL R3
-       99 DUPCLOSURE                       R20 K30 [PROTO_13]
-      100 CAPTURE                          VAL R10
-      101 CAPTURE                          VAL R16
-      102 CAPTURE                          VAL R3
-      103 CAPTURE                          VAL R7
-      104 CAPTURE                          VAL R17
-      105 CAPTURE                          VAL R12
-      106 CAPTURE                          VAL R18
-      107 CAPTURE                          VAL R6
-      108 CAPTURE                          VAL R8
-      109 CAPTURE                          VAL R13
-      110 CAPTURE                          VAL R1
-      111 CAPTURE                          VAL R19
-      112 CAPTURE                          VAL R5
-      113 CAPTURE                          VAL R15
-      114 CAPTURE                          VAL R14
-      115 RETURN                           R20 1
+       73 GETIMPORT                        R9 K5 [require]
+       75 GETTABLEKS                       R10 R0 K6 ["Src"]
+       77 GETTABLEKS                       R10 R10 K7 ["Util"]
+       79 GETTABLEKS                       R10 R10 K19 ["isValidNumberInput"]
+       81 CALL                             R9 1 1
+       82 GETIMPORT                        R10 K5 [require]
+       84 GETTABLEKS                       R11 R0 K6 ["Src"]
+       86 GETTABLEKS                       R11 R11 K15 ["Flags"]
+       88 GETTABLEKS                       R11 R11 K20 ["getFFlagAvatarSettingsReorderCustomScaleComponents"]
+       90 CALL                             R10 1 1
+       91 GETTABLEKS                       R11 R2 K21 ["ContextServices"]
+       93 GETTABLEKS                       R12 R11 K22 ["Localization"]
+       95 GETTABLEKS                       R13 R2 K23 ["UI"]
+       97 GETTABLEKS                       R14 R13 K24 ["Pane"]
+       99 GETTABLEKS                       R15 R13 K25 ["RangeSlider"]
+      101 GETTABLEKS                       R16 R13 K26 ["Checkbox"]
+      103 GETTABLEKS                       R17 R5 K27 ["createNextOrder"]
+      105 GETTABLEKS                       R18 R4 K28 ["createElement"]
+      107 GETTABLEKS                       R19 R2 K29 ["Styling"]
+      109 GETTABLEKS                       R19 R19 K30 ["joinTags"]
+      111 DUPCLOSURE                       R20 K31 [PROTO_1]
+      112 CAPTURE                          VAL R18
+      113 CAPTURE                          VAL R16
+      114 CAPTURE                          VAL R4
+      115 DUPCLOSURE                       R21 K32 [PROTO_13]
+      116 CAPTURE                          VAL R12
+      117 CAPTURE                          VAL R17
+      118 CAPTURE                          VAL R4
+      119 CAPTURE                          VAL R9
+      120 CAPTURE                          VAL R18
+      121 CAPTURE                          VAL R14
+      122 CAPTURE                          VAL R19
+      123 CAPTURE                          VAL R8
+      124 CAPTURE                          VAL R10
+      125 CAPTURE                          VAL R15
+      126 CAPTURE                          VAL R1
+      127 CAPTURE                          VAL R20
+      128 CAPTURE                          VAL R7
+      129 CAPTURE                          VAL R6
+      130 CAPTURE                          VAL R3
+      131 CAPTURE                          VAL R16
+      132 RETURN                           R21 1
