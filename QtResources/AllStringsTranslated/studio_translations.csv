@@ -448,6 +448,7 @@ Studio.TerrainEditor.ExpandedTerrainRestartDialog.CloudDescription,,,"Would you 
 Expanded Terrain (Terrain Optimizations and Custom Terrain Materials) will not be changed until you restart the Place.","Would you like to restart the Place now?
 
 Expanded Terrain (Terrain Optimizations and Custom Terrain Materials) will not be changed until you restart the Place."
+Studio.TerrainEditor.MaterialSettings.InvalidSourceMode,,,Missing Materials,Missing Materials
 Studio.App.GenerativeAI.CopiedToClipboard,,,Copied to clipboard,Copied to clipboard
 Studio.App.AddImageDialog.ChooseFile,,,Choose File,Choose File
 Studio.App.AddImageDialog.ChooseImageUpload,,,Choose image to upload,Choose image to upload
@@ -5860,8 +5861,8 @@ Studio.App.Property.CameraRotateCursorLockTooltip,,,"Should the cursor be locked
 Studio.App.PropertyEnum.FpsOnly,,,In First Person Only,In First Person Only
 Studio.App.PropertyEnum.Never,,,Never,Never
 Studio.App.AssetAccess.RequestAccessOutputMessageToolTip,,,Request access to asset(s),Request access to asset(s)
-Studio.App.RBXMainWindow.PublishStatus,,,Publish Status,Publish Status
-Studio.App.RBXMainWindow.PublishStatusTooltip,,,Show the publish status of the current experience,Show the publish status of the current experience
+Studio.App.RBXMainWindow.PublishStatus,,,Manage Audience,Manage Audience
+Studio.App.RBXMainWindow.PublishStatusTooltip,,,Choose and manage the audience of the current experience,Choose and manage the audience of the current experience
 Studio.App.AssetAccess.RequestAccessOutputMessageAllAssets,,,You do not have access to use certain assets. Click to request access,You do not have access to use certain assets. Click to request access
 Studio.App.AssetPrivacyPublishDialog.GrantPermissionsAndPublishButton,,,Grant Permissions and Publish,Grant Permissions and Publish
 Studio.App.AssetPrivacyPublishDialog.AssetsNeedPermissionDescription,,,"This place uses assets that the destination experience does not have permission to use. These permissions must be granted for the assets to load in the destination experience, otherwise they will be missing after publishing. Publishing continues as soon as the permissions are granted.","This place uses assets that the destination experience does not have permission to use. These permissions must be granted for the assets to load in the destination experience, otherwise they will be missing after publishing. Publishing continues as soon as the permissions are granted."
@@ -9463,10 +9464,10 @@ Studio.PublishPlaceAs.PublishSuccess.PostPublishInfoUnrated,,,Your experience is
 Studio.PublishPlaceAs.PublishSuccess.Private,,,Private,Private
 Studio.PublishPlaceAs.PublishSuccess.ViewQuestionnaire,,,View questionnaire,View questionnaire
 Studio.PublishPlaceAs.PublishSuccess.Public,,,Public,Public
-Studio.PublishPlaceAs.PublishStatus.Title,,,Publish,Publish
+Studio.PublishPlaceAs.PublishStatus.Title,,,Manage Audience,Manage Audience
 Studio.PublishPlaceAs.PublishStatus.LoadFailed,,,Publish status could not be loaded.,Publish status could not be loaded.
 Studio.PublishPlaceAs.PublishStatus.Retry,,,Retry,Retry
-Studio.PublishPlaceAs.PublishSuccess.ViewPublishStatus,,,View publish status,View publish status
+Studio.PublishPlaceAs.PublishSuccess.ViewPublishStatus,,,Manage Audience,Manage Audience
 Studio.PublishPlaceAs.Notification.PublishRequiresPublishedPlace,,,Save your place to Roblox before Publishing!,Save your place to Roblox before Publishing!
 Studio.PluginInstallation.Meta.PluginWindowName,,,Plugin Installation,Plugin Installation
 Studio.PluginInstallation.Main.InstallingPlugin,,,Installing plugin : {1},Installing plugin : {1}
@@ -9820,6 +9821,8 @@ Studio.AssetManager.AssetState.Appeal,,,Appeal Your Content,Appeal Your Content
 Studio.AssetManager.ContextMenu.ViewDetails,,,View Details,View Details
 Studio.AssetManager.ContextMenu.CopyUri,,,Copy URI,Copy URI
 Studio.AssetManager.AssetState.LearnMore,,,Learn More,Learn More
+Studio.AssetManager.AssetType.TextDocuments,,,Texts,Texts
+Studio.AssetManager.AssetType.TextDocument,,,Text,Text
 Studio.AssetManager.Tutorial.Intro.InsertOrImportNoResultsText,,,Click to start adding assets to your inventory!,Click to start adding assets to your inventory!
 Studio.AssetManager.Tutorial.Intro.InsertOrImportNoResultsTitle,,,Add assets,Add assets
 Studio.AssetManager.Tutorial.Intro.InsertOrImportText,,,"Once you've found your asset, insert it! Or right click for more options.","Once you've found your asset, insert it! Or right click for more options."
@@ -9836,6 +9839,13 @@ Studio.AssetManager.AssetProperty.Status,,,Status,Status
 Studio.AssetManager.Tutorial.Intro.SidebarCompactText,,,Open the dropdown to view every inventory you can reach.,Open the dropdown to view every inventory you can reach.
 Studio.AssetManager.Search.Placeholder.SearchInScope,,,Search in {scopeName},Search in {scopeName}
 Studio.AssetManager.AssetState.Moderated,,,Restricted,Restricted
+Studio.AssetManager.ContextMenu.ShowInFolder,,,Show In Folder,Show In Folder
+Studio.AssetManager.ContextMenu.Publish,,,Publish,Publish
+Studio.AssetManager.Toast.PublishSuccess,,,Published items successfully.,Published items successfully.
+Studio.AssetManager.Toast.PublishFailed,,,Some items could not be published.,Some items could not be published.
+Studio.AssetManager.AssetType.Assets,,,Assets,Assets
+Studio.AssetManager.AssetStatus.Restricted,,,Restricted,Restricted
+Studio.AssetManager.AssetStatus.Draft,,,Draft,Draft
 Studio.EventEmulator.Plugin.Name,,,EventEmulator,EventEmulator
 Studio.EventEmulator.Plugin.Toolbar,,,Event Emulator,Event Emulator
 Studio.EventEmulator.Plugin.Button,,,Toggle,Toggle
@@ -10229,6 +10239,7 @@ Studio.LayeredClothingEditor.AssetType.RightGrip,,,Right Grip,Right Grip
 Studio.LayeredClothingEditor.EditingMode.AutoWeightPreserve,,,Auto Skinning Behavior is set to EnabledPreserve,Auto Skinning Behavior is set to EnabledPreserve
 Studio.LayeredClothingEditor.EditingMode.AutoWeightOverride,,,Auto Skinning Behavior is set to EnabledOverride,Auto Skinning Behavior is set to EnabledOverride
 Studio.LayeredClothingEditor.Studio.LayeredClothingEditor.Dialog.OK,,,OK,OK
+Studio.LayeredClothingEditor.Buttons.CopyGameLink,,,Copy game link,Copy game link
 Studio.MeshImporter.Plugin.Name,,,MeshImporter,MeshImporter
 Studio.MeshImporter.Plugin.Toolbar,,,Mesh Importer,Mesh Importer
 Studio.MeshImporter.Plugin.Button,,,Import,Import
@@ -11324,10 +11335,53 @@ Studio.ManageCollaborators.Buttons.ViewAllPermissionsInCreatorHub,,,View all per
 Studio.ManageCollaborators.AudienceTabs.Editors,,,Editors,Editors
 Studio.ManageCollaborators.AudienceTabs.PlayTesters,,,Play testers,Play testers
 Studio.ManageCollaborators.AudienceTabs.CommunityPlayers,,,Community Players,Community Players
-Studio.ManageCollaborators.AudienceTabs.PlayTesterLimit,,,Play testing is limited to {maxNumPlayTesters:int} members per game,Play testing is limited to {maxNumPlayTesters:int} members per game
+Studio.ManageCollaborators.AudienceTabs.PlayTesterLimit,,,Add up to {maxNumPlayTesters:int} friends to preview your game.,Add up to {maxNumPlayTesters:int} friends to preview your game.
 Studio.ManageCollaborators.AudiencePermissionDescriptions.PlayTest,,,Can play and test game,Can play and test game
 Studio.ManageCollaborators.AudiencePermissionLabels.PlayTest,,,Play Test,Play Test
 Studio.ManageCollaborators.AudiencePermissionLabels.Play,,,Play,Play
+Studio.ManageCollaborators.AudienceTabs.Access,,,Access,Access
+Studio.ManageCollaborators.AudienceTabs.EarlyTesters,,,Early testers,Early testers
+Studio.ManageCollaborators.AudienceTabs.SearchFriends,,,Search friends,Search friends
+Studio.ManageCollaborators.AudienceTabs.AddFriendsAsEarlyTesters,,,Add friends as early testers,Add friends as early testers
+Studio.ManageCollaborators.AudienceTabs.ShareLinkToEarlyTesters,,,Share a link to your early testers.,Share a link to your early testers.
+Studio.ManageCollaborators.AudienceTabs.CopyLink,,,Copy link,Copy link
+Studio.ManageCollaborators.AudienceTabs.NoEarlyTesters,,,No early testers,No early testers
+Studio.ManageCollaborators.AudienceTabs.EarlyTesterLimitReached,,,You cannot add more than {maxNumPlayTesters:int} early testers,You cannot add more than {maxNumPlayTesters:int} early testers
+Studio.ManageCollaborators.AudienceTabs.Roles,,,Roles,Roles
+Studio.ManageCollaborators.AudienceTabs.ExternalPlaytesters,,,External playtesters,External playtesters
+Studio.ManageCollaborators.Description.GroupRoles,,,Showing roles in {groupName},Showing roles in {groupName}
+Studio.ManageCollaborators.Heading.ChooseEarlyTesters,,,Choose members to preview your game,Choose members to preview your game
+Studio.ManageCollaborators.Description.ChooseEarlyTesters,,,Add up to 10 group members to preview while you create. A new group role will be created with these members.,Add up to 10 group members to preview while you create. A new group role will be created with these members.
+Studio.ManageCollaborators.Button.ChooseRole,,,Choose a role instead,Choose a role instead
+Studio.ManageCollaborators.SearchBar.SearchGroupMembers,,,Search group members,Search group members
+Studio.ManageCollaborators.SearchBar.AddMembers,,,Add members,Add members
+Studio.ManageCollaborators.Label.EarlyTesterRole,,,Early testers for {experienceName},Early testers for {experienceName}
+Studio.ManageCollaborators.Heading.ManageRole,,,Manage which role can preview your game,Manage which role can preview your game
+Studio.ManageCollaborators.Button.AddRoleMembers,,,Add members to role,Add members to role
+Studio.ManageCollaborators.Heading.EarlyTesterRole,,,Select a role for early testing,Select a role for early testing
+Studio.ManageCollaborators.Description.EarlyTesterRole,,,Members from the role will be imported as early testers. Roles selected for early testing cannot exceed 10 members.,Members from the role will be imported as early testers. Roles selected for early testing cannot exceed 10 members.
+Studio.ManageCollaborators.Description.TooManyMembers,,,This role has over 10 members,This role has over 10 members
+Studio.ManageCollaborators.Button.Select,,,Select,Select
+Studio.ManageCollaborators.Button.Add,,,Add,Add
+Studio.ManageCollaborators.Heading.AddMembers,,,Add members,Add members
+Studio.ManageCollaborators.Description.AddMembers,,,Changes here will update the member list for the {roleName} role at the group level.,Changes here will update the member list for the {roleName} role at the group level.
+Studio.ManageCollaborators.Error.EarlyTesterLimit,,,You've already added 10 early testers. Remove an early tester to add more.,You've already added 10 early testers. Remove an early tester to add more.
+Studio.ManageCollaborators.Description.EarlyTesterLimit,,,{numEarlyTesters}/{maxEarlyTesters},{numEarlyTesters}/{maxEarlyTesters}
+Studio.ManageCollaborators.Button.Back,,,Back,Back
+Studio.ManageCollaborators.Button.LoadMore,,,Load more,Load more
+Studio.ManageCollaborators.Buttons.CopyGameLink,,,Copy game link,Copy game link
+Studio.ManageCollaborators.Subtitle.Search,,,Search,Search
+Studio.ManageCollaborators.SearchBar.SearchUsers,,,Search users,Search users
+Studio.ManageCollaborators.Heading.AgeCheckEarlyTesters,,,Age check required,Age check required
+Studio.ManageCollaborators.Description.AgeCheckEarlyTesters,,,Group owners must complete age verification to assign early testers,Group owners must complete age verification to assign early testers
+Studio.ManageCollaborators.Permissions.FilterPill.EarlyTesters.Label,,,Early testers,Early testers
+Studio.ManageCollaborators.Permissions.FilterPill.ExternalPlaytesters.Label,,,External playtesters,External playtesters
+Studio.ManageCollaborators.Error.SavingEarlyTesters,,,Couldn't save early testers. Try again.,Couldn't save early testers. Try again.
+Studio.ManageCollaborators.Error.LoadingRoleMembers,,,Couldn't load that role's members. Try again.,Couldn't load that role's members. Try again.
+Studio.ManageCollaborators.Description.Loading,,,Loading...,Loading...
+Studio.ManageCollaborators.FailureMessage.RoleSensitivePermissions,,,"Permissions saved. Role has sensitive permissions, please configure members on Creator Hub.","Permissions saved. Role has sensitive permissions, please configure members on Creator Hub."
+Studio.ManageCollaborators.Description.AddMembersToRole,,,Add up to {maxEarlyTesters} members to preview your game. Changes here will update the member list for role {roleName} at the group level.,Add up to {maxEarlyTesters} members to preview your game. Changes here will update the member list for role {roleName} at the group level.
+Studio.ManageCollaborators.Heading.InviteEarlyTesters,,,Invite early testers,Invite early testers
 Studio.DeviceEmulator.Plugin.Name,,,Device Emulator,Device Emulator
 Studio.DeviceEmulator.Plugin.Toolbar,,,Device Emulator,Device Emulator
 Studio.DeviceEmulator.Plugin.Button,,,Toggle,Toggle
@@ -14056,6 +14110,9 @@ Studio.AssetAccess.ShareDialogView.UnexpectedErrorHeading,,,Failed attempting to
 Studio.AssetAccess.OutputMessage.RequestAccess,,,You do not have access to use certain assets. Click to request access,You do not have access to use certain assets. Click to request access
 Studio.AssetAccess.OutputMessage.RequestAccessToolTip,,,Request access to asset(s),Request access to asset(s)
 Studio.AssetAccess.OutputMessage.RequestAccessUnavailable,,,Asset access requests unavailable,Asset access requests unavailable
+Studio.AssetAccess.OutputMessage.AssetsNotPublished,,,The experience can't use asset ID(s) %1 because they could not be published,The experience can't use asset ID(s) %1 because they could not be published
+Studio.AssetAccess.OutputMessage.AssetsAwaitingModeration,,,The experience can't use asset ID(s) %1 because they are still being reviewed.,The experience can't use asset ID(s) %1 because they are still being reviewed.
+Studio.AssetAccess.OutputMessage.AssetsModerationRejected,,,The experience can't use asset ID(s) %1 because they were rejected during review,The experience can't use asset ID(s) %1 because they were rejected during review
 Studio.FileSync.Plugin.Name,,,Script Sync,Script Sync
 Studio.FileSync.Plugin.Toolbar,,,Script Sync,Script Sync
 Studio.FileSync.Plugin.Button,,,Toggle,Toggle
@@ -14209,6 +14266,8 @@ Studio.ControlsEmulator.VRControls.TooltipInfoLabel,,,i,i
 Studio.ControlsEmulator.VRControls.ResetAllLabel,,,Reset Positions,Reset Positions
 Studio.ControlsEmulator.DeviceDropdown.GenericHandheld,,,Generic Handheld,Generic Handheld
 Studio.ControlsEmulator.DeviceDropdown.TVRemote,,,TV Remote,TV Remote
+Studio.ControlsEmulator.ResetMappingsConfirmationDialog.ResetToDefaultConfirmation,,,Are you sure you want to reset to default?,Are you sure you want to reset to default?
+Studio.ControlsEmulator.MappingsDialog.ResetToDefaultButtonLabel,,,Reset to default,Reset to default
 Studio.PlaceAnnotations.Plugin.Name,,,Comments,Comments
 Studio.PlaceAnnotations.Plugin.Toolbar,,,Place Annotations,Place Annotations
 Studio.PlaceAnnotations.Plugin.Button,,,Place Annotations,Place Annotations
@@ -14454,7 +14513,7 @@ Studio.MaterialPicker.Plugin.SortGroup,,,Sort,Sort
 Studio.MaterialPicker.Plugin.GridViewLabel,,,Grid view,Grid view
 Studio.MaterialPicker.Plugin.ListViewLabel,,,List view,List view
 Studio.MaterialPicker.Plugin.ShortSearchPlaceholder,,,Search,Search
-Studio.MaterialPicker.Plugin.InvalidMaterialCheckbox,,,Replace invalid materials,Replace invalid materials
+Studio.MaterialPicker.Plugin.InvalidMaterialCheckbox,,,Target missing materials,Target missing materials
 Studio.MaterialPicker.Plugin.EditInTerrainMaterialManager,,,Edit in Terrain Material Manager,Edit in Terrain Material Manager
 Studio.ExplorerGuest.CounterExample.Button,,,Push me!,Push me!
 Studio.ExplorerGuest.Plugin.Name,,,ExplorerGuest,ExplorerGuest
@@ -14792,7 +14851,7 @@ Studio.Assistant.Tools.MultiEditUpdated,,,Edit Script,Edit Script
 Studio.Assistant.Tools.ScreenCapture,,,Screen Capture,Screen Capture
 Studio.Assistant.InstanceChip.Deleted,,,{name} (Deleted),{name} (Deleted)
 Studio.Assistant.InstanceChip.Multiple,,,{name} (x{count:int}),{name} (x{count:int})
-Studio.Assistant.ErrorMessage.TooManyRequest,,,"Sorry, you've reached your messaging limit today. I'll be ready to help tomorrow! (ErrorCode: 0x0001)","Sorry, you've reached your messaging limit today. I'll be ready to help tomorrow! (ErrorCode: 0x0001)"
+Studio.Assistant.ErrorMessage.TooManyRequest,,,The server is experiencing high traffic right now. Please try again later.,The server is experiencing high traffic right now. Please try again later.
 Studio.Assistant.Settings.UseClaude,,,Use Your Own Claude API Key,Use Your Own Claude API Key
 Studio.Assistant.Settings.EditAPIKey,,,Edit API Key,Edit API Key
 Studio.Assistant.Settings.APIKeyPlaceholder,,,Enter Claude API key...,Enter Claude API key...
@@ -14998,7 +15057,7 @@ Studio.Assistant.ScopePermissions.PresetLowDescription,,,Retrieves publicly avai
 Studio.Assistant.ScopePermissions.PresetMedium,,,Medium risk,Medium risk
 Studio.Assistant.ScopePermissions.PresetMediumDescription,,,"Creates, updates, or accesses private information","Creates, updates, or accesses private information"
 Studio.Assistant.ScopePermissions.Title,,,Open Cloud Scope Permissions,Open Cloud Scope Permissions
-Studio.Assistant.SettingsDialog.PermissionsTab,,,Permissions,Permissions
+Studio.Assistant.SettingsDialog.PermissionsTab,,,MCP Permissions,MCP Permissions
 Studio.Assistant.SettingsDialog.SkillsTab,,,Skills,Skills
 Studio.Assistant.Skills.Description,,,Skills are specialized capabilities that help the agent accomplish specific tasks. Skills will be invoked by the agent when relevant or can be triggered manually with / in chat.,Skills are specialized capabilities that help the agent accomplish specific tasks. Skills will be invoked by the agent when relevant or can be triggered manually with / in chat.
 Studio.Assistant.Skills.ManageSkills,,,Manage Skills,Manage Skills
@@ -15008,7 +15067,7 @@ Studio.Assistant.Skills.Upload,,,Upload,Upload
 Studio.Assistant.Skills.DetailPaneEmpty,,,Select a skill to view details,Select a skill to view details
 Studio.Assistant.Skills.Duplicate,,,Duplicate,Duplicate
 Studio.Assistant.Skills.Open,,,Open,Open
-Studio.Assistant.Skills.SourceLocalBadge,,,Local,Local
+Studio.Assistant.Skills.SourceLocalBadge,,,User,User
 Studio.Assistant.Skills.SourceRobloxBadge,,,Roblox,Roblox
 Studio.Assistant.Skills.Refresh,,,Refresh,Refresh
 Studio.Assistant.MeshGenSegmentation.ExperimentalFeature,,,Early preview: Segment a mesh by parts. Try it early and help shape what's next.,Early preview: Segment a mesh by parts. Try it early and help shape what's next.
@@ -15028,7 +15087,7 @@ Studio.Assistant.Skills.CreateModalDescriptionLabel,,,Description,Description
 Studio.Assistant.Skills.CreateModalDescriptionPlaceholder,,,What this skill does and when the agent should use it,What this skill does and when the agent should use it
 Studio.Assistant.Skills.CreateModalNameLabel,,,Skill name,Skill name
 Studio.Assistant.Skills.CreateModalNamePlaceholder,,,e.g. my_skill,e.g. my_skill
-Studio.Assistant.Skills.CreateNameInvalid,,,Name can only contain letters numbers underscores and dashes.,Name can only contain letters numbers underscores and dashes.
+Studio.Assistant.Skills.CreateNameInvalid,,,"Name can only contain letters, numbers, underscores, and dashes and not start with rbx-.","Name can only contain letters, numbers, underscores, and dashes and not start with rbx-."
 Studio.Assistant.Skills.CreateNameTaken,,,A skill with this name already exists.,A skill with this name already exists.
 Studio.Assistant.Skills.Save,,,Save,Save
 Studio.Assistant.AnimationGen.Publish,,,Publish,Publish
@@ -15436,6 +15495,7 @@ Studio.Assistant.Skills.ImportParseError,,,This file isn't a valid skill. It mus
 Studio.Assistant.Skills.ImportEmptyBody,,,The file has no skill content below the frontmatter.,The file has no skill content below the frontmatter.
 Studio.Assistant.Skills.ImportReadFailed,,,Couldn't read that file. It may be too large.,Couldn't read that file. It may be too large.
 Studio.Assistant.Skills.ImportFailed,,,Couldn't import the skill. Please try again.,Couldn't import the skill. Please try again.
+Studio.Assistant.ErrorMessage.QuotaExceededAPIKeyCMS,,,"The server is temporarily unavailable. Please try again later, or add your own API key to continue using Assistant.","The server is temporarily unavailable. Please try again later, or add your own API key to continue using Assistant."
 Studio.PropertiesPlugin.Plugin.Button,,,Properties Plugin,Properties Plugin
 Studio.PropertiesPlugin.Plugin.Name,,,PropertiesPlugin,PropertiesPlugin
 Studio.PropertiesPlugin.Plugin.Description,,,A template for all your studio plugin needs!,A template for all your studio plugin needs!
@@ -15659,7 +15719,7 @@ Studio.AvatarSettings.MovementSettings.CollisionSectionSingleColliderHitTouchDet
 Studio.AvatarSettings.MovementSettings.CollisionSectionSingleColliderHitTouchDetectionUseParts,,,Use parts,Use parts
 Studio.AvatarSettings.MovementSettings.CollisionSectionSingleColliderHitTouchDetectionUsePartsDescription,,,Use avatar part geometry for hit and touch events,Use avatar part geometry for hit and touch events
 Studio.AvatarSettings.MovementSettings.CollisionSectionSingleColliderHitTouchDetectionUseCollidersDescription,,,Use colliders for hit and touch events,Use colliders for hit and touch events
-Studio.AvatarSettings.MovementSettings.CollisionSectionSingleColliderHitTouchDetectionUseColliders,,,Use colliders,Use colliders
+Studio.AvatarSettings.MovementSettings.CollisionSectionSingleColliderHitTouchDetectionUseColliders,,,Use collider,Use collider
 Studio.AvatarSettings.AvatarTypeSelector.PlayerChoiceTitle,,,Player Choice,Player Choice
 Studio.AvatarSettings.AccessoriesSettings.AccessoryScaleSectionLimitMethodScale,,,Scale,Scale
 Studio.AvatarSettings.AvatarTypeSelector.PlayerChoiceDescription,,,"Good for Social and Casual genres. Avatars are exactly as intended by players, without modification","Good for Social and Casual genres. Avatars are exactly as intended by players, without modification"
@@ -15763,6 +15823,10 @@ Studio.AvatarSettings.PlaceSettingsDialog.OkAction,,,OK,OK
 Studio.AvatarSettings.PlaceSettingsDialog.SavedMessage,,,Place settings saved to ReplicatedStorage.PlaceAvatarRules,Place settings saved to ReplicatedStorage.PlaceAvatarRules
 Studio.AvatarSettings.PlaceSettingsDialog.SavedMessageWithRemoved,,,Place settings saved to ReplicatedStorage.PlaceAvatarRules. Removed {destroyed}.,Place settings saved to ReplicatedStorage.PlaceAvatarRules. Removed {destroyed}.
 Studio.AvatarSettings.ErrorText.AssetIdEmpty,,,Please enter an asset ID,Please enter an asset ID
+Studio.AvatarSettings.Unpublished.WaitingForDatabase,,,Loading Avatar Settings...,Loading Avatar Settings...
+Studio.AvatarSettings.Publish.CreatePlaceSettingsNoUniverseTooltip,,,Save this place to Roblox to create place settings,Save this place to Roblox to create place settings
+Studio.AvatarSettings.AnimationSettings.StarterPlayerEmotesDisabled,,,"Emotes are still disabled in StarterPlayer, which prevents them from playing.","Emotes are still disabled in StarterPlayer, which prevents them from playing."
+Studio.AvatarSettings.AnimationSettings.EnableStarterPlayerEmotes,,,Enable in StarterPlayer,Enable in StarterPlayer
 Studio.ExplorerLibrary.HistoryDropdown.TitleText,,,History,History
 Studio.ExplorerLibrary.SearchBar.PlaceholderText,,,Search,Search
 Studio.ExplorerLibrary.SearchBrowser.ResultCountSingular,,,1 match,1 match
@@ -16194,6 +16258,8 @@ Studio.BetaFeatures.NewDeviceSimulatorTitle,,,New Device Simulator,New Device Si
 Studio.BetaFeatures.NewDeviceSimulatorDescription,,,A modernized Device Simulator toolbar for updating device settings and simulated network behavior while building and testing.,A modernized Device Simulator toolbar for updating device settings and simulated network behavior while building and testing.
 Studio.BetaFeatures.UpgradedUIShadowsTitle,,,Upgraded UIShadows,Upgraded UIShadows
 Studio.BetaFeatures.UpgradedUIShadowsDescription,,,"Adding new shadow types (inset, knockout, and text mode) and compatibility with gradients.","Adding new shadow types (inset, knockout, and text mode) and compatibility with gradients."
+Studio.BetaFeatures.LuauIfLocalTitle,,,If Local/Const Bindings,If Local/Const Bindings
+Studio.BetaFeatures.LuauIfLocalDescription,,,Enables Luau scripting support for named conditional bindings,Enables Luau scripting support for named conditional bindings
 Studio.Warnings.TextChatServiceMigration,,,Your experience has been auto-migrated and will now use TextChatService at runtime.,Your experience has been auto-migrated and will now use TextChatService at runtime.
 Studio.LegacyChatDeprecation.General.Body,,,"Please migrate to TextChatService by setting TextChatService.ChatVersion to TextChatService to ensure compatibility when Legacy is removed. If you are experiencing issues, please click “Learn More” to access documentation.","Please migrate to TextChatService by setting TextChatService.ChatVersion to TextChatService to ensure compatibility when Legacy is removed. If you are experiencing issues, please click “Learn More” to access documentation."
 Studio.LegacyChatDeprecation.Label.Title,,,This project uses the Legacy Chat system,This project uses the Legacy Chat system
@@ -16643,6 +16709,8 @@ Studio.SystemMenu.Title.UserInputPlayback,,,User Input Playback,User Input Playb
 Studio.SystemMenu.Title.PublishToRobloxWithNotes,,,Publish to Roblox with Notes,Publish to Roblox with Notes
 Studio.SystemMenu.Tooltip.PublishToRobloxWithNotes,,,Publish active document to Roblox with version notes,Publish active document to Roblox with version notes
 Studio.SystemMenu.Title.UIAuthoring,,,Designer,Designer
+Studio.SystemMenu.PublishLatest,,,Publish,Publish
+Studio.SystemMenu.PublishAs,,,Publish As,Publish As
 Studio.PlaceUpload.ErrorMessage.BadRequest,,,Place save was rejected. Check your network and try again later.,Place save was rejected. Check your network and try again later.
 Studio.DistributedScripts.AddBehaviorBindingPopup.CreateBehaviorBindingFmt1,,,Create and bind Behavior: %1,Create and bind Behavior: %1
 Studio.DistributedScripts.AddBehaviorBindingPopup.LineEditText,,,Search for a Behavior to bind to,Search for a Behavior to bind to
@@ -17031,10 +17099,10 @@ Studio.PublishPlace.Button.GrantPermissionsAndPublish,,,Grant Permissions and Pu
 Studio.PublishPlace.Description.AssetPermissions,,,"This place uses assets that the destination experience does not have permission to use. These permissions must be granted for the assets to load in the destination experience, otherwise they will be missing after publishing. Publishing continues as soon as the permissions are granted.","This place uses assets that the destination experience does not have permission to use. These permissions must be granted for the assets to load in the destination experience, otherwise they will be missing after publishing. Publishing continues as soon as the permissions are granted."
 Studio.PublishPlace.Title.AssetPermissions,,,Some assets need permission to load,Some assets need permission to load
 Studio.PublishPlace.Title.AvatarRules,,,Avatar settings differ from this experience,Avatar settings differ from this experience
-Studio.PublishPlace.Description.AvatarRules,,,"This place's avatar settings are not the ones the destination experience uses. Choose which settings apply once the place is published, or close this dialog to cancel publishing.","This place's avatar settings are not the ones the destination experience uses. Choose which settings apply once the place is published, or close this dialog to cancel publishing."
-Studio.PublishPlace.Button.UpdateExperienceAvatarRules,,,Update experience settings,Update experience settings
-Studio.PublishPlace.Button.KeepPlaceAvatarRules,,,Keep for this place only,Keep for this place only
-Studio.PublishPlace.Button.UseExperienceAvatarRules,,,Use experience settings,Use experience settings
+Studio.PublishPlace.Description.AvatarRules,,,"This place's avatar settings are different than the ones the destination experience uses. Choose which settings will be used for this place when published, or close this dialog to cancel publishing.","This place's avatar settings are different than the ones the destination experience uses. Choose which settings will be used for this place when published, or close this dialog to cancel publishing."
+Studio.PublishPlace.Button.UpdateExperienceAvatarRules,,,Replace experience,Replace experience
+Studio.PublishPlace.Button.KeepPlaceAvatarRules,,,Keep for place only,Keep for place only
+Studio.PublishPlace.Button.UseExperienceAvatarRules,,,Use experience,Use experience
 Studio.ReactDevTools.Plugin.Name,,,React DevTools,React DevTools
 Studio.ReactDevTools.Plugin.Description,,,Use React DevTools to debug and profile your React Luau applications.,Use React DevTools to debug and profile your React Luau applications.
 Studio.ReactDevTools.Plugin.Button,,,DevTools,DevTools
@@ -17169,6 +17237,7 @@ Studio.NetworkSettings.NetworkType.Cellular4G,,,4G,4G
 Studio.NetworkSettings.NetworkType.Lan,,,LAN,LAN
 Studio.NetworkSettings.NetworkType.Device,,,Device,Device
 Studio.NetworkSettings.NetworkPreset.Device,,,Device,Device
+Studio.NetworkSettings.NetworkPreset.CurrentDevice,,,Current Device,Current Device
 Studio.TeamCreateCollaborators.ProfileInsights.ConnectedForYears,,,Friends for {age:int} years,Friends for {age:int} years
 Studio.TeamCreateCollaborators.ProfileInsights.ConnectedForOneYear,,,Connected for one year,Connected for one year
 Studio.TeamCreateCollaborators.ProfileInsights.ConnectedForMonths,,,Connected for {age:int} months,Connected for {age:int} months
@@ -17377,6 +17446,15 @@ Studio.InputActionManager.Menu.PrimaryModifier,,,Primary Modifier,Primary Modifi
 Studio.InputActionManager.Menu.SecondaryModifier,,,Secondary Modifier,Secondary Modifier
 Studio.InputActionManager.Menu.Enabled,,,Enabled,Enabled
 Studio.InputActionManager.Menu.Sink,,,Sink,Sink
+Studio.InputActionManager.Menu.DisplayName,,,Display Name,Display Name
+Studio.InputActionManager.Menu.ClampMagnitudeToOne,,,Clamp Magnitude to One,Clamp Magnitude to One
+Studio.InputActionManager.Menu.DisplayImage,,,Display Image,Display Image
+Studio.InputActionManager.Menu.PressedThreshold,,,Pressed Threshold,Pressed Threshold
+Studio.InputActionManager.Menu.ReleasedThreshold,,,Released Threshold,Released Threshold
+Studio.InputActionManager.Menu.Scale,,,Scale,Scale
+Studio.InputActionManager.Menu.Vector2Scale,,,Vector2 Scale,Vector2 Scale
+Studio.InputActionManager.Menu.Vector3Scale,,,Vector3 Scale,Vector3 Scale
+Studio.InputActionManager.Menu.ResponseCurve,,,Response Curve,Response Curve
 Studio.AdPlacementManager.Label.AdPlacementManagerTitle,,,Ad Placement Manager,Ad Placement Manager
 Studio.AdPlacementManager.Label.AdPlacementManagerTooltip,,,View Ad Placement Manager,View Ad Placement Manager
 Studio.AdPlacementManager.Plugin.Description,,,Manage ad placements in your experience.,Manage ad placements in your experience.
